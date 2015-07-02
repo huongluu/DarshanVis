@@ -1,0 +1,43 @@
+[
+    {
+        "id": 1,
+        "name": "Platform-wide Analysis",
+        "charts": [
+            {
+                "id": 2,
+                "title": "Consumption of System I/O Time"
+            },
+            {
+                "id": 3,
+                "title": "I/O Throughput"
+            },
+            {
+                "id": 8,
+                "title": "App's Jobs Throughput"
+            },
+            {
+                "id": 9,
+                "title": "Top 15 Big Time App"
+            },
+            {
+                "id": 10,
+                "title": "Top 15 Big Time App based on Job Size"
+            },
+            {
+                "id": 11,
+                "title": "Job Performance based on the I/O Interface"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Application-wide Analysis",
+        "charts": [
+            {
+                "id": 4,
+                "title": "Job Size Statistics"
+            }
+        ]
+    }
+
+]

@@ -1,0 +1,33 @@
+*************Installation Instructions on Social Server***************
+
+Code:
+3- Zip file, version it and transfer to the server by ssh:D
+4- Delete fbreflect-OLD by command: rm -rf fbreflect-OLD
+5- Rename fbreflect to fbreflect-OLD: mv fbreflect fbreflect-OLD
+6- Unzip new fbreflect versinoing folder: unzip fbreflect-*-*-*.zip
+7- ./init_fbreflect.sh
+
+Database:
+8- If DB model has been changed, delete last DB version and create a new one:
+	mysql -h localhost -u root -phello
+	drop database fb_reflect;
+	create database fb_reflect;
+	exit
+9- Go to protected/data/versions and run: mysql -h localhost -u root -p fb_reflect < fb_reflect-*-*-*.sql
+pass: hello
+
+10- Check the transfer by :
+	mysql -h localhost -u root -phello
+	use fb_reflect;
+	show tables;
+	select * from tbl_algorithm;
+
+*************Import DB to another computer*************
+
+- open cmd:D
+- mysql -u root fb_reflect < the address of sql file
+
+	
+Enjoy the Application :P
+	
+

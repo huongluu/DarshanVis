@@ -1,0 +1,806 @@
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+    /*font-family: 'Times News Roman', Arial, sans-serif, BVNassim, Arial, Times, Tahoma;*/
+    font-family: 'Open Sans', sans-serif;    
+}
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0px 0px 5px 5px;
+    padding: 10px;
+}
+
+.group-container {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    background-color: #fcfcfc;
+    margin-top: 15px;
+    padding: 20px;
+
+}
+
+.black-link a {
+    color: black;
+}
+
+.names li {
+    height: 25px;
+}
+
+.black-link a:hover {
+    text-decoration: none;
+}
+.menu-items {
+    font-size: 12pt;
+    text-decoration: none;
+}
+
+.menu-items li a {
+    display: block;
+    padding: 10px 15px;
+    font-style: normal;
+}
+
+.menu-items li a:hover {
+    display: block;
+    background: #eee;
+    text-decoration: none;
+    font-size: 103%;
+}
+.menu-items .list-group-item {
+    padding: 0px 0px; 
+}
+
+.menu-header {
+    font-size: 13pt;
+}
+
+.menu-header>a {
+    display: block;
+    padding: 10px 15px;
+    font-style: normal;
+}
+
+.menu-header>a:hover {
+    display: block;
+    background: #eee;
+    text-decoration: none;
+    font-size: 103%;
+}
+
+.menu-header {
+    padding: 0px 0px; 
+}
+
+.first-page-links{
+    font-size: 115%;
+}
+
+.media-heading {
+    font-size: 130%;
+}
+
+.right-tabs .nav {
+    float: right;
+    border-bottom: 0px;
+}
+.right-tabs .nav li {
+    float: left; 
+    margin-right: -2px;
+}
+.right-tabs .tab-content {
+    width: 100%;
+    float: left;
+    border-top: 1px solid #ddd;
+    margin-top: -1px;
+}
+
+
+.nav-tabs {
+    margin-bottom: 0;
+}
+.center-div {
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-right: 50px;
+
+}
+.number-box {
+    background: #3182bd;
+    color: white;
+    width: 100px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.container {
+    width: 95%;
+}
+div.dc-chart {
+    float: left;
+    width: 100%;
+}
+
+.dc-chart rect.bar {
+    stroke: none;
+    cursor: pointer;
+}
+
+.dc-chart rect.bar:hover {
+    fill-opacity: .5;
+}
+
+.dc-chart rect.stack1 {
+    stroke: none;
+    fill: red;
+}
+
+.dc-chart rect.stack2 {
+    stroke: none;
+    fill: green;
+}
+
+.dc-chart rect.deselected {
+    stroke: none;
+    fill: #ccc;
+}
+
+.dc-chart .empty-chart .pie-slice path {
+    fill: #FFEEEE;
+    cursor: default;
+}
+
+.dc-chart .empty-chart .pie-slice {
+    cursor: default;
+}
+
+.dc-chart .pie-slice {
+    fill: black;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.dc-chart .pie-slice.external{
+    fill: black;
+}
+
+.dc-chart .pie-slice :hover {
+    fill-opacity: .8;
+}
+
+.dc-chart .pie-slice.highlight {
+    fill-opacity: .8;
+}
+
+.dc-chart .selected path {
+    stroke-width: 3;
+    stroke: #ccc;
+    fill-opacity: 1;
+}
+
+.dc-chart .deselected path {
+    stroke: none;
+    fill-opacity: .5;
+    fill: #ccc;
+}
+
+.dc-chart .axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.dc-chart .axis text {
+    font: 11px sans-serif;
+    /*font-family: 'BBCNassim', tahoma, Arial;*/
+}
+
+.dc-chart .grid-line {
+    fill: none;
+    stroke: #ccc;
+    opacity: .5;
+    shape-rendering: crispEdges;
+}
+
+.dc-chart .grid-line line {
+    fill: none;
+    stroke: #ccc;
+    opacity: .5;
+    shape-rendering: crispEdges;
+}
+
+.dc-chart .brush rect.background {
+    z-index: -999;
+}
+
+.dc-chart .brush rect.extent {
+    fill: steelblue;
+    fill-opacity: .125;
+}
+
+.dc-chart .brush .resize path {
+    fill: #eee;
+    stroke: #666;
+}
+
+.dc-chart path.line {
+    fill: none;
+    stroke-width: 1.5px;
+}
+
+.dc-chart circle.dot {
+    stroke: none;
+}
+
+.dc-chart g.dc-tooltip path {
+    fill: none;
+    stroke: grey;
+    stroke-opacity: .8;
+}
+
+.dc-chart path.area {
+    fill-opacity: .3;
+    stroke: none;
+}
+
+.dc-chart .node {
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.dc-chart .node :hover {
+    fill-opacity: .8;
+}
+
+.dc-chart .selected circle {
+    stroke-width: 3;
+    stroke: #ccc;
+    fill-opacity: 1;
+}
+
+.dc-chart .deselected circle {
+    stroke: none;
+    fill-opacity: .5;
+    fill: #ccc;
+}
+
+.dc-chart .bubble {
+    stroke: none;
+    fill-opacity: 0.6;
+}
+
+.dc-data-count {
+    float: right;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+.dc-data-count .filter-count {
+    color: #3182bd;
+    font-weight: bold;
+}
+
+.dc-data-count .total-count {
+    color: #3182bd;
+    font-weight: bold;
+}
+
+.dc-data-table {
+}
+
+.dc-chart g.state {
+    cursor: pointer;
+}
+
+.dc-chart g.state :hover {
+    fill-opacity: .8;
+}
+
+.dc-chart g.state path {
+    stroke: white;
+}
+
+.dc-chart g.selected path {
+}
+
+.dc-chart g.deselected path {
+    fill: grey;
+}
+
+.dc-chart g.selected text {
+}
+
+.dc-chart g.deselected text {
+    display: none;
+}
+
+.dc-chart g.county path {
+    stroke: white;
+    fill: none;
+}
+
+.dc-chart g.debug rect {
+    fill: blue;
+    fill-opacity: .2;
+}
+
+.dc-chart g.row rect {
+    fill-opacity: 0.8;
+    cursor: pointer;
+}
+
+.dc-chart g.row rect:hover {
+    fill-opacity: 0.6;
+}
+
+.dc-chart g.row text {
+    fill: black;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.dc-legend {
+    font-size: 12px;
+}
+
+.dc-legend-item {
+    cursor: pointer;
+}
+
+.dc-chart g.axis text {
+    /* Makes it so the user can't accidentally click and select text that is meant as a label only */
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10 */
+    -o-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.dc-chart path.highlight {
+    stroke-width: 3;
+    fill-opacity: 1;
+    stroke-opacity: 1;
+}
+
+.dc-chart .highlight {
+    fill-opacity: 1;
+    stroke-opacity: 1;
+}
+
+.dc-chart .fadeout {
+    fill-opacity: 0.2;
+    stroke-opacity: 0.2;
+}
+
+.dc-chart path.dc-symbol, g.dc-legend-item.fadeout {
+    fill-opacity: 0.5;
+    stroke-opacity: 0.5;
+}
+
+.dc-hard .number-display {
+    float: none;
+}
+
+.dc-chart .box text {
+    font: 11px sans-serif;
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10 */
+    -o-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.dc-chart .box line,
+.dc-chart .box circle {
+    fill: #fff;
+    stroke: #000;
+    stroke-width: 1.5px;
+}
+
+.dc-chart .box rect {
+    stroke: #000;
+    stroke-width: 1.5px;
+}
+
+.dc-chart .box .center {
+    stroke-dasharray: 3,3;
+}
+
+.dc-chart .box .outlier {
+    fill: none;
+    stroke: #ccc;
+}
+
+.dc-chart .box.deselected .box {
+    fill: #ccc;
+}
+
+.dc-chart .box.deselected {
+    opacity: .5;
+}
+
+.dc-chart .symbol{
+    stroke: none;
+}
+
+.dc-chart .heatmap .box-group.deselected rect {
+    stroke: none;
+    fill-opacity: .5;
+    fill: #ccc;
+}
+
+.dc-chart .heatmap g.axis text {
+    pointer-events: all;
+    cursor: pointer;
+}
+
+
+
+
+
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+    border: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+    display: none;
+}
+@media (min-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 51px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        background-color: #f5f5f5;
+        border-right: 1px solid #eee;
+    }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+    margin-right: -21px; /* 20px padding + 1px border */
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+    color: #fff;
+    background-color: #428bca;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+    padding: 20px;
+}
+@media (min-width: 768px) {
+    .main {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+}
+.main .page-header {
+    margin-top: 0;
+    font-size: 22pt;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.placeholders h4 {
+    margin-bottom: 0;
+}
+.placeholder {
+    margin-bottom: 20px;
+}
+.placeholder img {
+    display: inline-block;
+    border-radius: 50%;
+}
+
+/*
+ * Carousel
+ */
+
+.carousel-indicators li {
+    background-color: #999;
+    background-color: rgba(70,70,70,.25) !important;
+}
+
+.carousel-indicators .active {
+    background-color: #444 !important;
+}
+
+@media only screen and (min-width : 1200px) {
+    .carousel-caption
+    {
+        top: 46%;
+    }
+}
+
+.carousel-control {
+    width: 7%;
+}
+.caro-caption {
+    margin-bottom: 60px;
+}
+
+.panel-body {
+    padding: 0px;
+    padding-top:0px;
+    padding-bottom:0px;
+}
+
+/* End Carousel */
+
+
+.title-body {
+    font-size: 16pt;
+    /*margin-right: 20px;*/
+
+
+}
+
+.question-body {
+    font-size: 13pt;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+.filter-header {
+}
+
+.header-links {
+    font-size: 12pt;
+}
+
+.count-box {
+    position:absolute;
+    bottom:20px;
+    vertical-align: bottom;
+    font-size: 130%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+/*isotope*/
+
+.item { width: 30%; }
+.item.w2 { width: 45%; }
+
+
+/*facebook*/
+
+.nameDiv a {
+    color: #3B5998;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 1.38;
+    font-weight: bold;
+}
+
+.fbbox {
+    cursor: pointer;
+    display: block;
+    padding-top: 8px;
+    text-decoration: none;
+}
+
+.fbpost {
+    border-color: #E9E9E9;
+    border-style: solid;
+    border-width: 1px 0 0;
+    padding-top:13px;
+    margin-top:16px;
+}
+.fbspacer {
+    padding-bottom: 6px;
+}
+
+.fbhighlight {
+    padding: 9px 10px;
+    margin-bottom: 5px;
+    margin-top:5px;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+
+/*isotope*/
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* ---- button ---- */
+
+.button {
+    display: inline-block;
+    padding: 0.5em 1.0em;
+    background: #EEE;
+    border: none;
+    border-radius: 7px;
+    background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2) );
+    color: #222;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-shadow: 0 1px white;
+    cursor: pointer;
+}
+
+
+.button:hover {
+    background-color: #8CF;
+    text-shadow: 0 1px hsla(0, 0%, 100%, 0.5);
+    color: #222;
+}
+
+.button:active,
+.button.is-checked {
+    background-color: #28F;
+}
+
+.button.is-checked {
+    color: white;
+    text-shadow: 0 -1px hsla(0, 0%, 0%, 0.8);
+}
+
+.button:active {
+    box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.8);
+}
+
+/* ---- button-group ---- */
+
+.button-group:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.button-group .button {
+    float: left;
+    border-radius: 0;
+    margin-left: 0;
+    margin-right: 1px;
+}
+
+.button-group .button:first-child { border-radius: 0.5em 0 0 0.5em; }
+.button-group .button:last-child { border-radius: 0 0.5em 0.5em 0; }
+
+/* ---- isotope ---- */
+
+.isotope {
+    border: 0px solid #333;
+}
+
+/* clear fix */
+.isotope:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ---- .element-item ---- */
+
+.element-item {
+    position: relative;
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    padding: 10px;
+    background: #888;
+    color: #262524;
+}
+
+.element-item > * {
+    margin: 0;
+    padding: 0;
+}
+
+.element-item .name {
+    position: absolute;
+
+    left: 10px;
+    top: 60px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.element-item .symbol {
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    font-size: 42px;
+    font-weight: bold;
+    color: white;
+}
+
+.element-item .number {
+    position: absolute;
+    right: 8px;
+    top: 5px;
+}
+
+.element-item .weight {
+    position: absolute;
+    left: 10px;
+    top: 76px;
+    font-size: 12px;
+}
+
+.element-item.alkali          { background: #F00; background: hsl(   0, 100%, 50%); }
+.element-item.alkaline-earth  { background: #F80; background: hsl(  36, 100%, 50%); }
+.element-item.lanthanoid      { background: #FF0; background: hsl(  72, 100%, 50%); }
+.element-item.actinoid        { background: #0F0; background: hsl( 108, 100%, 50%); }
+.element-item.transition      { background: #0F8; background: hsl( 144, 100%, 50%); }
+.element-item.post-transition { background: #0FF; background: hsl( 180, 100%, 50%); }
+.element-item.metalloid       { background: #08F; background: hsl( 216, 100%, 50%); }
+.element-item.diatomic        { background: #00F; background: hsl( 252, 100%, 50%); }
+.element-item.halogen         { background: #F0F; background: hsl( 288, 100%, 50%); }
+.element-item.noble-gas       { background: #F08; background: hsl( 324, 100%, 50%); }

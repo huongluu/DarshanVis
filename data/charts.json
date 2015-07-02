@@ -1,0 +1,220 @@
+[
+    {
+        "id": 1,
+        "name": "generic-chart",
+        "width": 600,
+        "height": 800
+    },
+    {
+        "id": 2,
+        "name": "Sample-chart",
+        "type": "line",
+        "title": "Consumption of system I/O time",
+        "subtitle": "Cumulative percentage of platform I/O time consumed by jobs.",
+        "xAxis": {
+            "title": "Jobs"
+        },
+        "yAxis": {
+            "title": "Percentage of Total System I/O Time"
+        },
+        "tooltip": {
+            "valueSuffix": ""
+        },
+        "series": [
+            {
+                "type": "line",
+                "name": "Mira",
+                "query": "select id, unique_iotime, (@csum := @csum + unique_iotime) as cumulative_iotime from jobs_all JOIN (select @csum := 0) r order by unique_iotime desc;",
+                "attribute": "cumulative_iotime"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "heatmap2-chart",
+        "type": "heatmap",
+        "title": "My Heatmap",
+        "subtitle": "",
+        "xAxis": {
+            "title": ""
+        },
+        "yAxis": {
+            "title": ""
+        },
+        "tooltip": {
+            "valueSuffix": ""
+        },
+        "series": [
+            {
+                "type": "column",
+                "name": "",
+                "query": ""
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "nprox-boxplot-chart",
+        "type": "boxplot",
+        "title": "Job Size Statistics",
+        "subtitle": "Job size statistics that applications have ever achieved",
+        "xAxis": {
+            "title": "Application",
+            "attribute": "real_exe"
+        },
+        "yAxis": {
+            "title": "Number of Processor"
+        },
+        "tooltip": {
+            "valueSuffix": ""
+        },
+        "series": [
+            {
+                "type": "boxplot",
+                "name": "",
+                "query": "select real_exe, min(nprocs) as min_jobsize, avg(nprocs) as avg_jobsize, max(nprocs) as max_jobsize from jobs_all group by real_exe order by max_jobsize desc limit 50",
+                "min": "min_jobsize",
+                "q1": "min_jobsize",
+                "median": "avg_jobsize",
+                "q3": "max_jobsize",
+                "max": "max_jobsize"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "name": "top-k-app-chart",
+        "type": "boxplot",
+        "title": "Top 15 Big Time Application",
+        "subtitle": "",
+        "xAxis": {
+            "title": "Application",
+            "attribute": "real_exe"
+        },
+        "yAxis": {
+            "title": "Number of Processor"
+        },
+        "tooltip": {
+            "valueSuffix": ""
+        },
+        "series": [
+            {
+                "type": "boxplot",
+                "name": "",
+                "query": "select real_exe, min(agg_perf_MB) as min_jobsize, avg(agg_perf_MB) as avg_jobsize, max(agg_perf_MB) as max_jobsize from jobs_all group by real_exe order by max_jobsize desc limit 15;",
+                "min": "min_jobsize",
+                "q1": "min_jobsize",
+                "median": "avg_jobsize",
+                "q3": "max_jobsize",
+                "max": "max_jobsize"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "scatter-chart",
+        "type": "scatter",
+        "title": "Average and Maximum I/O Throughput of App",
+        "subtitle": "",
+        "xAxis": {
+            "title": "Jobs",
+            "attribute": ""
+        },
+        "yAxis": {
+            "title": "Throughput"
+        },
+        "tooltip": {
+            "valueSuffix": ""
+        },
+        "series": [
+            {
+                "type": "scatter",
+                "name": "",
+                "query": "select avg(total_bytes) as avg_bytes, max(total_bytes) as max_bytes , uid from jobs_all group by uid order by avg_bytes desc ;",
+                "series1": "avg_bytes",
+                "series2": "max_bytes",
+                "series1-name": "Average I/O Throughput",
+                "series2-name": "Maximum I/O Throughput",
+                "xaxis": "uid"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "top-k-app-based-job-size-chart",
+        "type": "boxplot",
+        "title": "Top 15 Big Time Application based on Job Size",
+        "subtitle": "Average I/O throughput of the Platform big-time apps’ jobs, by job size.",
+        "xAxis": {
+            "title": "Application",
+            "attribute": "real_exe"
+        },
+        "yAxis": {
+            "title": "Number of Processor"
+        },
+        "tooltip": {
+            "valueSuffix": ""
+        },
+        "series": [
+            {
+                "type": "boxplot",
+                "name": "",
+                "query": "select real_exe, min(agg_perf_MB) as min_jobsize, avg(agg_perf_MB) as avg_jobsize, max(agg_perf_MB) as max_jobsize from jobs_all group by real_exe order by max_jobsize desc limit 15;",
+                "min": "min_jobsize",
+                "q1": "min_jobsize",
+                "median": "avg_jobsize",
+                "q3": "max_jobsize",
+                "max": "max_jobsize"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "top-k-app-based-job-size-chart",
+        "type": "boxplot",
+        "title": "Top 15 Big Time Application based on Job Size",
+        "subtitle": "Average I/O throughput of the Platform big-time apps’ jobs, by job size.",
+        "xAxis": {
+            "title": "Application",
+            "attribute": "real_exe"
+        },
+        "yAxis": {
+            "title": "I/O Throughput"
+        },
+        "tooltip": {
+            "valueSuffix": ""
+        },
+        "series": [
+            {
+                "type": "line",
+                "name": "Mira",
+                "query": "select id, unique_iotime, (@csum := @csum + unique_iotime) as cumulative_iotime from jobs_all JOIN (select @csum := 0) r order by unique_iotime desc;",
+                "attribute": "cumulative_iotime"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "name": "performance-based-io-interface",
+        "type": "stacked",
+        "title": "Job Performance based on the I/O Interface and Job Size",
+        "subtitle": "I/O throughput for apps that use only POSIX-IO and those that use MPI-IO for at least one file.",
+        "xAxis": {
+            "title": "Group"
+        },
+        "yAxis": {
+            "title": "I/O Throughput"
+        },
+        "tooltip": {
+            "valueSuffix": ""
+        },
+        "series": [
+            {
+                "type": "stacked",
+                "name": "Mira",
+                "query": "select id, unique_iotime, (@csum := @csum + unique_iotime) as cumulative_iotime from jobs_all JOIN (select @csum := 0) r order by unique_iotime desc;",
+                "attribute": "cumulative_iotime"
+            }
+        ]
+    }
+]

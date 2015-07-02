@@ -1,0 +1,5 @@
+If your code works on localhost but not on server or vice versa, check these options:
+
+- compare the requirements which are passed by both servers :D
+
+- Switch Facebook apps (ids, security id and links)

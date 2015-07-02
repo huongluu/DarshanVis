@@ -1,0 +1,53 @@
+Last Update: 10/23/2013
+
+**********Models == Tables**********
+
+- User: The participant
+
+- Friend: Friends of users
+
+- Category: Type of a post => 1 - 8 (all!)
+
+- Post: The information of posts of each friend for each category (#seen and #not seen) => foreign key from friend & category tables
+
+-PostData: The detailed information of each post from each friend of the user
+
+************Controllers***********
+
+- UserController
+	
+
+************Views*****************
+User (in order of run)
+
+****Action => View****
+
+- welcome  => welcome.php
+
+- load: call collectInfo() function to fetch the news feed and posts information from user's FB => startPage.php
+
+- posts => posts.php : show All vs. Seen posts (using _fbview.php)
+
+- initList: call creatList() function to create a list of friends in three categories of rarely seen, sometimes seen and almost seen => threeGroups.php 
+
+- refreshList: call creatList() again to add more friends (can be done many times) => threeGroups.php
+
+- evaluateList => evaluate_list.php: a page that user can evaluate the lists by changing who should be where
+
+- evaluatePosts: choose 10 random seen and not seen posts => evaluate_posts.php: show the chosen posts and ask user to change them if he/she wants
+
+- finish => finish
+
+
+	
+	
+The order of running:
+
+Current:
+Welcome-> Load -> tracking_code
+->interview -> chart -> friends_posts ->stat -> posts
+
+Next:
+welcome -> load -> posts -> initlist ->
+	
+	

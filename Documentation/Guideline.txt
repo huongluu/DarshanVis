@@ -1,0 +1,20 @@
+8/21/2013
+
+1- First log out from your facebook and then go to this url:
+http://social.cs.illinois.edu/users/motahhare/fbreflect/index.php/user/welcome
+
+For local use:
+http://localhost/fbreflect/index.php/user/welcome
+
+2- Login into the application and then, click on 'start' button in the next page (if the start button does not appear, refresh the page).
+
+3- Wait until a page appears that gives you a code. Please write down the code that I can use it in the interview. Waiting time should be about 15 minutes or less depends on # of your friends.
+
+4- You can write your code here to start the study:
+http://social.cs.illinois.edu/users/motahhare/fbreflect/index.php/user/interview
+
+For local use:
+http://localhost/fbreflect/index.php/user/interview
+
+
+
