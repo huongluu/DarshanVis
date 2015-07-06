@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-tour-standalone.min.css"> 
         <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/hpcviz.css"> 
 
+        <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-select.min.css" rel="stylesheet" type="text/css"/>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
@@ -45,7 +46,7 @@
         <!-- Include Date Range Picker -->
         <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/1/daterangepicker.js"></script>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/1/daterangepicker-bs3.css" />
-
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap-select.min.js" type="text/javascript"></script>
 
     </head>
 

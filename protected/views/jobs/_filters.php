@@ -50,7 +50,7 @@
     });
 </script>
 
-<form role="form">
+<form role="form" method="post">
     <div class="row">
         <div class="form-group col-md-3">
             <div class="input-group">
@@ -67,16 +67,43 @@
             </div>
         </div>
 
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3">
             <div id="reportrange" class="form-control" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
                 <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
                 <span></span> <b class="caret"></b>
             </div>
         </div>
 
-        <div class="form-group col-md-1">
+        <?php
+        $id = $_GET['c'];
+        if ($id == 12) {
+            ?>
+
+            <div class="col-md-2 input-group form-group">
+                <span class = "input-group-addon" style = "background-color: white;">Sort</span>
+                <select name="orderby"  class="form-control selectpicker">
+                    <option value="localio">Non-global data I/O</option>
+                    <option value="localmeta" >Non-global Metadata</option>
+                    <option value="globalio" >Global data I/O</option>
+                    <option value="globalmeta" >Global Metadata</option>
+                    <option value="notio" >Not I/O</option>
+                    <option value="nprocs" >Number of Proc.</option>
+                    <option value="total_bytes" >Total Bytes</option>
+
+                </select>
+            </div>
+        </div>
+
+        <?php
+    }
+    ?>
+
+
+    <div class="row">
+        <div class="form-group col-md-12 text-center">
             <button type="submit" class="btn btn-default">Update</button>
         </div>
+    </div>
 </form>
 
 

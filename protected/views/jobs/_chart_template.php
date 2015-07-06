@@ -23,6 +23,8 @@ if ($chart["type"] == "line") {
     include_once '/../charts/scatter.js.php';
 } else if ($chart["type"] == "stacked") {
     include_once '/../charts/stacked.js.php';
+} else if ($chart["type"] == "bar.scatter") {
+    include_once '/../charts/bar.scatter.js.php';
 } 
 //print_r($chart);
 ?>

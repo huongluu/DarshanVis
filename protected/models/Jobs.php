@@ -15,8 +15,18 @@ class Jobs extends BaseJobs {
         $command = $connection->createCommand($query);
         // if needed, the SQL statement may be updated as follows:
         // $command->text=$newSQL;
-        $rows=$command->queryAll();
+        $rows = $command->queryAll();
         return $rows;
+    }
+
+    public static function OrderBy($query, $orderby, $mode = "desc") {
+        return $query . " order by " . $orderby . " " . $mode;
+//        return Jobs::execSQLQuery($query);
+    }
+
+    public static function Limit($query, $limit) {
+        return $query . " limit " . $limit;
+//        return Jobs::execSQLQuery($query);
     }
 
 }
