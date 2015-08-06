@@ -3055,3 +3055,929 @@ Stack trace:
 REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
 HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=4
 ---
+2015/07/02 12:21:42 [error] [php] Undefined index: c (C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_template.php:3)
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(127): require()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(870): JobsController->renderFile()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#5 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#8 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_template.php (3)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php (18)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\index.php (10)
+2015/07/06 06:52:26 [error] [php] Undefined index: c (C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_template.php:3)
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(127): require()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(870): JobsController->renderFile()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#5 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#8 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_template.php (3)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php (18)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\index.php (10)
+2015/07/06 06:52:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=4
+---
+2015/07/06 07:28:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'field list'. The SQL statement executed was: select id, nprocs, total_bytes, (unique_iotime - unique_meta) as localio,unique_meta as localmeta, (shared_time_by_cumul_io_only - shared_time_by_cumul_meta_only) as globalio, (iotime - unique_iotime) as globalmeta, (runtime - iotime) as notio;.
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\models\Jobs.php (18)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\charts\bar.scatter.js.php (2)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_template.php (27)
+2015/07/06 07:28:20 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'field list'. The SQL statement executed was: select id, nprocs, total_bytes, (unique_iotime - unique_meta) as localio,unique_meta as localmeta, (shared_time_by_cumul_io_only - shared_time_by_cumul_meta_only) as globalio, (iotime - unique_iotime) as globalmeta, (runtime - iotime) as notio;' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\CDbCommand.php:528
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\CDbCommand.php(390): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\models\Jobs.php(18): CDbCommand->queryAll()
+#2 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\charts\bar.scatter.js.php(2): Jobs::execSQLQuery('select id, npro...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_template.php(27): include_once('C:\Users\Aale\B...')
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php(18): include('C:\Users\Aale\B...')
+#5 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\index.php(10): include('C:\Users\Aale\B...')
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(127): require('C:\Users\Aale\B...')
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\Users\Aale\B...', Array, true)
+#8 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\Users\Aale\B...', Array, true)
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(783): CController->renderPartial('index', Array, true)
+#10 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(61): CController->render('index', Array)
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#21 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/index')
+#22 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#24 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 07:29:06 [error] [php] Undefined index: attribute (C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\charts\bar.scatter.js.php:8)
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\index.php(10): include()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(127): require()
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(870): JobsController->renderFile()
+#4 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#5 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#17 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=12
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\charts\bar.scatter.js.php (8)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_template.php (27)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php (18)
+2015/07/06 07:30:17 [error] [php] Undefined index: attribute (C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\charts\bar.scatter.js.php:8)
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\index.php(10): include()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(127): require()
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(870): JobsController->renderFile()
+#4 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#5 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#17 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=12
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\charts\bar.scatter.js.php (8)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_template.php (27)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php (18)
+2015/07/06 07:30:42 [error] [php] Undefined index: min (C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\charts\bar.scatter.js.php:9)
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\index.php(10): include()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(127): require()
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(870): JobsController->renderFile()
+#4 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#5 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#17 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=12
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\charts\bar.scatter.js.php (9)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_template.php (27)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php (18)
+2015/07/06 07:36:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 07:54:20 [error] [php] Undefined index: attr7 (C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\charts\bar.scatter.js.php:9)
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\index.php(10): include()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(127): require()
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(870): JobsController->renderFile()
+#4 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#5 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#17 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=12
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\charts\bar.scatter.js.php (9)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_template.php (27)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php (18)
+2015/07/06 07:54:39 [error] [php] rtrim() expects parameter 1 to be string, array given (C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\charts\bar.scatter.js.php:17)
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php(18): include()
+#1 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\index.php(10): include()
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(127): require()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#4 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(870): JobsController->renderFile()
+#5 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#6 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#8 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#17 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#18 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#19 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=12
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\charts\bar.scatter.js.php (17)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_template.php (27)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php (18)
+2015/07/06 08:01:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 08:06:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 08:08:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 08:11:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 08:12:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 08:12:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 08:12:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 08:14:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 08:30:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 08:40:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 08:48:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 08:50:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 08:52:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 08:57:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 08:58:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 08:59:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 09:00:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 09:01:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 09:10:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 09:11:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 09:11:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 09:24:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 09:29:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 09:29:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 09:30:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 09:30:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 09:33:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 09:39:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 09:40:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/06 11:37:40 [error] [php] Undefined index: series (C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_filters.php:87)
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(127): require()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(870): JobsController->renderFile()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#5 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#8 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=12
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_filters.php (87)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php (2)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\index.php (10)
+2015/07/06 12:02:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/28 07:44:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=4
+---
+2015/07/28 08:17:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CModule.php(388): CDbConnection->init()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\ar\CActiveRecord.php(624): CApplication->getDb()
+#5 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\ar\CActiveRecord.php(2311): CActiveRecord->getDbConnection()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\ar\CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(Jobs))
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CActiveDataProvider.php(75): CActiveRecord::model('Jobs')
+#8 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(58): CActiveDataProvider->__construct('Jobs')
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#17 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#19 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/index')
+#20 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#22 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=9
+---
+2015/07/28 08:17:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CModule.php(388): CDbConnection->init()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\ar\CActiveRecord.php(624): CApplication->getDb()
+#5 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\ar\CActiveRecord.php(2311): CActiveRecord->getDbConnection()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\ar\CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(Jobs))
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CActiveDataProvider.php(75): CActiveRecord::model('Jobs')
+#8 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(58): CActiveDataProvider->__construct('Jobs')
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#17 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#19 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/index')
+#20 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#22 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=9
+---
+2015/07/28 08:17:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CModule.php(388): CDbConnection->init()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\ar\CActiveRecord.php(624): CApplication->getDb()
+#5 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\ar\CActiveRecord.php(2311): CActiveRecord->getDbConnection()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\ar\CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(Jobs))
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CActiveDataProvider.php(75): CActiveRecord::model('Jobs')
+#8 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(58): CActiveDataProvider->__construct('Jobs')
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#17 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#19 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/index')
+#20 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#22 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=9
+---
+2015/07/28 08:17:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CModule.php(388): CDbConnection->init()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\ar\CActiveRecord.php(624): CApplication->getDb()
+#5 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\ar\CActiveRecord.php(2311): CActiveRecord->getDbConnection()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\db\ar\CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(Jobs))
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CActiveDataProvider.php(75): CActiveRecord::model('Jobs')
+#8 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(58): CActiveDataProvider->__construct('Jobs')
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#17 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#19 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/index')
+#20 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#22 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=9
+---
+2015/07/28 08:18:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "json/data1.json".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('json/data1.json')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#3 {main}
+REQUEST_URI=/DarshanVis/index.php/json/data1.json?order=asc&limit=10&offset=0
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=9
+---
+2015/07/28 08:18:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=9
+---
+2015/07/28 08:21:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "json/data1.json".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('json/data1.json')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#3 {main}
+REQUEST_URI=/DarshanVis/index.php/json/data1.json?order=asc&limit=10&offset=0
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=9
+---
+2015/07/28 08:24:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=9
+---
+2015/07/28 08:58:59 [error] [php] Undefined index: total_bytes (C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\tables\topk.tb.php:43)
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\index.php(10): include()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(127): require()
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(870): JobsController->renderFile()
+#4 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#5 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#17 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=10
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\tables\topk.tb.php (43)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_table.php (17)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php (25)
+2015/07/28 09:32:23 [error] [php] include(./scatterset.tmpl.php): failed to open stream: No such file or directory (C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\charts\scatterset.js.php:19)
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php(18): include()
+#1 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\index.php(10): include()
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(127): require()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#4 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(870): JobsController->renderFile()
+#5 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#6 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#8 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#17 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#18 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#19 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=13
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\charts\scatterset.js.php (19)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\charts\scatterset.js.php (19)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_template.php (29)
+2015/07/28 14:14:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/29 12:36:51 [error] [php] Undefined index: total_bytes (C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\tables\topk.tb.php:43)
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\index.php(10): include()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(127): require()
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(870): JobsController->renderFile()
+#4 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#5 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#17 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=4
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\tables\topk.tb.php (43)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_table.php (17)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php (25)
+2015/07/29 12:37:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=3
+---
+2015/07/29 12:38:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/29 12:38:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=12
+---
+2015/07/29 14:38:16 [error] [php] Undefined index: total_bytes (C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\tables\topk.tb.php:43)
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\index.php(10): include()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(127): require()
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(870): JobsController->renderFile()
+#4 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#5 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#17 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=4
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\tables\topk.tb.php (43)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_table.php (17)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php (25)
+2015/07/29 14:38:20 [error] [php] Undefined variable: main_chart (C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_template.php:15)
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(127): require()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(870): JobsController->renderFile()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#5 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#8 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=5
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_template.php (15)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php (18)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\index.php (10)
+2015/07/29 14:38:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=2
+---

@@ -4,9 +4,12 @@ if (isset($_POST["orderby"])) {
 } else {
     $orderby = "globalmeta";
 }
+if ($orderby != "nprocs" && $orderby != "total_bytes") {
+    $orderby = $orderby . "/(runtime + shared_time_by_cumul_io_only - shared_time_by_cumul_meta_only)";
+}
 $q = $chart["series"][0]["query"];
 $q = Jobs::OrderBy($q, $orderby);
-$q = Jobs::Limit($q, 2000);
+//$q = Jobs::Limit($q, 2000);
 $data = Jobs::execSQLQuery($q);
 //print_r($data);
 //$cats_str = "";
@@ -55,9 +58,9 @@ for ($i = 1; $i <= $attr_count; $i++) {
                 }],
             yAxis: [{// Primary yAxis
                     min: 0,
-                    max: 100,
+//                    max: 100,
                     labels: {
-                        format: '{value}%',
+                        format: '{value}',
 //                        style: {
 //                            color: Highcharts.getOptions().colors[2]
 //                        }
@@ -109,6 +112,9 @@ for ($i = 1; $i <= $attr_count; $i++) {
                 }],
             tooltip: {
                 shared: true
+//                formatter: function() {
+//                    return  this.series.name;
+//                }
             },
 //            legend: {
 //                layout: 'vertical',
@@ -124,14 +130,14 @@ for ($i = 1; $i <= $attr_count; $i++) {
                     type: 'column',
                     stacking: 'percent',
 //                    yAxis: 1,
-                    data: [<?php echo $series_str[$chart["series"][0]["attr1"]] ?>],
+                    data: [<?php echo $series_str[$chart["series"][0]["attr1"]] ?>]
                 },
                 {
                     name: '<?php echo $chart["series"][0]["title2"] ?>',
                     type: 'column',
                     stacking: 'percent',
 //                    yAxis: 1,
-                    data: [<?php echo $series_str[$chart["series"][0]["attr2"]] ?>],
+                    data: [<?php echo $series_str[$chart["series"][0]["attr2"]] ?>]
 //                    tooltip: {
 //                        valueSuffix: ' mm'
 //                    }
@@ -141,21 +147,21 @@ for ($i = 1; $i <= $attr_count; $i++) {
                     type: 'column',
                     stacking: 'percent',
 //                    yAxis: 1,
-                    data: [<?php echo $series_str[$chart["series"][0]["attr3"]] ?>],
+                    data: [<?php echo $series_str[$chart["series"][0]["attr3"]] ?>]
                 },
                 {
                     name: '<?php echo $chart["series"][0]["title4"] ?>',
                     type: 'column',
                     stacking: 'percent',
 //                    yAxis: 1,
-                    data: [<?php echo $series_str[$chart["series"][0]["attr4"]] ?>],
+                    data: [<?php echo $series_str[$chart["series"][0]["attr4"]] ?>]
                 },
                 {
                     name: '<?php echo $chart["series"][0]["title5"] ?>',
                     type: 'column',
                     stacking: 'percent',
 //                    yAxis: 1,
-                    data: [<?php echo $series_str[$chart["series"][0]["attr5"]] ?>],
+                    data: [<?php echo $series_str[$chart["series"][0]["attr5"]] ?>]
                 },
                 {
                     name: '<?php echo $chart["series"][0]["title6"] ?>',
@@ -163,7 +169,7 @@ for ($i = 1; $i <= $attr_count; $i++) {
                     yAxis: 1,
                     data: [<?php echo $series_str[$chart["series"][0]["attr6"]] ?>],
                     lineWidth: 0,
-//                    visible: false,
+                    visible: false,
                     marker: {
                         symbol: 'diamond',
                         enabled: true,
@@ -174,7 +180,7 @@ for ($i = 1; $i <= $attr_count; $i++) {
                     name: '<?php echo $chart["series"][0]["title7"] ?>',
                     type: 'scatter',
                     lineWidth: 0,
-//                    visible: false,
+                    visible: false,
                     marker: {
                         symbol: 'circle',
                         enabled: true,
