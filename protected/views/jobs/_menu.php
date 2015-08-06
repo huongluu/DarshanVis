@@ -3,7 +3,7 @@
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <center>
         <div class="black-link"> 
-            <div style="font-size:110%; font-weight: bold;">HPC Visualization</div> 
+            <div style="font-size:110%; font-weight: bold;"></div> 
         </div>
     </center>
     <div id="myfilter" style=" padding-bottom: 3px;"></div>

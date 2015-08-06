@@ -2,7 +2,7 @@
 <html>
     <head>
 
-        <title>HPCViz: Visualization for High Performance Computing</title>
+        <title>DarshanVis: Visualization for High Performance Computing I/O</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Dreamfeed">
@@ -13,6 +13,8 @@
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.css">
+
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/dc.css"/>
         <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.nouislider.min.css">   
         <!--<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/reset.css">--> 
@@ -42,6 +44,9 @@
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/highcharts/modules/data.js"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/highcharts/modules/heatmap.js"></script>
 
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table-all.min.js"></script>
+        <script src="//rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/2.9.0/moment.min.js"></script>
         <!-- Include Date Range Picker -->
         <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/1/daterangepicker.js"></script>
@@ -61,7 +66,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><b>HPCViz</b></a>
+                    <a class="navbar-brand" href="#"><b>DarshanVis</b></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
