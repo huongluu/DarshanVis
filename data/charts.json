@@ -10,9 +10,9 @@
         "name": "Sample-chart",
         "type": "line",
         "title": "Consumption of system I/O time",
-        "subtitle": "Cumulative percentage of platform I/O time consumed by jobs.",
+        "subtitle": "Cumulative percentage of platform I/O time consumed by apps.",
         "xAxis": {
-            "title": "Jobs"
+            "title": "Apps"
         },
         "yAxis": {
             "title": "Percentage of Total System I/O Time"
@@ -24,8 +24,8 @@
             {
                 "type": "line",
                 "name": "Mira",
-                "query": "select id, unique_iotime, (@csum := @csum + unique_iotime) as cumulative_iotime from jobs_all JOIN (select @csum := 0) r order by unique_iotime desc;",
-                "attribute": "cumulative_iotime"
+                "query": "select @jobid:=@jobid+1 as jobid, @total_iotime:=@total_iotime + t1.iotime as total_iotime, system_iotime, t4.system_jobcount, @jobid/system_jobcount as job_percent, 100*@total_iotime/system_iotime as job_sys_io_percent from (select iotime from jobs_all where iotime is not null order by iotime desc) t1, (select sum(iotime) as system_iotime from jobs_all) t2, (select @jobid:=0,@total_iotime:=0) t3, (select count(*) as system_jobcount from jobs_all where iotime is not null) t4;",
+                "attribute": "job_sys_io_percent"
             }
         ]
     },

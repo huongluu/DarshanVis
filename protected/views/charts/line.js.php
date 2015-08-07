@@ -54,7 +54,8 @@ $series_str = rtrim($series_str, ",");
                 layout: 'vertical',
                 align: 'right',
                 verticalAlign: 'middle',
-                borderWidth: 0
+                borderWidth: 0,
+                enabled: false 
             },
             series: [{
                     name: '<?php echo $chart["series"][0]["name"]; ?>',

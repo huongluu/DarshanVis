@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Platform-wide Analysis",
+        "name": "Analyze Platform I/O Workload",
         "charts": [
             {
                 "id": 2,
@@ -39,7 +39,7 @@
     },
     {
         "id": 2,
-        "name": "Application-wide Analysis",
+        "name": "Analyze Application I/O Behavior",
         "charts": [
             {
                 "id": 4,
