@@ -12,6 +12,23 @@ class Jobs extends BaseJobs {
         $connection = Yii::app()->db;   // assuming you have configured a "db" connection
         // If not, you may explicitly create a connection:
         // $connection=new CDbConnection($dsn,$username,$password);
+        $query_str = "";
+        if (isset($query["select"])) {
+            $query_str .= "select " . $query["select"] . " ";
+            $query_str .= " from " . $query["from"] . " ";
+            if (isset($query["where"])) {
+                $query_str .= " where " + $query["where"] . " ";
+            }
+            if (isset($query["order"])) {
+                $query_str .= " order by " + $query["order"] . " ";
+            }
+            if (isset($query["limit"])) {
+                $query_str .= " limit " + $query["limit"] . " ";
+            }
+        } else {
+            $query_str = $query;
+        }
+
         $command = $connection->createCommand($query);
         // if needed, the SQL statement may be updated as follows:
         // $command->text=$newSQL;
@@ -20,21 +37,22 @@ class Jobs extends BaseJobs {
     }
 
     public static function OrderBy($query, $orderby, $mode = "desc") {
-        return $query . " order by " . $orderby . " " . $mode;
-//        return Jobs::execSQLQuery($query);
+        $query["order"] = $orderby . " " . $mode;
+        return $query;
     }
 
     public static function Limit($query, $limit) {
-        return $query . " limit " . $limit;
-//        return Jobs::execSQLQuery($query);
+        $query["limit"] = $limit;
+        return $query;
     }
 
     public static function filter($query, $attr, $value) {
-        $where_pos = strrpos($query, "where");
-        $where_clause = substr($query, $where_pos);
-        $new_where_clause = $where_clause . " and " . $attr . " = '" . $value + "' ";
-        return $query . " where " . $limit;
-//        return Jobs::execSQLQuery($query);
+        if (!isset($query["where"])) {
+            $query["where"] = " " . $attr . " = '" . $value + "' ";
+        } else {
+            $query["where"] = " and " . $attr . " = '" . $value + "' ";
+        }
+        return $query;
     }
 
 }
