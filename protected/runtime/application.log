@@ -3981,3 +3981,228 @@ Stack trace:
 REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
 HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=2
 ---
+2015/08/07 11:06:30 [error] [php] Undefined index: total_bytes (C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\tables\topk.tb.php:43)
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\index.php(10): include()
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(127): require()
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(870): JobsController->renderFile()
+#4 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#5 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#6 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#7 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#9 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#11 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#12 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#13 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#15 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#16 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#17 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=4
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\tables\topk.tb.php (43)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_chart_table.php (17)
+in C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\protected\views\jobs\_charts.php (25)
+2015/08/07 11:06:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 C:\Users\Aale\Box Sync\MotiProjects\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\Users\Aale\Box Sync\MotiProjects\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:8080/DarshanVis/index.php/jobs/index?c=3
+---
+2015/08/07 11:44:45 [error] [php] Undefined index: total_bytes (F:\Data\Developement\DarshanVis\protected\views\tables\topk.tb.php:43)
+Stack trace:
+#0 F:\Data\Developement\DarshanVis\protected\views\jobs\index.php(10): include()
+#1 F:\Data\Developement\yii\framework\web\CBaseController.php(127): require()
+#2 F:\Data\Developement\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#3 F:\Data\Developement\yii\framework\web\CController.php(870): JobsController->renderFile()
+#4 F:\Data\Developement\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#5 F:\Data\Developement\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#6 F:\Data\Developement\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#7 F:\Data\Developement\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 F:\Data\Developement\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#9 F:\Data\Developement\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 F:\Data\Developement\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#11 F:\Data\Developement\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#12 F:\Data\Developement\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#13 F:\Data\Developement\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 F:\Data\Developement\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#15 F:\Data\Developement\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#16 F:\Data\Developement\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#17 F:\Data\Developement\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 F:\Data\Developement\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=4
+in F:\Data\Developement\DarshanVis\protected\views\tables\topk.tb.php (43)
+in F:\Data\Developement\DarshanVis\protected\views\jobs\_chart_table.php (17)
+in F:\Data\Developement\DarshanVis\protected\views\jobs\_charts.php (25)
+2015/08/07 11:44:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in F:\Data\Developement\yii\framework\web\CController.php:484
+Stack trace:
+#0 F:\Data\Developement\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 F:\Data\Developement\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 F:\Data\Developement\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 F:\Data\Developement\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 F:\Data\Developement\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:9091/DarshanVis/index.php/jobs/index?c=2
+---
+2015/08/07 12:23:16 [error] [php] Undefined index: type (F:\Data\Developement\DarshanVis\protected\views\jobs\_chart_template.php:16)
+Stack trace:
+#0 F:\Data\Developement\yii\framework\web\CBaseController.php(127): require()
+#1 F:\Data\Developement\yii\framework\web\CBaseController.php(96): JobsController->renderInternal()
+#2 F:\Data\Developement\yii\framework\web\CController.php(870): JobsController->renderFile()
+#3 F:\Data\Developement\yii\framework\web\CController.php(783): JobsController->renderPartial()
+#4 F:\Data\Developement\DarshanVis\protected\controllers\JobsController.php(61): JobsController->render()
+#5 F:\Data\Developement\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionIndex()
+#6 F:\Data\Developement\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#7 F:\Data\Developement\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#8 F:\Data\Developement\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 F:\Data\Developement\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#10 F:\Data\Developement\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#11 F:\Data\Developement\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#12 F:\Data\Developement\yii\framework\web\CController.php(292): CFilterChain->run()
+#13 F:\Data\Developement\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#14 F:\Data\Developement\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#15 F:\Data\Developement\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#16 F:\Data\Developement\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 F:\Data\Developement\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/index?c=1
+in F:\Data\Developement\DarshanVis\protected\views\jobs\_chart_template.php (16)
+in F:\Data\Developement\DarshanVis\protected\views\jobs\_charts.php (18)
+in F:\Data\Developement\DarshanVis\protected\views\jobs\index.php (10)
+2015/08/07 13:03:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "data".' in F:\Data\Developement\yii\framework\web\CController.php:484
+Stack trace:
+#0 F:\Data\Developement\yii\framework\web\CController.php(271): CController->missingAction('data')
+#1 F:\Data\Developement\yii\framework\web\CWebApplication.php(283): CController->run('data')
+#2 F:\Data\Developement\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/data/apps....')
+#3 F:\Data\Developement\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 F:\Data\Developement\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/data/apps.json
+HTTP_REFERER=http://localhost:9091/DarshanVis/index.php/jobs/index?c=12
+---
+2015/08/07 13:05:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "data".' in F:\Data\Developement\yii\framework\web\CController.php:484
+Stack trace:
+#0 F:\Data\Developement\yii\framework\web\CController.php(271): CController->missingAction('data')
+#1 F:\Data\Developement\yii\framework\web\CWebApplication.php(283): CController->run('data')
+#2 F:\Data\Developement\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/data/apps....')
+#3 F:\Data\Developement\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 F:\Data\Developement\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/data/apps.json
+HTTP_REFERER=http://localhost:9091/DarshanVis/index.php/jobs/index?c=12
+---
+2015/08/07 13:08:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in F:\Data\Developement\yii\framework\web\CController.php:484
+Stack trace:
+#0 F:\Data\Developement\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 F:\Data\Developement\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 F:\Data\Developement\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 F:\Data\Developement\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 F:\Data\Developement\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:9091/DarshanVis/index.php/jobs/index?c=12
+---
+2015/08/07 13:38:50 [error] [php] include(Job.php): failed to open stream: No such file or directory (F:\Data\Developement\yii\framework\YiiBase.php:423)
+Stack trace:
+#0 F:\Data\Developement\DarshanVis\protected\controllers\JobsController.php(65): spl_autoload_call()
+#1 F:\Data\Developement\yii\framework\web\actions\CInlineAction.php(50): JobsController->actionApplicationList()
+#2 F:\Data\Developement\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 F:\Data\Developement\yii\framework\web\filters\CFilterChain.php(134): JobsController->runAction()
+#4 F:\Data\Developement\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 F:\Data\Developement\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#6 F:\Data\Developement\yii\framework\web\filters\CInlineFilter.php(59): JobsController->filterAccessControl()
+#7 F:\Data\Developement\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#8 F:\Data\Developement\yii\framework\web\CController.php(292): CFilterChain->run()
+#9 F:\Data\Developement\yii\framework\web\CController.php(266): JobsController->runActionWithFilters()
+#10 F:\Data\Developement\yii\framework\web\CWebApplication.php(283): JobsController->run()
+#11 F:\Data\Developement\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#12 F:\Data\Developement\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 F:\Data\Developement\DarshanVis\index.php(44): CWebApplication->run()
+REQUEST_URI=/DarshanVis/index.php/jobs/ApplicationList
+in F:\Data\Developement\DarshanVis\protected\controllers\JobsController.php (65)
+in F:\Data\Developement\DarshanVis\index.php (44)
+2015/08/07 13:45:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "jobs".' in F:\Data\Developement\yii\framework\web\CController.php:484
+Stack trace:
+#0 F:\Data\Developement\yii\framework\web\CController.php(271): CController->missingAction('jobs')
+#1 F:\Data\Developement\yii\framework\web\CWebApplication.php(283): CController->run('jobs')
+#2 F:\Data\Developement\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/jobs/Appli...')
+#3 F:\Data\Developement\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 F:\Data\Developement\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/jobs/ApplicationList
+HTTP_REFERER=http://localhost:9091/DarshanVis/index.php/jobs/index?c=12
+---
+2015/08/07 13:45:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in F:\Data\Developement\yii\framework\web\CController.php:484
+Stack trace:
+#0 F:\Data\Developement\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 F:\Data\Developement\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 F:\Data\Developement\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 F:\Data\Developement\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 F:\Data\Developement\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:9091/DarshanVis/index.php/jobs/index?c=12
+---
+2015/08/07 14:00:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "AUserList".' in F:\Data\Developement\yii\framework\web\CController.php:484
+Stack trace:
+#0 F:\Data\Developement\yii\framework\web\CController.php(271): CController->missingAction('AUserList')
+#1 F:\Data\Developement\yii\framework\web\CWebApplication.php(283): CController->run('AUserList')
+#2 F:\Data\Developement\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/AUserList')
+#3 F:\Data\Developement\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 F:\Data\Developement\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/AUserList
+HTTP_REFERER=http://localhost:9091/DarshanVis/index.php/jobs/index?c=12
+---
+2015/08/07 14:07:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in F:\Data\Developement\yii\framework\web\CController.php:484
+Stack trace:
+#0 F:\Data\Developement\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 F:\Data\Developement\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 F:\Data\Developement\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 F:\Data\Developement\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 F:\Data\Developement\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:9091/DarshanVis/index.php/jobs/index?c=12
+---
+2015/08/07 14:07:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in F:\Data\Developement\yii\framework\web\CController.php:484
+Stack trace:
+#0 F:\Data\Developement\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 F:\Data\Developement\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 F:\Data\Developement\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 F:\Data\Developement\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 F:\Data\Developement\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:9091/DarshanVis/index.php/jobs/index?c=12
+---
+2015/08/07 14:58:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in F:\Data\Developement\yii\framework\web\CController.php:484
+Stack trace:
+#0 F:\Data\Developement\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 F:\Data\Developement\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 F:\Data\Developement\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 F:\Data\Developement\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 F:\Data\Developement\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:9091/DarshanVis/index.php/jobs/index?c=12
+---
+2015/08/07 14:58:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in F:\Data\Developement\yii\framework\web\CController.php:484
+Stack trace:
+#0 F:\Data\Developement\yii\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 F:\Data\Developement\yii\framework\web\CWebApplication.php(283): CController->run('favicon.ico')
+#2 F:\Data\Developement\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('jobs/favicon.ic...')
+#3 F:\Data\Developement\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 F:\Data\Developement\DarshanVis\index.php(44): CApplication->run()
+#5 {main}
+REQUEST_URI=/DarshanVis/index.php/jobs/favicon.ico
+HTTP_REFERER=http://localhost:9091/DarshanVis/index.php/jobs/index?c=12
+---

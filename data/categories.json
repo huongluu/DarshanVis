@@ -28,10 +28,6 @@
                 "title": "Job Performance based on the I/O Interface"
             },
             {
-                "id": 12,
-                "title": "Run time breakdown"
-            },
-            {
                 "id": 13,
                 "title": "Scatter Sets"
             }
@@ -39,8 +35,12 @@
     },
     {
         "id": 2,
-        "name": "Application-wide Analysis",
+        "name": "Analyse Application I/O Behavior",
         "charts": [
+            {
+                "id": 12,
+                "title": "Time Breakdown"
+            },
             {
                 "id": 4,
                 "title": "Job Size Statistics"

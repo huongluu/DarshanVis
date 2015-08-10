@@ -44,7 +44,8 @@
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/highcharts/modules/data.js"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/highcharts/modules/heatmap.js"></script>
 
-
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap3-typeahead.min.js" type="text/javascript"></script>
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table-all.min.js"></script>
         <script src="//rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/2.9.0/moment.min.js"></script>

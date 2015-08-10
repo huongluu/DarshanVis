@@ -1,0 +1,16 @@
+- Larger x-axis y-axis titles
+- Think about colors for dots 
+- Size of dots for "Num of Proc" and "Proc & Total Bytes" increase
+- Change the color for greens
+- Metadata vs Non-Metadata
+- Make the dots larger
+- change labels [1 - max]
+- Smaller font for filters
+- Using tooltip for legend
+- Change the format
+- Make the calendar normal
+- Fix sort & ... default values
+- icon loading when processing
+- second level sort
+- percentage and absolute toggle (same as GA)
+- log scale toggle (same as GA)

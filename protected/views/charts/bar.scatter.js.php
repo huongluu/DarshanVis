@@ -9,7 +9,13 @@ if ($orderby != "nprocs" && $orderby != "total_bytes") {
 }
 $q = $chart["series"][0]["query"];
 $q = Jobs::OrderBy($q, $orderby);
-//$q = Jobs::Limit($q, 2000);
+$q = Jobs::Limit($q, 2000);
+if (isset($_POST["application"])) {
+    $q = Jobs::filter($q, "real_exe", $_POST["application"]);
+}
+if (isset($_POST["user"])) {
+    $q = Jobs::filter($q, "uid", $_POST["user"]);
+}
 $data = Jobs::execSQLQuery($q);
 //print_r($data);
 //$cats_str = "";

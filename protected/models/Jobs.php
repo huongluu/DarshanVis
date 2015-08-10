@@ -29,4 +29,12 @@ class Jobs extends BaseJobs {
 //        return Jobs::execSQLQuery($query);
     }
 
+    public static function filter($query, $attr, $value) {
+        $where_pos = strrpos($query, "where");
+        $where_clause = substr($query, $where_pos);
+        $new_where_clause = $where_clause . " and " . $attr . " = '" . $value + "' ";
+        return $query . " where " . $limit;
+//        return Jobs::execSQLQuery($query);
+    }
+
 }
