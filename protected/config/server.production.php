@@ -14,9 +14,9 @@ return array(
             
         ),*/
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=hpcviz_db',
+            'connectionString' => 'mysql:host=localhost;dbname=darshanvis_db',
             'username' => 'root',
-            'password' => 'hello',
+            'password' => 'root',
         ),
     ),
 );

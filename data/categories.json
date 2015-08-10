@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Platform-wide Analysis",
+        "name": "Analyze Platform I/O Workload",
         "charts": [
             {
                 "id": 2,
