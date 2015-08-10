@@ -1,0 +1,29 @@
+{
+    "id": 4,
+    "name": "nprox-boxplot-chart",
+    "type": "boxplot",
+    "title": "Job Size Statistics",
+    "subtitle": "Job size statistics that applications have ever achieved",
+    "xAxis": {
+        "title": "Application",
+        "attribute": "real_exe"
+    },
+    "yAxis": {
+        "title": "Number of Processes"
+    },
+    "tooltip": {
+        "valueSuffix": ""
+    },
+    "series": [
+        {
+            "type": "boxplot",
+            "name": "",
+            "query": "select real_exe, min(nprocs) as min_jobsize, avg(nprocs) as avg_jobsize, max(nprocs) as max_jobsize from jobs_all group by real_exe order by max_jobsize desc limit 50",
+            "min": "min_jobsize",
+            "q1": "min_jobsize",
+            "median": "avg_jobsize",
+            "q3": "max_jobsize",
+            "max": "max_jobsize"
+        }
+    ]
+}

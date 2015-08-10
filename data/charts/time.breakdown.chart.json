@@ -1,0 +1,44 @@
+{
+    "id": 12,
+    "name": "io-type",
+    "type": "bar.scatter",
+    "width": 200,
+    "height": 200,
+    "title": "Breakdown of total run time for each job",
+    "subtitle": "",
+    "xAxis": {
+        "title": "Jobs"
+    },
+    "yAxis": {
+        "title1": "Total Time (%)",
+        "title2": "Number of Processes",
+        "title3": "Total Bytes Read/Written"
+    },
+    "tooltip": {
+        "valueSuffix": ""
+    },
+    "series": [
+        {
+            "type": "stacked",
+            "name": "series1",
+            "query": {
+                "select": "id, nprocs, total_bytes, (unique_iotime - unique_meta) as localio,unique_meta as localmeta, (shared_time_by_cumul_io_only - shared_time_by_cumul_meta_only) as globalio, (iotime - unique_iotime) as globalmeta, (runtime - iotime) as notio",
+                "from": "jobs_all"
+            },
+            "title1": "Non-global Data I/O",
+            "attr1": "localio",
+            "title2": "Non-global Metadata",
+            "attr2": "localmeta",
+            "title3": "Global Data I/O",
+            "attr3": "globalio",
+            "title4": "Global Metadata",
+            "attr4": "globalmeta",
+            "title5": "Not I/O",
+            "attr5": "notio",
+            "title6": "Number of Processes",
+            "attr6": "nprocs",
+            "title7": "Total Bytes Read/Written",
+            "attr7": "total_bytes"
+        }
+    ]
+}

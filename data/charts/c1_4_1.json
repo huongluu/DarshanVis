@@ -1,0 +1,29 @@
+{
+    "id": 8,
+    "name": "scatter-chart",
+    "type": "scatter",
+    "title": "Average and Maximum I/O Throughput of App",
+    "subtitle": "",
+    "xAxis": {
+        "title": "Jobs",
+        "attribute": ""
+    },
+    "yAxis": {
+        "title": "Throughput"
+    },
+    "tooltip": {
+        "valueSuffix": ""
+    },
+    "series": [
+        {
+            "type": "scatter",
+            "name": "",
+            "query": "select avg(total_bytes) as avg_bytes, max(total_bytes) as max_bytes , uid from jobs_all group by uid order by avg_bytes desc ;",
+            "series1": "avg_bytes",
+            "series2": "max_bytes",
+            "series1-name": "Average I/O Throughput",
+            "series2-name": "Maximum I/O Throughput",
+            "xaxis": "uid"
+        }
+    ]
+}

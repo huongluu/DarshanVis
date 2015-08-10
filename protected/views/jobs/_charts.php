@@ -2,7 +2,7 @@
     include '_filters.php';
     ?>
 <?php
-$data = Jobs::execSQLQuery("select real_exe, min(nprocs) as min_jobsize, avg(nprocs) as avg_jobsize, max(nprocs) as max_jobsize from jobs_all group by real_exe limit 0,20");
+//$data = Jobs::execSQLQuery("select real_exe, min(nprocs) as min_jobsize, avg(nprocs) as avg_jobsize, max(nprocs) as max_jobsize from jobs_all group by real_exe limit 0,20");
 //print_r($data);
 //$s = array_column($data, "real_exe");
 //implode(",", ))

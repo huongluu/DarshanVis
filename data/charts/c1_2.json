@@ -1,0 +1,23 @@
+{
+    "id": 3,
+    "name": "heatmap2-chart",
+    "type": "heatmap",
+    "title": "My Heatmap",
+    "subtitle": "",
+    "xAxis": {
+        "title": ""
+    },
+    "yAxis": {
+        "title": ""
+    },
+    "tooltip": {
+        "valueSuffix": ""
+    },
+    "series": [
+        {
+            "type": "column",
+            "name": "",
+            "query": ""
+        }
+    ]
+}
