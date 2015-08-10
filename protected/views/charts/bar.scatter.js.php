@@ -1,4 +1,5 @@
 <?php
+include_once 'utils2.php';
 if (isset($_POST["orderby"])) {
     $orderby = $_POST["orderby"];
 } else {
@@ -45,92 +46,8 @@ for ($i = 1; $i <= $attr_count; $i++) {
 <script type="text/javascript">
     $(function() {
         $('#chart-container').highcharts({
-            chart: {
-                zoomType: 'xy'
-            },
-            title: {
-                text: '<?php echo $chart["title"] ?>'
-            },
-            subtitle: {
-                text: '<?php echo $chart["subtitle"] ?>'
-            },
-            xAxis: [{
-//                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-//                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                    title: {
-                        text: '<?php echo $chart["xAxis"]["title"] ?>'
-                    },
-                    crosshair: true
-                }],
-            yAxis: [{// Primary yAxis
-                    min: 0,
-//                    max: 100,
-                    labels: {
-                        format: '{value}',
-//                        style: {
-//                            color: Highcharts.getOptions().colors[2]
-//                        }
-                    },
-                    title: {
-                        text: '<?php echo $chart["yAxis"]["title1"] ?>',
-//                        style: {
-//                            color: Highcharts.getOptions().colors[2]
-//                        }
-                    }
-//                   , opposite: true
+<?php echo getHighchartSafeJson($chart["highchart-confs"]); ?>
 
-                }, {// Secondary yAxis
-                    min: 1,
-                    type: 'logarithmic',
-                    gridLineWidth: 0,
-                    title: {
-                        text: '<?php echo $chart["yAxis"]["title2"] ?>',
-                        style: {
-                            color: Highcharts.getOptions().colors[0]
-                        }
-                    },
-                    labels: {
-//                        format: '{value}',
-                        style: {
-                            color: Highcharts.getOptions().colors[0]
-                        }
-                    }
-                    ,
-                    opposite: true
-
-                }, {// Tertiary yAxis
-                    min: 1,
-                    type: 'logarithmic',
-                    gridLineWidth: 0,
-                    title: {
-                        text: '<?php echo $chart["yAxis"]["title3"] ?>',
-                        style: {
-                            color: Highcharts.getOptions().colors[1]
-                        }
-                    },
-                    labels: {
-//                        format: '{value}',
-                        style: {
-                            color: Highcharts.getOptions().colors[1]
-                        }
-                    },
-                    opposite: true
-                }],
-            tooltip: {
-                shared: true
-//                formatter: function() {
-//                    return  this.series.name;
-//                }
-            },
-//            legend: {
-//                layout: 'vertical',
-//                align: 'left',
-//                x: 80,
-//                verticalAlign: 'top',
-//                y: 55,
-//                floating: true,
-//                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
-//            },
             series: [{
                     name: '<?php echo $chart["series"][0]["title1"] ?>',
                     type: 'column',

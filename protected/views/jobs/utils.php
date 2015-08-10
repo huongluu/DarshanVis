@@ -28,3 +28,4 @@ function getChartInfo($id) {
     $chart = array_merge($generic_chart, $main_chart);
     return $chart;
 }
+
