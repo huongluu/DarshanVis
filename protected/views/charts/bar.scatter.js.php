@@ -11,35 +11,38 @@ if ($orderby != "nprocs" && $orderby != "total_bytes") {
 $q = $chart["series"][0]["query"];
 $q = Jobs::OrderBy($q, $orderby);
 $q = Jobs::Limit($q, 2000);
-if (isset($_POST["application"])) {
+if (isset($_POST["application"]) && strlen($_POST["application"]) > 0) {
     $q = Jobs::filter($q, "real_exe", $_POST["application"]);
 }
-if (isset($_POST["user"])) {
+if (isset($_POST["user"]) && strlen($_POST["user"]) > 0) {
     $q = Jobs::filter($q, "uid", $_POST["user"]);
 }
 $data = Jobs::execSQLQuery($q);
 //print_r($data);
 //$cats_str = "";
+
 $series_str = array();
-$attr_count = 7;
-foreach ($data as $d) {
-    for ($i = 1; $i <= $attr_count; $i++) {
-        if (!isset($series_str[$chart["series"][0]["attr" . $i]])) {
-            $series_str[$chart["series"][0]["attr" . $i]] = "";
+if (sizeof($data) > 0) {
+    $attr_count = 7;
+    foreach ($data as $d) {
+        for ($i = 1; $i <= $attr_count; $i++) {
+            if (!isset($series_str[$chart["series"][0]["attr" . $i]])) {
+                $series_str[$chart["series"][0]["attr" . $i]] = "";
+            }
+            $num = $d[$chart["series"][0]["attr" . $i]];
+            if (strpos($num, ".") == true) {
+                $num = round($num, 1);
+            }
+            $series_str[$chart["series"][0]["attr" . $i]] .= ($num) . ',';
         }
-        $num = $d[$chart["series"][0]["attr" . $i]];
-        if (strpos($num, ".") == true) {
-            $num = round($num, 1);
-        }
-        $series_str[$chart["series"][0]["attr" . $i]] .= ($num) . ',';
-    }
 //    $cats_str .= '\'' . $d[$chart["xAxis"]["attribute"]] . '\'' . ',';
 //    $series_str .= '[' . $d[$chart["series"][0]["min"]] . ',' . ($d[$chart["series"][0]["q1"]] * 2) . ',' . $d[$chart["series"][0]["median"]] . ',' . ($d[$chart["series"][0]["q3"]] * 0.5) . ',' . $d[$chart["series"][0]["max"]] . '],';
-}
+    }
 //$cats_str = rtrim($cats_str, ",");
 
-for ($i = 1; $i <= $attr_count; $i++) {
-    $series_str[$chart["series"][0]["attr" . $i]] = rtrim($series_str[$chart["series"][0]["attr" . $i]], ",");
+    for ($i = 1; $i <= $attr_count; $i++) {
+        $series_str[$chart["series"][0]["attr" . $i]] = rtrim($series_str[$chart["series"][0]["attr" . $i]], ",");
+    }
 }
 //echo $series_str;
 ?>
@@ -53,14 +56,14 @@ for ($i = 1; $i <= $attr_count; $i++) {
                     type: 'column',
                     stacking: 'percent',
 //                    yAxis: 1,
-                    data: [<?php echo $series_str[$chart["series"][0]["attr1"]] ?>]
+                    data: [<?php echo nullSafe($series_str[$chart["series"][0]["attr1"]]); ?>]
                 },
                 {
                     name: '<?php echo $chart["series"][0]["title2"] ?>',
                     type: 'column',
                     stacking: 'percent',
 //                    yAxis: 1,
-                    data: [<?php echo $series_str[$chart["series"][0]["attr2"]] ?>]
+                    data: [<?php echo nullSafe($series_str[$chart["series"][0]["attr2"]]); ?>]
 //                    tooltip: {
 //                        valueSuffix: ' mm'
 //                    }
@@ -70,21 +73,21 @@ for ($i = 1; $i <= $attr_count; $i++) {
                     type: 'column',
                     stacking: 'percent',
 //                    yAxis: 1,
-                    data: [<?php echo $series_str[$chart["series"][0]["attr3"]] ?>]
+                    data: [<?php echo nullSafe($series_str[$chart["series"][0]["attr3"]]); ?>]
                 },
                 {
                     name: '<?php echo $chart["series"][0]["title4"] ?>',
                     type: 'column',
                     stacking: 'percent',
 //                    yAxis: 1,
-                    data: [<?php echo $series_str[$chart["series"][0]["attr4"]] ?>]
+                    data: [<?php echo nullSafe($series_str[$chart["series"][0]["attr4"]]); ?>]
                 },
                 {
                     name: '<?php echo $chart["series"][0]["title5"] ?>',
                     type: 'column',
                     stacking: 'percent',
 //                    yAxis: 1,
-                    data: [<?php echo $series_str[$chart["series"][0]["attr5"]] ?>]
+                    data: [<?php echo nullSafe($series_str[$chart["series"][0]["attr5"]]); ?>]
                 },
                 {
                     name: '<?php echo $chart["series"][0]["title6"] ?>',

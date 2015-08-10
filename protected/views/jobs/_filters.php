@@ -70,19 +70,19 @@
     <div class="row">
         <div class="form-group col-md-2">
             <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">
+                <span class="input-group-addon">
                     <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
                 </span>
-                <input type="text" class="form-control" id="user-typeahead" data-provide="typeahead" placeholder="UserID">
+                <input type="text" name="user" class="form-control" id="user-typeahead" data-provide="typeahead" placeholder="UserID" autocomplete="off">
             </div>
         </div>
 
         <div class="form-group col-md-3">
             <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">
+                <span class="input-group-addon">
                     <i class="glyphicon glyphicon-font" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
                 </span>
-                <input type="text" class="form-control" id="application-typeahead" data-provide="typeahead" placeholder="Application Name">
+                <input type="text" name="application" class="form-control" id="application-typeahead" data-provide="typeahead" placeholder="Application Name" autocomplete="off">
                 <!--<input type="text" class="form-control" placeholder="Application" aria-describedby="basic-addon1">-->
             </div>
         </div>
@@ -94,46 +94,10 @@
             </div>
         </div>
 
-        <?php
-        $id = $_GET['c'];
-        if ($id == 12) {
-            ?>
-
-            <div class="col-md-3 form-group">
-                <div class="input-group">
-
-                    <span class="input-group-addon" id="basic-addon1">
-                        <i class="glyphicon glyphicon-sort-by-alphabet"></i>
-                    </span>
-                    <!--<span class = "input-group-addon" style = "background-color: white;">Sort</span>-->
-                    <select name="orderby"  class="form-control selectpicker">
-                        <?php
-//                    for ($i = 1; $i <= 6; $i++) {
-//                        echo $chart["series"][0]["attr" . $i];
-//                    }
-                        ?>
-
-                        <option value="localio">Non-global Data I/O</option>
-                        <option value="localmeta" >Non-global Metadata</option>
-                        <option value="globalio" >Global Data I/O</option>
-                        <option value="globalmeta" >Global Metadata</option>
-                        <option value="notio" >Not I/O</option>
-                        <option value="nprocs" ># of Processes</option>
-                        <option value="total_bytes" >Total Bytes Read/Written</option>
-
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-md-1 form-group">
-                <button type="submit" class="btn btn-default">Update</button>
-            </div>
+        <div class="col-md-1 form-group">
+            <button type="submit" class="btn btn-default">Update</button>
         </div>
-
-
-        <?php
-    }
-    ?>
+    </div>
 
     <!--
         <div class="row">

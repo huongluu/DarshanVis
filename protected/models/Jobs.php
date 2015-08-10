@@ -13,45 +13,48 @@ class Jobs extends BaseJobs {
         // If not, you may explicitly create a connection:
         // $connection=new CDbConnection($dsn,$username,$password);
         $query_str = "";
-        if (isset($query["select"])) {
+        if ((isset($query["select"])) && strlen($query["select"]) != 0) {
             $query_str .= "select " . $query["select"] . " ";
             $query_str .= " from " . $query["from"] . " ";
-            if (isset($query["where"])) {
-                $query_str .= " where " + $query["where"] . " ";
+            if ((isset($query["where"])) && strlen($query["where"]) != 0) {
+                $query_str .= " where " . $query["where"] . " ";
             }
-            if (isset($query["order"])) {
-                $query_str .= " order by " + $query["order"] . " ";
+            if ((isset($query["order"])) && strlen($query["order"]) != 0) {
+                $query_str .= " order by " . $query["order"] . " ";
             }
-            if (isset($query["limit"])) {
-                $query_str .= " limit " + $query["limit"] . " ";
+            if ((isset($query["limit"])) && strlen($query["limit"]) != 0) {
+                $query_str .= " limit " . $query["limit"] . " ";
             }
         } else {
             $query_str = $query;
         }
 
-        $command = $connection->createCommand($query);
+        echo "QQQ:" . $query_str . "";
+        $command = $connection->createCommand($query_str);
         // if needed, the SQL statement may be updated as follows:
         // $command->text=$newSQL;
         $rows = $command->queryAll();
         return $rows;
     }
 
-    public static function OrderBy($query, $orderby, $mode = "desc") {
+    public static function OrderBy(&$query, $orderby, $mode = "desc") {
         $query["order"] = $orderby . " " . $mode;
         return $query;
     }
 
-    public static function Limit($query, $limit) {
+    public static function Limit(&$query, $limit) {
         $query["limit"] = $limit;
         return $query;
     }
 
-    public static function filter($query, $attr, $value) {
-        if (!isset($query["where"])) {
-            $query["where"] = " " . $attr . " = '" . $value + "' ";
+    public static function filter(&$query, $attr, $value) {
+
+        if (!isset($query["where"]) || strlen($query["where"]) == 0) {
+            $query["where"] = " " . $attr . " = '" . $value . "' ";
         } else {
-            $query["where"] = " and " . $attr . " = '" . $value + "' ";
+            $query["where"] .= " and " . $attr . " = '" . $value . "' ";
         }
+
         return $query;
     }
 

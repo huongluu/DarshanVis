@@ -22,5 +22,9 @@ include '_chart_template.php';
 <div id="chart-container" style="height: 400px; width: 700px; margin: 0 auto"></div>
 
 <?php
+include '_sorting.php';
+?>
+
+<?php
 include '_chart_table.php';
 ?>

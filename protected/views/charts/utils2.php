@@ -6,4 +6,12 @@ function getHighchartSafeJson($arr) {
     return $json;
 }
 
+function nullSafe($val) {
+    if (isset($val)) {
+        return $val;
+    } else {
+        return "";
+    }
+}
+
 ?>
