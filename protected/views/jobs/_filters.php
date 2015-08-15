@@ -1,11 +1,22 @@
+<?php
+$app_placeholder = "Application Name";
+if (isset($_POST["application"]) && strlen($_POST["application"]) > 0) {
+    $app_placeholder = $_POST["application"];
+}
+
+$user_placeholder = "UserID";
+if (isset($_POST["user"]) && strlen($_POST["user"]) > 0) {
+    $user_placeholder = $_POST["user"];
+}
+?>
 <script type="text/javascript">
     $(function() {
-
+      
         $('#reportrange span').html(moment().subtract(29, 'days').format('MMM DD \'YY') + ' - ' + moment().format('MMM DD \'YY'));
 
         $('#reportrange').daterangepicker({
             format: 'MM/DD/YYYY',
-            startDate: moment().subtract(29, 'days'),
+            startDate: moment().subtract(30, 'days'),
             endDate: moment(),
             minDate: '01/01/2012',
             maxDate: '12/31/2015',
@@ -73,7 +84,7 @@
                 <span class="input-group-addon">
                     <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
                 </span>
-                <input type="text" name="user" class="form-control" id="user-typeahead" data-provide="typeahead" placeholder="UserID" autocomplete="off">
+                <input type="text" name="user" class="form-control" id="user-typeahead" data-provide="typeahead" placeholder="<?php echo $user_placeholder; ?>" autocomplete="off">
             </div>
         </div>
 
@@ -82,20 +93,26 @@
                 <span class="input-group-addon">
                     <i class="glyphicon glyphicon-font" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
                 </span>
-                <input type="text" name="application" class="form-control" id="application-typeahead" data-provide="typeahead" placeholder="Application Name" autocomplete="off">
+                <input type="text" name="application" class="form-control" id="application-typeahead" data-provide="typeahead" placeholder="<?php echo $app_placeholder; ?>" autocomplete="off">
                 <!--<input type="text" class="form-control" placeholder="Application" aria-describedby="basic-addon1">-->
             </div>
         </div>
 
         <div class="form-group col-md-3">
-            <div id="reportrange" class="form-control" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+            <div id="reportrange" class="form-control" style="background: #fff; cursor: pointer; padding: 0px 5px; border: 1px solid #ccc">
                 <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
                 <span></span> <b class="caret"></b>
             </div>
         </div>
 
         <div class="col-md-1 form-group">
-            <button type="submit" class="btn btn-default">Update</button>
+            <button type="submit" class="btn btn-inverse tiny-button">Update</button>
+        </div>
+
+        <div class="col-md-1 form-group">
+            <button type="button" class="btn tiny-button" data-toggle="modal" href="#sorting_modal">
+                <i class="glyphicon glyphicon-sort-by-alphabet"></i>
+                Sort</button>
         </div>
     </div>
 
@@ -104,8 +121,15 @@
     
         </div>-->
 
-
+    <?php include '_sorting_modal.php'; ?>
 </form>
+
+<div class="row">
+    <div class="col-md-2 form-group">
+        <button style="font-size: 150%;" type="button" id="toggle-percentage" class="btn tiny-button">
+            %</button>
+    </div>
+</div>
 
 
 

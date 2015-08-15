@@ -4,46 +4,42 @@
         "name": "Analyze Platform I/O Workload",
         "charts": [
             {
-                "id": 2,
-                "title": "Consumption of System I/O Time"
-            },
-            {
-                "id": 3,
-                "title": "I/O Throughput"
-            },
-            {
-                "id": 8,
-                "title": "App's Jobs Throughput"
-            },
-            {
                 "id": 9,
-                "title": "Top 15 Big Time App"
+                "title": "Apps with Highest I/O Time"
             },
             {
                 "id": 10,
-                "title": "Top 15 Big Time App based on Job Size"
-            },
-            {
-                "id": 11,
-                "title": "Job Performance based on the I/O Interface"
+                "title": "Apps with Highest Total Bytes Accessed"
             },
             {
                 "id": 13,
-                "title": "Scatter Sets"
+                "title": "Jobs Distribution for Top Apps"
+            },
+            {
+                "id": 3,
+                "title": "Jobs' I/O Throughput vs. Bytes Accessed"
+            },
+            {
+                "id": 8,
+                "title": "App I/O Throughput"
+            },
+            {
+                "id": 2,
+                "title": "Cumulative Usage of I/O Time"
+            },
+            {
+                "id": 11,
+                "title": "I/O Throughput with MPI vs. POSIX"
             }
         ]
     },
     {
         "id": 2,
-        "name": "Analyse Application I/O Behavior",
+        "name": "Analyze Application I/O Behavior",
         "charts": [
             {
                 "id": 12,
                 "title": "Time Breakdown"
-            },
-            {
-                "id": 4,
-                "title": "Job Size Statistics"
             }
         ]
     }

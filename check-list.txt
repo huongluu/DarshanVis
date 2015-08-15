@@ -1,16 +1,26 @@
-- Larger x-axis y-axis titles
-- Think about colors for dots 
-- Size of dots for "Num of Proc" and "Proc & Total Bytes" increase
-- Change the color for greens
-- Metadata vs Non-Metadata
-- Make the dots larger
-- change labels [1 - max]
-- Smaller font for filters
-- Using tooltip for legend
-- Change the format
-- Make the calendar normal
-- Fix sort & ... default values
+- Larger x-axis y-axis titles DONE
+- Think about colors for dots  DONE
+- Size of dots for "Num of Proc" and "Proc & Total Bytes" increase => conditional code for dots size
+- Change the color for greens DONE
+- change labels [1 - max] DONE
+- Smaller font for filters DONE
+- Using tooltip for legend DONE
+- Change the axis format DONE
+- Make the calendar normal IGNORE
+- Fix sort & ... default values 
 - icon loading when processing
 - second level sort
 - percentage and absolute toggle (same as GA)
 - log scale toggle (same as GA)
+
+- add date for sorting 
+- update the current sorts to dropdowns
+- keep the vis configurations by sorting (using ajax)
+- enable the sorting attribute in the chart legend.
+- fix the axis label when user zooms
+- set default user 
+- set default application (the recent job)
+- default value for calendar: from last date that we have data until last date subtract 30 days!
+- fix the icon for percenta/absolute toggle button
+
+ 

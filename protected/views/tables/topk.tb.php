@@ -40,9 +40,9 @@ $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
                 echo "<td>" . $d['real_exe'] . "</td>";
                 echo "<td>" . round($d['avg_jobsize']) . "</td>";
                 echo "<td>" . round($d['max_jobsize']) . "</td>";
-                echo "<td>" . round($d['total_bytes']) . "</td>";
-                echo "<td>" . round($d['runtime']) . "</td>";
-                echo "<td>" . round($d['iotime']) . "</td>";
+                echo "<td>" . round($d['avg_jobsize']) . "</td>";
+                echo "<td>" . round($d['max_jobsize']) . "</td>";
+                echo "<td>" . round($d['min_jobsize']) . "</td>";
                 echo "</tr>";
                 $index++;
             }

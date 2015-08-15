@@ -4,18 +4,33 @@
     "type": "bar.scatter",
     "highchart-confs": {
         "chart": {
-            "zoomType": "xy"
+            "zoomType": "xy",
+            "width": 800
         },
         "title": {
-            "text": "Breakdown of total run time for each job"
+            "text": "Breakdown of time for each job",
+            "margin": -5,
+            "style": {
+                "margin-top": "40px"
+            }
         },
         "subtitle": {
             "text": ""
         },
         "xAxis": [
             {
+                "tickInterval": 2000,
                 "title": {
-                    "text": "Jobs"
+                    "text": "Jobs",
+                    "style": {
+                        "font-size": "14px"
+                    }
+                },
+                "labels": {
+                    "format": "{value}",
+                    "style": {
+                        "font-size": "14px"
+                    }
                 },
                 "crosshair": true
             }
@@ -24,10 +39,16 @@
             {
                 "min": 0,
                 "labels": {
-                    "format": "{value}"
+                    "format": "{value}%",
+                    "style": {
+                        "font-size": "14px"
+                    }
                 },
                 "title": {
-                    "text": "Total Time (%)"
+                    "text": "Total Time (%)",
+                    "style": {
+                        "font-size": "15px"
+                    }
                 }
             },
             {
@@ -36,13 +57,19 @@
                 "gridLineWidth": 0,
                 "title": {
                     "text": "Number of Processes",
+                    "margin": 2,
                     "style": {
-                        "color": "Highcharts.getOptions().colors[0]"
+                        "color": "Highcharts.getOptions().colors[0]",
+                        "font-size": "15px"
                     }
                 },
                 "labels": {
+                    "align": "left",
+                    "x": 3,
+                    "y": 5,
                     "style": {
-                        "color": "Highcharts.getOptions().colors[0]"
+                        "color": "Highcharts.getOptions().colors[0]",
+                        "font-size": "14px"
                     }
                 }
                 ,
@@ -54,13 +81,19 @@
                 "gridLineWidth": 0,
                 "title": {
                     "text": "Total Bytes Read/Written",
+                    "margin": 2,
                     "style": {
-                        "color": "Highcharts.getOptions().colors[1]"
+                        "color": "darkblue",
+                        "font-size": "15px"
                     }
                 },
                 "labels": {
+                    "align": "left",
+                    "x": 3,
+                    "y": 5,
                     "style": {
-                        "color": "Highcharts.getOptions().colors[1]"
+                        "color": "darkblue",
+                        "font-size": "14px"
                     }
                 },
                 "opposite": true
@@ -75,7 +108,7 @@
             "type": "stacked",
             "name": "series1",
             "query": {
-                "select": "id, nprocs, total_bytes, (unique_iotime - unique_meta) as localio,unique_meta as localmeta, (shared_time_by_cumul_io_only - shared_time_by_cumul_meta_only) as globalio, (iotime - unique_iotime) as globalmeta, (runtime - iotime) as notio",
+                "select": "id, start_time, nprocs, total_bytes, (unique_iotime - unique_meta) as localio,unique_meta as localmeta, (shared_time_by_cumul_io_only - shared_time_by_cumul_meta_only) as globalio, (iotime - unique_iotime) as globalmeta, (runtime - iotime) as notio",
                 "from": "jobs_all"
             },
             "title1": "Non-global Data I/O",

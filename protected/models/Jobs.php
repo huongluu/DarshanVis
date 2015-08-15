@@ -39,6 +39,14 @@ class Jobs extends BaseJobs {
 
     public static function OrderBy(&$query, $orderby, $mode = "desc") {
         $query["order"] = $orderby . " " . $mode;
+//        $query["order"] = $orderby . " ";
+
+        return $query;
+    }
+
+    public static function addSortingLevel(&$query, $orderby, $mode = "desc") {
+        $query["order"] .= " , " . $orderby . " " . $mode;
+//        $query["order"] = $orderby . " ";
         return $query;
     }
 
