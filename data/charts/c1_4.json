@@ -9,7 +9,7 @@
         "attribute": "real_exe"
     },
     "yAxis": {
-        "title": "Number of Processes"
+        "title": "I/O Throughput"
     },
     "tooltip": {
         "valueSuffix": ""
