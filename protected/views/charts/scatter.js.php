@@ -3,16 +3,22 @@ $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
 
 $series1_str = "";
 $series2_str = "";
+$series3_str = "";
+$series4_str = "";
 $index = 1;
 foreach ($data as $d) {
 //    $series1_str .= '[' . $d[$chart["series"][0]["xaxis"]] . ',' . $d[$chart["series"][0]["series1"]] . '],';
 //    $series2_str .= '[' . $d[$chart["series"][0]["xaxis"]] . ',' . $d[$chart["series"][0]["series2"]] . '],';
     $series1_str .= '[' . $index . ',' . $d[$chart["series"][0]["series1"]] . '],';
     $series2_str .= '[' . $index . ',' . $d[$chart["series"][0]["series2"]] . '],';
+    $series3_str .= '[' . $index . ',' . $d[$chart["series"][0]["series3"]] . '],';
+    $series4_str .= '[' . $index . ',' . $d[$chart["series"][0]["series4"]] . '],';
     $index++;
 }
 $series1_str = rtrim($series1_str, ",");
 $series2_str = rtrim($series2_str, ",");
+$series3_str = rtrim($series3_str, ",");
+$series4_str = rtrim($series4_str, ",");
 ?>
 <script type="text/javascript">
     $(function() {
@@ -32,6 +38,7 @@ $series2_str = rtrim($series2_str, ",");
                     enabled: true,
                     text: '<?php echo $chart["xAxis"]["title"] ?>'
                 },
+                type: 'logarithmic',
                 startOnTick: true,
                 endOnTick: true,
                 showLastLabel: true,

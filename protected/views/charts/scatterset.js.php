@@ -1,14 +1,40 @@
 <?php
+
+// Create K array for K series for K apps: for now: K=15, K should be dynamically set
+$data_series = array();
+for ($i = 0; $i < 15; $i++){
+    $data_series[$i] = array();
+}
+
+// Get Data from MySQL and create data series for chart
 $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
+           // "series1": "total_bytes",
+           // "series2": "nprocs",
+           // "series3": "agg_perf_MB",
+           // "series4": "appname",
+           // "series5": "rank",
 
 $series1_str = "";
 $series2_str = "";
+$series_str = "";
+$xseries_str = "";
+$yseries_str = "";
+
 $index = 1;
 foreach ($data as $d) {
-//    $series1_str .= '[' . $d[$chart["series"][0]["xaxis"]] . ',' . $d[$chart["series"][0]["series1"]] . '],';
-//    $series2_str .= '[' . $d[$chart["series"][0]["xaxis"]] . ',' . $d[$chart["series"][0]["series2"]] . '],';
-    $series1_str .= '[' . $index . ',' . $d[$chart["series"][0]["series1"]] . '],';
-    $series2_str .= '[' . $index . ',' . $d[$chart["series"][0]["series2"]] . '],';
+    $id = $d[$chart["series"][0]["series5"]] ;
+    $xseries_str = $d[$chart["series"][0]["series1"]] ;
+    $yseries_str = $d[$chart["series"][0]["series2"]] ;
+    $series_str .= '['.$xseries_str.', '.$yseries_str.']' . ',';  //format "[x,y]," - Do we need the last ',' ??
+    $data_series[$id][] = $series_str;
+    
+    //$xseries_str = $d[$chart["series"][0]["series1"]] ;
+    //$yseries_str = $d[$chart["series"][0]["series2"]] ;
+    //$series_str .= '['.$xseries_str.', '.$yseries_str.']' . ',';  //format "[x,y]," - Do we need the last ',' ??
+    //$data_series[$id][] = $series_str;
+    
+    //$series1_str .= '[' . $index . ',' . $d[$chart["series"][0]["series1"]] . '],';
+    //$series2_str .= '[' . $index . ',' . $d[$chart["series"][0]["series2"]] . '],';
     $index++;
 }
 $series1_str = rtrim($series1_str, ",");
@@ -44,8 +70,8 @@ $series2_str = rtrim($series2_str, ",");
             $(selector).highcharts({
                 chart: {
                     type: 'scatter',
-                    width: 200,
-                    height: 200
+                    width: 400,
+                    height: 400
                 },
                 title: {
                     text: ''
