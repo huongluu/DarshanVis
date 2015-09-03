@@ -42,7 +42,7 @@ $series_str = rtrim($series_str, ",");
                 },
                 plotLines: [{
                         value: 0,
-                        width: 1,
+                        width: 5,
                         color: '#808080'
                     }],
                 min: 0
