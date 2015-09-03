@@ -62,12 +62,12 @@ class JobsController extends GxController {
 
     public function actionApplicationList() {
         $data = Jobs::model()->findAll(array(
-            'select' => 'real_exe',
+            'select' => 'appname',
             'distinct' => true,
         ));
         $just_apps = array();
         foreach ($data as $key => $value) {
-            $just_apps[] = $value["real_exe"];
+            $just_apps[] = $value["appname"];
         }
         echo CJavaScript::jsonEncode($just_apps);
         Yii::app()->end();

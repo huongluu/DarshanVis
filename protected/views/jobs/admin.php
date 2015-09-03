@@ -52,7 +52,7 @@ You may optionally enter a comparison operator (&lt;, &lt;=, &gt;, &gt;=, &lt;&g
 		'end_time',
 		'uid',
 		'projid',
-		'real_exe',
+		'appname',
 		'agg_perf_MB',
 		*/
 		array(

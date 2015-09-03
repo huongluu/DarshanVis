@@ -29,8 +29,8 @@
 	<?php echo GxHtml::encode($data->getAttributeLabel('projid')); ?>:
 	<?php echo GxHtml::encode($data->projid); ?>
 	<br />
-	<?php echo GxHtml::encode($data->getAttributeLabel('real_exe')); ?>:
-	<?php echo GxHtml::encode($data->real_exe); ?>
+	<?php echo GxHtml::encode($data->getAttributeLabel('appname')); ?>:
+	<?php echo GxHtml::encode($data->appname); ?>
 	<br />
 	<?php echo GxHtml::encode($data->getAttributeLabel('agg_perf_MB')); ?>:
 	<?php echo GxHtml::encode($data->agg_perf_MB); ?>

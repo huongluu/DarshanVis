@@ -6,7 +6,7 @@
     "subtitle": "Job size statistics that applications have ever achieved",
     "xAxis": {
         "title": "Application",
-        "attribute": "real_exe"
+        "attribute": "appname"
     },
     "yAxis": {
         "title": "Number of Processes"
@@ -18,7 +18,7 @@
         {
             "type": "boxplot",
             "name": "",
-            "query": "select real_exe, min(nprocs) as min_jobsize, avg(nprocs) as avg_jobsize, max(nprocs) as max_jobsize from jobs_all group by real_exe order by max_jobsize desc limit 50",
+            "query": "select appname, min(nprocs) as min_jobsize, avg(nprocs) as avg_jobsize, max(nprocs) as max_jobsize from jobs_info group by appname order by max_jobsize desc limit 50",
             "min": "min_jobsize",
             "q1": "min_jobsize",
             "median": "avg_jobsize",

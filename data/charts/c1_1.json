@@ -17,7 +17,7 @@
         {
             "type": "line",
             "name": "Mira",
-            "query": "select @jobid:=@jobid+1 as jobid, @total_iotime:=@total_iotime + t1.iotime as total_iotime, system_iotime, t4.system_jobcount, @jobid/system_jobcount as job_percent, 100*@total_iotime/system_iotime as job_sys_io_percent from (select iotime from jobs_all where iotime is not null order by iotime desc) t1, (select sum(iotime) as system_iotime from jobs_all) t2, (select @jobid:=0,@total_iotime:=0) t3, (select count(*) as system_jobcount from jobs_all where iotime is not null) t4;",
+            "query": "select @jobid:=@jobid+1 as jobid, @total_iotime:=@total_iotime + t1.iotime as total_iotime, system_iotime, t4.system_jobcount, @jobid/system_jobcount as job_percent, 100*@total_iotime/system_iotime as job_sys_io_percent from (select iotime from jobs_info where iotime is not null order by iotime desc) t1, (select sum(iotime) as system_iotime from jobs_info) t2, (select @jobid:=0,@total_iotime:=0) t3, (select count(*) as system_jobcount from jobs_info where iotime is not null) t4;",
             "attribute": "job_sys_io_percent"
         }
     ]

@@ -6,7 +6,7 @@
     "subtitle": "Average I/O throughput of the Platform big-time apps’ jobs, by job size.",
     "xAxis": {
         "title": "Application",
-        "attribute": "real_exe"
+        "attribute": "appname"
     },
     "yAxis": {
         "title": "I/O Throughput"
@@ -18,7 +18,7 @@
         {
             "type": "line",
             "name": "Mira",
-            "query": "select id, unique_iotime, (@csum := @csum + unique_iotime) as cumulative_iotime from jobs_all JOIN (select @csum := 0) r order by unique_iotime desc",
+            "query": "select id, unique_iotime, (@csum := @csum + unique_iotime) as cumulative_iotime from jobs_info JOIN (select @csum := 0) r order by unique_iotime desc",
             "attribute": "cumulative_iotime"
         }
     ]

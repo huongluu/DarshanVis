@@ -37,7 +37,7 @@ $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
             foreach ($data as $d) {
                 echo "<tr>";
                 echo "<td>" . $index . "</td>";
-                echo "<td>" . $d['real_exe'] . "</td>";
+                echo "<td>" . $d['appname'] . "</td>";
                 echo "<td>" . round($d['avg_jobsize']) . "</td>";
                 echo "<td>" . round($d['max_jobsize']) . "</td>";
                 echo "<td>" . round($d['avg_jobsize']) . "</td>";

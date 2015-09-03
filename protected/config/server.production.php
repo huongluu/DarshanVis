@@ -14,7 +14,7 @@ return array(
             
         ),*/
         'db' => array(
-            'connectionString' => 'mysql:host=palm.cs.illinois.edu;dbname=mira',
+            'connectionString' => 'mysql:host=palm.cs.illinois.edu;dbname=mira_final',
             'username' => 'root',
             'password' => 'Hello123',
         ),

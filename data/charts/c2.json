@@ -17,7 +17,7 @@
         {
             "type": "stacked",
             "name": "Mira",
-            "query": "select id, unique_iotime, (@csum := @csum + unique_iotime) as cumulative_iotime from jobs_all JOIN (select @csum := 0) r order by unique_iotime desc;",
+            "query": "select id, unique_iotime, (@csum := @csum + unique_iotime) as cumulative_iotime from jobs_info JOIN (select @csum := 0) r order by unique_iotime desc;",
             "attribute": "cumulative_iotime"
         }
     ]

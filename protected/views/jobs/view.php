@@ -28,7 +28,7 @@ $this->menu=array(
 'end_time',
 'uid',
 'projid',
-'real_exe',
+'appname',
 'agg_perf_MB',
 	),
 )); ?>

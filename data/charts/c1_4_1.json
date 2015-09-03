@@ -18,7 +18,7 @@
         {
             "type": "scatter",
             "name": "",
-            "query": "select avg(total_bytes) as avg_bytes, max(total_bytes) as max_bytes , uid from jobs_all group by uid order by avg_bytes desc ;",
+            "query": "select avg(total_bytes) as avg_bytes, max(total_bytes) as max_bytes , uid from jobs_info group by uid order by avg_bytes desc ;",
             "series1": "avg_bytes",
             "series2": "max_bytes",
             "series1-name": "Average I/O Throughput",
