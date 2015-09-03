@@ -1,4 +1,5 @@
 {
+    "_comment": "For Top K apps, should be able to choose chart type",
     "id": 9,
     "name": "top-k-app-chart",
     "type": "boxplot",
@@ -16,7 +17,7 @@
     },
     "series": [
         {
-            "type": "boxplot",
+            "type": "boxplot", 
             "name": "",
             "query": "select appname, min(agg_perf_MB) as min_jobsize, avg(agg_perf_MB) as avg_jobsize, max(agg_perf_MB) as max_jobsize, sum(total_bytes) as total_bytes, sum(runtime) as runtime, sum(iotime) as iotime from jobs_info group by appname order by max_jobsize desc limit 15;",
             "min": "min_jobsize",

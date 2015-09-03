@@ -28,8 +28,8 @@
             "series2-name": "Number of Procs",
             "series3-name": "I/O Throughput",
             "series4-name": "Application Name",
-            "series5-name": "Application Rank",
-            "xaxis": "uid"
+            "series5-name": "Application Rank"
+            
         }
     ]
     
