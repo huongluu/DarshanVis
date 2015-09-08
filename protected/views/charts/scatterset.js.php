@@ -44,9 +44,9 @@ foreach ($data as $d) {
     $index++;
 }
 
-echo "[".json_encode($ret1, JSON_NUMERIC_CHECK).",";
-echo json_encode($ret2, JSON_NUMERIC_CHECK)."]";
-
+echo json_encode($data_series, JSON_NUMERIC_CHECK);
+echo json_encode($color_series, JSON_NUMERIC_CHECK);
+echo json_encode($name_series, JSON_NUMERIC_CHECK);
 
 ?>
 <script type="text/javascript">
@@ -55,26 +55,41 @@ echo json_encode($ret2, JSON_NUMERIC_CHECK)."]";
                 "<div id = 'c11' class = 'col-md-4' > </div>" +
                 "<div id = 'c12' class = 'col-md-4' > </div>" +
                 "<div id = 'c13' class = 'col-md-4' > </div>" +
+                "<div id = 'c14' class = 'col-md-4' > </div>" +
                 "</div>" +
                 "<div class = 'row' >" +
                 "<div id = 'c21' class = 'col-md-4' > </div>" +
                 "<div id = 'c22' class = 'col-md-4' > </div>" +
                 "<div id = 'c23' class = 'col-md-4' > </div>" +
+                "<div id = 'c24' class = 'col-md-4' > </div>" +
                 "</div>" +
                 "<div class = 'row' >" +
                 "<div id = 'c31' class = 'col-md-4' > </div>" +
                 "<div id = 'c32' class = 'col-md-4' > </div>" +
                 "<div id = 'c33' class = 'col-md-4' > </div>" +
+                "<div id = 'c34' class = 'col-md-4' > </div>" +
+                "</div>" +
+                "<div class = 'row' >" +
+                "<div id = 'c41' class = 'col-md-4' > </div>" +
+                "<div id = 'c42' class = 'col-md-4' > </div>" +
+                "<div id = 'c43' class = 'col-md-4' > </div>" +               
                 "</div>");
         createChart("#c11");
         createChart("#c12");
         createChart("#c13");
+        createChart("#c14");
         createChart("#c21");
         createChart("#c22");
         createChart("#c23");
+        createChart("#c24");
         createChart("#c31");
         createChart("#c32");
         createChart("#c33");
+        createChart("#c34");
+        createChart("#c41");
+        createChart("#c42");
+        createChart("#c43");
+        
         function createChart(selector) {
             $(selector).highcharts({
                 chart: {
@@ -133,13 +148,17 @@ echo json_encode($ret2, JSON_NUMERIC_CHECK)."]";
                         }
                     }
                 },
-                series: [{
-                        name: '<?php echo $chart["series"][0]["series1-name"] ?>',
+                series: [{                       
+                        name: '<?php echo $name_series[1] ?>',
                         color: 'rgba(223, 83, 83, .5)',
-                        data: [<?php echo $series1_str ?>]
+                        data: [<?php echo $data_series[1] ?>]
 
                     }]
             });
         }
     });
 </script>
+
+ $data_series = array();
+$color_series = array();
+$name_series = array();
