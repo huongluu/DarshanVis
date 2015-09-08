@@ -37,9 +37,9 @@ if ($id == 12) {
                 <select name="sort-level1" id="sort-level1" class="form-control selectpicker">
                     <option disabled selected></option>
                     <option value="localio">Non-global Data I/O</option>
-                    <option value="localmeta" >Non-global Metadata</option>
+                    <option value="local_meta" >Non-global Metadata</option>
                     <option value="globalio" >Global Data I/O</option>
-                    <option value="globalmeta" >Global Metadata</option>
+                    <option value="global_meta" >Global Metadata</option>
                     <option value="notio" >Not I/O</option>
                     <option value="nprocs" ># of Processes</option>
                     <option value="total_bytes" >Total Bytes Read/Written</option>
@@ -83,9 +83,9 @@ if ($id == 12) {
                 <select name="sort-level2" id="sort-level2" class="form-control selectpicker">
                     <option disabled selected></option>
                     <option value="localio">Non-global Data I/O</option>
-                    <option value="localmeta" >Non-global Metadata</option>
+                    <option value="local_meta" >Non-global Metadata</option>
                     <option value="globalio" >Global Data I/O</option>
-                    <option value="globalmeta" >Global Metadata</option>
+                    <option value="global_meta" >Global Metadata</option>
                     <option value="notio" >Not I/O</option>
                     <option value="nprocs" ># of Processes</option>
                     <option value="total_bytes" >Total Bytes Read/Written</option>
@@ -128,9 +128,9 @@ if ($id == 12) {
                 <select name="sort-level3" id="sort-level3" class="form-control selectpicker">
                     <option disabled selected></option>
                     <option value="localio">Non-global Data I/O</option>
-                    <option value="localmeta" >Non-global Metadata</option>
+                    <option value="local_meta" >Non-global Metadata</option>
                     <option value="globalio" >Global Data I/O</option>
-                    <option value="globalmeta" >Global Metadata</option>
+                    <option value="global_meta" >Global Metadata</option>
                     <option value="notio" >Not I/O</option>
                     <option value="nprocs" ># of Processes</option>
                     <option value="total_bytes" >Total Bytes Read/Written</option>
