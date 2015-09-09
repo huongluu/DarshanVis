@@ -1,4 +1,5 @@
 <?php
+//$query = "select appname, sum(runtime)/3600 as total_runtime_h, sum(iotime)/3600 as total_iotime_h, sum(total_bytes)/(1024*1024*1024*1024) as total_bytes_TB, count(*) as numjobs, avg(iotime/runtime) as avg_io_percentage, avg(agg_perf_MB/1024) as avg_perf_GB from jobs_info where agg_perf_MB is not null group by appname order by total_iotime_h desc limit 15;";
 $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
 //print_r($data);
 //echo $series_str;
@@ -23,12 +24,13 @@ $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
         <thead>
             <tr>
                 <th data-field="state" data-checkbox="true"></th>
-                <th data-field="name" data-sortable="true">Name</th>
-                <th data-field="ave_jobsize" data-sortable="true">Ave Jobsize</th>
-                <th data-field="agg_perf" data-sortable="true">Agg Perf</th>
-                <th data-field="total_bytes" data-sortable="true">Total Bytes</th>
-                <th data-field="runtime" data-sortable="true">Runtime</th>
-                <th data-field="iotime" data-sortable="true">IOTime</th>
+                <th data-field="appname" data-sortable="true">Name</th>
+                <th data-field="total_runtime_h" data-sortable="true">Total Runtime (hours)</th>
+                <th data-field="total_iotime_h" data-sortable="true">Total I/O Time (hours)</th>
+                <th data-field="total_bytes_TB" data-sortable="true">Total Bytes (TB)</th>
+                <th data-field="numjobs" data-sortable="true">Number of jobs</th>
+                <th data-field="avg_io_percentage" data-sortable="true">Average I/O Percentage</th>
+                <th data-field="avg_perf_GB" data-sortable="true">Average I/O Throughput (GB/s)</th>
             </tr>
         </thead>
         <tbody>
@@ -38,11 +40,12 @@ $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
                 echo "<tr>";
                 echo "<td>" . $index . "</td>";
                 echo "<td>" . $d['appname'] . "</td>";
-                echo "<td>" . round($d['avg_jobsize']) . "</td>";
-                echo "<td>" . round($d['max_jobsize']) . "</td>";
-                echo "<td>" . round($d['avg_jobsize']) . "</td>";
-                echo "<td>" . round($d['max_jobsize']) . "</td>";
-                echo "<td>" . round($d['min_jobsize']) . "</td>";
+                echo "<td>" . round($d['total_runtime_h']) . "</td>";
+                echo "<td>" . round($d['total_iotime_h']) . "</td>";
+                echo "<td>" . round($d['total_bytes_TB']) . "</td>";
+                echo "<td>" . round($d['numjobs']) . "</td>";
+                echo "<td>" . round($d['avg_io_percentage']) . "</td>";
+                echo "<td>" . round($d['avg_perf_GB']) . "</td>";
                 echo "</tr>";
                 $index++;
             }

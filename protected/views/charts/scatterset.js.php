@@ -12,11 +12,6 @@ for ($i = 0; $i < 15; $i++){
 
 // Get Data from MySQL and create data series for chart
 $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
-           // "series1": "total_bytes",
-           // "series2": "nprocs",
-           // "series3": "agg_perf_MB",
-           // "series4": "appname",
-           // "series5": "rank",
 
 $xseries_str = "";
 $yseries_str = "";
@@ -34,19 +29,12 @@ foreach ($data as $d) {
     
     $name_series[$id] = $d[$chart["series"][0]["series1"]]; // name
     
-    //$xseries_str = $d[$chart["series"][0]["series1"]] ;
-    //$yseries_str = $d[$chart["series"][0]["series2"]] ;
-    //$series_str .= '['.$xseries_str.', '.$yseries_str.']' . ',';  //format "[x,y]," - Do we need the last ',' ??
-    //$data_series[$id][] = $series_str;
-    
-    //$series1_str .= '[' . $index . ',' . $d[$chart["series"][0]["series1"]] . '],';
-    //$series2_str .= '[' . $index . ',' . $d[$chart["series"][0]["series2"]] . '],';
     $index++;
 }
 
-echo json_encode($data_series, JSON_NUMERIC_CHECK);
-echo json_encode($color_series, JSON_NUMERIC_CHECK);
-echo json_encode($name_series, JSON_NUMERIC_CHECK);
+//echo json_encode($data_series, JSON_NUMERIC_CHECK);
+//echo json_encode($color_series, JSON_NUMERIC_CHECK);
+//echo json_encode($name_series, JSON_NUMERIC_CHECK);
 
 ?>
 <script type="text/javascript">
@@ -151,14 +139,82 @@ echo json_encode($name_series, JSON_NUMERIC_CHECK);
                 series: [{                       
                         name: '<?php echo $name_series[1] ?>',
                         color: 'rgba(223, 83, 83, .5)',
-                        data: [<?php echo $data_series[1] ?>]
+                        data: [<?php echo '['.json_encode($data_series[1], JSON_NUMERIC_CHECK).']' ?>]
 
-                    }]
+                    },{
+                        name: '<?php echo $name_series[2] ?>',
+                        color: 'rgba(223, 83, 83, .5)',
+                        data: [<?php echo '['.json_encode($data_series[2], JSON_NUMERIC_CHECK).']' ?>]
+
+                    },{
+                        name: '<?php echo $name_series[3] ?>',
+                        color: 'rgba(223, 83, 83, .5)',
+                        data: [<?php echo '['.json_encode($data_series[3], JSON_NUMERIC_CHECK).']' ?>]
+
+                    },{
+                        name: '<?php echo $name_series[4] ?>',
+                        color: 'rgba(223, 83, 83, .5)',
+                        data: [<?php echo '['.json_encode($data_series[4], JSON_NUMERIC_CHECK).']' ?>]
+
+                    },{
+                        name: '<?php echo $name_series[5] ?>',
+                        color: 'rgba(223, 83, 83, .5)',
+                        data: [<?php echo '['.json_encode($data_series[5], JSON_NUMERIC_CHECK).']' ?>]
+
+                    },{
+                        name: '<?php echo $name_series[6] ?>',
+                        color: 'rgba(223, 83, 83, .5)',
+                        data: [<?php echo '['.json_encode($data_series[6], JSON_NUMERIC_CHECK).']' ?>]
+
+                    },{
+                        name: '<?php echo $name_series[7] ?>',
+                        color: 'rgba(223, 83, 83, .5)',
+                        data: [<?php echo '['.json_encode($data_series[7], JSON_NUMERIC_CHECK).']' ?>]
+
+                    },{
+                        name: '<?php echo $name_series[8] ?>',
+                        color: 'rgba(223, 83, 83, .5)',
+                        data: [<?php echo '['.json_encode($data_series[8], JSON_NUMERIC_CHECK).']' ?>]
+
+                    },{
+                        name: '<?php echo $name_series[9] ?>',
+                        color: 'rgba(223, 83, 83, .5)',
+                        data: [<?php echo '['.json_encode($data_series[9], JSON_NUMERIC_CHECK).']' ?>]
+
+                    },{
+                        name: '<?php echo $name_series[10] ?>',
+                        color: 'rgba(223, 83, 83, .5)',
+                        data: [<?php echo '['.json_encode($data_series[10], JSON_NUMERIC_CHECK).']' ?>]
+
+                    },{
+                        name: '<?php echo $name_series[11] ?>',
+                        color: 'rgba(223, 83, 83, .5)',
+                        data: [<?php echo '['.json_encode($data_series[11], JSON_NUMERIC_CHECK).']' ?>]
+
+                    },{
+                        name: '<?php echo $name_series[12] ?>',
+                        color: 'rgba(223, 83, 83, .5)',
+                        data: [<?php echo '['.json_encode($data_series[12], JSON_NUMERIC_CHECK).']' ?>]
+
+                    },{
+                        name: '<?php echo $name_series[13] ?>',
+                        color: 'rgba(223, 83, 83, .5)',
+                        data: [<?php echo '['.json_encode($data_series[13], JSON_NUMERIC_CHECK).']' ?>]
+
+                    },{
+                        name: '<?php echo $name_series[14] ?>',
+                        color: 'rgba(223, 83, 83, .5)',
+                        data: [<?php echo '['.json_encode($data_series[14], JSON_NUMERIC_CHECK).']' ?>]
+
+                    },{
+                        name: '<?php echo $name_series[15] ?>',
+                        color: 'rgba(223, 83, 83, .5)',
+                        data: [<?php echo '['.json_encode($data_series[15], JSON_NUMERIC_CHECK).']' ?>]
+
+                    }                       
+                ]
             });
         }
     });
 </script>
 
- $data_series = array();
-$color_series = array();
-$name_series = array();
