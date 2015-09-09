@@ -1,5 +1,4 @@
 <?php
-//$query = "select appname, sum(runtime)/3600 as total_runtime_h, sum(iotime)/3600 as total_iotime_h, sum(total_bytes)/(1024*1024*1024*1024) as total_bytes_TB, count(*) as numjobs, avg(iotime/runtime) as avg_io_percentage, avg(agg_perf_MB/1024) as avg_perf_GB from jobs_info where agg_perf_MB is not null group by appname order by total_iotime_h desc limit 15;";
 $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
 //print_r($data);
 //echo $series_str;

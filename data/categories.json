@@ -5,11 +5,15 @@
         "charts": [
             {
                 "id": 9,
-                "title": "Apps with Highest I/O Time"
+                "title": "Top Apps with Highest I/O Time"
+            },
+            {
+                "id": 4,
+                "title": "Top Apps with Highest Run Time"
             },
             {
                 "id": 10,
-                "title": "Apps with Highest Total Bytes Accessed"
+                "title": "Top Apps with Highest Amount of Data Accessed"
             },
             {
                 "id": 13,
