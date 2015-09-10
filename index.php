@@ -25,6 +25,8 @@ if (isset($_SERVER['WINDIR'])) { // OS is windows
     $environment = 'production';
 }
 
+// SET environment to production, don't use development 
+$environment = 'production';
 // Include config files
 $configMain = require_once( dirname(__FILE__) . '/protected/config/main.php' );
 $configServer = require_once( dirname(__FILE__) . '/protected/config/server.'
