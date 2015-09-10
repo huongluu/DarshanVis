@@ -1,5 +1,6 @@
 {
-    "id": 12,
+    "_comment": "Change to new database, don't have ID column anymore, unique_iotime become local_iotime, etc... ",
+    "id": 12, 
     "name": "io-type",
     "type": "bar.scatter",
     "highchart-confs": {
@@ -108,17 +109,17 @@
             "type": "stacked",
             "name": "series1",
             "query": {
-                "select": "id, start_time, nprocs, total_bytes, (unique_iotime - unique_meta) as localio,unique_meta as localmeta, (shared_time_by_cumul_io_only - shared_time_by_cumul_meta_only) as globalio, (iotime - unique_iotime) as globalmeta, (runtime - iotime) as notio",
+                "select": "start_time, nprocs, total_bytes, local_iotime - local_meta as localio, local_meta, global_iotime - global_meta as globalio, global_meta, (runtime - iotime) as notio",
                 "from": "jobs_info"
             },
             "title1": "Non-global Data I/O",
             "attr1": "localio",
             "title2": "Non-global Metadata",
-            "attr2": "localmeta",
+            "attr2": "local_meta",
             "title3": "Global Data I/O",
             "attr3": "globalio",
             "title4": "Global Metadata",
-            "attr4": "globalmeta",
+            "attr4": "global_meta",
             "title5": "Not I/O",
             "attr5": "notio",
             "title6": "Number of Processes",

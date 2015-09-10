@@ -1,6 +1,4 @@
 <?php
-//$date_data = Jobs::execSQLQuery("select min(start_time), max(start_time) from jobs_info;");
-
 $app_placeholder = "Application Name";
 if (isset($_POST["application"]) && strlen($_POST["application"]) > 0) {
     $app_placeholder = $_POST["application"];

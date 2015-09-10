@@ -14,8 +14,6 @@ foreach ($data as $d) {
     $index++;
 }
 //$cat_str = rtrim($cat_str, ",");
-//$xseries_str = rtrim($xseries_str, ",");
-//$yseries_str = rtrim($yseries_str, ",");
 $series_str = rtrim($series_str, ",");
 ?>
 
