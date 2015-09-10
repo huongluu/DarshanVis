@@ -14,9 +14,9 @@ return array(
             
         ),*/
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=darshanvis_db',
+            'connectionString' => 'mysql:host=palm.cs.illinois.edu;dbname=mira_final',
             'username' => 'root',
-            'password' => 'root',
+            'password' => 'Hello123',
         ),
     ),
 );

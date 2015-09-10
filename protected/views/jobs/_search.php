@@ -51,8 +51,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model, 'real_exe'); ?>
-		<?php echo $form->textField($model, 'real_exe', array('maxlength' => 50)); ?>
+		<?php echo $form->label($model, 'appname'); ?>
+		<?php echo $form->textField($model, 'appname', array('maxlength' => 50)); ?>
 	</div>
 
 	<div class="row">

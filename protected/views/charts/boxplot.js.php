@@ -11,6 +11,8 @@ foreach ($data as $d) {
 $cats_str = rtrim($cats_str, ",");
 $series_str = rtrim($series_str, ",");
 //echo $series_str;
+
+
 ?>
 <script type="text/javascript">
     $(function() {

@@ -8,6 +8,11 @@ $user_placeholder = "UserID";
 if (isset($_POST["user"]) && strlen($_POST["user"]) > 0) {
     $user_placeholder = $_POST["user"];
 }
+
+$numapp_placeholder = "Number of Applications";
+if (isset($_POST["numapp"]) && strlen($_POST["numapp"]) > 0) {
+    $numapp_placeholder = $_POST["numapp"];
+}
 ?>
 <script type="text/javascript">
     $(function() {
@@ -79,6 +84,15 @@ if (isset($_POST["user"]) && strlen($_POST["user"]) > 0) {
 
 <form role="form" method="post">
     <div class="row">
+        <div class="form-group col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
+                </span>
+                <input type="text" name="numapp" class="form-control" id="numapp-typeahead" data-provide="typeahead" placeholder="<?php echo $numapp_placeholder; ?>" autocomplete="off">
+            </div>
+        </div>
+        
         <div class="form-group col-md-2">
             <div class="input-group">
                 <span class="input-group-addon">

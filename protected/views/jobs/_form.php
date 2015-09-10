@@ -59,9 +59,9 @@
 		<?php echo $form->error($model,'projid'); ?>
 		</div><!-- row -->
 		<div class="row">
-		<?php echo $form->labelEx($model,'real_exe'); ?>
-		<?php echo $form->textField($model, 'real_exe', array('maxlength' => 50)); ?>
-		<?php echo $form->error($model,'real_exe'); ?>
+		<?php echo $form->labelEx($model,'appname'); ?>
+		<?php echo $form->textField($model, 'appname', array('maxlength' => 50)); ?>
+		<?php echo $form->error($model,'appname'); ?>
 		</div><!-- row -->
 		<div class="row">
 		<?php echo $form->labelEx($model,'agg_perf_MB'); ?>

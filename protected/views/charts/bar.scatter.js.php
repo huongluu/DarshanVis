@@ -40,7 +40,7 @@ if (isset($_POST["sort-level3"])) {
 }
 
 if (isset($_POST["application"]) && strlen($_POST["application"]) > 0) {
-    $q = Jobs::filter($q, "real_exe", $_POST["application"]);
+    $q = Jobs::filter($q, "appname", $_POST["application"]);
 }
 if (isset($_POST["user"]) && strlen($_POST["user"]) > 0) {
     $q = Jobs::filter($q, "uid", $_POST["user"]);

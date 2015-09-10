@@ -17,9 +17,9 @@ return array(
            
         ),*/
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=hpcviz_db',
+            'connectionString' => 'mysql:host=172.22.165.28;dbname=mira_final',
             'username' => 'root',
-            'password' => '',
+            'password' => 'Hello123',
         // Enable profiling
         // 'enableProfiling' => true,
         // 'enableParamLogging' => true,

@@ -6,6 +6,8 @@ $chart = getChartInfo($id);
 
 if ($chart["type"] == "line") {
     include_once dirname(__FILE__) . '/../charts/line.js.php';
+} else if ($chart["type"] == "percentage_line") {
+    include_once dirname(__FILE__) . '/../charts/percentage_line.js.php';
 } else if ($chart["type"] == "heatmap") {
     include_once dirname(__FILE__) . '/../charts/heatmap.js.php';
 } else if ($chart["type"] == "boxplot") {
