@@ -9,7 +9,9 @@ Requirement
  - IDE: suggestion: NetBeans
  
 Installation
- - Clone the project on the htdocs directory (in your xampp/mamp installation):  git clone https://github.com/Aleyasen/DarshanVis.git
+ - Clone the project on the htdocs directory (in your xampp/mamp installation): For example, if you install MAMP to /Applications you will clone the project in: /Applications/MAMP/htdocs/
+ 
+ git clone https://github.com/Aleyasen/DarshanVis.git
  - Move htdocs/DarshanVis/yii.zip to htdocs/yii.zip.  Unzip yii.zip
  - Check http://localhost/yii/requirements/ in your browser to check that your PHP version has all requirements for Yii framework.
  - Edit DarshanVis/protected/config/server.production.php: 
