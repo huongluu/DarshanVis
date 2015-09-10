@@ -19,7 +19,7 @@ if (isset($_POST["mode-level1"])) {
 //$orderby .= ", globalio";
 
 $q = Jobs::OrderBy($q, $orderby, $mode1);
-$q = Jobs::Limit($q, 2000);
+$q = Jobs::Limit($q, 5000);
 
 if (isset($_POST["sort-level2"])) {
     $sortlevel2 = $_POST["sort-level2"];
