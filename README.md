@@ -29,7 +29,7 @@ return array(
 	'components' => array(
 		'db' => array(
 			'connectionString' => 'mysql:host=palm.cs.illinois.edu;dbname=mira_final',
-			'username' => 'intern',
+			'username' => 'huongluu',
 			'password' => '******',  (we will send it to you)
 		),
 	),
