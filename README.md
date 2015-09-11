@@ -12,7 +12,7 @@ Instead of using: http://localhost/DarshanVis/index.php/jobs/index?c=9
 
 Your link should be: http://localhost:8080/DarshanVis/index.php/jobs/index?c=9
 
- - IDE: suggestion: NetBeans
+ - IDE: Anything to help you code. Our suggestion: NetBeans
  
 Installation
  - Clone the project on the htdocs directory (in your xampp/mamp installation): For example, if you install MAMP to /Applications you will clone the project in: /Applications/MAMP/htdocs/
