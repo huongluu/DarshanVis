@@ -6,7 +6,11 @@ Requirement
    
 For Windows, you can install XAMPP (https://www.apachefriends.org/index.html) that includes all the above, for OS X install MAMP (https://www.mamp.info/en/). 
 
-Once you install MAMP/XAMPP, open it --> Preferences --> Ports --> Set Web & MySQL ports to 80 & 3306
+Once you install MAMP/XAMPP, open it --> Preferences --> Ports --> Set Web & MySQL ports to 80 & 3306. If you use another port for Web (Apache Port & Nginx Port) then remember to put them in your link on localhost. For example: you set Apache Port & Nginx Port to 8080 then 
+
+Instead of using: http://localhost/DarshanVis/index.php/jobs/index?c=9
+
+Your link should be: http://localhost:8080/DarshanVis/index.php/jobs/index?c=9
 
  - IDE: suggestion: NetBeans
  
