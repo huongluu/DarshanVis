@@ -21,7 +21,10 @@ Installation
 
  - Move htdocs/DarshanVis/yii.zip to htdocs/yii.zip.  Unzip yii.zip
  - Check http://localhost/yii/requirements/ in your browser to check that your PHP version has all requirements for Yii framework.
- - Edit DarshanVis/protected/config/server.production.php: 
+
+Access data remotely
+
+- Edit DarshanVis/protected/config/server.production.php: 
  
 ```php
 return array(
@@ -38,4 +41,21 @@ return array(
  
  Note: you will need to be inside UIUC network to connect to this database
 
+Access data locally: I will send you a dump file that you can import to your local MySQL server. 
+First, create a new database (for example called  darshanvis_db). Then import the dump file to this new database.
+
+- Edit DarshanVis/protected/config/server.production.php: 
+ 
+```php
+return array(
+	// application components
+	'components' => array(
+		'db' => array(
+			'connectionString' => 'mysql:host=127.0.0.1;dbname=darshanvis_db',
+			'username' => 'your MySQL username ',
+			'password' => 'your MySQL password',  
+		),
+	),
+);
+```
  - Visit http://localhost/DarshanVis/index.php/jobs/index?c=9
