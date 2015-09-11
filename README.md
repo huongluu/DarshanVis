@@ -19,7 +19,7 @@ Installation
  - Check http://localhost/yii/requirements/ in your browser to check that your PHP version has all requirements for Yii framework.
  - Edit DarshanVis/protected/config/server.production.php: 
  
-
+```php
         return array(
         	// application components
         	'components' => array(
@@ -30,7 +30,7 @@ Installation
         		),
         	),
         );
-
+```
  
  Note: you will need to be inside UIUC network to connect to this database
 
