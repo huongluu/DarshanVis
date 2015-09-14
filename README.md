@@ -52,7 +52,7 @@ return array(
 	'components' => array(
 		'db' => array(
 			'connectionString' => 'mysql:host=127.0.0.1;dbname=darshanvis_db',
-			'username' => 'your MySQL username ',
+			'username' => 'your MySQL username',
 			'password' => 'your MySQL password',  
 		),
 	),
