@@ -33,11 +33,24 @@
                                 if ($id == $chart["id"]) {
                                     $color = "#F0F0F0";
                                 }
-                                ?>
-                                <li style="background-color:<?php echo $color; ?>">
-                                    <a  href="index?c=<?php echo $chart["id"] ?>"><?php echo $chart["title"] ?></a>
-                                </li>
-                                <?php
+                                if (isset($chart["subcats"])) {
+                                    echo "<div style='margin-left:5px;'>" . $chart["title"] . "</div>";
+                                    echo "<div>";
+                                    foreach ($chart["subcats"] as $subchart) {
+                                        ?>
+                                        <li style="margin-left: 25px; background-color:<?php echo $color; ?>">
+                                            <a  href="index?c=<?php echo $subchart["id"] ?>"><?php echo $subchart["title"] ?></a>
+                                        </li>
+                                        <?php
+                                    }
+                                    echo "</div>";
+                                } else {
+                                    ?>
+                                    <li style="background-color:<?php echo $color; ?>">
+                                        <a  href="index?c=<?php echo $chart["id"] ?>"><?php echo $chart["title"] ?></a>
+                                    </li>
+                                    <?php
+                                }
                             }
                             ?>
                         </div>

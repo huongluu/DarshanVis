@@ -17,8 +17,8 @@ if (isset($_POST["numapp"]) && strlen($_POST["numapp"]) > 0) {
 }
 ?>
 <script type="text/javascript">
-    $(function() {
-      
+    $(function () {
+
         $('#reportrange span').html(moment().subtract(29, 'days').format('MMM DD \'YY') + ' - ' + moment().format('MMM DD \'YY'));
 
         $('#reportrange').daterangepicker({
@@ -60,21 +60,21 @@ if (isset($_POST["numapp"]) && strlen($_POST["numapp"]) > 0) {
                 firstDay: 1
             }
         },
-        function(start, end, label) {
+        function (start, end, label) {
             console.log(start.toISOString(), end.toISOString(), label);
             $('#reportrange span').html(start.format('MMM DD \'YY') + ' - ' + end.format('MMM DD \'YY'));
         });
 
 
 
-        $.get('UserList', function(data) {
+        $.get('UserList', function (data) {
             $("#user-typeahead").typeahead({
                 source: data
             });
 //            console.log(data);
         }, 'json');
 
-        $.get('ApplicationList', function(data) {
+        $.get('ApplicationList', function (data) {
             $("#application-typeahead").typeahead({
                 source: data
             });
@@ -92,25 +92,6 @@ if (isset($_POST["numapp"]) && strlen($_POST["numapp"]) > 0) {
                     <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
                 </span>
                 <input type="text" name="numapp" class="form-control" id="numapp-typeahead" data-provide="typeahead" placeholder="<?php echo $numapp_placeholder; ?>" autocomplete="off">
-            </div>
-        </div>
-        
-        <div class="form-group col-md-2">
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
-                </span>
-                <input type="text" name="user" class="form-control" id="user-typeahead" data-provide="typeahead" placeholder="<?php echo $user_placeholder; ?>" autocomplete="off">
-            </div>
-        </div>
-
-        <div class="form-group col-md-3">
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-font" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
-                </span>
-                <input type="text" name="application" class="form-control" id="application-typeahead" data-provide="typeahead" placeholder="<?php echo $app_placeholder; ?>" autocomplete="off">
-                <!--<input type="text" class="form-control" placeholder="Application" aria-describedby="basic-addon1">-->
             </div>
         </div>
 

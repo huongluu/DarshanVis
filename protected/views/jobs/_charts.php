@@ -1,5 +1,5 @@
 <?php
-include '_filters.php';
+include 'components/_filters.php';
 ?>
 <?php
 //$data = Jobs::execSQLQuery("select appname, min(nprocs) as min_jobsize, avg(nprocs) as avg_jobsize, max(nprocs) as max_jobsize from jobs_info group by appname limit 0,20");

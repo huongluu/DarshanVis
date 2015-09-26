@@ -3,6 +3,7 @@
     "id": 12, 
     "name": "io-type",
     "type": "bar.scatter",
+    "template": "/../charts/bar.scatter.js.php",
     "highchart-confs": {
         "chart": {
             "zoomType": "xy",
