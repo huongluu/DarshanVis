@@ -1,9 +1,10 @@
 {
     "_comment": "Change to new database, don't have ID column anymore, unique_iotime become local_iotime, etc... ",
-    "id": 12, 
+    "id": 12,
     "name": "io-type",
     "type": "bar.scatter",
-    "template": "/../charts/bar.scatter.js.php",
+    "template": "charts/bar.scatter.js.php",
+    "filter": "components/_filters.php",
     "highchart-confs": {
         "chart": {
             "zoomType": "xy",

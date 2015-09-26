@@ -1,18 +1,7 @@
 <?php
-include 'components/_filters.php';
+include '_filter_template.php';
+//include '/../components/_filters.php';
 ?>
-<?php
-//$data = Jobs::execSQLQuery("select appname, min(nprocs) as min_jobsize, avg(nprocs) as avg_jobsize, max(nprocs) as max_jobsize from jobs_info group by appname limit 0,20");
-//print_r($data);
-//$s = array_column($data, "appname");
-//implode(",", ))
-?>
-
-<pre id="csv" style="display: none">Total Bytes,I/O Throughput,Jobs Count
-    <?php
-    include '_chart_data.php';
-    ?>
-</pre>
 
 <?php
 include '_chart_template.php';
@@ -33,5 +22,5 @@ include '_chart_template.php';
 </div>
 
 <?php
-include '_chart_table.php';
+include '_table_template.php';
 ?>

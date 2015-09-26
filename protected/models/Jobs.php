@@ -19,6 +19,9 @@ class Jobs extends BaseJobs {
             if ((isset($query["where"])) && strlen($query["where"]) != 0) {
                 $query_str .= " where " . $query["where"] . " ";
             }
+            if ((isset($query["group"])) && strlen($query["group"]) != 0) {
+                $query_str .= " group by " . $query["group"] . " ";
+            }
             if ((isset($query["order"])) && strlen($query["order"]) != 0) {
                 $query_str .= " order by " . $query["order"] . " ";
             }

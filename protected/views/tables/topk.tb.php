@@ -54,8 +54,8 @@ $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
 </div>
 <script>
     var $table = $('#table');
-    $(function() {
-        $('#toolbar').find('select').change(function() {
+    $(function () {
+        $('#toolbar').find('select').change(function () {
             $table.bootstrapTable('refreshOptions', {
                 exportDataType: $(this).val()
             });
