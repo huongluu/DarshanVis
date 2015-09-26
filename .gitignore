@@ -1,2 +1,4 @@
 /nbproject/private/
 /protected/runtime/
+/protected/config/server.production.php
+/protected/config/server.development.php
