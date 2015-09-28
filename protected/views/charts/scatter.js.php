@@ -38,7 +38,7 @@ $series2_str = rtrim($series2_str, ",");
                     enabled: true,
                     text: '<?php echo $chart["xAxis"]["title"] ?>'
                 },
-                type: 'logarithmic',
+                type: 'linear',
                 startOnTick: true,
                 endOnTick: true,
                 showLastLabel: true,

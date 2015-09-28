@@ -50,6 +50,10 @@
             {
                 "id": 12,
                 "title": "Time Breakdown"
+            },
+            {
+                "id":14,
+                "title":"Application Scatter Plot"
             }
         ]
     }

@@ -1,0 +1,32 @@
+{
+    "id": 14,
+    "name": "scatter-chart",
+    "type": "scatter",
+    "template": "charts/scatter.js.php",
+    "title": "Application Scatter Plot",
+    "subtitle": "",
+    "xAxis": {
+        "title": "Jobs",
+        "attribute": "total_bytes",
+        "type":"linear"
+    },
+    "yAxis": {
+        "title": "Throughput",
+        "type":"linear"
+    },
+    "tooltip": {
+        "valueSuffix": ""
+    },
+    "series": [
+        {
+            "type": "scatter",
+            "name": "",
+            "query":"select uid, appname, start_time, total_bytes, nprocs, agg_perf_MB from jobs_info where nprocs>0;",
+            "series1": "total_bytes",
+            "series2": "nprocs",
+            "series1-name": "Average I/O Throughput",
+            "series2-name": "Maximum I/O Throughput",
+            "xaxis": "uid"
+        }
+    ]
+}
