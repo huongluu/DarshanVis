@@ -2,6 +2,7 @@
     "id": 3,
     "name": "heatmap2-chart",
     "type": "heatmap",
+    "template": "charts/heatmap.js.php",
     "title": "My Heatmap",
     "subtitle": "",
     "xAxis": {

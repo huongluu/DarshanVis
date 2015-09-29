@@ -2,6 +2,7 @@
     "id": 13,
     "name": "scatter-set-chart",
     "type": "scatterset",
+    "template": "charts/scatterset.js.php",
     "title": "Scatter Set",
     "subtitle": "",
     "xAxis": {

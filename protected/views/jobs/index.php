@@ -12,16 +12,3 @@
         </div>  
     </div>
 </div>
-
-<?php
-
-$this->breadcrumbs = array(
-	Jobs::label(2),
-	Yii::t('app', 'Index'),
-);
-
-$this->menu = array(
-	array('label'=>Yii::t('app', 'Create') . ' ' . Jobs::label(), 'url' => array('create')),
-	array('label'=>Yii::t('app', 'Manage') . ' ' . Jobs::label(2), 'url' => array('admin')),
-);
-?>

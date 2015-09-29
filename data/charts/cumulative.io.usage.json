@@ -2,6 +2,7 @@
     "id": 2,
     "name": "Sample-chart",
     "type": "percentage_line",
+    "template": "charts/percentage_line.js.php",
     "title": "Consumption of system I/O time",
     "subtitle": "Cumulative percentage of platform I/O time consumed by jobs.",
     "xAxis": {
