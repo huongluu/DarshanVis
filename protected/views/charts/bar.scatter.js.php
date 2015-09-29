@@ -148,7 +148,8 @@ if (sizeof($data) > 0) {
             series: [{
                     name: '<?php echo $chart["series"][0]["title1"] ?>',
                     type: 'column',
-                    color: '#5C9430',
+                    color: '#4a7626',
+                //    color: '#5C9430',
                     stacking: 'percent',
 //                    yAxis: 1,
                     data: [<?php echo nullSafe($series_str[$chart["series"][0]["attr1"]]); ?>]
@@ -156,7 +157,7 @@ if (sizeof($data) > 0) {
                 {
                     name: '<?php echo $chart["series"][0]["title2"] ?>',
                     type: 'column',
-                    color: '#C73308',
+                    color: '#b42e07',
                     stacking: 'percent',
 //                    yAxis: 1,
                     data: [<?php echo nullSafe($series_str[$chart["series"][0]["attr2"]]); ?>]
@@ -175,7 +176,7 @@ if (sizeof($data) > 0) {
                 {
                     name: '<?php echo $chart["series"][0]["title4"] ?>',
                     type: 'column',
-                    color: '#F25B47',
+                    color: '#f68c7e',
                     stacking: 'percent',
 //                    yAxis: 1,
                     data: [<?php echo nullSafe($series_str[$chart["series"][0]["attr4"]]); ?>]
