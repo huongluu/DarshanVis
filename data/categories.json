@@ -54,8 +54,11 @@
             {
                 "id":14,
                 "title":"Application Scatter Plot"
+            },
+            {
+                "id":99,
+                "title":"Test Page by Kaidong Peng"
             }
         ]
     }
-
 ]

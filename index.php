@@ -45,4 +45,5 @@ ini_set('memory_limit', '-1');
 $config = CMap::mergeArray($configMain, $configServer);
 date_default_timezone_set('America/Chicago');
 session_start();
+//var_dump($config);
 Yii::createWebApplication($config)->run();

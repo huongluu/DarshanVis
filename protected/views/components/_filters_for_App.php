@@ -1,10 +1,9 @@
 <?php
 //$date_data = Jobs::execSQLQuery("select min(start_time), max(start_time) from jobs_info;");
-$display_en=false;
+
 $app_placeholder = "Application Name";
 if (isset($_POST["application"]) && strlen($_POST["application"]) > 0) {
     $app_placeholder = $_POST["application"];
-    $display_en=true;
 }
 
 $user_placeholder = "UserID";
@@ -12,10 +11,6 @@ if (isset($_POST["user"]) && strlen($_POST["user"]) > 0) {
     $user_placeholder = $_POST["user"];
 }
 
-$numapp_placeholder = "Number of Applications";
-if (isset($_POST["numapp"]) && strlen($_POST["numapp"]) > 0) {
-    $numapp_placeholder = $_POST["numapp"];
-}
 ?>
 <script type="text/javascript">
     $(function() {
@@ -87,12 +82,13 @@ if (isset($_POST["numapp"]) && strlen($_POST["numapp"]) > 0) {
 
 <form role="form" method="post">
     <div class="row">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3">
             <div class="input-group">
                 <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
+                    <i class="glyphicon glyphicon-font" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
                 </span>
-                <input type="text" name="numapp" class="form-control" id="numapp-typeahead" data-provide="typeahead" placeholder="<?php echo $numapp_placeholder; ?>" autocomplete="off">
+                <input type="text" name="application" class="form-control" id="application-typeahead" data-provide="typeahead" placeholder="<?php echo $app_placeholder; ?>" autocomplete="off">
+                <!--<input type="text" class="form-control" placeholder="Application" aria-describedby="basic-addon1">-->
             </div>
         </div>
         
@@ -102,16 +98,6 @@ if (isset($_POST["numapp"]) && strlen($_POST["numapp"]) > 0) {
                     <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
                 </span>
                 <input type="text" name="user" class="form-control" id="user-typeahead" data-provide="typeahead" placeholder="<?php echo $user_placeholder; ?>" autocomplete="off">
-            </div>
-        </div>
-
-        <div class="form-group col-md-3">
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-font" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
-                </span>
-                <input type="text" name="application" class="form-control" id="application-typeahead" data-provide="typeahead" placeholder="<?php echo $app_placeholder; ?>" autocomplete="off">
-                <!--<input type="text" class="form-control" placeholder="Application" aria-describedby="basic-addon1">-->
             </div>
         </div>
 

@@ -4,7 +4,7 @@
     "name": "io-type",
     "type": "bar.scatter",
     "template": "charts/bar.scatter.js.php",
-    "filter": "components/_filters.php",
+    "filter": "components/_filters_for_App.php",
     "highchart-confs": {
         "chart": {
             "zoomType": "xy",
@@ -42,13 +42,13 @@
             {
                 "min": 0,
                 "labels": {
-                    "format": "{value}%",
+                    "format": "{value}",
                     "style": {
                         "font-size": "14px"
                     }
                 },
                 "title": {
-                    "text": "Total Time (%)",
+                    "text": "Distribution of I/O time (s)",
                     "style": {
                         "font-size": "15px"
                     }
@@ -111,7 +111,7 @@
             "type": "stacked",
             "name": "series1",
             "query": {
-                "select": "start_time, nprocs, total_bytes, local_iotime - local_meta as localio, local_meta, global_iotime - global_meta as globalio, global_meta, (runtime - iotime) as notio",
+                "select": "(local_iotime - local_meta) as localio, local_meta, (global_iotime - global_meta) as globalio, global_meta , (runtime - local_iotime - global_iotime ) as notio, start_time, nprocs, total_bytes, agg_perf_MB, unique_count, allshared_count, partshared_count",
                 "from": "jobs_info"
             },
             "title1": "Non-global Data I/O",

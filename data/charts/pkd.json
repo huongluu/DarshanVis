@@ -1,0 +1,26 @@
+{
+    "id": 99,
+    "name": "Sample-chart",
+    "type": "line",
+    "title": "Throughputs of jobs",
+    "subtitle": "Simple test charts.",
+    "xAxis": {
+        "title": " Jobs"
+    },
+    "yAxis": {
+        "title": "Throughputs"
+    },
+    "tooltip": {
+        "valueSuffix": "MB/s"
+    },
+    "series": [
+        {
+            "type": "line",
+            "name": "agg_perf_MB",
+            "query": "select agg_perf_MB from jobs_info where agg_perf_MB is not null order by agg_perf_MB limit 2000 ",
+            "xattribute": "appname",
+            "yattribute": "agg_perf_MB",
+            "attribute": "agg_perf_MB"
+        }
+    ]
+}

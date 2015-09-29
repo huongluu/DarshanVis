@@ -2,6 +2,11 @@
 include_once 'utils2.php';
 $q = $chart["series"][0]["query"];
 
+if (isset($_POST["application"]) && strlen($_POST["application"]) > 0) {
+    $q = Jobs::filter($q, "appname", $_POST["application"]);
+}
+
+
 $orderby = "start_time";
 if (isset($_POST["sort-level1"])) {
     $orderby = $_POST["sort-level1"];
@@ -39,29 +44,31 @@ if (isset($_POST["sort-level3"])) {
     $q = Jobs::addSortingLevel($q, $sortlevel3, $mode3);
 }
 
-if (isset($_POST["application"]) && strlen($_POST["application"]) > 0) {
-    $q = Jobs::filter($q, "appname", $_POST["application"]);
-}
+
 if (isset($_POST["user"]) && strlen($_POST["user"]) > 0) {
     $q = Jobs::filter($q, "uid", $_POST["user"]);
 }
+//var_dump($q) ;
 $data = Jobs::execSQLQuery($q);
 //print_r($data);
 //$cats_str = "";
-
+//var_dump($data);
 $series_str = array();
 if (sizeof($data) > 0) {
     $attr_count = 7;
     foreach ($data as $d) {
         for ($i = 1; $i <= $attr_count; $i++) {
+           // var_dump($chart["series"][0]["attr" . $i]);
             if (!isset($series_str[$chart["series"][0]["attr" . $i]])) {
                 $series_str[$chart["series"][0]["attr" . $i]] = "";
             }
             $num = $d[$chart["series"][0]["attr" . $i]];
+            //var_dump($num);
             if (strpos($num, ".") == true) {
                 $num = round($num, 1);
             }
             $series_str[$chart["series"][0]["attr" . $i]] .= ($num) . ',';
+            
         }
 //    $cats_str .= '\'' . $d[$chart["xAxis"]["attribute"]] . '\'' . ',';
 //    $series_str .= '[' . $d[$chart["series"][0]["min"]] . ',' . ($d[$chart["series"][0]["q1"]] * 2) . ',' . $d[$chart["series"][0]["median"]] . ',' . ($d[$chart["series"][0]["q3"]] * 0.5) . ',' . $d[$chart["series"][0]["max"]] . '],';
@@ -72,7 +79,7 @@ if (sizeof($data) > 0) {
         $series_str[$chart["series"][0]["attr" . $i]] = rtrim($series_str[$chart["series"][0]["attr" . $i]], ",");
     }
 }
-//echo $series_str;
+//var_dump($series_str);
 ?>
 <script type="text/javascript">
 
@@ -149,7 +156,7 @@ if (sizeof($data) > 0) {
                     name: '<?php echo $chart["series"][0]["title1"] ?>',
                     type: 'column',
                     color: '#5C9430',
-                    stacking: 'percent',
+                    stacking: 'normal',
 //                    yAxis: 1,
                     data: [<?php echo nullSafe($series_str[$chart["series"][0]["attr1"]]); ?>]
                 },
@@ -157,7 +164,7 @@ if (sizeof($data) > 0) {
                     name: '<?php echo $chart["series"][0]["title2"] ?>',
                     type: 'column',
                     color: '#C73308',
-                    stacking: 'percent',
+                    stacking: 'normal',
 //                    yAxis: 1,
                     data: [<?php echo nullSafe($series_str[$chart["series"][0]["attr2"]]); ?>]
 //                    tooltip: {
@@ -168,7 +175,7 @@ if (sizeof($data) > 0) {
                     name: '<?php echo $chart["series"][0]["title3"] ?>',
                     type: 'column',
                     color: '#68DB49',
-                    stacking: 'percent',
+                    stacking: 'normal',
 //                    yAxis: 1,
                     data: [<?php echo nullSafe($series_str[$chart["series"][0]["attr3"]]); ?>]
                 },
@@ -176,7 +183,7 @@ if (sizeof($data) > 0) {
                     name: '<?php echo $chart["series"][0]["title4"] ?>',
                     type: 'column',
                     color: '#F25B47',
-                    stacking: 'percent',
+                    stacking: 'normal',
 //                    yAxis: 1,
                     data: [<?php echo nullSafe($series_str[$chart["series"][0]["attr4"]]); ?>]
                 },
@@ -184,7 +191,7 @@ if (sizeof($data) > 0) {
                     name: '<?php echo $chart["series"][0]["title5"] ?>',
                     type: 'column',
                     color: '#BDD0D5',
-                    stacking: 'percent',
+                    stacking: 'normal',
 //                    yAxis: 1,
                     data: [<?php echo nullSafe($series_str[$chart["series"][0]["attr5"]]); ?>]
                 },
@@ -225,14 +232,20 @@ if (sizeof($data) > 0) {
         console.log(chart);
 // Toggle abs/%
         $('#toggle-percentage').click(function() {
+             
             for (var i = 0; i < 5; i++) {
                 chart.series[i].update({
-                    stacking: stacking ? "percent" : "normal"
+                    stacking: stacking ? "normal" : "percent"
                 });
             }
-//            chart.yAxis[0].update({
-//                label.format: stacking ? "{value}%" : "{value}"
+            
+//            chart.yAxis[0].labels.update({
+//                format: stacking ? "{value}" : "{value}%"
 //            });
+
+            chart.yAxis[0].axisTitle.attr({
+                    text:  stacking ? "Distribution of I/O time (s)" : "Percentage of I/O time (%)"
+                });
             stacking = !stacking;
 //            chart.series[0].update({
 //                color: color ? null : Highcharts.getOptions().colors[1]

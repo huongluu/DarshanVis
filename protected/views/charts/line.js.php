@@ -1,5 +1,17 @@
 <?php
 $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
+//var_dump($data);
+// $st_str="";
+// foreach ($data as $num_arr ) {
+//     foreach ($num_arr as $value) {
+//         $value=(float)$value;
+//         echo $value;
+//         echo "@@@@";
+//         $value= log($value);
+//         echo $value;
+//     }
+// }
+
 
 $cat_str = "";
 $series_str = "";
@@ -11,6 +23,8 @@ foreach ($data as $d) {
 }
 $cat_str = rtrim($cat_str, ",");
 $series_str = rtrim($series_str, ",");
+
+//var_dump($series_str);
 ?>
 
 <script type="text/javascript">
