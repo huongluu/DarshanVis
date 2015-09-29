@@ -13,11 +13,14 @@ return array(
             // 'username' => 'root',
             // 'password' => '123456789',
 
-           'connectionString' => 'mysql:host=127.0.0.1;dbname=hpcviz_db',
-           'username' => 'root',
-           'password' => '',
-           'connectionString' => 'mysql:host=palm.cs.illinois.edu;dbname=mira_2015',
+           // 'connectionString' => 'mysql:host=127.0.0.1;dbname=hpcviz_db',
+           // 'username' => 'root',
+           // 'password' => '',
+           // 'connectionString' => 'mysql:host=palm.cs.illinois.edu;dbname=mira_2015',
 
+          'connectionString' => 'mysql:host=palm.cs.illinois.edu;dbname=mira_2015',
+          'username' => 'root',
+          'password' => 'Hello123',
         ),
     ),
 );
