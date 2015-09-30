@@ -152,6 +152,8 @@ if (sizeof($data) > 0) {
         $('#chart-container').highcharts({
 <?php echo getHighchartSafeJson($chart["highchart-confs"]); ?>
 
+
+			
             series: [{
                     name: '<?php echo $chart["series"][0]["title1"] ?>',
                     type: 'column',
@@ -244,13 +246,18 @@ if (sizeof($data) > 0) {
 //            });
 
             chart.yAxis[0].axisTitle.attr({
-                    text:  stacking ? "Distribution of I/O time (s)" : "Percentage of I/O time (%)"
+                    text:  stacking ? "Distribution of time (s)" : "Percentage of time (%)"
                 });
             stacking = !stacking;
 //            chart.series[0].update({
 //                color: color ? null : Highcharts.getOptions().colors[1]
 //            });
 //            color = !color;
+
+		
+
+
+
         });
 
     });
