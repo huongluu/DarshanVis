@@ -48,7 +48,7 @@
                     }
                 },
                 "title": {
-                    "text": "Distribution of I/O time (s)",
+                    "text": "Distribution of time (s)",
                     "style": {
                         "font-size": "15px"
                     }

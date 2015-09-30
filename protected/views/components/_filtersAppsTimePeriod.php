@@ -1,9 +1,10 @@
 <?php
 //$date_data = Jobs::execSQLQuery("select min(start_time), max(start_time) from jobs_info;");
-
+$display_en=false;
 $app_placeholder = "Application Name";
 if (isset($_POST["application"]) && strlen($_POST["application"]) > 0) {
     $app_placeholder = $_POST["application"];
+    $display_en=true;
 }
 
 $user_placeholder = "UserID";
