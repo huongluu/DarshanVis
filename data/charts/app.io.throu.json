@@ -4,6 +4,7 @@
     "type": "scatter",
     "template": "charts/scatter.js.php",
     "title": "Average and Maximum I/O Throughput of App",
+    "filter": "components/_filters_for_App.php",
     "subtitle": "",
     "xAxis": {
         "title": "Jobs",

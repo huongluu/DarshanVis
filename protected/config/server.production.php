@@ -10,8 +10,8 @@ return array(
     'components' => array(
         'db' => array(
             'connectionString' => 'mysql:host=172.22.165.28;dbname=mira_final',
-            'username' => '',
-            'password' => '',
+            'username' => 'root',
+            'password' => 'Hello123',
         // Enable profiling
         // 'enableProfiling' => true,
         // 'enableParamLogging' => true,

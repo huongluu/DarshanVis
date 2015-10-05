@@ -96,5 +96,6 @@ $series2_str = rtrim($series2_str, ",");
                 }
             ]
         });
+        $("#chart-container").removeAttr("display");
     });
 </script>
