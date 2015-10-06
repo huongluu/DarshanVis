@@ -5,6 +5,7 @@
     "template": "charts/scatter.js.php",
     "title": "Application Scatter Plot",
     "filter": "components/_filters_for_App.php",
+    "application":"nprocs",
     "subtitle": "",
     "xAxis": {
         "title": "Jobs",
@@ -22,7 +23,7 @@
         {
             "type": "scatter",
             "name": "",
-            "query":"select uid, appname, start_time, total_bytes, nprocs, agg_perf_MB from jobs_info where total_bytes>0 and nprocs>0;",
+            "query":"select uid, appname, start_time, total_bytes, nprocs, agg_perf_MB from jobs_info where total_bytes>0 and nprocs>0 limit 20;",
             "series1": "total_bytes",
             "series2": "nprocs",
             "series1-name": "Average I/O Throughput",
