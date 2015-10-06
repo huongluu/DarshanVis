@@ -1,0 +1,169 @@
+#SQL　query for median 
+
+
+#1: sort and give rank to each jobs group by appame
+
+SELECT a1.appname, a1.agg_perf_MB, COUNT(a2.agg_perf_MB) perf_Rank 
+FROM jobs_info a1, jobs_info a2 
+WHERE a1.appname=a2.appname and (a1.agg_perf_MB >= a2.agg_perf_MB OR (a1.agg_perf_MB=a2.agg_perf_MB )) and a2.agg_perf_MB>0
+GROUP BY a1.appname, a1.agg_perf_MB 
+ORDER BY a1.appname ,  a1.agg_perf_MB asc
+
+#2 find the index for median 
+
+select appname,  ceiling(count(perf_Rank)/2) as median_high, floor(count(perf_Rank)/2)  as median_low from
+(
+SELECT a1.appname, a1.agg_perf_MB, COUNT(a2.agg_perf_MB) perf_Rank 
+FROM jobs_info a1, jobs_info a2 
+WHERE a1.appname=a2.appname and (a1.agg_perf_MB >= a2.agg_perf_MB OR (a1.agg_perf_MB=a2.agg_perf_MB )) and a2.agg_perf_MB>0
+GROUP BY a1.appname, a1.agg_perf_MB 
+ORDER BY a1.appname ,  a1.agg_perf_MB asc
+) a3 
+
+
+group by appname  order by appname asc
+
+
+
+
+#3 left join the above two results as rank in the first one specified by the median_high of the second one
+
+select appname, agg_perf_MB as median_byte, perf_Rank from 
+
+
+
+	(	select k1.appname, k2.agg_perf_MB, k2.perf_Rank from 
+
+ (
+ 	(
+
+ 			select appname,  ceiling(count(perf_Rank)/2) as median_high, floor(count(perf_Rank)/2)  as median_low from
+				(
+				SELECT a1.appname, a1.agg_perf_MB, COUNT(a2.agg_perf_MB) perf_Rank 
+				FROM jobs_info a1, jobs_info a2 
+				WHERE a1.appname=a2.appname and (a1.agg_perf_MB >= a2.agg_perf_MB OR (a1.agg_perf_MB=a2.agg_perf_MB )) and a2.agg_perf_MB>0
+				GROUP BY a1.appname, a1.agg_perf_MB 
+				ORDER BY a1.appname ,  a1.agg_perf_MB asc
+				) a3 
+
+
+group by appname  order by appname asc
+
+
+
+
+ 	) as k1  
+
+ left join 
+
+ 	(
+		SELECT a1.appname, a1.agg_perf_MB, COUNT(a2.agg_perf_MB) perf_Rank 
+		FROM jobs_info a1, jobs_info a2 
+		WHERE a1.appname=a2.appname and (a1.agg_perf_MB >= a2.agg_perf_MB OR (a1.agg_perf_MB=a2.agg_perf_MB )) and a2.agg_perf_MB>0
+		GROUP BY a1.appname, a1.agg_perf_MB 
+		ORDER BY a1.appname ,  a1.agg_perf_MB asc
+	) as k2 
+
+
+ on k2.perf_Rank=k1.median_high and  k1.appname=k2.appname 
+
+
+
+
+)) m1
+group by appname order by appname 
+
+
+# format in json
+select appname, agg_perf_MB as median_byte, perf_Rank from 	(	select k1.appname, k2.agg_perf_MB, k2.perf_Rank from  ( ( select appname,  ceiling(count(perf_Rank)/2) as median_high, floor(count(perf_Rank)/2)  as median_low from ( SELECT a1.appname, a1.agg_perf_MB, COUNT(a2.agg_perf_MB) perf_Rank FROM jobs_info a1, jobs_info a2 	WHERE a1.appname=a2.appname and (a1.agg_perf_MB >= a2.agg_perf_MB OR (a1.agg_perf_MB=a2.agg_perf_MB )) and a2.agg_perf_MB>0	GROUP BY a1.appname, a1.agg_perf_MB ORDER BY a1.appname ,  a1.agg_perf_MB asc	) a3  group by appname  order by appname asc	) as k1   left join  ( SELECT a1.appname, a1.agg_perf_MB, COUNT(a2.agg_perf_MB) perf_Rank  FROM jobs_info a1, jobs_info a2  WHERE a1.appname=a2.appname and (a1.agg_perf_MB >= a2.agg_perf_MB OR (a1.agg_perf_MB=a2.agg_perf_MB )) and a2.agg_perf_MB>0 GROUP BY a1.appname, a1.agg_perf_MB  ORDER BY a1.appname ,  a1.agg_perf_MB asc ) as k2 on k2.perf_Rank=k1.median_high and  k1.appname=k2.appname )) m1 group by appname order by appname  
+
+# more accurate version of median but with bugs on app with only one job
+
+{
+	
+	select appname, avg(agg_perf_MB) as median_byte from 
+
+
+(
+
+	(	select k1.appname, k2.agg_perf_MB, k2.perf_Rank from 
+
+ (
+ 	(
+
+ 			select appname,  ceiling(count(perf_Rank)/2) as median_high, floor(count(perf_Rank)/2)  as median_low from
+			(
+			SELECT a1.appname, a1.agg_perf_MB, COUNT(a2.agg_perf_MB) perf_Rank 
+			FROM jobs_info a1, jobs_info a2 
+			WHERE a1.appname=a2.appname and a1.agg_perf_MB <= a2.agg_perf_MB OR (a1.agg_perf_MB=a2.agg_perf_MB AND a1.appname = a2.appname) 
+			GROUP BY a1.appname, a1.agg_perf_MB 
+			ORDER BY a1.appname DESC ,  a1.agg_perf_MB DESC
+			) a3 
+
+
+group by appname  order by appname desc
+
+ 	) as k1  
+
+ left join 
+
+ 	(
+		SELECT a1.appname, a1.agg_perf_MB, COUNT(a2.agg_perf_MB) perf_Rank 
+		FROM jobs_info a1, jobs_info a2 
+		WHERE a1.appname=a2.appname and a1.agg_perf_MB <= a2.agg_perf_MB OR (a1.agg_perf_MB=a2.agg_perf_MB AND a1.appname = a2.appname) 
+		GROUP BY a1.appname, a1.agg_perf_MB 
+		ORDER BY a1.appname ,  a1.agg_perf_MB DESC
+	) as k2 
+
+
+ on k2.perf_Rank=k1.median_high and  k1.appname=k2.appname 
+
+
+
+
+)) union
+
+
+(
+		select k1.appname, k2.agg_perf_MB, k2.perf_Rank from 
+
+ (
+ 	(
+
+ 			select appname,  ceiling(count(perf_Rank)/2) as median_high, floor(count(perf_Rank)/2)  as median_low from
+			(
+			SELECT a1.appname, a1.agg_perf_MB, COUNT(a2.agg_perf_MB) perf_Rank 
+			FROM jobs_info a1, jobs_info a2 
+			WHERE a1.appname=a2.appname and a1.agg_perf_MB <= a2.agg_perf_MB OR (a1.agg_perf_MB=a2.agg_perf_MB AND a1.appname = a2.appname) 
+			GROUP BY a1.appname, a1.agg_perf_MB 
+			ORDER BY a1.appname DESC ,  a1.agg_perf_MB DESC
+			) a3 
+
+
+group by appname  order by appname desc
+
+ 	) as k1  
+
+ left join 
+
+ 	(
+		SELECT a1.appname, a1.agg_perf_MB, COUNT(a2.agg_perf_MB) perf_Rank 
+		FROM jobs_info a1, jobs_info a2 
+		WHERE a1.appname=a2.appname and a1.agg_perf_MB <= a2.agg_perf_MB OR (a1.agg_perf_MB=a2.agg_perf_MB AND a1.appname = a2.appname) 
+		GROUP BY a1.appname, a1.agg_perf_MB 
+		ORDER BY a1.appname ,  a1.agg_perf_MB DESC
+	) as k2 
+
+
+ on k2.perf_Rank=k1.median_low and  k1.appname=k2.appname 
+
+
+
+
+)
+)
+
+ 
+)m1
+group by appname order by appname 
+}

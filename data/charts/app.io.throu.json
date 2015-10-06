@@ -1,30 +1,93 @@
 {
     "id": 8,
-    "name": "scatter-chart",
-    "type": "scatter",
-    "template": "charts/scatter.js.php",
-    "title": "Average and Maximum I/O Throughput of App",
-    "subtitle": "",
-    "xAxis": {
-        "title": "Jobs",
-        "attribute": ""
-    },
-    "yAxis": {
-        "title": "Throughput"
-    },
-    "tooltip": {
-        "valueSuffix": ""
-    },
+    "name": "Average and Maximum I/O Throughput of  chart",
+    "type": "line",
+    "template": "charts/line.js.php",
+    "filter": "components/_filters_for_App.php",
+    "highchart-confs":{
+         "title": "Average and Maximum I/O Throughput of App",
+                "chart": {
+            "zoomType": "xy",
+            "width": 800
+        },
+        "title": {
+            "text": "Average and Maximum I/O Throughput of App",
+            "margin": -5,
+            "style": {
+                "margin-top": "40px"
+            }
+        },
+        "subtitle": "",
+        "xAxis": {
+            "min": 0,
+            "labels": {
+                    "format": "{value}",
+                    "style": {
+                        "font-size": "12px"
+                    }
+                },
+                "title": {
+                    "text": "jobs",
+                    "style": {
+                        "font-size": "13px"
+                    }
+                },
+                "crosshair":true
+                },
+        "yAxis": {
+                     "type": "logarithmic",
+                    "labels": {
+                    "format": "{value}KB",
+                    "style": {
+                        "font-size": "14px"
+                    }
+                },
+                "title": {
+                    "text": "Throughputs in logarithmic scale",
+                    "style": {
+                        "font-size": "15px"
+                    }
+                }
+            
+        },
+        "tooltip": {
+            "valueSuffix": "KBytes",
+            "shared": true
+
+     },
+
+        
+        "legend": {
+            "layout": "vertical",
+            "align": "right",
+            "verticalAlign": "top",
+            "borderWidth": 0,
+            "floating":true
+        },
+        "plotOptions": {
+            "series": {
+                "allowPointSelect": true
+            }
+        }
+
+
+
+    }, 
+   
     "series": [
         {
-            "type": "scatter",
+            "type": "line",
             "name": "",
-            "query": "select avg(total_bytes) as avg_bytes, max(total_bytes) as max_bytes , uid from jobs_info group by uid order by avg_bytes desc ;",
+            "query1": "select (max(agg_perf_MB)/1024) as max_bytes , appname from jobs_info where agg_perf_MB is not null group by appname order by max_bytes ",
+            "query2":"select appname, (agg_perf_MB/1024) as median_bytes, perf_Rank from    (   select k1.appname, k2.agg_perf_MB, k2.perf_Rank from  ( ( select appname,  ceiling(count(perf_Rank)/2) as median_high, floor(count(perf_Rank)/2)  as median_low from ( SELECT a1.appname, a1.agg_perf_MB, COUNT(a2.agg_perf_MB) perf_Rank FROM jobs_info a1, jobs_info a2   WHERE a1.appname=a2.appname and (a1.agg_perf_MB >= a2.agg_perf_MB OR (a1.agg_perf_MB=a2.agg_perf_MB )) and a2.agg_perf_MB>0 GROUP BY a1.appname, a1.agg_perf_MB ORDER BY a1.appname ,  a1.agg_perf_MB asc   ) a3  group by appname  order by appname asc    ) as k1   left join  ( SELECT a1.appname, a1.agg_perf_MB, COUNT(a2.agg_perf_MB) perf_Rank  FROM jobs_info a1, jobs_info a2  WHERE a1.appname=a2.appname and (a1.agg_perf_MB >= a2.agg_perf_MB OR (a1.agg_perf_MB=a2.agg_perf_MB )) and a2.agg_perf_MB>0 GROUP BY a1.appname, a1.agg_perf_MB  ORDER BY a1.appname ,  a1.agg_perf_MB asc ) as k2 on k2.perf_Rank=k1.median_high and  k1.appname=k2.appname )) m1 group by appname order by appname  ",
             "series1": "avg_bytes",
             "series2": "max_bytes",
-            "series1-name": "Average I/O Throughput",
-            "series2-name": "Maximum I/O Throughput",
-            "xaxis": "uid"
+            "title1": "Median I/O Throughput",
+            "title2": "Maximum I/O Throughput",
+            "color2": "#33FF99",
+            "xaxis": "uid", 
+             "attribute1": "max_bytes",
+             "attribute2":"median_bytes"
         }
     ]
 }

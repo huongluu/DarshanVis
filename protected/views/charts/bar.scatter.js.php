@@ -254,10 +254,6 @@ if (sizeof($data) > 0) {
 //            });
 //            color = !color;
 
-		
-
-
-
         });
 
     });
