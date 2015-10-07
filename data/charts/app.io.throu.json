@@ -37,7 +37,7 @@
         "yAxis": {
                      "type": "logarithmic",
                     "labels": {
-                    "format": "{value}KB",
+                    "format": "{value}GB/s",
                     "style": {
                         "font-size": "14px"
                     }
@@ -51,7 +51,7 @@
             
         },
         "tooltip": {
-            "valueSuffix": "KBytes",
+            "valueSuffix": "GB/s",
             "shared": true
 
      },
