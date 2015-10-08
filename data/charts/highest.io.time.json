@@ -5,6 +5,7 @@
     "type": "boxplot",
     "template": "charts/boxplot.js.php",
     "filter": "components/_filters.php",
+    "preprocess": "generic",
     "title": "Top 15 Big Time Application",
     "subtitle": "",
     "xAxis": {

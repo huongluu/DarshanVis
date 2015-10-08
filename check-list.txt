@@ -24,3 +24,11 @@
 - fix the icon for percenta/absolute toggle button
 
  
+Amirhossein
+- change form submission to ajax DONE
+- the screenshot (user & app filter in the same time) DONE
+- enable time filter
+
+
+Keidong
+- remove the y-axis 

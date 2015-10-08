@@ -3,6 +3,7 @@
     "name": "scatter-set-chart",
     "type": "scatterset",
     "template": "charts/scatterset.js.php",
+    "filter": "components/_filters_for_App.php",
     "title": "Scatter Set",
     "subtitle": "",
     "xAxis": {
@@ -30,8 +31,8 @@
             "series3-name": "I/O Throughput",
             "series4-name": "Application Name",
             "series5-name": "Application Rank"
-            
+
         }
     ]
-    
+
 }

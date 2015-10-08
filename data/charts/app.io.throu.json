@@ -3,6 +3,7 @@
     "name": "scatter-chart",
     "type": "scatter",
     "template": "charts/scatter.js.php",
+    "filter": "components/_filters.php",
     "title": "Average and Maximum I/O Throughput of App",
     "subtitle": "",
     "xAxis": {
