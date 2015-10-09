@@ -26,8 +26,8 @@
             "query":"select uid, appname, start_time, total_bytes, nprocs, agg_perf_MB from jobs_info where total_bytes>0 and nprocs>0 limit 20;",
             "series1": "total_bytes",
             "series2": "nprocs",
-            "series1-name": "Average I/O Throughput",
-            "series2-name": "Maximum I/O Throughput",
+            "series1-name": "total_bytes",
+            "series2-name": "nprocs",
             "xaxis": "uid"
         }
     ]
