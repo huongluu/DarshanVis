@@ -99,6 +99,11 @@ include_once 'utils2.php';
             chart.yAxis[0].axisTitle.attr({
                 text: stacking ? "Distribution of time (s)" : "Percentage of time (%)"
             });
+            if (!stacking) {
+                chart.yAxis[0].setExtremes(0, 100);
+            } else {
+                chart.yAxis[0].setExtremes(null, null);
+            }
             stacking = !stacking;
 //            chart.series[0].update({
 //                color: color ? null : Highcharts.getOptions().colors[1]
