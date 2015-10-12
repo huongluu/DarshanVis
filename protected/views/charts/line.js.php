@@ -80,10 +80,8 @@ foreach ($data2 as $d2) {
 $cat_str2 = rtrim($cat_str, ",");
 $series_str2 = rtrim($series_str, ",");
 
+//var_dump($cat_str2);
 
-
-
-//var_dump($series_str);
 ?>
 
 <script type="text/javascript">
