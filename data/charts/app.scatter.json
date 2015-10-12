@@ -1,0 +1,174 @@
+{
+    "_comment": "Change to new database, don't have ID column anymore, unique_iotime become local_iotime, etc... ",
+    "id": 17,
+    "name": "app scatter",
+    "type": "scatter",
+    "template": "charts/scatter.js.php",
+    "filter": "components/_filters.php",
+    "preprocess": "generic",
+    "highchart-confs": {
+        "chart": {
+            "zoomType": "xy",
+            "width": 800
+        },
+        "title": {
+            "text": "App Scatter",
+            "margin": -5,
+            "style": {
+                "margin-top": "40px"
+            }
+        },
+        "subtitle": {
+            "text": ""
+        },
+        "xAxis": {
+            "title":"Jobs",
+            "attribute":"total_bytes",
+            "type":"linear"
+        },
+        "yAxis": [
+            {
+                "min": 0,
+                "labels": {
+                    "format": "{value}",
+                    "style": {
+                        "font-size": "14px"
+                    }
+                },
+                "title": {
+                    "text": "Distribution of time (s)",
+                    "style": {
+                        "font-size": "15px"
+                    }
+                }
+            },
+            {
+                "min": 1,
+                "type": "logarithmic",
+                "gridLineWidth": 0,
+                "title": {
+                    "text": "Number of Processes",
+                    "margin": 2,
+                    "style": {
+                        "color": "Highcharts.getOptions().colors[0]",
+                        "font-size": "15px"
+                    }
+                },
+                "labels": {
+                    "align": "left",
+                    "x": 3,
+                    "y": 5,
+                    "style": {
+                        "color": "Highcharts.getOptions().colors[0]",
+                        "font-size": "14px"
+                    }
+                }
+                ,
+                "opposite": true
+            },
+            {
+                "min": 1,
+                "type": "logarithmic",
+                "gridLineWidth": 0,
+                "title": {
+                    "text": "Total Bytes Read/Written",
+                    "margin": 2,
+                    "style": {
+                        "color": "darkblue",
+                        "font-size": "15px"
+                    }
+                },
+                "labels": {
+                    "align": "left",
+                    "x": 3,
+                    "y": 5,
+                    "style": {
+                        "color": "darkblue",
+                        "font-size": "14px"
+                    }
+                },
+                "opposite": true
+            }
+        ],
+        "tooltip": {
+            "shared": true
+        }
+    },
+    "query": {
+        "select": "(local_iotime - local_meta) as localio, local_meta, (global_iotime - global_meta) as globalio, global_meta , (runtime - local_iotime - global_iotime ) as notio, start_time, nprocs, total_bytes, agg_perf_MB, unique_count, allshared_count, partshared_count",
+        "from": "jobs_info",
+        "where": "local_iotime is not null and local_meta is not null and global_iotime is not null and global_meta is not null and runtime is not null"
+    },
+    "series": [
+        {
+            "attribute": "localio",
+            "name": "Non-global Data I/O",
+            "color": "#5C9430",
+            "stacking": "normal",
+            "type": "column"
+        },
+        {
+            "attribute": "local_meta",
+            "name": "Non-global Metadata",
+            "color": "#C73308",
+            "stacking": "normal",
+            "type": "column"
+        },
+        {
+            "attribute": "globalio",
+            "name": "Global Data I/O",
+            "color": "#68DB49",
+            "stacking": "normal",
+            "type": "column"
+        },
+        {
+            "attribute": "global_meta",
+            "name": "Global Metadata",
+            "color": "#F25B47",
+            "stacking": "normal",
+            "type": "column"
+        },
+        {
+            "attribute": "notio",
+            "name": "Not I/O",
+            "color": "#BDD0D5",
+            "stacking": "normal",
+            "type": "column"
+        },
+        {
+            "attribute": "nprocs",
+            "name": "Number of Processes",
+            "color": "#BDD0D5",
+            "stacking": "normal",
+            "type": "scatter",
+            "yAxis": 1,
+            "lineWidth": 0,
+            "visible": false,
+            "dashStyle": "shortdot",
+            "marker": {
+                "symbol": "diamond",
+                "enabled": true,
+                "radius": 1,
+                "fillColor": "#7F77B4"
+            }
+        }
+        ,
+        {
+            "attribute": "total_bytes",
+            "name": "Total Bytes Read/Written",
+            "color": "#BDD0D5",
+            "stacking": "normal",
+            "type": "scatter",
+            "yAxis": 2,
+            "lineWidth": 0,
+            "visible": false,
+            "dashStyle": "shortdot",
+            "marker": {
+                "symbol": "circle",
+                "enabled": true,
+                "radius": 1,
+                "fillColor": "#BF53B4"
+            }
+        }
+    ]
+}
