@@ -248,8 +248,8 @@ $series_str = rtrim($series_str, ",");
               // chart.series[0].addPoint([str_s1[i], str_s2[i]], true, true);
             }
           }
-          console.log("RET OBJ:\n");
-          console.log(ret_obj);
+          // console.log("RET OBJ:\n");
+          // console.log(ret_obj);
 
           $('#chart-container').highcharts({
               chart: {
