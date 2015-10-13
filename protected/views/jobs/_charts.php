@@ -21,6 +21,16 @@ include '_chart_template.php';
     </center>
 </div>
 
+<div id="chart-config" hidden>
+  <p>X Axis</p>
+  <select id="chart-config-sel-x">
+  </select>
+  <p>Y Axis</p>
+  <select id="chart-config-sel-y">
+  </select>
+  <button id="chart-config-button" class="btn btn-medium btn-success">Configure Chart</button>
+</div>
+
 <?php
 include '_table_template.php';
 ?>

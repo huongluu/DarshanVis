@@ -10,11 +10,23 @@
     "xAxis":{
       "title":"Jobs",
       "attribute":"total_bytes",
-      "type":"linear"
+      "type":"linear",
+      "options":[
+        "start_time",
+        "total_bytes",
+        "nprocs",
+        "agg_perf_MB"
+      ]
     },
     "yAxis": {
         "title": "Throughput",
-        "type":"linear"
+        "type":"linear",
+        "options":[
+          "start_time",
+          "total_bytes",
+          "nprocs",
+          "agg_perf_MB"
+        ]
     },
     "tooltip": {
         "valueSuffix": ""

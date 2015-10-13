@@ -6,6 +6,7 @@ $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
 $series1_str = "";
 $series2_str = "";
 $series_str = "";
+
 //$series3_str = "";
 //$series4_str = "";
 $index = 1;
@@ -19,6 +20,22 @@ foreach ($data as $d) {
 //    $series4_str .= '[' . $index . ',' . $d[$chart["series"][0]["series4"]] . '],';
     $index++;
 }
+
+$x_options = $chart["yAxis"]["options"];
+$y_options = $chart["yAxis"]["options"];
+
+$x_options_list = "";
+$y_options_list = "";
+
+foreach ($x_options as $str)
+{
+  $x_options_list .= "<option value=" . $str . ">" . $str . "<option>";
+}
+foreach ($y_options as $str)
+{
+  $y_options_list .= "<option value=" . $str . ">" . $str . "<option>";
+}
+
 $series1_str = rtrim($series1_str, ",");
 $series2_str = rtrim($series2_str, ",");
 $series_str = rtrim($series_str, ",");
@@ -97,5 +114,11 @@ $series_str = rtrim($series_str, ",");
                 }
             ]
         });
+
+        $("#chart-config-sel-x").html('<?php echo $x_options_list ?>');
+        $("#chart-config-sel-y").html('<?php echo $y_options_list ?>');
+        $("#chart-config").toggle();
+
+        console.log('<?php echo $y_options[0] ?>');
     });
 </script>
