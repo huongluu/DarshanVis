@@ -35,7 +35,7 @@
         {
             "type": "scatter",
             "name": "",
-            "query":"select uid, appname, start_time, total_bytes, nprocs, agg_perf_MB from jobs_info limit 200;",
+            "query":"select uid, appname, start_time, total_bytes, nprocs, agg_perf_MB from jobs_info limit 20;",
             "series1": "total_bytes",
             "series2": "nprocs",
             "series1-name": "total_bytes",

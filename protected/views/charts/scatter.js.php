@@ -144,7 +144,7 @@ $series_str = rtrim($series_str, ",");
         // });
 
         $("#chart-config-button").click(function(){
-           console.log(returnData($("#chart-config-sel-x").val(), $("#chart-config-sel-y").val(), <?php echo $json_str?>));
+          //  console.log(returnData($("#chart-config-sel-x").val(), $("#chart-config-sel-y").val(), <?php echo $json_str?>));
            make_chart($("#chart-config-sel-x").val(), $("#chart-config-sel-y").val())
         });
 
@@ -156,7 +156,8 @@ $series_str = rtrim($series_str, ",");
         {
           // console.log(json);
           // var obj = $.parseJSON(json);
-          console.log(obj);
+          // console.log(obj);
+          console.log("entered return data");
           var str_s1 = obj[s1].split(',');
           var str_s2 = obj[s2].split(',');
 
@@ -166,7 +167,7 @@ $series_str = rtrim($series_str, ",");
           {
             if (str_s1[i].length != 0 && str_s2[i].length != 0)
             {
-              ret += '[' + str_s1[i] + ',' + str_s2[i] + '],';
+              ret += "[" + parseInt(str_s1[i]) + ',' + parseInt(str_s2[i]) + "],";
             }
           }
           ret = ret.replace(/,\s*$/, "");
@@ -174,8 +175,44 @@ $series_str = rtrim($series_str, ",");
           return ret;
         }
 
-        make_chart = function(xaxis, yaxis){
-          chart = $('#chart-container').highcharts({
+        make_chart = function(xaxis, yaxis)
+        {
+          var chart = $("#chart-container").highcharts();
+          // var str1 = "[" + returnData(xaxis, yaxis, <?php echo $json_str?>) + "]";
+          // var str2 = returnData(xaxis, yaxis, <?php echo $json_str?>);
+          // console.log("TYPE: \n"+chart.series[0].type);
+          // console.log("XAXIS:\n"+chart.series[0].xAxis);
+          // console.log("YAXIS:\n"+chart.series[0].yAxis);
+          var obj = <?php echo $json_str?>;
+
+          var str_s1 = obj[xaxis].split(',');
+          var str_s2 = obj[yaxis].split(',');
+
+          var ret = "";
+
+          for (var i=0; i<str_s1.length; i++)
+          {
+            if (str_s1[i].length != 0 && str_s2[i].length != 0)
+            {
+              ret += "[" + parseInt(str_s1[i]) + ',' + parseInt(str_s2[i]) + "],";
+            }
+          }
+          ret = ret.replace(/,\s*$/, "");
+
+          console.log("DATA: \n"+ret);
+          // chart.xAxis.title = xaxis;
+          // chart.yAxis.title = yaxis;
+          // console.log(chart);
+          // chart.series[0].remove();
+          // chart.series[0].data = [];
+          chart.series[0].setData(ret, true);
+          console.log("NEW DATA:\n"+chart.series[0].data[0]);
+        }
+
+        make_chart1 = function(xaxis, yaxis){
+          var str = "[" + returnData(xaxis, yaxis, <?php echo $json_str?>) + "]";
+          console.log("DATA: \n"+str);
+          $('#chart-container').highcharts({
               chart: {
                   type: 'scatter',
                   zoomType: 'xy'
@@ -241,7 +278,11 @@ $series_str = rtrim($series_str, ",");
               series: [{
                       name: '<?php echo $chart["series"][0]["series1-name"] ?>',
                       color: 'rgba(223, 83, 83, .5)',
-                      data: [returnData(xaxis, yaxis, <?php echo $json_str?>)]
+                      data: (function(){
+                        console.log("entered data");
+                        return str;
+                      })
+                      // [returnData(xaxis, yaxis, <?php echo $json_str?>)]
                   }
               ]
           });
