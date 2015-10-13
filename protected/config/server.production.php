@@ -8,12 +8,12 @@ return array(
     // application components
     'components' => array(
         'db' => array(
-            // 'connectionString' => 'mysql:host=palm.cs.illinois.edu;dbname=mira_2015',
-            // 'username' => 'root',
-            // 'password' => 'Hello123',
-            'connectionString' => 'mysql:host=localhost;dbname=jobs_info',
+            'connectionString' => 'mysql:host=palm.cs.illinois.edu;dbname=mira_2015',
             'username' => 'root',
-            'password' => 'root',
+            'password' => 'Hello123',
+            // 'connectionString' => 'mysql:host=localhost;dbname=jobs_info',
+            // 'username' => 'root',
+            // 'password' => 'root',
         // Enable profiling
         // 'enableProfiling' => true,
         // 'enableParamLogging' => true,

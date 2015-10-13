@@ -22,10 +22,10 @@ include '_chart_template.php';
 </div>
 
 <div id="chart-config" hidden>
-  <p>X Axis</p>
+  X Axis
   <select id="chart-config-sel-x">
   </select>
-  <p>Y Axis</p>
+  Y Axis
   <select id="chart-config-sel-y">
   </select>
   <button id="chart-config-button" class="btn btn-medium btn-success">Configure Chart</button>
