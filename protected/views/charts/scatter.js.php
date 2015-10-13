@@ -148,6 +148,15 @@ $series_str = rtrim($series_str, ",");
            make_chart($("#chart-config-sel-x").val(), $("#chart-config-sel-y").val())
         });
 
+        $(".chart-config-selector").change(function(){
+          var x = $("#chart-config-sel-x").val();
+          var y = $("#chart-config-sel-y").val();
+          var x_scale = $("#chart-config-sel-x-scale").val();
+          var y_scale = $("#chart-config-sel-y-scale").val();
+
+          make_chart(x, y, x_scale, y_scale);
+        });
+
         // console.log('<?php echo $y_options_list ?>');
         // console.log('<?php echo $json_str ?>');
 
@@ -222,7 +231,7 @@ $series_str = rtrim($series_str, ",");
           chart.redraw();
         }
 
-        make_chart = function(xaxis, yaxis){
+        make_chart = function(xaxis, yaxis, x_scale, y_scale){
           var chart = $("#chart-container").highcharts();
           // var str1 = "[" + returnData(xaxis, yaxis, <?php echo $json_str?>) + "]";
           // var str2 = returnData(xaxis, yaxis, <?php echo $json_str?>);
@@ -267,7 +276,7 @@ $series_str = rtrim($series_str, ",");
                       enabled: true,
                       text: xaxis
                   },
-                  type: '<?php echo $chart["xAxis"]["type"] ?>',
+                  type: x_scale,
                   startOnTick: true,
                   endOnTick: true,
                   showLastLabel: true,
@@ -277,7 +286,7 @@ $series_str = rtrim($series_str, ",");
                   title: {
                       text: yaxis
                   },
-                  type: '<?php echo $chart["xAxis"]["type"] ?>',
+                  type: y_scale,
                   min:0
               },
               legend: {
