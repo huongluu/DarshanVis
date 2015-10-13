@@ -8,7 +8,7 @@ include '_chart_template.php';
 ?>
 
 
-<div id="chart-container"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+<div id="chart-container"  style="height: 400px; width: 900px; margin: 0 auto;<?php if ($display_en===false){?>  display:none <?php }?> "></div>
 <div style="margin-left: 40%; position: relative; top: -60px; width: 400px;">
     <center>
         <span id="tooltip1"></span>
