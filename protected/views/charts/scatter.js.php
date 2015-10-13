@@ -53,7 +53,8 @@ $series_str = rtrim($series_str, ",");
                 title: {
                     text: '<?php echo $chart["series"][0]["series1-name"] ?>'
                 },
-                type: '<?php echo $chart["xAxis"]["type"] ?>'
+                type: '<?php echo $chart["xAxis"]["type"] ?>',
+                min:0
             },
             legend: {
                 layout: 'vertical',
