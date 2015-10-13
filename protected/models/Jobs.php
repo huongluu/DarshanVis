@@ -32,7 +32,7 @@ class Jobs extends BaseJobs {
             $query_str = $query;
         }
 
-        echo "QQQ:" . $query_str . "";
+//        echo "QQQ:" . $query_str . "";
         $command = $connection->createCommand($query_str);
         // if needed, the SQL statement may be updated as follows:
         // $command->text=$newSQL;
@@ -41,15 +41,18 @@ class Jobs extends BaseJobs {
     }
 
     public static function OrderBy(&$query, $orderby, $mode = "desc") {
-        $query["order"] = $orderby . " " . $mode;
+        if (isset($orderby) && strlen($orderby) > 0) {
+            $query["order"] = $orderby . " " . $mode;
 //        $query["order"] = $orderby . " ";
-
+        }
         return $query;
     }
 
     public static function addSortingLevel(&$query, $orderby, $mode = "desc") {
-        $query["order"] .= " , " . $orderby . " " . $mode;
+        if (isset($orderby) && strlen($orderby) > 0) {
+            $query["order"] .= " , " . $orderby . " " . $mode;
 //        $query["order"] = $orderby . " ";
+        }
         return $query;
     }
 

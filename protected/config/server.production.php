@@ -1,6 +1,5 @@
 <?php
-// WARNING: DON'T USE THIS CONFIGURATION FILE. PLEASE USE server.production.php INSTEAD.
-// 
+
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 // This is the main Web application configuration. Any writable
@@ -9,9 +8,12 @@ return array(
     // application components
     'components' => array(
         'db' => array(
-            'connectionString' => 'mysql:host=172.22.165.28;dbname=mira_final',
-            'username' => '',
-            'password' => '',
+            'connectionString' => 'mysql:host=palm.cs.illinois.edu;dbname=mira_2015',
+            'username' => 'root',
+            'password' => 'Hello123',
+            // 'connectionString' => 'mysql:host=localhost;dbname=jobs_info',
+            // 'username' => 'root',
+            // 'password' => 'root',
         // Enable profiling
         // 'enableProfiling' => true,
         // 'enableParamLogging' => true,

@@ -4,6 +4,7 @@
     "name": "performance-based-io-interface",
     "type": "stacked",
     "template": "charts/stacked.js.php",
+    "filter": "components/_filters.php",
     "title": "Job Performance based on the I/O Interface and Job Size",
     "subtitle": "I/O throughput for apps that use only POSIX-IO and those that use MPI-IO for at least one file.",
     "xAxis": {
