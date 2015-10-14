@@ -38,6 +38,10 @@ class JobsController extends GxController {
             $q = Jobs::filter($q, "appname", $_POST["application"]);
         }
 
+        if (isset($_POST["numapp"]) && strlen($_POST["numapp"]) > 0) {
+            $q = Jobs::Limit($q, $_POST["numapp"]);
+        }
+
         $orderby = "start_time";
         if (isset($_POST["sort_level1"])) {
             $orderby = $_POST["sort_level1"];

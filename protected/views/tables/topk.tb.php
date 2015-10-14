@@ -1,5 +1,5 @@
 <?php
-$data = Jobs::execSQLQuery($chart["series"][0]["query"]);
+$data = Jobs::execSQLQuery($chart["table"]["query"]);
 //print_r($data);
 //echo $series_str;
 ?>
@@ -23,13 +23,13 @@ $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
         <thead>
             <tr>
                 <th data-field="state" data-checkbox="true"></th>
-                <th data-field="appname" data-sortable="true">Name</th>
-                <th data-field="total_runtime_h" data-sortable="true">Total Runtime (hours)</th>
-                <th data-field="total_iotime_h" data-sortable="true">Total I/O Time (hours)</th>
-                <th data-field="total_bytes_TB" data-sortable="true">Total Bytes (TB)</th>
-                <th data-field="numjobs" data-sortable="true">Number of jobs</th>
-                <th data-field="avg_io_percentage" data-sortable="true">Average I/O Percentage</th>
-                <th data-field="avg_perf_GB" data-sortable="true">Average I/O Throughput (GB/s)</th>
+                <th class="small-font" data-field="appname" data-sortable="true">Name</th>
+                <th class="small-font" data-halign="center" data-align="right" data-field="total_runtime_h" data-sortable="true">Total Runtime<br>(hours)</th>
+                <th class="small-font" data-halign="center" data-align="right" data-field="total_iotime_h" data-sortable="true">Total I/O<br>Time (hours)</th>
+                <th class="small-font" data-halign="center" data-align="right" data-field="total_bytes_TB" data-sortable="true">Total<br>Bytes (TB)</th>
+                <th class="small-font" data-halign="center" data-align="right" data-field="numjobs" data-sortable="true">Number<br>of jobs</th>
+                <th class="small-font" data-halign="center" data-align="right" data-field="avg_io_percentage" data-sortable="true">Average I/O<br>Percentage</th>
+                <th class="small-font" data-halign="center" data-align="right" data-field="avg_perf_GB" data-sortable="true">Average I/O<br>Thruput<br>(GB/s)</th>
             </tr>
         </thead>
         <tbody>

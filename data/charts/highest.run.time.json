@@ -4,7 +4,7 @@
     "name": "top-k-app-chart",
     "type": "boxplot",
     "template": "charts/boxplot.js.php",
-    "filter": "components/_filters.php",
+    "filter": "components/_filters_for_platform.php",
     "title": "Top 15 Big Time Application",
     "subtitle": "",
     "xAxis": {
