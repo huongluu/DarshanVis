@@ -9,9 +9,9 @@ return array(
     // application components
     'components' => array(
         'db' => array(
-            'connectionString' => 'mysql:host=172.22.165.28;dbname=mira_final',
-            'username' => '',
-            'password' => '',
+            'connectionString' => 'mysql:host=172.22.165.28;dbname=mira_2015',
+            'username' => 'root',
+            'password' => 'Hello123',
         // Enable profiling
         // 'enableProfiling' => true,
         // 'enableParamLogging' => true,

@@ -65,7 +65,8 @@
                     "style": {
                         "color": "Highcharts.getOptions().colors[0]",
                         "font-size": "15px"
-                    }
+                    },
+                    "enabled":false
                 },
                 "labels": {
                     "align": "left",
@@ -89,7 +90,8 @@
                     "style": {
                         "color": "darkblue",
                         "font-size": "15px"
-                    }
+                    },
+                    "enabled":false
                 },
                 "labels": {
                     "align": "left",

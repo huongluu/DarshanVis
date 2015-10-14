@@ -1,0 +1,117 @@
+{
+    "_comment": "Change to new database, don't have ID column anymore, unique_iotime become local_iotime, etc... ",
+    "id": 15,
+    "name": "job-percent",
+    "type": "bar.scatter",
+    "template": "charts/total_bytes_percent.js.php",
+    "filter": "components/_filters_for_App.php",
+    "highchart-confs": {
+        "chart": {
+            "zoomType": "xy",
+            "width": 800
+        },
+        "title": {
+            "text": "Total Bytes Distribution for Each App",
+            "margin": -5,
+            "style": {
+                "margin-top": "40px"
+            }
+        },
+        "subtitle": {
+            "text": ""
+        },
+        "xAxis": [
+            {
+                "min": 1,
+                "title": {
+                    "text": "Mira_Applications",
+                    "style": {
+                        "font-size": "14px"
+                    }
+                },
+                "labels": {
+                    "format": "{value}",
+                    "style": {
+                        "font-size": "14px"
+                    }
+                },
+                "crosshair": true
+            }
+        ],
+        "yAxis": [
+            {
+                "min": 0,
+                "labels": {
+                    "format": "{value}%",
+                    "style": {
+                        "font-size": "14px"
+                    }
+                },
+                "title": {
+                    "text": "Percentage of Jobs",
+                    "style": {
+                        "font-size": "15px"
+                    }
+                }
+            },
+            {
+                "min": 1    ,
+                "type": "logarithmic",
+                "gridLineWidth": 0,
+                "title": {
+                    "text": "Number of Processes",
+                    "margin": 2,
+                    "style": {
+                        "color": "Highcharts.getOptions().colors[0]",
+                        "font-size": "15px"
+                    },
+                    "enabled":false
+                },
+                "labels": {
+                    "align": "left",
+                    "x": 3,
+                    "y": 5,
+                    "style": {
+                        "color": "Highcharts.getOptions().colors[0]",
+                        "font-size": "14px"
+                    }
+
+                }
+                ,
+                "opposite": true
+            }
+        ],
+        "tooltip": {
+            "shared": true
+        }
+    },
+    "query": {
+                "less_than_one_giga":"select a1.appname, a2.less_than_one_giga from (select appname from jobs_info group by appname) a1 left join (select appname, count(total_bytes) as less_than_one_giga from jobs_info where total_bytes<1073741824 group by appname) a2 on a1.appname=a2.appname",
+                "one_giga_to_ten_giga":"select a1.appname, a2.one_giga_to_ten_giga from (select appname from jobs_info group by appname) a1 left join (select appname, count(total_bytes) as one_giga_to_ten_giga  from jobs_info where total_bytes >1073741824 and total_bytes < 10737418240 group by appname) a2 on a1.appname=a2.appname",
+                "ten_to_hundred_giga":"select a1.appname, a2.ten_to_hundred_giga from (select appname from jobs_info group by appname) a1 left join (select appname, count(total_bytes) as ten_to_hundred_giga from jobs_info where total_bytes>10737418240 and total_bytes < 107374182400 group by appname) a2 on a1.appname=a2.appname",
+                "hundred_to_tera":"select a1.appname, a2.hundred_to_tera from (select appname from jobs_info group by appname) a1 left join (select appname, count(total_bytes) as hundred_to_tera from jobs_info where total_bytes>107374182400 and total_bytes < 1099511627776 group by appname) a2 on a1.appname=a2.appname",
+                "more_than_tera":"select a1.appname, a2.more_than_tera from (select appname from jobs_info group by appname) a1 left join (select appname, count(total_bytes) as more_than_tera from jobs_info where total_bytes > 1099511627776 group by appname) a2 on a1.appname=a2.appname ",
+                "avg_bytes":"select avg(agg_perf_MB) as avg, appname from jobs_info group by appname order by total_bytes ",
+                "max_bytes":"select max(agg_perf_MB) as max, appname from jobs_info group by appname order by total_bytes "
+            },
+    "series": [
+        {
+            "type": "stacked",
+            "name": "series1",
+            "title1": "<1GB",
+            "attr1": "less_than_one_giga",
+            "title2": "1-10GB",
+            "attr2": "one_giga_to_ten_giga",
+            "title3": "10-100GB",
+            "attr3": "ten_to_hundred_giga",
+            "title4": "100GB-1TB",
+            "attr4": "hundred_to_tera",
+            "title5": ">1TB",
+            "attr5": "more_than_tera",
+            "title6": "Avg Throughput",
+            "attr6": "avg",
+            "title7": "Max Throughput",
+            "attr7": "max"
+        }
+    ]
+}
