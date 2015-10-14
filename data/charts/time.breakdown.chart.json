@@ -116,6 +116,7 @@
         {
             "attribute": "localio",
             "name": "Non-global Data I/O",
+            "description": "Non-global data I/O: The amount of time this job spent in function calls to read/write its files not accessed by all processes.",
             "color": "#5C9430",
             "stacking": "normal",
             "type": "column"
@@ -123,6 +124,7 @@
         {
             "attribute": "local_meta",
             "name": "Non-global Metadata",
+            "description": "Non-global Metadata: The amount of time this job spent in metadata function calls (open, close, seek, etc.) for non-global files, i.e., files that one or more but not all processes opened.",
             "color": "#C73308",
             "stacking": "normal",
             "type": "column"
@@ -130,6 +132,7 @@
         {
             "attribute": "globalio",
             "name": "Global Data I/O",
+            "description": "Global data I/O: The amount of time this job spent in function calls to read/write global files, i.e., files that all processes opened.",
             "color": "#68DB49",
             "stacking": "normal",
             "type": "column"
@@ -137,6 +140,7 @@
         {
             "attribute": "global_meta",
             "name": "Global Metadata",
+            "description": "Global Metadata: The amount of time this job spent in metadata function calls (open, close, seek, etc.) for global files, i.e., files that all processes opened.",
             "color": "#F25B47",
             "stacking": "normal",
             "type": "column"
@@ -144,6 +148,7 @@
         {
             "attribute": "notio",
             "name": "Not I/O",
+            "description": "Not I/O: The amount of time this job spent outside of I/O function calls (data and metadata).",
             "color": "#BDD0D5",
             "stacking": "normal",
             "type": "column"
@@ -151,6 +156,7 @@
         {
             "attribute": "nprocs",
             "name": "Number of Processes",
+            "description": "# of Processes: The number of processes this job had.",
             "color": "#BDD0D5",
             "stacking": "normal",
             "type": "scatter",
@@ -169,6 +175,7 @@
         {
             "attribute": "total_bytes",
             "name": "Total Bytes Read/Written",
+            "description": "Total Bytes Read/Written: The total number of bytes this job read and wrote.",
             "color": "#BDD0D5",
             "stacking": "normal",
             "type": "scatter",
