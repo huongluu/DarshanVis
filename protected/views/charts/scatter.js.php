@@ -356,6 +356,6 @@ $series_str = rtrim($series_str, ",");
           // chart.redraw();
         }
 
-        make_chart("nprocs", "total_bytes", "linear", "lilnear");
+        make_chart("nprocs", "total_bytes", "linear", "linear");
     });
 </script>

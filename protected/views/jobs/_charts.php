@@ -32,7 +32,7 @@ include '_chart_template.php';
   </select>
   <br>
   Y Axis
-  <select id="chart-config-sel-y" class="chart-conig-selector">
+  <select id="chart-config-sel-y" class="chart-config-selector">
   </select>
   Y Axis Scale
   <select id="chart-config-sel-y-scale" class="chart-config-selector">
