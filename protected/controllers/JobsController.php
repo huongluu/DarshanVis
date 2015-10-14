@@ -24,6 +24,16 @@ class JobsController extends GxController {
         $result["msg"] = "successful";
         $result["chart"] = $chart;
         $q = $chart["query"];
+        
+        if (isset($_POST["start_date"]) && strlen($_POST["start_date"]) > 0) {
+            $q = Jobs::filter($q, "start_time", $_POST["start_date"], ">");
+        }
+        
+        
+        if (isset($_POST["end_date"]) && strlen($_POST["end_date"]) > 0) {
+            $q = Jobs::filter($q, "end_time", $_POST["end_date"], "<");
+        }
+        
         if (isset($_POST["application"]) && strlen($_POST["application"]) > 0) {
             $q = Jobs::filter($q, "appname", $_POST["application"]);
         }

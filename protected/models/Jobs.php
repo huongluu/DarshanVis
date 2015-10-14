@@ -61,12 +61,12 @@ class Jobs extends BaseJobs {
         return $query;
     }
 
-    public static function filter(&$query, $attr, $value) {
+    public static function filter(&$query, $attr, $value, $comparator = "=") {
 
         if (!isset($query["where"]) || strlen($query["where"]) == 0) {
-            $query["where"] = " " . $attr . " = '" . $value . "' ";
+            $query["where"] = " " . $attr . " ". $comparator. " '" . $value . "' ";
         } else {
-            $query["where"] .= " and " . $attr . " = '" . $value . "' ";
+            $query["where"] .= " and " . $attr . " ". $comparator. " '" . $value . "' ";
         }
 
         return $query;
