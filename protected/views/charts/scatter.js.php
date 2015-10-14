@@ -145,7 +145,22 @@ $series_str = rtrim($series_str, ",");
 
         $("#chart-config-button").click(function(){
           //  console.log(returnData($("#chart-config-sel-x").val(), $("#chart-config-sel-y").val(), <?php echo $json_str?>));
-           make_chart($("#chart-config-sel-x").val(), $("#chart-config-sel-y").val())
+          //  make_chart($("#chart-config-sel-x").val(), $("#chart-config-sel-y").val())
+          var x = $("#chart-config-sel-x").val();
+          var y = $("#chart-config-sel-y").val();
+          var x_scale = $("#chart-config-sel-x-scale").val();
+          var y_scale = $("#chart-config-sel-y-scale").val();
+
+          make_chart(x, y, x_scale, y_scale);
+        });
+
+        $(".chart-config-selector").change(function(){
+          var x = $("#chart-config-sel-x").val();
+          var y = $("#chart-config-sel-y").val();
+          var x_scale = $("#chart-config-sel-x-scale").val();
+          var y_scale = $("#chart-config-sel-y-scale").val();
+
+          make_chart(x, y, x_scale, y_scale);
         });
 
         // console.log('<?php echo $y_options_list ?>');
@@ -222,7 +237,7 @@ $series_str = rtrim($series_str, ",");
           chart.redraw();
         }
 
-        make_chart = function(xaxis, yaxis){
+        make_chart = function(xaxis, yaxis, x_scale, y_scale){
           var chart = $("#chart-container").highcharts();
           // var str1 = "[" + returnData(xaxis, yaxis, <?php echo $json_str?>) + "]";
           // var str2 = returnData(xaxis, yaxis, <?php echo $json_str?>);
@@ -251,7 +266,7 @@ $series_str = rtrim($series_str, ",");
           // console.log("RET OBJ:\n");
           // console.log(ret_obj);
 
-          $('#chart-container').highcharts({
+          var options = {
               chart: {
                   type: 'scatter',
                   zoomType: 'xy'
@@ -267,18 +282,16 @@ $series_str = rtrim($series_str, ",");
                       enabled: true,
                       text: xaxis
                   },
-                  type: '<?php echo $chart["xAxis"]["type"] ?>',
+                  type: x_scale,
                   startOnTick: true,
                   endOnTick: true,
-                  showLastLabel: true,
-                  min: 0
+                  showLastLabel: true
               },
               yAxis: {
                   title: {
                       text: yaxis
                   },
-                  type: '<?php echo $chart["xAxis"]["type"] ?>',
-                  min:0
+                  type: y_scale
               },
               legend: {
                   layout: 'vertical',
@@ -321,7 +334,18 @@ $series_str = rtrim($series_str, ",");
                       // [returnData(xaxis, yaxis, <?php echo $json_str?>)]
                   }
               ]
-          });
+          };
+
+          if (y_scale == "linear")
+          {
+            options.yAxis.min = 0;
+          }
+          if (x_scale == "linear")
+          {
+            options.xAxis.min = 0;
+          }
+
+          $("#chart-container").highcharts(options);
 
           // chart.redraw();
         }
