@@ -17,13 +17,14 @@
 
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/dc.css"/>
         <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.nouislider.min.css">   
-        <!--<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/reset.css">--> 
-        <!--<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css">-->  
         <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/extra.css"> 
         <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-tour-standalone.min.css"> 
         <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/hpcviz.css"> 
 
         <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-select.min.css" rel="stylesheet" type="text/css"/>
+
+        <link href="<?php echo Yii::app()->request->baseUrl; ?>/js/datatables/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
@@ -44,14 +45,18 @@
 
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap3-typeahead.min.js" type="text/javascript"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table-all.min.js"></script>
-        <script src="//rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/datatables/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table-all.min.js"></script>-->
+<!--<script src="//rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js"></script>-->
         <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/2.9.0/moment.min.js"></script>
         <!-- Include Date Range Picker -->
         <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/1/daterangepicker.js"></script>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/1/daterangepicker-bs3.css" />
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap-select.min.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/sorting.js"></script> <!-- Resource jQuery -->
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/sorting.js"></script> 
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/main.js"></script> 
 
     </head>
 
