@@ -182,14 +182,6 @@ $display_en = false;
                     </div>
                 </div>-->
 
-        <div class="form-group col-md-2">
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
-                </span>
-                <input type="text" id="user-textbox" name="user" class="form-control" id="user-typeahead" data-provide="typeahead" placeholder="UserID" autocomplete="off">
-            </div>
-        </div>
 
         <div class="form-group col-md-3">
             <div class="input-group">
@@ -198,6 +190,15 @@ $display_en = false;
                 </span>
                 <input type="text" id="application-textbox" name="application" class="form-control" id="application-typeahead" data-provide="typeahead" placeholder="Application Name" autocomplete="off">
                 <!--<input type="text" class="form-control" placeholder="Application" aria-describedby="basic-addon1">-->
+            </div>
+        </div>
+
+        <div class="form-group col-md-2">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
+                </span>
+                <input type="text" id="user-textbox" name="user" class="form-control" id="user-typeahead" data-provide="typeahead" placeholder="UserID" autocomplete="off">
             </div>
         </div>
 

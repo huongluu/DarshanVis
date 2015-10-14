@@ -112,7 +112,7 @@
     "query": {
         "select": "(local_iotime - local_meta) as localio, local_meta, (global_iotime - global_meta) as globalio, global_meta , (runtime - local_iotime - global_iotime ) as notio, start_time, nprocs, total_bytes, agg_perf_MB, unique_count, allshared_count, partshared_count",
         "from": "jobs_info",
-        "where": "local_iotime is not null and local_meta is not null and global_iotime is not null and global_meta is not null and runtime is not null"
+        "where": "agg_perf_MB is not null"
     },
     "series": [
         {
