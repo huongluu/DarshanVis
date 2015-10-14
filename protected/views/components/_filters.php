@@ -78,10 +78,10 @@ $display_en = false;
             send();
         });
 
-        $('#reportrange span').html(moment().subtract(29, 'days').format('MMM DD \'YY') + ' - ' + moment().format('MMM DD \'YY'));
+        $('#reportrange span').html(moment().subtract(1, 'years').format('MMM DD \'YY') + ' - ' + moment().format('MMM DD \'YY'));
         $('#reportrange').daterangepicker({
             format: 'MM/DD/YYYY',
-            startDate: moment().subtract(30, 'days'),
+            startDate: moment().subtract(1, 'years'),
             endDate: moment(),
             minDate: '01/01/2012',
             maxDate: '12/31/2015',
