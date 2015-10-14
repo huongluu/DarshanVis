@@ -1,17 +1,10 @@
-<style type="text/css">
-    .highcharts-tooltip>span {
-        background: rgba(255,255,255,0.85);
-        border: 1px solid silver;
-        border-radius: 3px;
-        box-shadow: 1px 1px 2px #888;
-        padding: 8px;
-        z-index: 2;
-    }
-</style>
+<?php
+include_once 'utils2.php';
+?>
+<script type="text/javascript">
 
-<script type = "text/javascript" >
-//    $(function() {
-    $(document).ready(function() {
+    $(function () {
+
         /**
          * This plugin extends Highcharts in two ways:
          * - Use HTML5 canvas instead of SVG for rendering of the heatmap squares. Canvas
@@ -19,14 +12,14 @@
          * - Add a K-D-tree to find the nearest point on mouse move. Since we no longer have SVG shapes
          *   to capture mouseovers, we need another way of detecting hover points for the tooltip.
          */
-        (function(H) {
+        (function (H) {
             var wrap = H.wrap,
                     seriesTypes = H.seriesTypes;
 
             /**
              * Get the canvas context for a series
              */
-            H.Series.prototype.getContext = function() {
+            H.Series.prototype.getContext = function () {
                 var canvas;
                 if (!this.ctx) {
                     canvas = document.createElement('canvas');
@@ -49,7 +42,7 @@
              * Wrap the drawPoints method to draw the points in canvas instead of the slower SVG,
              * that requires one shape each point.
              */
-            H.wrap(H.seriesTypes.heatmap.prototype, 'drawPoints', function(proceed) {
+            H.wrap(H.seriesTypes.heatmap.prototype, 'drawPoints', function (proceed) {
 
                 var ctx;
                 if (this.chart.renderer.forExport) {
@@ -61,7 +54,7 @@
                     if (ctx = this.getContext()) {
 
 // draw the columns
-                        H.each(this.points, function(point) {
+                        H.each(this.points, function (point) {
                             var plotY = point.plotY,
                                     shapeArgs;
 
@@ -85,102 +78,19 @@
         }(Highcharts));
 
 
-        var start;
+        // Add `globalCallback` to the list of highcharts callbacks
+        Highcharts.Chart.prototype.callbacks.push(globalCallback);
+        console.log($('#chart-container'));
         $('#chart-container').highcharts({
-            data: {
-                csv: document.getElementById('csv').innerHTML,
-                parsed: function() {
-                    start = +new Date();
-                }
-            },
-            chart: {
-                type: 'heatmap',
-                margin: [60, 40, 100, 100]
-            },
-            title: {
-                text: 'Jobs Size and I/O Throughput Distribution',
-                align: 'left',
-                x: 40
-            },
-            subtitle: {
-                text: 'Colors show number of jobs',
-                align: 'left',
-                x: 40
-            },
-            tooltip: {
-                backgroundColor: null,
-                borderWidth: 0,
-                distance: 10,
-                shadow: false,
-                useHTML: true,
-                style: {
-                    padding: 0,
-                    color: 'black'
-                }
-            },
-            xAxis: {
-                title: {
-                    text: 'Total Bytes'
-                },
-                labels: {
-                    format: '{value}'
-                },
-                minPadding: 0,
-                maxPadding: 0,
-//                        startOnTick: false,
-//                        endOnTick: false,
-//                        tickPositions: [0, 6, 12, 18, 24],
-//                        tickWidth: 1,
-//                        min: 0,
-//                        max: 23,
-//                        reversed: true
-            },
-            yAxis: {
-                title: {
-                    text: 'I/O Throughput'
-                },
-                labels: {
-                    format: '{value}'
-                },
-                minPadding: 0,
-                maxPadding: 0,
-//                        startOnTick: false,
-//                        endOnTick: false,
-//                        tickPositions: [0, 6, 12, 18, 24],
-//                        tickWidth: 1,
-//                        min: 0,
-//                        max: 23,
-//                        reversed: true
-            },
-            colorAxis: {
-//                stops: [
-//                    [0, '#99FFFF'],
-//                    [10, '#0000FF'],
-//                    [20, '#FFFF00'],
-//                    [30, '#FF0000']
-//                ],
-//                type: 'logarithmic'
-//                min: 0,
-//                max: 50,
-//                        startOnTick: false,
-//                        endOnTick: false,
-                labels: {
-                    format: '{value}'
-                }
-            },
-            series: [{
-                    borderWidth: 0,
-                    nullColor: '#EFEFEF',
-//                            colsize: 24 * 36e5, // one day
-                    tooltip: {
-                        headerFormat: 'Job Counts<br/>',
-                        pointFormat: '{point.x} {point.y}: <b>{point.value} jobs</b>'
-                    },
-                    turboThreshold: Number.MAX_VALUE // #3404, remove after 4.0.5 release
-                }]
+<?php echo getHighchartSafeJson($chart["highchart-confs"]); ?>
 
+            series: []
         });
-        console.log('Rendered in ' + (new Date() - start) + ' ms');
+
+        var chart = $('#chart-container').highcharts();
+        console.log(">>>>>>>>>>>");
+        console.log(chart);
+
 
     });
 </script>

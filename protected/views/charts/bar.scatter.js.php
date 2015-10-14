@@ -64,9 +64,6 @@ include_once 'utils2.php';
                 });
             }
 
-            //            chart.yAxis[0].labels.update({
-            //                format: stacking ? "{value}" : "{value}%"
-            //            });
 
 
             chart.yAxis[0].axisTitle.attr({

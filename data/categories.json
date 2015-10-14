@@ -22,10 +22,6 @@
                 ]
             },
             {
-                "id": 13,
-                "title": "Jobs Distribution for Top Apps"
-            },
-            {
                 "id": 3,
                 "title": "Jobs' I/O Throughput vs. Bytes Accessed"
             },

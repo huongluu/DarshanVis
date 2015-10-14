@@ -3,7 +3,7 @@
     "name": "Average and Maximum I/O Throughput of  chart",
     "type": "line",
     "template": "charts/line.js.php",
-    "filter": "components/_filters_for_App.php",
+    "filter": "components/_filters.php",
     "highchart-confs": {
         "title": "Average and Maximum I/O Throughput of App",
         "chart": {
@@ -37,7 +37,6 @@
         "yAxis": {
             "type": "logarithmic",
             "labels": {
-                "format": "{value}GB/s",
                 "style": {
                     "font-size": "14px"
                 }
@@ -55,33 +54,32 @@
             "shared": true
 
         },
-        "legend": {
-            "layout": "vertical",
-            "align": "right",
-            "verticalAlign": "top",
-            "borderWidth": 0,
-            "floating": true
-        },
         "plotOptions": {
             "series": {
                 "allowPointSelect": true
             }
         }
-    }, 
+    },
+    "query": {
+        "select": "max(agg_perf_MB) as max_thruput, median(agg_perf_MB) as median_thruput",
+        "from": "jobs_info",
+        "where": "agg_perf_MB is not null",
+        "group": "appname"
+    },
     "series": [
         {
-            "type": "line",
-            "name": "",
-            "query1": "select (max(agg_perf_MB)/1024) as max_bytes , appname from jobs_info where agg_perf_MB is not null group by appname order by max_bytes ",
-            "query2": "select appname, (agg_perf_MB/1024) as median_bytes, perf_Rank from    (   select k1.appname, k2.agg_perf_MB, k2.perf_Rank from  ( ( select appname,  ceiling(count(perf_Rank)/2) as median_high, floor(count(perf_Rank)/2)  as median_low from ( SELECT a1.appname, a1.agg_perf_MB, COUNT(a2.agg_perf_MB) perf_Rank FROM jobs_info a1, jobs_info a2   WHERE a1.appname=a2.appname and (a1.agg_perf_MB >= a2.agg_perf_MB OR (a1.agg_perf_MB=a2.agg_perf_MB )) and a2.agg_perf_MB>0 GROUP BY a1.appname, a1.agg_perf_MB ORDER BY a1.appname ,  a1.agg_perf_MB asc   ) a3  group by appname  order by appname asc    ) as k1   left join  ( SELECT a1.appname, a1.agg_perf_MB, COUNT(a2.agg_perf_MB) perf_Rank  FROM jobs_info a1, jobs_info a2  WHERE a1.appname=a2.appname and (a1.agg_perf_MB >= a2.agg_perf_MB OR (a1.agg_perf_MB=a2.agg_perf_MB )) and a2.agg_perf_MB>0 GROUP BY a1.appname, a1.agg_perf_MB  ORDER BY a1.appname ,  a1.agg_perf_MB asc ) as k2 on k2.perf_Rank=k1.median_high and  k1.appname=k2.appname )) m1 group by appname order by appname  ",
-            "series1": "avg_bytes",
-            "series2": "max_bytes",
-            "title1": "Median I/O Throughput",
-            "title2": "Maximum I/O Throughput",
-            "color2": "#33FF99",
-            "xaxis": "uid",
-            "attribute1": "max_bytes",
-            "attribute2": "median_bytes"
+            "attribute": "median_thruput",
+            "name": "Median I/O Throughput",
+            "description": "",
+            "color": "#CC0000",
+            "type": "line"
+        },
+        {
+            "attribute": "max_thruput",
+            "name": "Maximum I/O Throughput",
+            "description": "",
+            "color": "#33FF99",
+            "type": "line"
         }
     ]
 }
