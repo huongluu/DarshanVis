@@ -3,6 +3,7 @@
     "name": "heatmap2-chart",
     "type": "heatmap",
     "template": "charts/heatmap.js.php",
+    "filter": "components/_filters.php",
     "title": "My Heatmap",
     "subtitle": "",
     "xAxis": {

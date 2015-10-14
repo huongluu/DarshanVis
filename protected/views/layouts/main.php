@@ -32,8 +32,6 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.0/isotope.pkgd.js"></script>
 
 
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.mixitup.min.js"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/main.js"></script> <!-- Resource jQuery -->
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/modernizr.js"></script> <!-- Modernizr -->
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.nouislider.all.js"></script> <!-- Slider -->
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap-tour-standalone.min.js"></script> <!-- Slider -->
