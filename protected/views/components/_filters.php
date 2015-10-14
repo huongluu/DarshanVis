@@ -126,18 +126,45 @@ $display_en = false;
 //        alert(datepickerobj.startDate.format('YYYY-MM-DD'));
 //        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>> datepicker");
 //        console.log(datepickerobj);
-        $.get('UserList', function (data) {
-            $("#user-typeahead").typeahead({
-                source: data
-            });
+        $('#user-textbox').typeahead({
+            source: function (query, process) {
+                return $.get('UserList', {
+                    user: query,
+                    application: $("#application-textbox").val() ? $("#application-textbox").val() : "null"
+                },
+                function (data) {
+                    console.log(data);
+                    return process(data);
+                });
+            }
+        });
+
+        $('#application-textbox').typeahead({
+            source: function (query, process) {
+                return $.get('ApplicationList', {
+                    application: query,
+                    user: $("#user-textbox").val() ? $("#user-textbox").val() : "null"
+                },
+                function (data) {
+                    console.log(data);
+                    return process(data);
+                });
+            }
+        });
+
+
+//        $.get('UserList', function (data) {
+//            $("#user-typeahead").typeahead({
+//                source: data
+//            });
 //            console.log(data);
-        }, 'json');
-        $.get('ApplicationList', function (data) {
-            $("#application-typeahead").typeahead({
-                source: data
-            });
+//        }, 'json');
+//        $.get('ApplicationList', function (data) {
+//            $("#application-textbox").typeahead({
+//                source: data
+//            });
 //            console.log(data);
-        }, 'json');
+//        }, 'json');
     });
 </script>
 
