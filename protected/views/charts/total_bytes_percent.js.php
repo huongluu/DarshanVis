@@ -88,8 +88,8 @@ $data=Jobs::execSQLQuery($merged_query);
 
 //print_r($data);
 //$cats_str = "";
-echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
-var_dump($data);
+//echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+//var_dump($data);
 
 $series_str = array();
 $categories=array();
