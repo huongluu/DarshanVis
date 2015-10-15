@@ -13,10 +13,10 @@ $data = Jobs::execSQLQuery($chart["table"]["query"]);
                 <th>Name</th>
                 <th>Total Runtime (hours)</th>
                 <th>Total I/O Time (hours)</th>
-                <th>Total Bytes (TB)</th>
+                <th>Total Amount of Data Read/Written</th>
                 <th>Number of jobs</th>
-                <th>Average I/O Percentage</th>
-                <th>Average I/O Thruput (GB/s)</th>
+                <th>Average Percentage of Runtime in I/O</th>
+                <th>Median I/O Thruput (GB/s)</th>
             </tr>
         </thead>
         <tbody>
@@ -28,10 +28,10 @@ $data = Jobs::execSQLQuery($chart["table"]["query"]);
                 echo "<td>" . $d['appname'] . "</td>";
                 echo "<td>" . round($d['total_runtime_h']) . "</td>";
                 echo "<td>" . round($d['total_iotime_h']) . "</td>";
-                echo "<td>" . round($d['total_bytes_TB']) . "</td>";
+                echo "<td>" . round($d['total_bytes_TB']) ." TB" ."</td>";
                 echo "<td>" . round($d['numjobs']) . "</td>";
-                echo "<td>" . round($d['avg_io_percentage']) . "</td>";
-                echo "<td>" . round($d['avg_perf_GB']) . "</td>";
+                echo "<td>" . round($d['avg_io_percentage']) ."%". "</td>";
+                echo "<td>" . round($d['avg_perf_GB'],2) . "</td>";
                 echo "</tr>";
                 $index++;
             }
