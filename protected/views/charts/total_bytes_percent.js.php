@@ -1,6 +1,5 @@
 <?php
 include_once 'utils2.php';
-<<<<<<< HEAD
 
 $merged_query=$chart["query"]["merged_query"];
 // $less_than_one_giga = $chart["query"]["less_than_one_giga"];
@@ -15,19 +14,6 @@ $orderby="appname";
 //echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 
 //var_dump($less_than_one_giga);
-=======
-$less_than_one_giga = $chart["query"]["less_than_one_giga"];
-$one_giga_to_ten_giga=$chart["query"]["one_giga_to_ten_giga"];
-$ten_to_hundred_giga =$chart["query"]["ten_to_hundred_giga"];
-$hundred_to_tera= $chart["query"]["hundred_to_tera"];
-$more_than_tera=$chart["query"]["more_than_tera"];
-$avg_bytes =$chart["query"]["avg_bytes"];
-$max_bytes=$chart["query"]["max_bytes"];
-
-
-
-var_dump($less_than_one_giga);
->>>>>>> 686fc7d98c482cbf15415c07409a80e6cabeeefb
 
 // if (isset($_POST["application"]) && strlen($_POST["application"]) > 0) {
 //     $q = Jobs::filter($q, "appname", $_POST["application"]);
@@ -77,7 +63,6 @@ var_dump($less_than_one_giga);
 // }
 
 
-<<<<<<< HEAD
 // $less_than_one_giga= Jobs::addSortingLevel($data[1], $orderby, "asc");
 // $one_giga_to_ten_giga= Jobs::addSortingLevel($data[2], $orderby, "asc");
 // $ten_to_hundred_giga= Jobs::addSortingLevel($data[3], $orderby, "asc");
@@ -110,32 +95,6 @@ $series_str = array();
 $categories=array();
 
        $attr_count =7;
-=======
-
-
-
-//var_dump($q) ;
-$data[1] = Jobs::execSQLQuery($less_than_one_giga);
-$data[2] = Jobs::execSQLQuery($one_giga_to_ten_giga);
-$data[3] = Jobs::execSQLQuery($ten_to_hundred_giga);
-$data[4] = Jobs::execSQLQuery($hundred_to_tera);
-$data[5] = Jobs::execSQLQuery($more_than_tera);
-$data[6] = Jobs::execSQLQuery($avg_bytes);
-$data[7] = Jobs::execSQLQuery($max_bytes);
-
-
-
-
-
-
-//print_r($data);
-//$cats_str = "";
-//var_dump($data[1]);
-$series_str = array();
-
-
-        $attr_count =7;
->>>>>>> 686fc7d98c482cbf15415c07409a80e6cabeeefb
          //initialize strings for the attribute series
         for ($i = 1; $i <= $attr_count; $i++) 
         {
@@ -151,7 +110,6 @@ $series_str = array();
 
         }
 
-<<<<<<< HEAD
             $i=1;
             $index=1;
             //var_dump($data[$i]);
@@ -237,36 +195,6 @@ $series_str = array();
 
 
 
-=======
-for ($i = 1; $i <= $attr_count; $i++) 
-        {
-            $index=1;
-            //var_dump($data[$i]);
-            foreach ($data[$i] as $each_data) 
-            {
-                //echo $i.'\n';
-                //echo $chart["series"][0]["attr".$i];
-                if($each_data[  $chart["series"][0]["attr".$i]  ]==null  )
-                    $each_data[  $chart["series"][0]["attr".$i]  ]='0';
-                $cat_str[$i] .= '\'' . $index . '\'' . ',';
-                $series_str[$i] .= $each_data[  $chart["series"][0]["attr".$i]  ]. ',';
-                 $index++;
-            }
-            $cat_str[$i] = rtrim($cat_str[$i], ",");
-            $series_str[$i] = rtrim($series_str[$i], ",");
-        }
-
-
-
-$categories=array();
-$idx=1;
-foreach ($data[1] as $each_data) 
-            {
-
-                $categories[]=$each_data["appname"];
-                 $index++;
-            }
->>>>>>> 686fc7d98c482cbf15415c07409a80e6cabeeefb
 //$categories = rtrim($categories, ",");
 //$categories .= ']';
 $chart["highchart-confs"]["xAxis"]["categories"]=$categories;
@@ -403,11 +331,7 @@ $chart["highchart-confs"]["xAxis"]["categories"]=$categories;
                     stacking: 'percent',
                     index:0,
 //                    yAxis: 1,
-<<<<<<< HEAD
                     data: [<?php echo nullSafe($series_str[5]); ?>]
-=======
-                    data: [<?php echo nullSafe($series_str[1]); ?>]
->>>>>>> 686fc7d98c482cbf15415c07409a80e6cabeeefb
                 },
                 {
                     name: '<?php echo $chart["series"][0]["title6"] ?>',
@@ -419,11 +343,7 @@ $chart["highchart-confs"]["xAxis"]["categories"]=$categories;
                     marker: {
                         symbol: 'diamond',
                         enabled: true,
-<<<<<<< HEAD
                         radius: 2,
-=======
-                        radius: 3,
->>>>>>> 686fc7d98c482cbf15415c07409a80e6cabeeefb
                         fillColor: '#0033FF'
                     },
                     dashStyle: 'shortdot'
@@ -437,11 +357,7 @@ $chart["highchart-confs"]["xAxis"]["categories"]=$categories;
                         symbol: 'circle',
                         enabled: true,
                         fillColor: '#000033',
-<<<<<<< HEAD
                         radius: 2
-=======
-                        radius: 3
->>>>>>> 686fc7d98c482cbf15415c07409a80e6cabeeefb
                     },
                     yAxis: 1,
                     data: [<?php echo $series_str[7] ?>],
@@ -455,10 +371,7 @@ $chart["highchart-confs"]["xAxis"]["categories"]=$categories;
         console.log(chart);
 
 
-<<<<<<< HEAD
         
-=======
->>>>>>> 686fc7d98c482cbf15415c07409a80e6cabeeefb
     var category = {
         "1KB/s": 1024,
         "32KB/s": 32768,
@@ -469,7 +382,6 @@ $chart["highchart-confs"]["xAxis"]["categories"]=$categories;
         "1TB/s":1099511627776
     };
 
-<<<<<<< HEAD
      
          if (!stacking) {
                 chart.yAxis[0].setExtremes(0, 100);
@@ -478,13 +390,6 @@ $chart["highchart-confs"]["xAxis"]["categories"]=$categories;
                 chart.yAxis[0].setExtremes(null, null);
             }
           
-=======
-     chart.yAxis[1].labels.formatter=function(){
-    
-         return categoryLinks[this.value] ;
-                    }
-                   
->>>>>>> 686fc7d98c482cbf15415c07409a80e6cabeeefb
 
   
 
@@ -503,7 +408,6 @@ $chart["highchart-confs"]["xAxis"]["categories"]=$categories;
 //                format: stacking ? "{value}" : "{value}%"
 //            });
 
-<<<<<<< HEAD
 
          if (stacking) {
                 chart.yAxis[0].setExtremes(0, 100);
@@ -515,11 +419,6 @@ $chart["highchart-confs"]["xAxis"]["categories"]=$categories;
             // chart.yAxis[0].axisTitle.attr({
             //         text:  stacking ? "Distribution of time (s)" : "Percentage of time (%)"
             //     });
-=======
-            chart.yAxis[0].axisTitle.attr({
-                    text:  stacking ? "Distribution of time (s)" : "Percentage of time (%)"
-                });
->>>>>>> 686fc7d98c482cbf15415c07409a80e6cabeeefb
             stacking = !stacking;
 //            chart.series[0].update({
 //                color: color ? null : Highcharts.getOptions().colors[1]
