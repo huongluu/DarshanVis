@@ -15,7 +15,10 @@ class Jobs extends BaseJobs {
         $query_str = "";
         if ((isset($query["select"])) && strlen($query["select"]) != 0) {
             $query_str .= "select " . $query["select"] . " ";
-            $query_str .= " from " . $query["from"] . " ";
+
+            if ((isset($query["from"])) && strlen($query["from"]) != 0) {
+                $query_str .= " from " . $query["from"] . " ";
+            }
             if ((isset($query["where"])) && strlen($query["where"]) != 0) {
                 $query_str .= " where " . $query["where"] . " ";
             }
@@ -32,7 +35,7 @@ class Jobs extends BaseJobs {
             $query_str = $query;
         }
 
-        echo "QQQ:" . $query_str . "";
+//        echo "QQQ:" . $query_str . "";
         $command = $connection->createCommand($query_str);
         // if needed, the SQL statement may be updated as follows:
         // $command->text=$newSQL;
@@ -41,15 +44,18 @@ class Jobs extends BaseJobs {
     }
 
     public static function OrderBy(&$query, $orderby, $mode = "desc") {
-        $query["order"] = $orderby . " " . $mode;
+        if (isset($orderby) && strlen($orderby) > 0) {
+            $query["order"] = $orderby . " " . $mode;
 //        $query["order"] = $orderby . " ";
-
+        }
         return $query;
     }
 
     public static function addSortingLevel(&$query, $orderby, $mode = "desc") {
-        $query["order"] .= " , " . $orderby . " " . $mode;
+        if (isset($orderby) && strlen($orderby) > 0) {
+            $query["order"] .= " , " . $orderby . " " . $mode;
 //        $query["order"] = $orderby . " ";
+        }
         return $query;
     }
 
@@ -58,12 +64,12 @@ class Jobs extends BaseJobs {
         return $query;
     }
 
-    public static function filter(&$query, $attr, $value) {
+    public static function filter(&$query, $attr, $value, $comparator = "=") {
 
         if (!isset($query["where"]) || strlen($query["where"]) == 0) {
-            $query["where"] = " " . $attr . " = '" . $value . "' ";
+            $query["where"] = " " . $attr . " " . $comparator . " '" . $value . "' ";
         } else {
-            $query["where"] .= " and " . $attr . " = '" . $value . "' ";
+            $query["where"] .= " and " . $attr . " " . $comparator . " '" . $value . "' ";
         }
 
         return $query;

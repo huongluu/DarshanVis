@@ -35,3 +35,12 @@
     padding-left: 6px;
     padding-right: 6px;
 }
+
+.small-font {
+    font-size: 90%;
+}
+
+.dataTables_filter {
+    visibility: hidden;
+    display: none;
+}

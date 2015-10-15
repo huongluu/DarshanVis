@@ -3,22 +3,28 @@
     "name": "heatmap2-chart",
     "type": "heatmap",
     "template": "charts/heatmap.js.php",
-    "title": "My Heatmap",
-    "subtitle": "",
-    "xAxis": {
-        "title": ""
-    },
-    "yAxis": {
-        "title": ""
-    },
-    "tooltip": {
-        "valueSuffix": ""
-    },
-    "series": [
-        {
-            "type": "column",
-            "name": "",
-            "query": ""
+    "filter": "components/_filters.php",
+    "highchart-confs": {
+        "chart": {
+            "zoomType": "xy",
+            "width": 800
+        },
+        "title": {
+            "text": "Jobs Size and I/O Throughput Distribution",
+            "align": "left",
+            "x": 40
+        },
+        "subtitle": {
+            "text": ""
+        },
+        "xAxis": {
+            "title": "Total Bytes"
+        },
+        "yAxis": {
+            "title": "I/O Throughput"
+        },
+        "tooltip": {
+            "valueSuffix": ""
         }
-    ]
+    }
 }

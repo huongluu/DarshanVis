@@ -1,36 +1,24 @@
 <?php
-//$date_data = Jobs::execSQLQuery("select min(start_time), max(start_time) from jobs_info;");
-$display_en=false;
-$app_placeholder = "Application Name";
-if (isset($_POST["application"]) && strlen($_POST["application"]) > 0) {
-    $app_placeholder = $_POST["application"];
-    $display_en=true;
-}
-
-$user_placeholder = "UserID";
-if (isset($_POST["user"]) && strlen($_POST["user"]) > 0) {
-    $user_placeholder = $_POST["user"];
-}
-
-$numapp_placeholder = "Number of Applications";
-if (isset($_POST["numapp"]) && strlen($_POST["numapp"]) > 0) {
-    $numapp_placeholder = $_POST["numapp"];
-}
+$display_en = false;
 ?>
 <script type="text/javascript">
-    $(function() {
-      
-        $('#reportrange span').html(moment().subtract(29, 'days').format('MMM DD \'YY') + ' - ' + moment().format('MMM DD \'YY'));
+    $(function () {
 
+
+        $("#filter-button, #sorting-button").click(function () {
+            send();
+        });
+
+        $('#reportrange span').html(moment().subtract(1, 'years').format('MMM DD \'YY') + ' - ' + moment().format('MMM DD \'YY'));
         $('#reportrange').daterangepicker({
             format: 'MM/DD/YYYY',
-            startDate: moment().subtract(30, 'days'),
+            startDate: moment().subtract(1, 'years'),
             endDate: moment(),
             minDate: '01/01/2012',
             maxDate: '12/31/2015',
-            dateLimit: {
-                days: 60
-            },
+//            dateLimit: {
+//                days: 60
+//            },
             showDropdowns: true,
             showWeekNumbers: true,
             timePicker: false,
@@ -61,57 +49,87 @@ if (isset($_POST["numapp"]) && strlen($_POST["numapp"]) > 0) {
                 firstDay: 1
             }
         },
-        function(start, end, label) {
+        function (start, end, label) {
             console.log(start.toISOString(), end.toISOString(), label);
             $('#reportrange span').html(start.format('MMM DD \'YY') + ' - ' + end.format('MMM DD \'YY'));
         });
 
+//        alert(datepickerobj.startDate.format('YYYY-MM-DD'));
+//        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>> datepicker");
+//        console.log(datepickerobj);
+        $('#user-textbox').typeahead({
+            source: function (query, process) {
+                return $.get('UserList', {
+                    user: query,
+                    application: $("#application-textbox").val() ? $("#application-textbox").val() : "null"
+                },
+                function (data) {
+                    console.log(data);
+                    return process(data);
+                });
+            }
+        });
+
+        $('#application-textbox').typeahead({
+            source: function (query, process) {
+                return $.get('ApplicationList', {
+                    application: query,
+                    user: $("#user-textbox").val() ? $("#user-textbox").val() : "null"
+                },
+                function (data) {
+                    console.log(data);
+                    return process(data);
+                });
+            }
+        });
 
 
-        $.get('UserList', function(data) {
-            $("#user-typeahead").typeahead({
-                source: data
-            });
+//        $.get('UserList', function (data) {
+//            $("#user-typeahead").typeahead({
+//                source: data
+//            });
 //            console.log(data);
-        }, 'json');
-
-        $.get('ApplicationList', function(data) {
-            $("#application-typeahead").typeahead({
-                source: data
-            });
+//        }, 'json');
+//        $.get('ApplicationList', function (data) {
+//            $("#application-textbox").typeahead({
+//                source: data
+//            });
 //            console.log(data);
-        }, 'json');
-
+//        }, 'json');
     });
 </script>
 
-<form role="form" method="post">
+<div>
     <div class="row">
-        <div class="form-group col-md-4">
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
-                </span>
-                <input type="text" name="numapp" class="form-control" id="numapp-typeahead" data-provide="typeahead" placeholder="<?php echo $numapp_placeholder; ?>" autocomplete="off">
-            </div>
-        </div>
-        
-        <div class="form-group col-md-2">
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
-                </span>
-                <input type="text" name="user" class="form-control" id="user-typeahead" data-provide="typeahead" placeholder="<?php echo $user_placeholder; ?>" autocomplete="off">
-            </div>
-        </div>
+        <div class="text-center" id="status">&nbsp;</div>
+    </div>
+    <div class="row">
+        <!--        <div class="form-group col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
+                        </span>
+                        <input type="text" id="numapp-textbox" name="numapp" class="form-control" id="numapp-typeahead" data-provide="typeahead" placeholder="Number of Applications" autocomplete="off">
+                    </div>
+                </div>-->
+
 
         <div class="form-group col-md-3">
             <div class="input-group">
                 <span class="input-group-addon">
                     <i class="glyphicon glyphicon-font" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
                 </span>
-                <input type="text" name="application" class="form-control" id="application-typeahead" data-provide="typeahead" placeholder="<?php echo $app_placeholder; ?>" autocomplete="off">
+                <input type="text" id="application-textbox" name="application" class="form-control" id="application-typeahead" data-provide="typeahead" placeholder="Application Name" autocomplete="off">
                 <!--<input type="text" class="form-control" placeholder="Application" aria-describedby="basic-addon1">-->
+            </div>
+        </div>
+
+        <div class="form-group col-md-2">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
+                </span>
+                <input type="text" id="user-textbox" name="user" class="form-control" id="user-typeahead" data-provide="typeahead" placeholder="UserID" autocomplete="off">
             </div>
         </div>
 
@@ -123,7 +141,7 @@ if (isset($_POST["numapp"]) && strlen($_POST["numapp"]) > 0) {
         </div>
 
         <div class="col-md-1 form-group">
-            <button type="submit" class="btn btn-inverse tiny-button">Update</button>
+            <button id="filter-button" class="btn btn-inverse tiny-button">Update</button>
         </div>
 
         <div class="col-md-1 form-group">
@@ -139,7 +157,7 @@ if (isset($_POST["numapp"]) && strlen($_POST["numapp"]) > 0) {
         </div>-->
 
     <?php include '_sorting_modal.php'; ?>
-</form>
+</div>
 
 <div class="row">
     <div class="col-md-2 form-group">
