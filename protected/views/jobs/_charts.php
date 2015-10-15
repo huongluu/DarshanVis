@@ -8,7 +8,7 @@ include '_chart_template.php';
 ?>
 
 
-<div id="chart-container"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+<div id="chart-container"  style="height: 700px; width: 1000px; margin: 0 auto;"></div>
 
 
 <div id="chart-config" hidden>
