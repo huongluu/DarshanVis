@@ -20,6 +20,12 @@
         "subtitle": {
             "text": ""
         },
+        "navigation": {
+            "buttonOptions": {
+                "verticalAlign": "bottom",
+                "y": -20
+            }
+        },
         "xAxis": [
             {
                 "tickInterval": 2000,

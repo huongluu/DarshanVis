@@ -18,12 +18,6 @@
         },
         "subtitle": {
             "text": ""
-        },
-        "navigation": {
-            "buttonOptions": {
-                "verticalAlign": "bottom",
-                "y": -20
-            }
         }
     }
 }
