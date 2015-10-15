@@ -169,7 +169,7 @@
             "marker": {
                 "symbol": "diamond",
                 "enabled": true,
-                "radius": 1,
+                "radius": 3,
                 "fillColor": "#7F77B4"
             }
         }
@@ -188,7 +188,7 @@
             "marker": {
                 "symbol": "circle",
                 "enabled": true,
-                "radius": 1,
+                "radius": 3,
                 "fillColor": "#BF53B4"
             }
         }
