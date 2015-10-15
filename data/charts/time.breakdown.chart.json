@@ -65,7 +65,7 @@
                         "color": "Highcharts.getOptions().colors[0]",
                         "font-size": "15px"
                     },
-                    "enabled":false
+                    "enabled": false
                 },
                 "labels": {
                     "align": "left",
@@ -90,7 +90,7 @@
                         "color": "darkblue",
                         "font-size": "15px"
                     },
-                    "enabled":false
+                    "enabled": false
                 },
                 "labels": {
                     "align": "left",
@@ -120,7 +120,8 @@
             "description": "Non-global data I/O: The amount of time this job spent in function calls to read/write its files not accessed by all processes.",
             "color": "#5C9430",
             "stacking": "normal",
-            "type": "column"
+            "type": "column",
+            "yAxis": 0
         },
         {
             "attribute": "local_meta",
@@ -128,7 +129,8 @@
             "description": "Non-global Metadata: The amount of time this job spent in metadata function calls (open, close, seek, etc.) for non-global files, i.e., files that one or more but not all processes opened.",
             "color": "#C73308",
             "stacking": "normal",
-            "type": "column"
+            "type": "column",
+            "yAxis": 0
         },
         {
             "attribute": "globalio",
@@ -136,7 +138,8 @@
             "description": "Global data I/O: The amount of time this job spent in function calls to read/write global files, i.e., files that all processes opened.",
             "color": "#68DB49",
             "stacking": "normal",
-            "type": "column"
+            "type": "column",
+            "yAxis": 0
         },
         {
             "attribute": "global_meta",
@@ -144,7 +147,8 @@
             "description": "Global Metadata: The amount of time this job spent in metadata function calls (open, close, seek, etc.) for global files, i.e., files that all processes opened.",
             "color": "#F25B47",
             "stacking": "normal",
-            "type": "column"
+            "type": "column",
+            "yAxis": 0
         },
         {
             "attribute": "notio",
@@ -152,7 +156,8 @@
             "description": "Not I/O: The amount of time this job spent outside of I/O function calls (data and metadata).",
             "color": "#BDD0D5",
             "stacking": "normal",
-            "type": "column"
+            "type": "column",
+            "yAxis": 0
         },
         {
             "attribute": "nprocs",

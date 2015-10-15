@@ -6,7 +6,9 @@
 
 
 $(document).ready(function () {
-    $('#dv_table').DataTable();
+    $('#dv_table').DataTable({
+        "lengthMenu": [[-1], ["All"]]
+    });
 
 
 });
