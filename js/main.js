@@ -13,7 +13,7 @@ $(document).ready(function () {
 
 function byte_formatter(c, suffix) {
     var bytes = c.value * 1000 * 1000;
-    var sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
     if (bytes == 0) {
         return '0 B';
     }

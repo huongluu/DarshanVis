@@ -5,14 +5,14 @@
     "template": "charts/line.js.php",
     "filter": "components/_filters.php",
     "highchart-confs": {
-        "title": "Average and Maximum I/O Throughput of App",
+        "title": "Median and Maximum I/O Throughput of All Applications",
         "chart": {
             "zoomType": "xy",
             "width": 800
         },
         "title": {
-            "text": "Average and Maximum I/O Throughput of App",
-            "margin": -5,
+            "text": "Median and Maximum I/O Throughput of All Applications",
+            "margin": -2,
             "style": {
                 "margin-top": "40px"
             }
@@ -27,7 +27,7 @@
                 }
             },
             "title": {
-                "text": "jobs",
+                "text": "Applications",
                 "style": {
                     "font-size": "13px"
                 }
@@ -42,7 +42,7 @@
                 }
             },
             "title": {
-                "text": "Throughputs in logarithmic scale",
+                "text": "I/O Throughput  (logarithmic scale)",
                 "style": {
                     "font-size": "15px"
                 }

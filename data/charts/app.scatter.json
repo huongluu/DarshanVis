@@ -72,6 +72,6 @@
     "query": {
         "select":"uid, appname, start_time, total_bytes, nprocs, agg_perf_MB",
         "from":"jobs_info",
-        "where":"nprocs>0 total_bytes>0 limit 20"
+        "where":"nprocs>0 total_bytes>0 "
     }
 }
