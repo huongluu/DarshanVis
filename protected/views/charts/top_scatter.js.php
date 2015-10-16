@@ -135,7 +135,7 @@ $(function(){
         },
         series: [{
                 name: xaxis + ' vs. ' + yaxis,
-                color: 'rgba(223, 83, 83, .5)',
+                color: 'rgba(0, 0, 0, .5)',
                 data: ret_obj
             }
         ]
