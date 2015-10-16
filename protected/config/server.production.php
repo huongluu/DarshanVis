@@ -14,7 +14,8 @@ return array(
             // 'connectionString' => 'mysql:host=localhost;dbname=jobs_info',
             // 'username' => 'root',
             // 'password' => 'root',
-        // Enable profiling
+        	// testing
+	// Enable profiling
         // 'enableProfiling' => true,
         // 'enableParamLogging' => true,
         ),
