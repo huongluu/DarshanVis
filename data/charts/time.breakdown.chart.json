@@ -26,6 +26,12 @@
                 "y": -20
             }
         },
+        "contextButton": {
+                    "symbol": "printIcon",
+                    "symbolStrokeWidth": 1,
+                    "symbolFill": "#bada55",
+                    "symbolStroke": "#330033"
+        },
         "xAxis": [
             {
                 "tickInterval": 2000,
@@ -115,7 +121,7 @@
         }
     },
     "query": {
-        "select": "(local_iotime - local_meta) as localio, local_meta, (global_iotime - global_meta) as globalio, global_meta , (runtime - local_iotime - global_iotime ) as notio, start_time, nprocs, total_bytes, agg_perf_MB, unique_count, allshared_count, partshared_count",
+        "select": "*, (local_iotime - local_meta) as localio, local_meta, (global_iotime - global_meta) as globalio, global_meta , (runtime - local_iotime - global_iotime ) as notio, start_time, nprocs, total_bytes, agg_perf_MB, unique_count, allshared_count, partshared_count",
         "from": "jobs_info",
         "where": "agg_perf_MB is not null"
     },
@@ -200,6 +206,78 @@
                 "enabled": true,
                 "radius": 5,
                 "fillColor": "#BF53B4"
+            }
+        },
+        {
+            "attribute": "agg_perf_MB",
+            "name": "I/O throughput",
+            "description": "I/O throughput",
+            "color": "#BDD0D5",
+            "stacking": "normal",
+            "type": "scatter",
+            "yAxis": 2,
+            "lineWidth": 0,
+            "visible": false,
+            "dashStyle": "shortdot",
+            "marker": {
+                "symbol": "triangle-down",
+                "enabled": true,
+                "radius": 5,
+                "fillColor": "#00CC00"
+            }
+        },
+        {
+            "attribute": "unique_count",
+            "name": "Number of local files",
+            "description": "Number of local files: Number of files accessed by 1 processes only",
+            "color": "#BDD0D5",
+            "stacking": "normal",
+            "type": "scatter",
+            "yAxis": 2,
+            "lineWidth": 0,
+            "visible": false,
+            "dashStyle": "shortdot",
+            "marker": {
+                "symbol": "triangle",
+                "enabled": true,
+                "radius": 5,
+                "fillColor": "#000099"
+            }
+        },
+        {
+            "attribute": "partshared_count",
+            "name": "Number of partshared files",
+            "description": "Number of partshared files: Number of files accessed by a proper subset of processes",
+            "color": "#BDD0D5",
+            "stacking": "normal",
+            "type": "scatter",
+            "yAxis": 2,
+            "lineWidth": 0,
+            "visible": false,
+            "dashStyle": "shortdot",
+            "marker": {
+                "symbol": "triangle",
+                "enabled": true,
+                "radius": 5,
+                "fillColor": "#FF9900"
+            }
+        },
+        {
+            "attribute": "allshared_count",
+            "name": "Number of global files",
+            "description": "Number of global files: Number of files accessed by all processes",
+            "color": "#BDD0D5",
+            "stacking": "normal",
+            "type": "scatter",
+            "yAxis": 2,
+            "lineWidth": 0,
+            "visible": false,
+            "dashStyle": "shortdot",
+            "marker": {
+                "symbol": "triangle",
+                "enabled": true,
+                "radius": 5,
+                "fillColor": "#CC00CC"
             }
         }
     ]

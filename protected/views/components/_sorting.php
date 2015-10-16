@@ -36,13 +36,15 @@ if ($id == 12) {
                 <!--<span class = "input-group-addon" style = "background-color: white;">Sort</span>-->
                 <select name="sort-level1" id="sort-level1" class="form-control selectpicker">
                     <option disabled selected></option>
+                    <option value="notio" >Not I/O Time</option>
+                    <option value="iotime" >I/O Time</option>
                     <option value="localio">Non-global Data I/O</option>
                     <option value="local_meta" >Non-global Metadata</option>
                     <option value="globalio" >Global Data I/O</option>
                     <option value="global_meta" >Global Metadata</option>
-                    <option value="notio" >Not I/O</option>
                     <option value="nprocs" ># of Processes</option>
                     <option value="total_bytes" >Total Bytes Read/Written</option>
+                    <option value="agg_perf_MB" >I/O Throughput</option>
                 </select>
             </div>
         </div>
