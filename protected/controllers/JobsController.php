@@ -41,8 +41,11 @@ class JobsController extends GxController {
         if (isset($_POST["numapp"]) && strlen($_POST["numapp"]) > 0) {
             $q = Jobs::Limit($q, $_POST["numapp"]);
         }
-
-        $orderby = "start_time";
+        if (!isset($q["order"])) {
+            $orderby = "start_time";
+        } else {
+            $orderby = $q["order"];
+        }
         if (isset($_POST["sort_level1"])) {
             $orderby = $_POST["sort_level1"];
         }
@@ -83,6 +86,7 @@ class JobsController extends GxController {
         $preprocess = $chart["preprocess"];
         $queryResult = $preprocess($chart, $data);
         $result["queryresult"] = $queryResult;
+        $result["query"] = $q;
 //        $result = array_merge($result, $result2);
 //echo $series_str;
 //        print_r($_GET);
