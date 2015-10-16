@@ -38,6 +38,7 @@ if ($id == 12) {
                     <option disabled selected></option>
                     <option value="notio" >Not I/O Time</option>
                     <option value="iotime" >I/O Time</option>
+                    <option value="io_percent" >Percentage of runtime spent in I/O</option>
                     <option value="localio">Non-global Data I/O</option>
                     <option value="local_meta" >Non-global Metadata</option>
                     <option value="globalio" >Global Data I/O</option>
@@ -89,6 +90,7 @@ if ($id == 12) {
                     <option disabled selected></option>
                     <option value="notio" >Not I/O Time</option>
                     <option value="iotime" >I/O Time</option>
+                    <option value="io_percent" >Percentage of runtime spent in I/O</option>
                     <option value="localio">Non-global Data I/O</option>
                     <option value="local_meta" >Non-global Metadata</option>
                     <option value="globalio" >Global Data I/O</option>
@@ -139,6 +141,7 @@ if ($id == 12) {
                     <option disabled selected></option>
                     <option value="notio" >Not I/O Time</option>
                     <option value="iotime" >I/O Time</option>
+                    <option value="io_percent" >Percentage of runtime spent in I/O</option>
                     <option value="localio">Non-global Data I/O</option>
                     <option value="local_meta" >Non-global Metadata</option>
                     <option value="globalio" >Global Data I/O</option>

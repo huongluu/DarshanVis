@@ -115,7 +115,7 @@
         }
     },
     "query": {
-        "select": "*, (local_iotime - local_meta) as localio, local_meta, (global_iotime - global_meta) as globalio, global_meta , (runtime - local_iotime - global_iotime ) as notio, start_time, nprocs, total_bytes, agg_perf_MB, unique_count, allshared_count, partshared_count",
+        "select": "*, (local_iotime - local_meta) as localio, local_meta, (global_iotime - global_meta) as globalio, global_meta , (runtime - local_iotime - global_iotime ) as notio, (local_iotime + global_iotime)/runtime as io_percent",
         "from": "jobs_info",
         "where": "agg_perf_MB is not null"
     },
@@ -270,7 +270,7 @@
             "marker": {
                 "symbol": "triangle",
                 "enabled": true,
-                "radius": 5,
+                "radius": 2,
                 "fillColor": "#CC00CC"
             }
         }
