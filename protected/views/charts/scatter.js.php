@@ -331,11 +331,12 @@ $series_str = rtrim($series_str, ",");
                                   enabled: false
                               }
                           }
-                      },
-                      tooltip: {
-                          headerFormat: '<b>{series.name}</b><br>',
-                          pointFormat: 'App: {point.x}, {point.y} Bytes'
                       }
+                      // ,
+                      // tooltip: {
+                      //     headerFormat: '<b>{series.name}</b><br>',
+                      //     pointFormat: 'App: {point.x}, {point.y} Bytes'
+                      // }
                   }
               },
               series: [{
