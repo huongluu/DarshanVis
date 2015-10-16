@@ -68,8 +68,15 @@ $json_str = json_encode($all_data);
 ?>
 <script type="text/javascript">
 $(function(){
+  var axisTitles = {
+    "nprocs":"Number of Processes",
+    "total_bytes":"Amount of Data read/written",
+    "agg_perf_MB":"I/O Throughput"
+  };
+
   $("#chart-container").toggle();
   $("#tooltip-div").toggle();
+
   make_chart = function(appname, xaxis, yaxis, x_scale, y_scale, chart_id, obj){
     // var chart = $("#" + chart_id).highcharts();
     var s1_label = appname + '-' + xaxis;
@@ -98,7 +105,7 @@ $(function(){
         xAxis: {
             title: {
                 enabled: true,
-                text: xaxis
+                text: axisTitles[xaxis]
             },
             type: x_scale,
             startOnTick: true,
@@ -107,7 +114,7 @@ $(function(){
         },
         yAxis: {
             title: {
-                text: yaxis
+                text: axisTitles[yaxis]
             },
             type: y_scale
         },
