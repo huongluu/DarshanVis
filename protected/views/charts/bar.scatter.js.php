@@ -2,7 +2,6 @@
 include_once 'utils2.php';
 ?>
 <script type="text/javascript">
-
     $(function () {
         //        $("#tooltip1").tooltip('show');
         //        $('[data-toggle="tooltip"]').tooltip();
