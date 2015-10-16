@@ -5,9 +5,10 @@ $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
 
 $axisTitles = array(
   "nprocs" => "Number of Processes",
-  "total_bytes" => "Amount of Data read/written",
+  "total_bytes" => "Amount of Data Read/Written",
   "agg_perf_MB" => "I/O Throughput",
-  "start_time" => "Start Time"
+  "start_time" => "Submission Date",
+    "uid"      => "User ID"
 );
 
 $series1_str = "";
@@ -72,9 +73,10 @@ $series_str = rtrim($series_str, ",");
     $(function () {
       var axisTitles = {
         "nprocs":"Number of Processes",
-        "total_bytes":"Amount of Data read/written",
+        "total_bytes":"Amount of Data Read/Written",
         "agg_perf_MB":"I/O Throughput",
-        "start_time":"Start Time"
+        "start_time":"Start Time",
+        "uid": "User ID"
       };
 
         // $('#chart-container').highcharts({
