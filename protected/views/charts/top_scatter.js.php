@@ -68,6 +68,8 @@ $json_str = json_encode($all_data);
 ?>
 <script type="text/javascript">
 $(function(){
+  $("#chart-container").toggle();
+  $("#tooltip-div").toggle();
   make_chart = function(appname, xaxis, yaxis, x_scale, y_scale, chart_id, obj){
     // var chart = $("#" + chart_id).highcharts();
     var s1_label = appname + '-' + xaxis;

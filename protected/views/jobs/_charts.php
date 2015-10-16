@@ -9,7 +9,7 @@ include '_chart_template.php';
 
 
 <div id="chart-container"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
-<div style="margin-left: 40%; position: relative; top: -60px; width: 400px;">
+<div id="tooltip-div" style="margin-left: 40%; position: relative; top: -60px; width: 400px;">
     <center>
         <span id="tooltip1"></span>
         <span id="tooltip2"></span>
