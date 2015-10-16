@@ -48,7 +48,7 @@ include '_chart_template.php';
   X Axis Scale
   <select id="chart-config-sel-x-scale" class="chart-config-selector">
     <option value="linear">linear</option>
-    <option value="logarithmic">logarithmic</option>
+    <option value="logarithmic">log10</option>
   </select>
   <br>
   Y Axis
@@ -57,7 +57,7 @@ include '_chart_template.php';
   Y Axis Scale
   <select id="chart-config-sel-y-scale" class="chart-config-selector">
     <option value="linear">linear</option>
-    <option value="logarithmic">logarithmic</option>
+    <option value="logarithmic">log10</option>
   </select>
   <!-- Point color
   <select id="chart-config-sel-pt">
