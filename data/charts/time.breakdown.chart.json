@@ -8,8 +8,7 @@
     "preprocess": "generic",
     "highchart-confs": {
         "chart": {
-            "zoomType": "xy",
-            "width": 800
+            "zoomType": "xy"
         },
         "title": {
             "text": "Breakdown of time for each job",
@@ -20,6 +19,12 @@
         },
         "subtitle": {
             "text": ""
+        },
+        "navigation": {
+            "buttonOptions": {
+                "verticalAlign": "bottom",
+                "y": -20
+            }
         },
         "xAxis": [
             {
@@ -65,7 +70,8 @@
                     "style": {
                         "color": "Highcharts.getOptions().colors[0]",
                         "font-size": "15px"
-                    }
+                    },
+                    "enabled": false
                 },
                 "labels": {
                     "align": "left",
@@ -89,7 +95,8 @@
                     "style": {
                         "color": "darkblue",
                         "font-size": "15px"
-                    }
+                    },
+                    "enabled": false
                 },
                 "labels": {
                     "align": "left",
@@ -110,47 +117,58 @@
     "query": {
         "select": "(local_iotime - local_meta) as localio, local_meta, (global_iotime - global_meta) as globalio, global_meta , (runtime - local_iotime - global_iotime ) as notio, start_time, nprocs, total_bytes, agg_perf_MB, unique_count, allshared_count, partshared_count",
         "from": "jobs_info",
-        "where": "local_iotime is not null and local_meta is not null and global_iotime is not null and global_meta is not null and runtime is not null"
+        "where": "agg_perf_MB is not null"
     },
     "series": [
         {
             "attribute": "localio",
             "name": "Non-global Data I/O",
+            "description": "Non-global data I/O: The amount of time this job spent in function calls to read/write its files not accessed by all processes.",
             "color": "#5C9430",
             "stacking": "normal",
-            "type": "column"
+            "type": "column",
+            "yAxis": 0
         },
         {
             "attribute": "local_meta",
             "name": "Non-global Metadata",
+            "description": "Non-global Metadata: The amount of time this job spent in metadata function calls (open, close, seek, etc.) for non-global files, i.e., files that one or more but not all processes opened.",
             "color": "#C73308",
             "stacking": "normal",
-            "type": "column"
+            "type": "column",
+            "yAxis": 0
         },
         {
             "attribute": "globalio",
             "name": "Global Data I/O",
+            "description": "Global data I/O: The amount of time this job spent in function calls to read/write global files, i.e., files that all processes opened.",
             "color": "#68DB49",
             "stacking": "normal",
-            "type": "column"
+            "type": "column",
+            "yAxis": 0
         },
         {
             "attribute": "global_meta",
             "name": "Global Metadata",
+            "description": "Global Metadata: The amount of time this job spent in metadata function calls (open, close, seek, etc.) for global files, i.e., files that all processes opened.",
             "color": "#F25B47",
             "stacking": "normal",
-            "type": "column"
+            "type": "column",
+            "yAxis": 0
         },
         {
             "attribute": "notio",
             "name": "Not I/O",
+            "description": "Not I/O: The amount of time this job spent outside of I/O function calls (data and metadata).",
             "color": "#BDD0D5",
             "stacking": "normal",
-            "type": "column"
+            "type": "column",
+            "yAxis": 0
         },
         {
             "attribute": "nprocs",
             "name": "Number of Processes",
+            "description": "# of Processes: The number of processes this job had.",
             "color": "#BDD0D5",
             "stacking": "normal",
             "type": "scatter",
@@ -161,7 +179,7 @@
             "marker": {
                 "symbol": "diamond",
                 "enabled": true,
-                "radius": 1,
+                "radius": 5,
                 "fillColor": "#7F77B4"
             }
         }
@@ -169,6 +187,7 @@
         {
             "attribute": "total_bytes",
             "name": "Total Bytes Read/Written",
+            "description": "Total Bytes Read/Written: The total number of bytes this job read and wrote.",
             "color": "#BDD0D5",
             "stacking": "normal",
             "type": "scatter",
@@ -179,7 +198,7 @@
             "marker": {
                 "symbol": "circle",
                 "enabled": true,
-                "radius": 1,
+                "radius": 5,
                 "fillColor": "#BF53B4"
             }
         }

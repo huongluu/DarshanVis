@@ -35,3 +35,12 @@
     padding-left: 6px;
     padding-right: 6px;
 }
+
+.small-font {
+    font-size: 90%;
+}
+
+.dataTables_filter, .dataTables_length, .dataTables_info, .dataTables_paginate  {
+    visibility: hidden;
+    display: none;
+}

@@ -1,6 +1,23 @@
 {
     "id": 1,
     "name": "generic-chart",
-    "width": 600,
-    "height": 800
+    "template": "charts/bar.scatter.js.php",
+    "filter": "components/_filters.php",
+    "preprocess": "generic",
+    "highchart-confs": {
+        "chart": {
+            "zoomType": "xy",
+            "width": 1000
+        },
+        "title": {
+            "text": "Default Chart",
+            "margin": -5,
+            "style": {
+                "margin-top": "40px"
+            }
+        },
+        "subtitle": {
+            "text": ""
+        }
+    }
 }

@@ -24,8 +24,22 @@ class JobsController extends GxController {
         $result["msg"] = "successful";
         $result["chart"] = $chart;
         $q = $chart["query"];
+
+        if (isset($_POST["start_date"]) && strlen($_POST["start_date"]) > 0) {
+            $q = Jobs::filter($q, "start_time", $_POST["start_date"], ">");
+        }
+
+
+        if (isset($_POST["end_date"]) && strlen($_POST["end_date"]) > 0) {
+            $q = Jobs::filter($q, "end_time", $_POST["end_date"], "<");
+        }
+
         if (isset($_POST["application"]) && strlen($_POST["application"]) > 0) {
             $q = Jobs::filter($q, "appname", $_POST["application"]);
+        }
+
+        if (isset($_POST["numapp"]) && strlen($_POST["numapp"]) > 0) {
+            $q = Jobs::Limit($q, $_POST["numapp"]);
         }
 
         $orderby = "start_time";
@@ -66,7 +80,7 @@ class JobsController extends GxController {
         $data = Jobs::execSQLQuery($q);
 
 //print_r($data);
-        $preprocess = $chart["preprocess"]; 
+        $preprocess = $chart["preprocess"];
         $queryResult = $preprocess($chart, $data);
         $result["queryresult"] = $queryResult;
 //        $result = array_merge($result, $result2);
@@ -136,29 +150,45 @@ class JobsController extends GxController {
         ));
     }
 
-    public function actionApplicationList() {
-        $data = Jobs::model()->findAll(array(
-            'select' => 'appname',
-            'distinct' => true,
-        ));
+    public function actionApplicationList($user, $application) {
+        $criteria = new CDbCriteria;
+        $criteria->select = 'appname';
+        $criteria->distinct = true;
+        if ($user != "null") {
+            $criteria->addCondition('uid = ' . $user, 'AND');
+        }
+        if ($application != null && sizeof($application > 0)) {
+            $criteria->addCondition('appname LIKE  :appname', 'AND');
+        }
+        $criteria->params = array(':appname' => "%$application%");
+        $data = Jobs::model()->findAll($criteria);
         $just_apps = array();
         foreach ($data as $key => $value) {
             $just_apps[] = $value["appname"];
         }
-        echo CJavaScript::jsonEncode($just_apps);
+        header('Content-Type: application/json; charset="UTF-8"');
+        echo json_encode($just_apps);
         Yii::app()->end();
     }
 
-    public function actionUserList() {
-        $data = Jobs::model()->findAll(array(
-            'select' => 'uid',
-            'distinct' => true,
-        ));
+    public function actionUserList($user, $application) {
+        $criteria = new CDbCriteria;
+        $criteria->select = 'uid';
+        $criteria->distinct = true;
+        if ($application != "null") {
+            $criteria->addCondition('appname = ' . $application, 'AND');
+        }
+        if ($user != null && sizeof($user > 0)) {
+            $criteria->addCondition('uid LIKE  :uid', 'AND');
+        }
+        $criteria->params = array(':uid' => "%$user%");
+        $data = Jobs::model()->findAll($criteria);
         $just_users = array();
         foreach ($data as $key => $value) {
             $just_users[] = $value["uid"];
         }
-        echo CJavaScript::jsonEncode($just_users);
+        header('Content-Type: application/json; charset="UTF-8"');
+        echo json_encode($just_users);
         Yii::app()->end();
     }
 

@@ -15,7 +15,10 @@ class Jobs extends BaseJobs {
         $query_str = "";
         if ((isset($query["select"])) && strlen($query["select"]) != 0) {
             $query_str .= "select " . $query["select"] . " ";
-            $query_str .= " from " . $query["from"] . " ";
+
+            if ((isset($query["from"])) && strlen($query["from"]) != 0) {
+                $query_str .= " from " . $query["from"] . " ";
+            }
             if ((isset($query["where"])) && strlen($query["where"]) != 0) {
                 $query_str .= " where " . $query["where"] . " ";
             }
@@ -61,12 +64,12 @@ class Jobs extends BaseJobs {
         return $query;
     }
 
-    public static function filter(&$query, $attr, $value) {
+    public static function filter(&$query, $attr, $value, $comparator = "=") {
 
         if (!isset($query["where"]) || strlen($query["where"]) == 0) {
-            $query["where"] = " " . $attr . " = '" . $value . "' ";
+            $query["where"] = " " . $attr . " " . $comparator . " '" . $value . "' ";
         } else {
-            $query["where"] .= " and " . $attr . " = '" . $value . "' ";
+            $query["where"] .= " and " . $attr . " " . $comparator . " '" . $value . "' ";
         }
 
         return $query;

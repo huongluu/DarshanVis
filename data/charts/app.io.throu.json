@@ -1,31 +1,85 @@
 {
     "id": 8,
-    "name": "scatter-chart",
-    "type": "scatter",
-    "template": "charts/scatter.js.php",
+    "name": "Average and Maximum I/O Throughput of  chart",
+    "type": "line",
+    "template": "charts/line.js.php",
     "filter": "components/_filters.php",
-    "title": "Average and Maximum I/O Throughput of App",
-    "subtitle": "",
-    "xAxis": {
-        "title": "Jobs",
-        "attribute": ""
+    "highchart-confs": {
+        "title": "Median and Maximum I/O Throughput of All Applications",
+        "chart": {
+            "zoomType": "xy",
+            "width": 800
+        },
+        "title": {
+            "text": "Median and Maximum I/O Throughput of All Applications",
+            "margin": -2,
+            "style": {
+                "margin-top": "40px"
+            }
+        },
+        "subtitle": "",
+        "xAxis": {
+            "min": 0,
+            "labels": {
+                "format": "{value}",
+                "style": {
+                    "font-size": "12px"
+                }
+            },
+            "title": {
+                "text": "Applications",
+                "style": {
+                    "font-size": "13px"
+                }
+            },
+            "crosshair": true
+        },
+        "yAxis": {
+            "type": "logarithmic",
+            "labels": {
+                "style": {
+                    "font-size": "14px"
+                }
+            },
+            "title": {
+                "text": "I/O Throughput  (logarithmic scale)",
+                "style": {
+                    "font-size": "15px"
+                }
+            }
+
+        },
+        "tooltip": {
+            "valueSuffix": "GB/s",
+            "shared": true
+
+        },
+        "plotOptions": {
+            "series": {
+                "allowPointSelect": true
+            }
+        }
     },
-    "yAxis": {
-        "title": "Throughput"
-    },
-    "tooltip": {
-        "valueSuffix": ""
+    "query": {
+        "select": "max(agg_perf_MB) as max_thruput, median(agg_perf_MB) as median_thruput",
+        "from": "jobs_info",
+        "where": "agg_perf_MB is not null",
+        "group": "appname"
     },
     "series": [
         {
-            "type": "scatter",
-            "name": "",
-            "query": "select avg(total_bytes) as avg_bytes, max(total_bytes) as max_bytes , uid from jobs_info group by uid order by avg_bytes desc ;",
-            "series1": "avg_bytes",
-            "series2": "max_bytes",
-            "series1-name": "Average I/O Throughput",
-            "series2-name": "Maximum I/O Throughput",
-            "xaxis": "uid"
+            "attribute": "median_thruput",
+            "name": "Median I/O Throughput",
+            "description": "",
+            "color": "#CC0000",
+            "type": "line"
+        },
+        {
+            "attribute": "max_thruput",
+            "name": "Maximum I/O Throughput",
+            "description": "",
+            "color": "#33FF99",
+            "type": "line"
         }
     ]
 }

@@ -2,26 +2,42 @@
     "_comment": "Amir: in the query I used iotime instead unique_time because the table does not have the column. is it OK?",
     "id": 11,
     "name": "performance-based-io-interface",
-    "type": "stacked",
-    "template": "charts/stacked.js.php",
+    "template": "charts/bar.scatter.js.php",
     "filter": "components/_filters.php",
-    "title": "Job Performance based on the I/O Interface and Job Size",
-    "subtitle": "I/O throughput for apps that use only POSIX-IO and those that use MPI-IO for at least one file.",
-    "xAxis": {
-        "title": "Group"
+    "highchart-confs": {
+        "chart": {
+            "zoomType": "xy",
+            "width": 800
+        },
+        "title": {
+            "text": "Job Performance based on the I/O Interface and Job Size"
+        },
+        "subtitle": {
+            "text": "I/O throughput for apps that use only POSIX-IO and those that use MPI-IO for at least one file."
+        },
+        "xAxis": {
+            "title": "Group"
+        },
+        "yAxis": {
+            "title": "I/O Throughput"
+        },
+        "tooltip": {
+            "valueSuffix": ""
+        }
     },
-    "yAxis": {
-        "title": "I/O Throughput"
-    },
-    "tooltip": {
-        "valueSuffix": ""
+    "query": {
+        "select": "iotime, iotime as cumulative_iotime",
+        "from": "jobs_info",
+        "join": "(select @csum := 0)"
     },
     "series": [
         {
-            "type": "stacked",
-            "name": "Mira",
-            "query": "select  iotime, (@csum := @csum + iotime) as cumulative_iotime from jobs_info JOIN (select @csum := 0) r order by iotime desc;",
-            "attribute": "cumulative_iotime"
+            "attribute": "cumulative_iotime",
+            "name": "I/O Time",
+            "description": "XXX",
+            "color": "#5C9430",
+            "stacking": "normal",
+            "type": "column"
         }
     ]
 }

@@ -1,80 +1,60 @@
 <?php
-$data = Jobs::execSQLQuery($chart["series"][0]["query"]);
-//var_dump($data);
-// $st_str="";
-// foreach ($data as $num_arr ) {
-//     foreach ($num_arr as $value) {
-//         $value=(float)$value;
-//         echo $value;
-//         echo "@@@@";
-//         $value= log($value);
-//         echo $value;
-//     }
-// }
-
-
-$cat_str = "";
-$series_str = "";
-$index = 1;
-foreach ($data as $d) {
-    $cat_str .= '\'' . $index . '\'' . ',';
-    $series_str .= $d[$chart["series"][0]["attribute"]] . ',';
-    $index++;
-}
-$cat_str = rtrim($cat_str, ",");
-$series_str = rtrim($series_str, ",");
-
-//var_dump($series_str);
+include_once 'utils2.php';
 ?>
 
 <script type="text/javascript">
-    $(function() {
-        $('#chart-container').highcharts({
-            chart: {
-                type: 'line',
-                zoomType: 'xy'
-            },
-            title: {
-                text: '<?php echo $chart["title"] ?>',
-                x: -20 //center
-            },
-            subtitle: {
-                text: '<?php echo $chart["subtitle"] ?>',
-                x: -20
-            },
-            xAxis: {
-                title: {
-                    enabled: true,
-                    text: '<?php echo $chart["xAxis"]["title"] ?>'
-                },
-                categories: [<?php echo $cat_str; ?>]
+    $(function () {
 
-            },
-            yAxis: {
-                title: {
-                    text: '<?php echo $chart["yAxis"]["title"] ?>'
-                },
-                plotLines: [{
-                        value: 0,
-                        width: 5,
-                        color: '#808080'
-                    }],
-                min: 0
-            },
-            tooltip: {
-                valueSuffix: ''
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle',
-                borderWidth: 0,
-                enabled: false 
-            },
-            series: [{
-                    name: '<?php echo $chart["series"][0]["name"]; ?>',
-                    data: [<?php echo $series_str ?>]
-                }]
+        send();
+        var globalCallback = function (chart) {
+            // Specific event listener
+            Highcharts.addEvent(chart.container, 'click', function (e) {
+                e = chart.pointer.normalize();
+                console.log('Clicked chart at ' + e.chartX + ', ' + e.chartY);
+            });
+            // Specific event listener
+            Highcharts.addEvent(chart.xAxis[0], 'afterSetExtremes', function (e) {
+                console.log('Set extremes to ' + e.min + ', ' + e.max);
+            });
+            Highcharts.addEvent(chart, 'load', function (e) {
+//                e = chart.pointer.normalize();
+                console.log('loaded');
+                var chart = this,
+                        legend = chart.legend;
+
+
+                for (var i = 0, len = legend.allItems.length; i < len; i++) {
+                    (function (i) {
+                        var item = legend.allItems[i].legendItem;
+                        item.on('mouseover', function (e) {
+                            //show custom tooltip here
+                            console.log("mouseover" + i);
+//                            $('#tooltips').tooltip();
+                            $("#tooltip" + (i + 1)).tooltip('show');
+                        }).on('mouseout', function (e) {
+                            //hide tooltip
+                            console.log("mouseout" + i);
+                            $("#tooltip" + (i + 1)).tooltip('hide');
+                        });
+                    })(i);
+                }
+            });
+        }
+
+// Add `globalCallback` to the list of highcharts callbacks
+        Highcharts.Chart.prototype.callbacks.push(globalCallback);
+
+
+        $('#chart-container').highcharts({
+<?php echo getHighchartSafeJson($chart["highchart-confs"]); ?>
+
+            series: []
         });
+
+        var chart = $('#chart-container').highcharts();
+        console.log(chart.yAxis[0]);
+        chart.yAxis[0].labelFormatter = function () {
+            return byte_formatter(this, "/s");
+        }
     });
 </script>

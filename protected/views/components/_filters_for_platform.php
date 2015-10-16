@@ -4,6 +4,75 @@ $display_en = false;
 <script type="text/javascript">
     $(function () {
 
+        function send() {
+            var datepickerobj = $('#reportrange').data('daterangepicker');
+            var filter = {
+                numapp: $("#numapp-textbox").val(),
+                application: $("#application-textbox").val(),
+                user: $("#user-textbox").val(),
+                sort_level1: $("#sort-level1 option:selected").val(),
+                mode_level1: $("#mode-level1 option:selected").val(),
+                sort_level2: $("#sort-level2 option:selected").val(),
+                mode_level2: $("#mode-level2 option:selected").val(),
+                sort_level3: $("#sort-level3 option:selected").val(),
+                mode_level3: $("#mode-level3 option:selected").val(),
+                start_date: datepickerobj.startDate.format('YYYY-MM-DD'),
+                end_date: datepickerobj.endDate.format('YYYY-MM-DD'),
+                url: window.location.href
+            }
+
+            $('#status').html('filtering..');
+            $url = 'filter';
+//            alert($url);
+            $.ajax({
+                url: $url,
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
+//                    alert("success");
+                    console.log(data);
+                    var chart = $('#chart-container').highcharts();
+                    while (chart.series.length > 0) {
+                        chart.series[0].remove(false);
+                    }
+                    var series = data["chart"]["series"];
+                    var queryResult = data["queryresult"];
+                    for (var i = 0; i < series.length; i++) {
+
+                        var attr = series[i]["attribute"];
+                        var qr = queryResult[attr];
+                        if (qr != null) {
+                            $('#chart-container').html("");
+                            series[i]["data"] = [];
+                            for (var j = 0; j < qr.length; j++) {
+                                series[i]["data"].push([j, Number(qr[j])]);
+                            }
+                            console.log(series[i]);
+                            chart.addSeries(series[i], false);
+                        } else {
+                            $('#chart-container').html("<center>No result for the desired filters.</center>");
+                        }
+                    }
+//                    series.forEach(function (s) {
+//                        chart.addSeries(s, false);
+//                    });
+
+                    chart.redraw();
+                    $('#chart-container').css('visibility', 'visible');
+                    $('#chart-container').css('display', 'block');
+                    $('#status').html('&nbsp;');
+//                    $('#target').html(data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                    $('#status').html('error!');
+                },
+                data: filter
+            });
+        }
+
 
         $("#filter-button, #sorting-button").click(function () {
             send();
@@ -54,9 +123,6 @@ $display_en = false;
             $('#reportrange span').html(start.format('MMM DD \'YY') + ' - ' + end.format('MMM DD \'YY'));
         });
 
-//        alert(datepickerobj.startDate.format('YYYY-MM-DD'));
-//        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>> datepicker");
-//        console.log(datepickerobj);
         $('#user-textbox').typeahead({
             source: function (query, process) {
                 return $.get('UserList', {
@@ -83,19 +149,6 @@ $display_en = false;
             }
         });
 
-
-//        $.get('UserList', function (data) {
-//            $("#user-typeahead").typeahead({
-//                source: data
-//            });
-//            console.log(data);
-//        }, 'json');
-//        $.get('ApplicationList', function (data) {
-//            $("#application-textbox").typeahead({
-//                source: data
-//            });
-//            console.log(data);
-//        }, 'json');
     });
 </script>
 
@@ -104,23 +157,12 @@ $display_en = false;
         <div class="text-center" id="status">&nbsp;</div>
     </div>
     <div class="row">
-        <!--        <div class="form-group col-md-4">
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
-                        </span>
-                        <input type="text" id="numapp-textbox" name="numapp" class="form-control" id="numapp-typeahead" data-provide="typeahead" placeholder="Number of Applications" autocomplete="off">
-                    </div>
-                </div>-->
-
-
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <div class="input-group">
                 <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-font" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
+                    <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
                 </span>
-                <input type="text" id="application-textbox" name="application" class="form-control" id="application-typeahead" data-provide="typeahead" placeholder="Application Name" autocomplete="off">
-                <!--<input type="text" class="form-control" placeholder="Application" aria-describedby="basic-addon1">-->
+                <input type="text" id="numapp-textbox" name="numapp" class="form-control" id="numapp-typeahead" data-provide="typeahead" placeholder="Number of Applications" autocomplete="off">
             </div>
         </div>
 

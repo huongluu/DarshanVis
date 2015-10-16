@@ -3,6 +3,8 @@
     "name": "Sample-chart",
     "type": "line",
     "title": "Throughputs of jobs",
+    "filter": "components/_filters_for_App.php",
+    "template": "charts/line.js.php",
     "subtitle": "Simple test charts.",
     "xAxis": {
         "title": " Jobs"

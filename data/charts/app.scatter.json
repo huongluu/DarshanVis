@@ -35,7 +35,7 @@
         {
             "type": "scatter",
             "name": "",
-            "query":"select uid, appname, start_time, total_bytes, nprocs, agg_perf_MB from jobs_info where total_bytes>0 and nprocs>0 and agg_perf_MB>0 limit 1000;",
+            "query":"select uid, appname, start_time, total_bytes, nprocs, agg_perf_MB from jobs_info where total_bytes>0 and nprocs>0 and agg_perf_MB>0 limit 150;",
             "series1": "total_bytes",
             "series2": "nprocs",
             "series1-name": "total_bytes",
@@ -72,6 +72,6 @@
     "query": {
         "select":"uid, appname, start_time, total_bytes, nprocs, agg_perf_MB",
         "from":"jobs_info",
-        "where":"nprocs>0 total_bytes>0 limit 20"
+        "where":"nprocs>0 total_bytes>0 "
     }
 }
