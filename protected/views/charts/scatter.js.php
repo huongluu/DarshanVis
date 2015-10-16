@@ -3,6 +3,13 @@
 
 $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
 
+$axisTitles = array(
+  "nprocs" => "Number of Processes",
+  "total_bytes" => "Amount of Data read/written",
+  "agg_perf_MB" => "I/O Throughput",
+  "start_time" => "Start Time"
+);
+
 $series1_str = "";
 $series2_str = "";
 $series_str = "";
@@ -29,11 +36,11 @@ $y_options_list = "";
 
 foreach ($x_options as $str)
 {
-  $x_options_list .= "<option value=" . $str . ">" . $str . "</option>";
+  $x_options_list .= "<option value=" . $str . ">" . $axisTitles[$str] . "</option>";
 }
 foreach ($y_options as $str)
 {
-  $y_options_list .= "<option value=" . $str . ">" . $str . "</option>";
+  $y_options_list .= "<option value=" . $str . ">" . $axisTitles[$str] . "</option>";
 }
 
 // create json array with each option and its data set
@@ -66,7 +73,8 @@ $series_str = rtrim($series_str, ",");
       var axisTitles = {
         "nprocs":"Number of Processes",
         "total_bytes":"Amount of Data read/written",
-        "agg_perf_MB":"I/O Throughput"
+        "agg_perf_MB":"I/O Throughput",
+        "start_time":"Start Time"
       };
 
         // $('#chart-container').highcharts({
