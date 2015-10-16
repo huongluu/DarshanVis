@@ -18,12 +18,7 @@
                     {
                         "id": 10,
                         "title": "with Highest Amount of Data Accessed"
-                    },
-                    {
-                        "id":18,
-                        "title":"as scatter plots"
                     }
-
                 ]
             },
             {
@@ -55,10 +50,6 @@
             {
                 "id": 12,
                 "title": "Time Breakdown"
-            },
-            {
-              "id":17,
-              "title": "App Scatter"
             }
            
         ]
