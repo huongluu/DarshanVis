@@ -21,6 +21,26 @@ include '_chart_template.php';
     </center>
 </div>
 
+<div id="15-scatter-containers" hidden>
+  <div class="row">
+    <div id="chart-container-1" class="col-md-4 charts" style="height: 400px; width: 900px; margin: 0 auto;"></div>
+    <div id="chart-container-2" class="col-md-4 charts"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+    <div id="chart-container-3" class="col-md-4 charts"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+    <div id="chart-container-4" class="col-md-4 charts"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+    <div id="chart-container-5" class="col-md-4 charts"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+    <div id="chart-container-6" class="col-md-4 charts"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+    <div id="chart-container-7" class="col-md-4 charts"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+    <div id="chart-container-8" class="col-md-4 charts"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+    <div id="chart-container-9" class="col-md-4 charts"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+    <div id="chart-container-10" class="col-md-4 charts"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+    <div id="chart-container-11" class="col-md-4 charts"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+    <div id="chart-container-12" class="col-md-4 charts"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+    <div id="chart-container-13" class="col-md-4 charts"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+    <div id="chart-container-14" class="col-md-4 charts"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+    <div id="chart-container-15" class="col-md-4 charts"  style="height: 400px; width: 900px; margin: 0 auto;"></div>
+  </div>
+</div>
+
 <div id="chart-config" hidden>
   X Axis
   <select id="chart-config-sel-x" class="chart-config-selector">

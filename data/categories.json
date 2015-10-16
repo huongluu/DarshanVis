@@ -18,7 +18,12 @@
                     {
                         "id": 10,
                         "title": "with Highest Amount of Data Accessed"
+                    },
+                    {
+                        "id":18,
+                        "title":"as scatter plots"
                     }
+
                 ]
             },
             {
