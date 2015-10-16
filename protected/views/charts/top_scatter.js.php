@@ -109,16 +109,6 @@ $(function(){
             },
             type: y_scale
         },
-        legend: {
-            layout: 'vertical',
-            align: 'left',
-            verticalAlign: 'top',
-            x: 0,
-            y: 0,
-            // floating: true,
-            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
-            borderWidth: 1
-        },
         plotOptions: {
             scatter: {
                 marker: {
