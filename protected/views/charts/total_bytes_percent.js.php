@@ -5,7 +5,7 @@ $one_giga_to_ten_giga = $chart["query"]["one_giga_to_ten_giga"];
 $ten_to_hundred_giga = $chart["query"]["ten_to_hundred_giga"];
 $hundred_to_tera = $chart["query"]["hundred_to_tera"];
 $more_than_tera = $chart["query"]["more_than_tera"];
-$avg_bytes = $chart["query"]["avg_bytes"];
+$avg_bytes = $chart["query"]["median_bytes"];
 $max_bytes = $chart["query"]["max_bytes"];
 
 
