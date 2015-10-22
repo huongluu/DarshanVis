@@ -3,7 +3,7 @@
     "id": 9,
     "name": "top-k-app-chart",
     "type": "boxplot",
-    "template": "charts/boxplot.js.php",
+    "template": "charts/top_scatter.js.php",
     "filter": "components/_filters.php",
     "preprocess": "generic",
     "title": "Top 15 Big Time Application",
