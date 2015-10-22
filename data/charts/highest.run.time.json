@@ -3,7 +3,7 @@
     "id": 4,
     "name": "top-k-app-chart",
     "type": "boxplot",
-    "template": "charts/boxplot.js.php",
+    "template": "charts/top_scatter.php",
     "filter": "components/_filters_for_platform.php",
     "title": "Top Applications with Highest Runtime",
     "subtitle": "",

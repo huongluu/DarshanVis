@@ -3,7 +3,7 @@
     "id": 9,
     "name": "top-k-app-chart",
     "type": "boxplot",
-    "template": "charts/bar.scatter.js.php",
+    "template": "charts/top_scatter.js.php",
     "filter": "components/_filters_for_platform.php",
     "preprocess": "generic",
     "highchart-confs": {
