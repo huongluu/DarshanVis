@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-
+var all_data;
 $(document).ready(function () {
     $('#dv_table').DataTable({
         "lengthMenu": [[-1], ["All"]]
@@ -51,10 +51,21 @@ function send() {
         dataType: 'json',
         success: function (data) {
 //                    alert("success");
+            all_data = data;
             console.log(data);
             var chart = $('#chart-container').highcharts();
-            while (chart.series.length > 0) {
-                chart.series[0].remove(false);
+            if (isNaN(chart)) {
+                console.log("chart is null, return");
+//                return;
+            }
+            if (!isNaN(chart) && isNaN(chart.series)) {
+                console.log("chart.series is null, return");
+//                return;
+            }
+            if (!isNaN(chart) && !isNaN(chart.series)) {
+                while (chart.series.length > 0) {
+                    chart.series[0].remove(false);
+                }
             }
             var series = data["chart"]["series"];
             var queryResult = data["queryresult"];
@@ -69,7 +80,9 @@ function send() {
                         series[i]["data"].push([j, Number(qr[j])]);
                     }
                     console.log(series[i]);
-                    chart.addSeries(series[i], false);
+                    if (!isNaN(chart)) {
+                        chart.addSeries(series[i], false);
+                    }
                 } else {
                     $('#chart-container').html("<center>No result for the desired filters.</center>");
                 }
@@ -78,7 +91,10 @@ function send() {
 //                        chart.addSeries(s, false);
 //                    });
 
-            chart.redraw();
+            if (!isNaN(chart)) {
+                chart.redraw();
+            }
+            make_chart_get_values();
             $('#chart-container').css('visibility', 'visible');
             $('#chart-container').css('display', 'block');
             $('#status').html('&nbsp;');

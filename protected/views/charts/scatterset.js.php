@@ -11,7 +11,7 @@ for ($i = 0; $i < 15; $i++){
 }
 
 // Get Data from MySQL and create data series for chart
-$data = Jobs::execSQLQuery($chart["series"][0]["query"]);
+$data = Jobs::execSQLQuery($chart["query"]["query"]);
 
 $xseries_str = "";
 $yseries_str = "";

@@ -33,47 +33,19 @@
     "tooltip": {
         "valueSuffix": ""
     },
-    "series": [
-        {
-            "type": "scatter",
-            "name": "",
-            "query": "select uid, appname, start_time, total_bytes, nprocs, agg_perf_MB from jobs_info where total_bytes>0 and nprocs>0 and agg_perf_MB>0 limit 150;",
-            "series1": "total_bytes",
-            "series2": "nprocs",
-            "series1-name": "total_bytes",
-            "series2-name": "nprocs",
-            "xaxis": "uid"
-        }
-    ],
     "highchart-confs": {
-        "chart": {
-            "zoomType": "xy",
-            "width": 800
-        },
         "title": {
-            "text": "Scatter plot of application's I/O characteristics",
-            "margin": -5,
-            "style": {
-                "margin-top": "40px"
-            }
+            "text": "Scatter plot of application's I/O characteristics"
         },
         "subtitle": {
             "text": ""
-        },
-        "xAxis": {
-            "title": "Jobs",
-            "attribute": "total_bytes",
-            "type": "linear"
-        },
-        "yAxis":
-                {
-                    "title": "throughput",
-                    "type": "linear"
-                }
+        }
     },
     "query": {
         "select": "uid, appname, start_time, total_bytes, nprocs, agg_perf_MB",
         "from": "jobs_info",
-        "where": "nprocs>0 total_bytes>0 "
-    }
+        "where": "total_bytes>0 and nprocs>0 and agg_perf_MB>0 and total_bytes is not null and nprocs is not null and agg_perf_MB is not null"
+    },
+    "series": [
+    ]
 }
