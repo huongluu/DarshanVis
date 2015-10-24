@@ -1,16 +1,10 @@
 <?php
 include_once 'utils2.php';
-$less_than_one_giga = $chart["query"]["less_than_one_giga"];
-$one_giga_to_ten_giga = $chart["query"]["one_giga_to_ten_giga"];
-$ten_to_hundred_giga = $chart["query"]["ten_to_hundred_giga"];
-$hundred_to_tera = $chart["query"]["hundred_to_tera"];
-$more_than_tera = $chart["query"]["more_than_tera"];
-$avg_bytes = $chart["query"]["median_bytes"];
-$max_bytes = $chart["query"]["max_bytes"];
 
-<<<<<<< HEAD
+
+
 $merged_query=$chart["query"]["merged_query"];
-// $less_than_one_giga = $chart["query"]["less_than_one_giga"];
+// $ldata = $chart["query"]["less_than_one_giga"];
 // $one_giga_to_ten_giga=$chart["query"]["one_giga_to_ten_giga"];
 // $ten_to_hundred_giga =$chart["query"]["ten_to_hundred_giga"];
 // $hundred_to_tera= $chart["query"]["hundred_to_tera"];
@@ -20,11 +14,7 @@ $merged_query=$chart["query"]["merged_query"];
 
 $orderby="sum_bytes";
 //echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
-=======
 
->>>>>>> 2c0579f1fbad02c5b1dd36f94b87a2edf29b061e
-
-var_dump($less_than_one_giga);
 
 // if (isset($_POST["application"]) && strlen($_POST["application"]) > 0) {
 //     $q = Jobs::filter($q, "appname", $_POST["application"]);
@@ -65,44 +55,20 @@ var_dump($less_than_one_giga);
 //     $q = Jobs::filter($q, "uid", $_POST["user"]);
 // }
 //var_dump($q) ;
-$data[1] = Jobs::execSQLQuery($less_than_one_giga);
-$data[2] = Jobs::execSQLQuery($one_giga_to_ten_giga);
-$data[3] = Jobs::execSQLQuery($ten_to_hundred_giga);
-$data[4] = Jobs::execSQLQuery($hundred_to_tera);
-$data[5] = Jobs::execSQLQuery($more_than_tera);
-$data[6] = Jobs::execSQLQuery($avg_bytes);
-$data[7] = Jobs::execSQLQuery($max_bytes);
-
-
-<<<<<<< HEAD
-// $less_than_one_giga= Jobs::addSortingLevel($data[1], $orderby, "asc");
-// $one_giga_to_ten_giga= Jobs::addSortingLevel($data[2], $orderby, "asc");
-// $ten_to_hundred_giga= Jobs::addSortingLevel($data[3], $orderby, "asc");
-// $hundred_to_tera= Jobs::addSortingLevel($data[4], $orderby, "asc");
-// $more_than_tera= Jobs::addSortingLevel($data[5], $orderby, "asc");
-// $avg_bytes= Jobs::addSortingLevel($data[6], $orderby, "asc");
-// $max_bytes= Jobs::addSortingLevel($data[7], $orderby, "asc");
-
-
-//var_dump($q) ;
 // $data[1] = Jobs::execSQLQuery($less_than_one_giga);
 // $data[2] = Jobs::execSQLQuery($one_giga_to_ten_giga);
 // $data[3] = Jobs::execSQLQuery($ten_to_hundred_giga);
 // $data[4] = Jobs::execSQLQuery($hundred_to_tera);
 // $data[5] = Jobs::execSQLQuery($more_than_tera);
- //$median= Jobs::execSQLQuery($median_bytes);
- //$max = Jobs::execSQLQuery($max_bytes);
-=======
->>>>>>> 2c0579f1fbad02c5b1dd36f94b87a2edf29b061e
-
-
+// $data[6] = Jobs::execSQLQuery($avg_bytes);
+ $data = Jobs::execSQLQuery($merged_query);
 
 
 //print_r($data);
 //$cats_str = "";
 //var_dump($data[1]);
 $series_str = array();
-<<<<<<< HEAD
+
 $categories=array();
 
        $attr_count =7;
@@ -204,47 +170,7 @@ $categories=array();
 
 
 
-=======
->>>>>>> 2c0579f1fbad02c5b1dd36f94b87a2edf29b061e
 
-
-$attr_count = 7;
-//initialize strings for the attribute series
-for ($i = 1; $i <= $attr_count; $i++) {
-    // var_dump($chart["series"][0]["attr" . $i]);
-    if (!isset($series_str[$i])) {
-        $series_str[$i] = "";
-    }
-    if (!isset($cat_str[$i])) {
-        $cat_str[$i] = "";
-    }
-}
-
-for ($i = 1; $i <= $attr_count; $i++) {
-    $index = 1;
-    //var_dump($data[$i]);
-    foreach ($data[$i] as $each_data) {
-        //echo $i.'\n';
-        //echo $chart["series"][0]["attr".$i];
-        if ($each_data[$chart["series"][0]["attr" . $i]] == null)
-            $each_data[$chart["series"][0]["attr" . $i]] = '0';
-        $cat_str[$i] .= '\'' . $index . '\'' . ',';
-        $series_str[$i] .= $each_data[$chart["series"][0]["attr" . $i]] . ',';
-        $index++;
-    }
-    $cat_str[$i] = rtrim($cat_str[$i], ",");
-    $series_str[$i] = rtrim($series_str[$i], ",");
-}
-
-
-
-$categories = array();
-$idx = 1;
-foreach ($data[1] as $each_data) {
-
-    $categories[] = $each_data["appname"];
-    $index++;
-}
 //$categories = rtrim($categories, ",");
 //$categories .= ']';
 $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
