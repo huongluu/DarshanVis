@@ -7,10 +7,10 @@ $merged_query=$chart["query"]["merged_query"];
 // $ten_to_hundred_giga =$chart["query"]["ten_to_hundred_giga"];
 // $hundred_to_tera= $chart["query"]["hundred_to_tera"];
 // $more_than_tera=$chart["query"]["more_than_tera"];
- $median_bytes =$chart["query"]["median_bytes"];
- $max_bytes=$chart["query"]["max_bytes"];
+ //$median_bytes =$chart["query"]["median_bytes"];
+ //$max_bytes=$chart["query"]["max_bytes"];
 
-$orderby="appname";
+$orderby="sum_bytes";
 //echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 
 //var_dump($less_than_one_giga);
@@ -78,8 +78,8 @@ $orderby="appname";
 // $data[3] = Jobs::execSQLQuery($ten_to_hundred_giga);
 // $data[4] = Jobs::execSQLQuery($hundred_to_tera);
 // $data[5] = Jobs::execSQLQuery($more_than_tera);
- $median= Jobs::execSQLQuery($median_bytes);
- $max = Jobs::execSQLQuery($max_bytes);
+ //$median= Jobs::execSQLQuery($median_bytes);
+ //$max = Jobs::execSQLQuery($max_bytes);
 
 $data=Jobs::execSQLQuery($merged_query);
 
@@ -116,7 +116,7 @@ $categories=array();
             foreach ($data as $each_data) 
             {
                
-                if($each_data['less_than_one_giga']==null && $each_data['one_giga_to_ten_giga']==null && $each_data['ten_to_hundred_giga']==null && $each_data['hundred_to_tera']==null &&$each_data['more_than_tera']==null )
+                if(($each_data['less_than_one_giga']==null && $each_data['one_giga_to_ten_giga']==null && $each_data['ten_to_hundred_giga']==null && $each_data['hundred_to_tera']==null &&$each_data['more_than_tera']==null) ||$each_data['max']==0 || $each_data['median']==0  )
                     continue;
                 else
                 {
@@ -366,12 +366,13 @@ $chart["highchart-confs"]["xAxis"]["categories"]=$categories;
 
         var chart = $('#chart-container').highcharts();
         var color = false;
-        var stacking = false;
+        var stacking = true;
         console.log(">>>>>>>>>>>");
         console.log(chart);
-
-
-        
+        // chart.yAxis[0].setExtremes(0, 100); 
+        // chart.redraw();
+        chart.yAxis[0].tickAmount = 5;
+        chart.yAxis[0].tickInterval = 25;        
     var category = {
         "1KB/s": 1024,
         "32KB/s": 32768,
@@ -383,12 +384,12 @@ $chart["highchart-confs"]["xAxis"]["categories"]=$categories;
     };
 
      
-         if (!stacking) {
-                chart.yAxis[0].setExtremes(0, 100);
-                console.log(">>>>>>>>>>>");
-            } else {
-                chart.yAxis[0].setExtremes(null, null);
-            }
+         // if (!stacking) {
+         //        chart.yAxis[0].setExtremes(0, 100);
+         //        console.log(">>>>>>>>>>>");
+         //    } else {
+         //        chart.yAxis[0].setExtremes(null, null);
+         //    }
           
 
   

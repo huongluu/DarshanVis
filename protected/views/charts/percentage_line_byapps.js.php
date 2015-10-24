@@ -2,7 +2,7 @@
 $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
 
 $cat_str = "";
-$series_str = "";
+$series_str = "[0,0],";
 $xseries_str = "";
 $yseries_str = "";
 $index = 1;
@@ -75,7 +75,7 @@ $series_str = rtrim($series_str, ",");
             borderWidth: 1,
             borderColor: '#AAA',
             formatter: function() {
-                     return 'Percentage of <b> ' + this.x + '  </b>jobs so far is <b>' + (this.y*100) + '</b> %, in mira ';
+                     return 'Percentage of <b> ' + this.x + '  </b>apps so far is <b>' + (this.y*100) + '</b> %, in mira ';
                 }
 
             },

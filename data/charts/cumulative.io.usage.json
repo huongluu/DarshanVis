@@ -7,7 +7,7 @@
     "title": "Consumption of system I/O time",
     "subtitle": "Cumulative percentage of platform I/O time consumed by jobs.",
     "xAxis": {
-        "title": "Percentage of Jobs"
+        "title": "Number of Jobs"
     },
     "yAxis": {
         "title": "Percentage of Total System I/O Time"
@@ -19,8 +19,8 @@
         {
             "type": "line",
             "name": "Mira",
-            "query": "select @jobid:=@jobid+1 as jobid, @total_iotime:=@total_iotime + t1.iotime as total_iotime, system_iotime, t4.system_jobcount, @jobid/system_jobcount as job_percent, @total_iotime/system_iotime as job_sys_io_percent from (select iotime from jobs_info where iotime is not null order by iotime desc) t1, (select sum(iotime) as system_iotime from jobs_info) t2, (select @jobid:=0,@total_iotime:=0) t3, (select count(*) as system_jobcount from jobs_info where iotime is not null) t4;",
-            "xattribute": "job_percent",
+            "query": "select @jobid:=@jobid+1 as jobid, @total_iotime:=@total_iotime + t1.iotime as total_iotime, system_iotime, @total_iotime/system_iotime as job_sys_io_percent from  (select iotime from jobs_info where iotime is not null order by iotime desc) t1,  (select sum(iotime) as system_iotime from jobs_info) t2,  (select @jobid:=0,@total_iotime:=0) t3",
+            "xattribute": "jobid",
             "yattribute": "job_sys_io_percent"
         }
     ]

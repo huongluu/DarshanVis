@@ -31,7 +31,11 @@
             },
             {
                 "id": 2,
-                "title": "Cumulative Usage of I/O Time"
+                "title": "Cumulative Usage of I/O Time of Jobs"
+            },
+            {
+                "id": 18,
+                "title": "Cumulative Usage of I/O Time of Apps"
             },
             {
                 "id": 11,
