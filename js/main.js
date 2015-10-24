@@ -13,6 +13,8 @@ $(document).ready(function () {
 
 });
 
+
+
 function byte_formatter(c, suffix) {
     var bytes = c.value * 1000 * 1000;
     var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
@@ -90,4 +92,18 @@ function send() {
         },
         data: filter
     });
+}
+
+
+function roundSF(num, n) {
+    if (num == 0) {
+        return 0;
+    }
+
+    var d = Math.ceil(Math.log10(num < 0 ? -num : num));
+    var power = n - d;
+
+    var magnitude = Math.pow(10, power);
+    var shifted = Math.round(num * magnitude);
+    return shifted / magnitude;
 }
