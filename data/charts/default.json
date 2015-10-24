@@ -7,7 +7,7 @@
     "highchart-confs": {
         "chart": {
             "zoomType": "xy",
-            "width": 800
+            "width": 1000
         },
         "title": {
             "text": "Default Chart",

@@ -8,18 +8,23 @@
     "preprocess": "generic",
     "highchart-confs": {
         "chart": {
-            "zoomType": "xy",
-            "width": 800
+            "zoomType": "xy"
         },
         "title": {
             "text": "Breakdown of time for each job",
-            "margin": -5,
+            "margin": 20,
             "style": {
                 "margin-top": "40px"
             }
         },
         "subtitle": {
             "text": ""
+        },
+        "navigation": {
+            "buttonOptions": {
+                "verticalAlign": "bottom",
+                "y": -20
+            }
         },
         "xAxis": [
             {
@@ -67,7 +72,7 @@
                         "color": "Highcharts.getOptions().colors[0]",
                         "font-size": "15px"
                     },
-                    "enabled":false
+                    "enabled": false
                 },
                 "labels": {
                     "align": "left",
@@ -92,7 +97,7 @@
                         "color": "darkblue",
                         "font-size": "15px"
                     },
-                    "enabled":false
+                    "enabled": false
                 },
                 "labels": {
                     "align": "left",
@@ -111,7 +116,7 @@
         }
     },
     "query": {
-        "select": "(local_iotime - local_meta) as localio, local_meta, (global_iotime - global_meta) as globalio, global_meta , (runtime - local_iotime - global_iotime ) as notio, start_time, nprocs, total_bytes, agg_perf_MB, unique_count, allshared_count, partshared_count",
+        "select": "*, (local_iotime - local_meta) as localio, local_meta, (global_iotime - global_meta) as globalio, global_meta , (runtime - local_iotime - global_iotime ) as notio, (local_iotime + global_iotime)/runtime as io_percent",
         "from": "jobs_info",
         "where": "agg_perf_MB is not null"
     },
@@ -122,7 +127,8 @@
             "description": "Non-global data I/O: The amount of time this job spent in function calls to read/write its files not accessed by all processes.",
             "color": "#5C9430",
             "stacking": "normal",
-            "type": "column"
+            "type": "column",
+            "yAxis": 0
         },
         {
             "attribute": "local_meta",
@@ -130,7 +136,8 @@
             "description": "Non-global Metadata: The amount of time this job spent in metadata function calls (open, close, seek, etc.) for non-global files, i.e., files that one or more but not all processes opened.",
             "color": "#C73308",
             "stacking": "normal",
-            "type": "column"
+            "type": "column",
+            "yAxis": 0
         },
         {
             "attribute": "globalio",
@@ -138,7 +145,8 @@
             "description": "Global data I/O: The amount of time this job spent in function calls to read/write global files, i.e., files that all processes opened.",
             "color": "#68DB49",
             "stacking": "normal",
-            "type": "column"
+            "type": "column",
+            "yAxis": 0
         },
         {
             "attribute": "global_meta",
@@ -146,7 +154,8 @@
             "description": "Global Metadata: The amount of time this job spent in metadata function calls (open, close, seek, etc.) for global files, i.e., files that all processes opened.",
             "color": "#F25B47",
             "stacking": "normal",
-            "type": "column"
+            "type": "column",
+            "yAxis": 0
         },
         {
             "attribute": "notio",
@@ -154,7 +163,8 @@
             "description": "Not I/O: The amount of time this job spent outside of I/O function calls (data and metadata).",
             "color": "#BDD0D5",
             "stacking": "normal",
-            "type": "column"
+            "type": "column",
+            "yAxis": 0
         },
         {
             "attribute": "nprocs",
@@ -191,6 +201,78 @@
                 "enabled": true,
                 "radius": 5,
                 "fillColor": "#BF53B4"
+            }
+        },
+        {
+            "attribute": "agg_perf_MB",
+            "name": "I/O throughput",
+            "description": "I/O throughput",
+            "color": "#BDD0D5",
+            "stacking": "normal",
+            "type": "scatter",
+            "yAxis": 2,
+            "lineWidth": 0,
+            "visible": false,
+            "dashStyle": "shortdot",
+            "marker": {
+                "symbol": "triangle-down",
+                "enabled": true,
+                "radius": 5,
+                "fillColor": "#000000"
+            }
+        },
+        {
+            "attribute": "unique_count",
+            "name": "Number of local files",
+            "description": "Number of local files: Number of files accessed by 1 processes only",
+            "color": "#BDD0D5",
+            "stacking": "normal",
+            "type": "scatter",
+            "yAxis": 2,
+            "lineWidth": 0,
+            "visible": false,
+            "dashStyle": "shortdot",
+            "marker": {
+                "symbol": "triangle",
+                "enabled": true,
+                "radius": 5,
+                "fillColor": "#000099"
+            }
+        },
+        {
+            "attribute": "partshared_count",
+            "name": "Number of partshared files",
+            "description": "Number of partshared files: Number of files accessed by a proper subset of processes",
+            "color": "#BDD0D5",
+            "stacking": "normal",
+            "type": "scatter",
+            "yAxis": 2,
+            "lineWidth": 0,
+            "visible": false,
+            "dashStyle": "shortdot",
+            "marker": {
+                "symbol": "triangle",
+                "enabled": true,
+                "radius": 5,
+                "fillColor": "#FF9900"
+            }
+        },
+        {
+            "attribute": "allshared_count",
+            "name": "Number of global files",
+            "description": "Number of global files: Number of files accessed by all processes",
+            "color": "#BDD0D5",
+            "stacking": "normal",
+            "type": "scatter",
+            "yAxis": 2,
+            "lineWidth": 0,
+            "visible": false,
+            "dashStyle": "shortdot",
+            "marker": {
+                "symbol": "triangle",
+                "enabled": true,
+                "radius": 2,
+                "fillColor": "#CC00CC"
             }
         }
     ]

@@ -1,7 +1,7 @@
 {
     "_comment": "Change to new database, don't have ID column anymore, unique_iotime become local_iotime, etc... ",
     "id": 17,
-    "title": "app scatter",
+    "title": "",
     "type": "scatter",
     "template": "charts/scatter.js.php",
     "filter": "components/_filters.php",
@@ -15,7 +15,8 @@
         "start_time",
         "total_bytes",
         "nprocs",
-        "agg_perf_MB"
+        "agg_perf_MB",
+        "uid"
       ]
     },
     "yAxis": {
@@ -25,7 +26,8 @@
           "start_time",
           "total_bytes",
           "nprocs",
-          "agg_perf_MB"
+          "agg_perf_MB",
+          "uid"
         ]
     },
     "tooltip": {
@@ -49,7 +51,7 @@
             "width": 800
         },
         "title": {
-            "text": "App Scatter",
+            "text": "Scatter plot of application's I/O characteristics",
             "margin": -5,
             "style": {
                 "margin-top": "40px"
@@ -72,6 +74,6 @@
     "query": {
         "select":"uid, appname, start_time, total_bytes, nprocs, agg_perf_MB",
         "from":"jobs_info",
-        "where":"nprocs>0 total_bytes>0 limit 20"
+        "where":"nprocs>0 total_bytes>0 "
     }
 }

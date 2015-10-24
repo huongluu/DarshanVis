@@ -36,13 +36,19 @@ if ($id == 12) {
                 <!--<span class = "input-group-addon" style = "background-color: white;">Sort</span>-->
                 <select name="sort-level1" id="sort-level1" class="form-control selectpicker">
                     <option disabled selected></option>
+                    <option value="notio" >Not I/O Time</option>
+                    <option value="iotime" >I/O Time</option>
+                    <option value="io_percent" >Percentage of runtime spent in I/O</option>
                     <option value="localio">Non-global Data I/O</option>
                     <option value="local_meta" >Non-global Metadata</option>
                     <option value="globalio" >Global Data I/O</option>
                     <option value="global_meta" >Global Metadata</option>
-                    <option value="notio" >Not I/O</option>
                     <option value="nprocs" ># of Processes</option>
                     <option value="total_bytes" >Total Bytes Read/Written</option>
+                    <option value="agg_perf_MB" >I/O Throughput</option>
+                    <option value="unique_count" >Number of local files</option>
+                    <option value="partshared_count" >Number of partshared files</option>
+                    <option value="allshared_count" >Number of global files</option>
                 </select>
             </div>
         </div>
@@ -82,13 +88,19 @@ if ($id == 12) {
                 <!--<span class = "input-group-addon" style = "background-color: white;">Sort</span>-->
                 <select name="sort-level2" id="sort-level2" class="form-control selectpicker">
                     <option disabled selected></option>
+                    <option value="notio" >Not I/O Time</option>
+                    <option value="iotime" >I/O Time</option>
+                    <option value="io_percent" >Percentage of runtime spent in I/O</option>
                     <option value="localio">Non-global Data I/O</option>
                     <option value="local_meta" >Non-global Metadata</option>
                     <option value="globalio" >Global Data I/O</option>
                     <option value="global_meta" >Global Metadata</option>
-                    <option value="notio" >Not I/O</option>
                     <option value="nprocs" ># of Processes</option>
                     <option value="total_bytes" >Total Bytes Read/Written</option>
+                    <option value="agg_perf_MB" >I/O Throughput</option>
+                    <option value="unique_count" >Number of local files</option>
+                    <option value="partshared_count" >Number of partshared files</option>
+                    <option value="allshared_count" >Number of global files</option>
                 </select>
             </div>
         </div>
@@ -127,13 +139,19 @@ if ($id == 12) {
                 <!--<span class = "input-group-addon" style = "background-color: white;">Sort</span>-->
                 <select name="sort-level3" id="sort-level3" class="form-control selectpicker">
                     <option disabled selected></option>
+                    <option value="notio" >Not I/O Time</option>
+                    <option value="iotime" >I/O Time</option>
+                    <option value="io_percent" >Percentage of runtime spent in I/O</option>
                     <option value="localio">Non-global Data I/O</option>
                     <option value="local_meta" >Non-global Metadata</option>
                     <option value="globalio" >Global Data I/O</option>
                     <option value="global_meta" >Global Metadata</option>
-                    <option value="notio" >Not I/O</option>
                     <option value="nprocs" ># of Processes</option>
                     <option value="total_bytes" >Total Bytes Read/Written</option>
+                    <option value="agg_perf_MB" >I/O Throughput</option>
+                    <option value="unique_count" >Number of local files</option>
+                    <option value="partshared_count" >Number of partshared files</option>
+                    <option value="allshared_count" >Number of global files</option>
                 </select>
             </div>
         </div>
