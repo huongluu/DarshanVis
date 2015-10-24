@@ -6,28 +6,28 @@
     "template": "charts/scatter.js.php",
     "filter": "components/_filters.php",
     "preprocess": "generic",
-    "subtitle":"",
-    "xAxis":{
-      "title":"Jobs",
-      "attribute":"total_bytes",
-      "type":"linear",
-      "options":[
-        "start_time",
-        "total_bytes",
-        "nprocs",
-        "agg_perf_MB",
-        "uid"
-      ]
+    "subtitle": "",
+    "xAxis": {
+        "title": "Jobs",
+        "attribute": "total_bytes",
+        "type": "linear",
+        "options": [
+            "start_time",
+            "total_bytes",
+            "nprocs",
+            "agg_perf_MB",
+            "uid"
+        ]
     },
     "yAxis": {
         "title": "Throughput",
-        "type":"linear",
-        "options":[
-          "start_time",
-          "total_bytes",
-          "nprocs",
-          "agg_perf_MB",
-          "uid"
+        "type": "linear",
+        "options": [
+            "start_time",
+            "total_bytes",
+            "nprocs",
+            "agg_perf_MB",
+            "uid"
         ]
     },
     "tooltip": {
@@ -37,7 +37,7 @@
         {
             "type": "scatter",
             "name": "",
-            "query":"select uid, appname, start_time, total_bytes, nprocs, agg_perf_MB from jobs_info where total_bytes>0 and nprocs>0 and agg_perf_MB>0 limit 150;",
+            "query": "select uid, appname, start_time, total_bytes, nprocs, agg_perf_MB from jobs_info where total_bytes>0 and nprocs>0 and agg_perf_MB>0 limit 150;",
             "series1": "total_bytes",
             "series2": "nprocs",
             "series1-name": "total_bytes",
@@ -61,19 +61,19 @@
             "text": ""
         },
         "xAxis": {
-            "title":"Jobs",
-            "attribute":"total_bytes",
-            "type":"linear"
+            "title": "Jobs",
+            "attribute": "total_bytes",
+            "type": "linear"
         },
         "yAxis":
-        {
-          "title":"throughput",
-          "type":"linear"
-        }
+                {
+                    "title": "throughput",
+                    "type": "linear"
+                }
     },
     "query": {
-        "select":"uid, appname, start_time, total_bytes, nprocs, agg_perf_MB",
-        "from":"jobs_info",
-        "where":"nprocs>0 total_bytes>0 "
+        "select": "uid, appname, start_time, total_bytes, nprocs, agg_perf_MB",
+        "from": "jobs_info",
+        "where": "nprocs>0 total_bytes>0 "
     }
 }

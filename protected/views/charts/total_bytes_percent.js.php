@@ -3,169 +3,91 @@ include_once 'utils2.php';
 
 
 
-$merged_query=$chart["query"]["merged_query"];
-// $ldata = $chart["query"]["less_than_one_giga"];
-// $one_giga_to_ten_giga=$chart["query"]["one_giga_to_ten_giga"];
-// $ten_to_hundred_giga =$chart["query"]["ten_to_hundred_giga"];
-// $hundred_to_tera= $chart["query"]["hundred_to_tera"];
-// $more_than_tera=$chart["query"]["more_than_tera"];
- //$median_bytes =$chart["query"]["median_bytes"];
- //$max_bytes=$chart["query"]["max_bytes"];
+$merged_query = $chart["query"]["merged_query"];
 
-$orderby="sum_bytes";
-//echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+$orderby = "sum_bytes";
+$data = Jobs::execSQLQuery($merged_query);
 
 
-// if (isset($_POST["application"]) && strlen($_POST["application"]) > 0) {
-//     $q = Jobs::filter($q, "appname", $_POST["application"]);
-// }
-// $orderby = "start_time";
-// if (isset($_POST["sort-level1"])) {
-//     $orderby = $_POST["sort-level1"];
-// }
-// //if ($orderby != "nprocs" && $orderby != "total_bytes") {
-// //    $orderby = $orderby . "/(runtime + shared_time_by_cumul_io_only - shared_time_by_cumul_meta_only)";
-// //}
-// $mode1 = "desc";
-// if (isset($_POST["mode-level1"])) {
-// //    echo "set to ". $_POST["mode-level1"];
-//     $mode1 = $_POST["mode-level1"];
-// }
-// //$orderby = "notio" . "/(runtime + shared_time_by_cumul_io_only - shared_time_by_cumul_meta_only) asc";
-// //$orderby .= ", globalio";
-// $q = Jobs::OrderBy($q, $orderby, $mode1);
-// $q = Jobs::Limit($q, 5000);
-// if (isset($_POST["sort-level2"])) {
-//     $sortlevel2 = $_POST["sort-level2"];
-//     $mode2 = "desc";
-//     if (isset($_POST["mode-level2"])) {
-//         $mode1 = $_POST["mode-level2"];
-//     }
-//     $q = Jobs::addSortingLevel($q, $sortlevel2, $mode2);
-// }
-// if (isset($_POST["sort-level3"])) {
-//     $sortlevel3 = $_POST["sort-level3"];
-//     $mode3 = "desc";
-//     if (isset($_POST["mode-level3"])) {
-//         $mode1 = $_POST["mode-level3"];
-//     }
-//     $q = Jobs::addSortingLevel($q, $sortlevel3, $mode3);
-// }
-// if (isset($_POST["user"]) && strlen($_POST["user"]) > 0) {
-//     $q = Jobs::filter($q, "uid", $_POST["user"]);
-// }
-//var_dump($q) ;
-// $data[1] = Jobs::execSQLQuery($less_than_one_giga);
-// $data[2] = Jobs::execSQLQuery($one_giga_to_ten_giga);
-// $data[3] = Jobs::execSQLQuery($ten_to_hundred_giga);
-// $data[4] = Jobs::execSQLQuery($hundred_to_tera);
-// $data[5] = Jobs::execSQLQuery($more_than_tera);
-// $data[6] = Jobs::execSQLQuery($avg_bytes);
- $data = Jobs::execSQLQuery($merged_query);
-
-
-//print_r($data);
-//$cats_str = "";
-//var_dump($data[1]);
 $series_str = array();
 
-$categories=array();
+$categories = array();
 
-       $attr_count =7;
-         //initialize strings for the attribute series
-        for ($i = 1; $i <= $attr_count; $i++) 
-        {
-           // var_dump($chart["series"][0]["attr" . $i]);
-            if (!isset($series_str[$i])) 
-            {
-                $series_str[$i] = "";
-            }
-            if (!isset($cat_str[$i])) 
-            {
-                $cat_str[$i] = "";
-            }
+$attr_count = 7;
+//initialize strings for the attribute series
+for ($i = 1; $i <= $attr_count; $i++) {
+    // var_dump($chart["series"][0]["attr" . $i]);
+    if (!isset($series_str[$i])) {
+        $series_str[$i] = "";
+    }
+    if (!isset($cat_str[$i])) {
+        $cat_str[$i] = "";
+    }
+}
 
+$i = 1;
+$index = 1;
+//var_dump($data[$i]);
+foreach ($data as $each_data) {
+
+    if (($each_data['less_than_one_giga'] == null && $each_data['one_giga_to_ten_giga'] == null && $each_data['ten_to_hundred_giga'] == null && $each_data['hundred_to_tera'] == null && $each_data['more_than_tera'] == null) || $each_data['max'] == 0 || $each_data['median'] == 0)
+        continue;
+    else {
+        $categories[] = $each_data["appname"];
+        for ($i = 1; $i <= 7; $i++) {
+            if ($each_data[$chart["series"][0]["attr" . $i]] === null)
+                $each_data[$chart["series"][0]["attr" . $i]] = '0';
+            $cat_str[$i] .= '\'' . $index . '\'' . ',';
+            $series_str[$i] .= $each_data[$chart["series"][0]["attr" . $i]] . ',';
         }
+        $index++;
+    }
+}
 
-            $i=1;
-            $index=1;
-            //var_dump($data[$i]);
-            foreach ($data as $each_data) 
-            {
-               
-                if(($each_data['less_than_one_giga']==null && $each_data['one_giga_to_ten_giga']==null && $each_data['ten_to_hundred_giga']==null && $each_data['hundred_to_tera']==null &&$each_data['more_than_tera']==null) ||$each_data['max']==0 || $each_data['median']==0  )
-                    continue;
-                else
-                {
-                    $categories[]=$each_data["appname"];
-                    for($i=1;$i<=7;$i++)
-                    {
-                    if($each_data[  $chart["series"][0]["attr".$i]  ]===null  )
-                        $each_data[  $chart["series"][0]["attr".$i]  ]='0';
-                     $cat_str[$i] .= '\'' . $index . '\'' . ',';
-                    $series_str[$i] .= $each_data[  $chart["series"][0]["attr".$i]  ]. ',';
-                    
-                    }
-                    $index++;
-                }
-
-            }
-
-           //  $index=1;
-           //  foreach ($median as $each_data) 
-           //  {
-           //      //echo $i.'\n';
-           //      //echo $chart["series"][0]["attr".$i];
-           // if($each_data['less_than_one_giga']==null && $each_data['one_giga_to_ten_giga']==null && $each_data['ten_to_hundred_giga']==null && $each_data['hundred_to_tera']==null &&$each_data['more_than_tera']==null )
-           //          continue;
-           //  else
-           //  {
-
-
-           //      if($each_data[  $chart["series"][0]["attr".'6']  ]==null  )
-           //          $each_data[  $chart["series"][0]["attr".'6']  ]='0';
-           //           $cat_str[6] .= '\'' . $index . '\'' . ',';
-           //      $series_str[6] .= $each_data[  $chart["series"][0]["attr".'6']  ]. ',';
-                 
-               
-           //      $index++;
-           //  }
-
-           //  }
-           //  $cat_str[6] = rtrim($cat_str[6], ",");
-           //      $series_str[6] = rtrim($series_str[6], ",");
-
-           //  $index=1;
-           
-           //  foreach ($max as $each_data) 
-           //  {
-           //      //echo $i.'\n';
-           //      //echo $chart["series"][0]["attr".$i];
-           
-           //  if($each_data['less_than_one_giga']==null && $each_data['one_giga_to_ten_giga']==null && $each_data['ten_to_hundred_giga']==null && $each_data['hundred_to_tera']==null &&$each_data['more_than_tera']==null )
-           //          continue;
-           //  else{
-           //      if($each_data[  $chart["series"][0]["attr".'7']  ]==null  )
-           //          $each_data[  $chart["series"][0]["attr".'7']  ]='0';
-           //           $cat_str[7] .= '\'' . $index . '\'' . ',';
-           //       $series_str[7] .= $each_data[  $chart["series"][0]["attr".'7']  ]. ',';
-                 
-               
-           //      $index++;
-           //      }
-           //  }
-
-           //  $cat_str[7] = rtrim($cat_str[7], ",");
-           //      $series_str[7] = rtrim($series_str[7], ",");
+//  $index=1;
+//  foreach ($median as $each_data) 
+//  {
+//      //echo $i.'\n';
+//      //echo $chart["series"][0]["attr".$i];
+// if($each_data['less_than_one_giga']==null && $each_data['one_giga_to_ten_giga']==null && $each_data['ten_to_hundred_giga']==null && $each_data['hundred_to_tera']==null &&$each_data['more_than_tera']==null )
+//          continue;
+//  else
+//  {
+//      if($each_data[  $chart["series"][0]["attr".'6']  ]==null  )
+//          $each_data[  $chart["series"][0]["attr".'6']  ]='0';
+//           $cat_str[6] .= '\'' . $index . '\'' . ',';
+//      $series_str[6] .= $each_data[  $chart["series"][0]["attr".'6']  ]. ',';
+//      $index++;
+//  }
+//  }
+//  $cat_str[6] = rtrim($cat_str[6], ",");
+//      $series_str[6] = rtrim($series_str[6], ",");
+//  $index=1;
+//  foreach ($max as $each_data) 
+//  {
+//      //echo $i.'\n';
+//      //echo $chart["series"][0]["attr".$i];
+//  if($each_data['less_than_one_giga']==null && $each_data['one_giga_to_ten_giga']==null && $each_data['ten_to_hundred_giga']==null && $each_data['hundred_to_tera']==null &&$each_data['more_than_tera']==null )
+//          continue;
+//  else{
+//      if($each_data[  $chart["series"][0]["attr".'7']  ]==null  )
+//          $each_data[  $chart["series"][0]["attr".'7']  ]='0';
+//           $cat_str[7] .= '\'' . $index . '\'' . ',';
+//       $series_str[7] .= $each_data[  $chart["series"][0]["attr".'7']  ]. ',';
+//      $index++;
+//      }
+//  }
+//  $cat_str[7] = rtrim($cat_str[7], ",");
+//      $series_str[7] = rtrim($series_str[7], ",");
 
 
 
-            for ($i=1; $i<=7 ; $i++) { 
-                # code...
-                $cat_str[$i] = rtrim($cat_str[$i], ",");
-                $series_str[$i] = rtrim($series_str[$i], ",");
-            }
-            
+for ($i = 1; $i <= 7; $i++) {
+    # code...
+    $cat_str[$i] = rtrim($cat_str[$i], ",");
+    $series_str[$i] = rtrim($series_str[$i], ",");
+}
+
 
 
 
@@ -333,38 +255,12 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
                     },
                     yAxis: 1,
                     data: [<?php echo $series_str[7] ?>],
-                }, ]
+                }]
         });
 
         var chart = $('#chart-container').highcharts();
         var color = false;
-<<<<<<< HEAD
-        var stacking = true;
-        console.log(">>>>>>>>>>>");
-        console.log(chart);
-        // chart.yAxis[0].setExtremes(0, 100); 
-        // chart.redraw();
-        chart.yAxis[0].tickAmount = 5;
-        chart.yAxis[0].tickInterval = 25;        
-    var category = {
-        "1KB/s": 1024,
-        "32KB/s": 32768,
-        "1MB/s": 1048576,
-        "32MB/s":33554432,
-        "1GB/s":1073741824,
-        "32GB/s":34359738368,
-        "1TB/s":1099511627776
-    };
 
-     
-         // if (!stacking) {
-         //        chart.yAxis[0].setExtremes(0, 100);
-         //        console.log(">>>>>>>>>>>");
-         //    } else {
-         //        chart.yAxis[0].setExtremes(null, null);
-         //    }
-          
-=======
         var stacking = false;
         chart.yAxis[0].setExtremes(0, 100);
         console.log(">>>>>>>>>>>");
@@ -381,13 +277,10 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
             "1TB/s": 1099511627776
         };
 
-        chart.yAxis[1].labels.formatter = function () {
-
-            return categoryLinks[this.value];
-        }
-
-
->>>>>>> 2c0579f1fbad02c5b1dd36f94b87a2edf29b061e
+//        chart.yAxis[1].labels.formatter = function () {
+//
+//            return categoryLinks[this.value];
+//        }
 
 
 
