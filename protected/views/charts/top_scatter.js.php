@@ -68,6 +68,7 @@ $json_str = json_encode($all_data);
 ?>
 <script type="text/javascript">
 $(function(){
+  $("#dv_table").insertBefore("#15-scatter-containers");
   var axisTitles = {
     "nprocs":"Number of Processes",
     "total_bytes":"Amount of Data read/written",
