@@ -2,23 +2,30 @@
 $data = Jobs::execSQLQuery($chart["series"][0]["query"]);
 
 $cat_str = "";
-$series_str = "";
+$series_str1 = "[0,0],";
+$series_str2 = "";
 $xseries_str = "";
-$yseries_str = "";
+$yseries_str1 = "";
+$yseries_str2 ="";
 $index = 1;
 foreach ($data as $d) {
     //$cat_str .= '\'' . $index . '\'' . ',';
     $xseries_str = $d[$chart["series"][0]["xattribute"]] ;
-    $yseries_str = $d[$chart["series"][0]["yattribute"]] ;
-    $series_str .= '['.$xseries_str.', '.$yseries_str.']' . ',';
+    $yseries_str1 = $d[$chart["series"][0]["yattribute1"]] ;
+    $yseries_str2 = $d[$chart["series"][0]["yattribute2"]] ;
+    $series_str1 .= '['.$xseries_str.', '.$yseries_str1.']' . ',';
+    $series_str2 .= '['.$xseries_str.', '.$yseries_str2.']' . ',';
     $index++;
 }
 //$cat_str = rtrim($cat_str, ",");
-$series_str = rtrim($series_str, ",");
+$series_str1 = rtrim($series_str1, ",");
+$series_str2 = rtrim($series_str2, ",");
+//echo $series_str2;
 ?>
 
 <script type="text/javascript">
     $(function() {
+        var percentage=true;
         $('#chart-container').highcharts({
             chart: {
                 type: 'line',
@@ -55,12 +62,20 @@ $series_str = rtrim($series_str, ",");
                         width: 5,
                         color: '#808080'
                     }],
+                type:"normal",
                 min: 0,
                 max: 1, 
                 crosshair: true,
                 labels: {
                     formatter: function(){
-                        return 100*this.value + '%';
+                        if(percentage)
+                        {
+                            return 100*this.value + '%';    
+                        }
+                        else
+                        {
+                            return this.value;
+                        }
                     }
                 },
             },
@@ -73,9 +88,13 @@ $series_str = rtrim($series_str, ",");
                 ]
             },
             borderWidth: 1,
-            borderColor: '#AAA',
+            borderColor: '#AAA',    
             formatter: function() {
-                     return 'Percentage of <b> ' + this.x + '  </b>jobs so far is <b>' + roundSF(this.y*100, 4) + '</b> %';
+                    if (percentage)
+                        return 'Percentage of <b> ' + this.x + '  </b>jobs so far is <b>' + roundSF(this.y*100, 4) + '</b> %';
+                    else
+                        return 'Cumulative IO time of <b> ' + this.x + '  </b>jobs so far is <b>' + this.y + '</b> ';
+                  
                 }
 
             },
@@ -88,8 +107,62 @@ $series_str = rtrim($series_str, ",");
             },
             series: [{
                     name: '<?php echo $chart["series"][0]["name"]; ?>',
-                    data: [<?php echo $series_str ?>]
+                    data: [<?php echo $series_str1 ?>]
                 }]
+        });
+
+    var chart = $('#chart-container').highcharts();
+        
+    // Toggle abs/%
+        $('#toggle-percentage').click(function () {
+
+            percentage = !percentage;
+
+             
+                //console.log(chart.yAxis[0]);
+                console.log("lets get statted percentage:"+percentage);
+
+                if(percentage)
+                    chart.yAxis[0].update({
+                    min: 0,
+                    type: "normal"
+                });
+
+                chart.series[0].update(
+                {
+                    data: percentage ? [<?php echo $series_str1 ?>] : [<?php echo $series_str2 ?>] ,
+                });
+
+                chart.xAxis[0].update({
+                    min: percentage? 0:1
+                }); 
+
+                chart.yAxis[0].update({
+                    min: percentage? 0:1,
+                    type: percentage? "normal":"logarithmic"
+                }); 
+
+                chart.yAxis[0].axisTitle.attr(
+               {
+                text: percentage ? "Percentage of Total System I/O Time" : "Cumulative Total System I/O Time"
+                });
+
+                 
+
+                
+            
+             if(percentage)
+                {
+                    chart.yAxis[0].setExtremes(0,1);
+                }
+                else
+                {
+                    chart.yAxis[0].setExtremes( <?php echo $data[0][$chart["series"][0]["yattribute2"]]?>,<?php echo $data[0]["system_iotime"]?>);
+                }
+
+               
+
+            chart.redraw();
         });
     });
 </script>
