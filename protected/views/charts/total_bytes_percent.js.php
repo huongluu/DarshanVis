@@ -45,7 +45,7 @@ foreach ($data as $each_data) {
 }
 
 //  $index=1;
-//  foreach ($median as $each_data) 
+//  foreach ($median as $each_data)
 //  {
 //      //echo $i.'\n';
 //      //echo $chart["series"][0]["attr".$i];
@@ -63,7 +63,7 @@ foreach ($data as $each_data) {
 //  $cat_str[6] = rtrim($cat_str[6], ",");
 //      $series_str[6] = rtrim($series_str[6], ",");
 //  $index=1;
-//  foreach ($max as $each_data) 
+//  foreach ($max as $each_data)
 //  {
 //      //echo $i.'\n';
 //      //echo $chart["series"][0]["attr".$i];
@@ -313,6 +313,25 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
 //            color = !color;
 
         });
+        var chart = $("#chart-container").highcharts();
+        var max = findMax(chart)
+
+        // chart.yAxis[0].tickInterval = 25;
+        chart.yAxis[0].max = max;
 
     });
+
+    findMax = function(chart)
+    {
+      var max = 0;
+      for (var i=0; i<chart.yAxis[0].series.length; i++)
+      {
+        for (var x=0; x<chart.yAxis[0].series[i].data.length; x++)
+        {
+          max = (max < chart.yAxis[0].series[i].data[x]) ? chart.yAxis[0].series[i].data[x] : max ;
+        }
+      }
+      return (max < 100) ? 100 : max;
+    }
+
 </script>
