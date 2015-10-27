@@ -12,7 +12,7 @@ foreach ($data as $d) {
     //$cat_str .= '\'' . $index . '\'' . ',';
     $xseries_str = $d[$chart["series"][0]["xattribute"]] ;
     $yseries_str1 = $d[$chart["series"][0]["yattribute1"]] ;
-    $yseries_str2 = $d[$chart["series"][0]["yattribute2"]] ;
+    $yseries_str2 = intval($d[$chart["series"][0]["yattribute2"]])/3600 ;
     $series_str1 .= '['.$xseries_str.', '.$yseries_str1.']' . ',';
     $series_str2 .= '['.$xseries_str.', '.$yseries_str2.']' . ',';
     $index++;
@@ -75,7 +75,7 @@ $series_str2 = rtrim($series_str2, ",");
                         }
                         else
                         {
-                            return this.value;
+                            return this.value+ " hrs";
                         }
                     }
                 },
@@ -94,7 +94,7 @@ $series_str2 = rtrim($series_str2, ",");
                     if (percentage)
                         return 'Percentage of <b> ' + this.x + '  </b>jobs so far is <b>' + roundSF(this.y*100, 4) + '</b> %';
                     else
-                        return 'Cumulative IO time of <b> ' + this.x + '  </b>jobs so far is <b>' + roundSF(this.y,10) + '</b> Hours ';
+                        return 'Cumulative IO time of <b> ' + this.x + '  </b>jobs so far is <b>' + roundSF(this.y,8) + '</b> Hours ';
                   
                 }
 
@@ -135,7 +135,7 @@ $series_str2 = rtrim($series_str2, ",");
                 }
                 else
                 {
-                   chart.yAxis[0].setExtremes( <?php echo $data[0][$chart["series"][0]["yattribute2"]]?>,<?php echo $data[0]["system_iotime"]?>);
+                   chart.yAxis[0].setExtremes( <?php echo intval($data[0][$chart["series"][0]["yattribute2"]])/3600?>,<?php echo intval($data[0]["system_iotime"])/3600?>);
            
                 }
 
@@ -170,7 +170,7 @@ $series_str2 = rtrim($series_str2, ",");
                 }
                 else
                 {
-                    chart.yAxis[0].setExtremes( <?php echo $data[0][$chart["series"][0]["yattribute2"]]?>,<?php echo $data[0]["system_iotime"]?>);
+                    chart.yAxis[0].setExtremes( <?php echo intval($data[0][$chart["series"][0]["yattribute2"]])/3600 ?>,<?php echo intval($data[0]["system_iotime"])/3600?>);
                 }
 
                
