@@ -26,6 +26,7 @@ $series_str2 = rtrim($series_str2, ",");
 <script type="text/javascript">
     $(function() {
         var percentage=true;
+        var ready=true;
         $('#chart-container').highcharts({
             chart: {
                 type: 'line',
@@ -93,7 +94,7 @@ $series_str2 = rtrim($series_str2, ",");
                     if (percentage)
                         return 'Percentage of <b> ' + this.x + '  </b>jobs so far is <b>' + roundSF(this.y*100, 4) + '</b> %';
                     else
-                        return 'Cumulative IO time of <b> ' + this.x + '  </b>jobs so far is <b>' + this.y + '</b> ';
+                        return 'Cumulative IO time of <b> ' + this.x + '  </b>jobs so far is <b>' + roundSF(this.y,10) + '</b> Hours ';
                   
                 }
 
@@ -116,17 +117,29 @@ $series_str2 = rtrim($series_str2, ",");
     // Toggle abs/%
         $('#toggle-percentage').click(function () {
 
-            percentage = !percentage;
+            if(ready)
+            {
+                ready=false;
+                percentage = !percentage;
 
              
                 //console.log(chart.yAxis[0]);
-                console.log("lets get statted percentage:"+percentage);
+                console.log("lets get started percentage:"+percentage);
 
                 if(percentage)
+                {
                     chart.yAxis[0].update({
                     min: 0,
                     type: "normal"
-                });
+                    });
+                }
+                else
+                {
+                   chart.yAxis[0].setExtremes( <?php echo $data[0][$chart["series"][0]["yattribute2"]]?>,<?php echo $data[0]["system_iotime"]?>);
+           
+                }
+
+                    
 
                 chart.series[0].update(
                 {
@@ -162,7 +175,9 @@ $series_str2 = rtrim($series_str2, ",");
 
                
 
-            chart.redraw();
+                chart.redraw();
+                ready=true;
+            }
         });
     });
 </script>
