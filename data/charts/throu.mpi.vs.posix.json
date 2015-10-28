@@ -5,15 +5,11 @@
     "template": "charts/bar.scatter.js.php",
     "filter": "components/_filters.php",
     "highchart-confs": {
-        "chart": {
-            "zoomType": "xy",
-            "width": 800
-        },
         "title": {
             "text": "Job Performance based on the I/O Interface and Job Size"
         },
         "subtitle": {
-            "text": "I/O throughput for apps that use only POSIX-IO and those that use MPI-IO for at least one file."
+            "notused": "I/O throughput for apps that use only POSIX-IO and those that use MPI-IO for at least one file."
         },
         "xAxis": {
             "title": "Group"
