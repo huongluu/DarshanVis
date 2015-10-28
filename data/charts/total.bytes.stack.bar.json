@@ -4,7 +4,7 @@
     "name": "job-percent",
     "type": "bar.scatter",
     "template": "charts/total_bytes_percent.js.php",
-    "filter": "components/_filters.php",
+    "filter": "components/_filters_for_platform.php",
     "highchart-confs": {
         "chart": {
             "zoomType": "xy",

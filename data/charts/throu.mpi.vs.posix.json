@@ -3,7 +3,7 @@
     "id": 11,
     "name": "performance-based-io-interface",
     "template": "charts/bar.scatter.js.php",
-    "filter": "components/_filters.php",
+    "filter": "components/_filters_for_platform.php",
     "highchart-confs": {
         "title": {
             "text": "Job Performance based on the I/O Interface and Job Size"

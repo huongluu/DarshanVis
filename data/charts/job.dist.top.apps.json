@@ -3,7 +3,7 @@
     "name": "scatter-set-chart",
     "type": "scatterset",
     "template": "charts/scatterset.js.php",
-    "filter": "components/_filters_for_App.php",
+    "filter": "components/_filters.php",
     "title": "Scatter Set",
     "subtitle": "",
     "xAxis": {

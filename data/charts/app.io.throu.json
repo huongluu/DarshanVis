@@ -3,7 +3,7 @@
     "name": "Average and Maximum I/O Throughput of  chart",
     "type": "line",
     "template": "charts/line.js.php",
-    "filter": "components/_filters.php",
+    "filter": "components/_filters_for_platform.php",
     "highchart-confs": {
         "title": "Median and Maximum I/O Throughput of All Applications",
         "chart": {
