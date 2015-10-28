@@ -25,7 +25,6 @@ foreach ($y_options as $str) {
 <script type="text/javascript">
     $(function () {
         send();
-
         $("#chart-config-sel-x").html('<?php echo $x_options_list ?>');
         $("#chart-config-sel-y").html('<?php echo $y_options_list ?>');
         $("#chart-config").toggle();

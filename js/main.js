@@ -54,19 +54,23 @@ function send() {
             all_data = data;
             console.log(data);
             var chart = $('#chart-container').highcharts();
-            if (isNaN(chart)) {
+
+            if (typeof chart === 'undefined') {
                 console.log("chart is null, return");
-//                return;
-            }
-            if (!isNaN(chart) && isNaN(chart.series)) {
-                console.log("chart.series is null, return");
-//                return;
-            }
-            if (!isNaN(chart) && !isNaN(chart.series)) {
-                while (chart.series.length > 0) {
-                    chart.series[0].remove(false);
+                if (typeof (make_chart_get_values) == "function") {
+                    make_chart_get_values();
                 }
+                return;
             }
+//            if (chart && isNaN(chart.series)) {
+//                console.log("chart.series is null, return");
+//                return;
+//            }
+//            if (chart && !isNaN(chart.series)) {
+            while (chart.series.length > 0) {
+                chart.series[0].remove(false);
+            }
+//            }
             var series = data["chart"]["series"];
             var queryResult = data["queryresult"];
             for (var i = 0; i < series.length; i++) {
@@ -77,12 +81,15 @@ function send() {
                     $('#chart-container').html("");
                     series[i]["data"] = [];
                     for (var j = 0; j < qr.length; j++) {
-                        series[i]["data"].push([j, Number(qr[j])]);
+                        var num = Number(qr[j]);
+                        if (num != 0) {
+                            series[i]["data"].push([j, num]);
+                        }
                     }
                     console.log(series[i]);
-                    if (!isNaN(chart)) {
-                        chart.addSeries(series[i], false);
-                    }
+//                    if (!isNaN(chart)) {
+                    chart.addSeries(series[i], false);
+//                    }
                 } else {
                     $('#chart-container').html("<center>No result for the desired filters.</center>");
                 }
@@ -91,10 +98,12 @@ function send() {
 //                        chart.addSeries(s, false);
 //                    });
 
-            if (!isNaN(chart)) {
-                chart.redraw();
+//            if (chart) {
+            chart.redraw();
+//            }
+            if (typeof (make_chart_get_values) == "function") {
+                make_chart_get_values();
             }
-            make_chart_get_values();
             $('#chart-container').css('visibility', 'visible');
             $('#chart-container').css('display', 'block');
             $('#status').html('&nbsp;');
