@@ -4,7 +4,7 @@ include_once 'utils2.php';
 
 <script type="text/javascript">
     $(function () {
-
+        $('#toggle-percentage').hide();
         send();
         var globalCallback = function (chart) {
             // Specific event listener
