@@ -1,8 +1,30 @@
 [
-    {   "comment": "Going to remove Heatmap page now, need to readd later",
-        "id": 1,
+    {
+        "id": 2,
+        "name": "Analyze Application I/O Behavior",
+        "charts": [
+             {
+                "id": 17,
+                "title": "Overview of I/O characteristics"
+            },
+            {
+                "id": 12,
+                "title": "Time Breakdown"
+            }
+           
+        ]
+    },
+    {   "id": 1,
         "name": "Analyze Platform I/O Workload",
         "charts": [
+            {
+                "id": 8,
+                "title": "I/O Throughput of All Apps"
+            },
+            {
+                "id": 18,
+                "title": "Cumulative Usage of I/O Time of Apps"
+            },
             {
                 "id": 999,
                 "title": "Top Apps",
@@ -22,40 +44,9 @@
                 ]
             },
             {
-                "id": 8,
-                "title": "I/O Throughput of All Apps"
-            },
-            {
-                "id": 2,
-                "title": "Cumulative Usage of I/O Time of Jobs"
-            },
-            {
-                "id": 18,
-                "title": "Cumulative Usage of I/O Time of Apps"
-            },
-            {
-                "id": 11,
-                "title": "I/O Throughput with MPI vs. POSIX"
-            },
-            {
                 "id": 15,
                 "title": "Application's Data Size Distribution"
             }
-        ]
-    },
-    {
-        "id": 2,
-        "name": "Analyze Application I/O Behavior",
-        "charts": [
-             {
-                "id": 17,
-                "title": "Overview of I/O characteristics"
-            },
-            {
-                "id": 12,
-                "title": "Time Breakdown"
-            }
-           
         ]
     }
 
