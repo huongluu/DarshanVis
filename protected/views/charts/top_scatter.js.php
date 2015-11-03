@@ -77,6 +77,8 @@ $(function(){
 
   $("#chart-container").toggle();
   $("#tooltip-div").toggle();
+  $("#sort_button").hide();
+  $("#toggle-percentage").hide();
 
   make_chart = function(appname, xaxis, yaxis, x_scale, y_scale, chart_id, obj){
     // var chart = $("#" + chart_id).highcharts();
