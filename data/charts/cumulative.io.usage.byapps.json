@@ -3,7 +3,7 @@
     "name": "Sample-chart",
     "type": "percentage_line",
     "template": "charts/percentage_line_byapps.js.php",
-    "filter": "components/_filters.php",
+    "filter": "components/_filters_for_platform.php",
     "title": "Consumption of system I/O time",
     "subtitle": "Cumulative percentage of platform I/O time consumed by apps.",
     "xAxis": {
@@ -15,13 +15,17 @@
     "tooltip": {
         "valueSuffix": ""
     },
+    "query": {
+        "todo": "we should make the query simple to apply user and data filters!"
+    },
     "series": [
         {
             "type": "line",
             "name": "Mira",
             "query": "select @appid:=@appid+1 as appid, @total_iotime:=@total_iotime + t1.iotime as total_iotime, system_iotime,  @total_iotime/system_iotime as app_sys_io_percent  from  (select sum(iotime) as iotime from jobs_info where iotime is not null  group by appname order by iotime desc) t1,  (select sum(iotime) as system_iotime from jobs_info) t2,  (select @appid:=0,@total_iotime:=0) t3",
             "xattribute": "appid",
-            "yattribute": "app_sys_io_percent"
+            "yattribute1": "app_sys_io_percent",
+            "yattribute2": "total_iotime"
         }
     ]
 }

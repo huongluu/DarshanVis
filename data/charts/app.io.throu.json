@@ -3,7 +3,7 @@
     "name": "Average and Maximum I/O Throughput of  chart",
     "type": "line",
     "template": "charts/line.js.php",
-    "filter": "components/_filters.php",
+    "filter": "components/_filters_for_platform.php",
     "highchart-confs": {
         "title": "Median and Maximum I/O Throughput of All Applications",
         "chart": {
@@ -61,7 +61,7 @@
         }
     },
     "query": {
-        "select": "max(agg_perf_MB) as max_thruput, median(agg_perf_MB) as median_thruput",
+        "select": "appname,max(agg_perf_MB) as max_thruput, median(agg_perf_MB) as median_thruput",
         "from": "jobs_info",
         "where": "agg_perf_MB is not null",
         "group": "appname",

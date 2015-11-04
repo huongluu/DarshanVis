@@ -3,7 +3,7 @@
     "name": "Sample-chart",
     "type": "percentage_line",
     "template": "charts/percentage_line.js.php",
-    "filter": "components/_filters.php",
+    "filter": "components/_filters_for_platform.php",
     "title": "Consumption of system I/O time",
     "subtitle": "Cumulative percentage of platform I/O time consumed by jobs.",
     "xAxis": {
@@ -14,6 +14,9 @@
     },
     "tooltip": {
         "valueSuffix": ""
+    },
+    "query": {
+        "todo": "we should make the query simple to apply user and data filters!"
     },
     "series": [
         {

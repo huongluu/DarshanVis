@@ -33,7 +33,7 @@ function getChartInfo($id) {
             break;
         }
     }
-    $chart = array_merge($generic_chart, $main_chart);
+    $chart = array_replace_recursive($generic_chart, $main_chart);
     //var_dump($chart);
     return $chart;
 }

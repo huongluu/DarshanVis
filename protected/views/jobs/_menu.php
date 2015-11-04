@@ -37,8 +37,13 @@
                                     echo "<div style='margin-left:5px;'>" . $chart["title"] . "</div>";
                                     echo "<div>";
                                     foreach ($chart["subcats"] as $subchart) {
+                                        if ($id == $subchart["id"]) {
+                                            $color = "#F0F0F0";
+                                        } else {
+                                            $color = "white";
+                                        }
                                         ?>
-                                        <li style="margin-left: 25px; background-color:<?php echo $color; ?>">
+                                        <li style="padding-left: 25px; background-color:<?php echo $color; ?>">
                                             <a  href="index?c=<?php echo $subchart["id"] ?>"><?php echo $subchart["title"] ?></a>
                                         </li>
                                         <?php

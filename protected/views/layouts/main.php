@@ -55,7 +55,8 @@
         <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/1/daterangepicker.js"></script>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/1/daterangepicker-bs3.css" />
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap-select.min.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/sorting.js"></script> 
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/sorting.js"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/filtering.js"></script> 
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/main.js"></script> 
 
     </head>

@@ -7,23 +7,12 @@ $display_en = false;
         <div class="text-center" id="status">&nbsp;</div>
     </div>
     <div class="row">
-        <!--        <div class="form-group col-md-4">
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
-                        </span>
-                        <input type="text" id="numapp-textbox" name="numapp" class="form-control" id="numapp-typeahead" data-provide="typeahead" placeholder="Number of Applications" autocomplete="off">
-                    </div>
-                </div>-->
-
-
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <div class="input-group">
                 <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-font" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
+                    <i class="glyphicon glyphicon-user" data-toggle="tooltip" data-placement="left" title="My Tooltip text"></i>
                 </span>
-                <input type="text" id="application-textbox" name="application" class="form-control" id="application-typeahead" data-provide="typeahead" placeholder="Application Name" autocomplete="off">
-                <!--<input type="text" class="form-control" placeholder="Application" aria-describedby="basic-addon1">-->
+                <input type="text" id="numapp-textbox" name="numapp" class="form-control" id="numapp-typeahead" data-provide="typeahead" placeholder="Number of Applications" autocomplete="off">
             </div>
         </div>
 

@@ -11,13 +11,24 @@
         },
         "title": {
             "text": "Default Chart",
-            "margin": -5,
-            "style": {
-                "margin-top": "40px"
-            }
+            "margin": -5
         },
         "subtitle": {
             "text": ""
+        },
+        "exporting": {
+            "buttons": {
+                "contextButton": {
+                    "symbol": "url(../../img/printer2.png)"
+                    }
+            }
+        },
+        "navigation": {
+            "buttonOptions": {
+                "verticalAlign": "bottom",
+                "y": -10
+            }
         }
+
     }
 }

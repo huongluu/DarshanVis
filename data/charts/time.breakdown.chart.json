@@ -85,30 +85,6 @@
                 }
                 ,
                 "opposite": true
-            },
-            {
-                "min": 1,
-                "type": "logarithmic",
-                "gridLineWidth": 0,
-                "title": {
-                    "text": "Total Bytes Read/Written",
-                    "margin": 2,
-                    "style": {
-                        "color": "darkblue",
-                        "font-size": "15px"
-                    },
-                    "enabled": false
-                },
-                "labels": {
-                    "align": "left",
-                    "x": 3,
-                    "y": 5,
-                    "style": {
-                        "color": "darkblue",
-                        "font-size": "14px"
-                    }
-                },
-                "opposite": true
             }
         ],
         "tooltip": {

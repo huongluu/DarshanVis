@@ -3,6 +3,7 @@ Darshan (A Scalable HPC I/O Characterization Tool) Data Visualization Tool
 
 Requirement
  - Framework: PHP + Apache Server + MySQL. 
+ - A MySQL functionality enhancement UDF: https://github.com/infusion/udf_infusion
    
 For Windows, you can install XAMPP (https://www.apachefriends.org/index.html) that includes all the above, for OS X install MAMP (https://www.mamp.info/en/). 
 
