@@ -14,7 +14,7 @@ $series_str = rtrim($series_str, ",");
 ?>
 
 <script type="text/javascript">
-    $(function() {
+    $(function () {
         $('#chart-container').highcharts({
             chart: {
                 type: 'column'
