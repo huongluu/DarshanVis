@@ -31,6 +31,8 @@ foreach ($y_options as $str) {
 
         $("#chart-config-sel-x").val("nprocs");
         $("#chart-config-sel-y").val("total_bytes");
+        $("#chart-config-sel-x-scale").val("logarithmic");
+        $("#chart-config-sel-y-scale").val("logarithmic");
 
         // $("#chart-config-sel-x").change(function(){
         //   alert($("#chart-config-sel-x").val());
