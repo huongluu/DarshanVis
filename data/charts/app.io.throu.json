@@ -61,7 +61,7 @@
         }
     },
     "query": {
-        "select": "max(agg_perf_MB) as max_thruput, median(agg_perf_MB) as median_thruput",
+        "select": "appname,max(agg_perf_MB) as max_thruput, median(agg_perf_MB) as median_thruput",
         "from": "jobs_info",
         "where": "agg_perf_MB is not null",
         "group": "appname",
