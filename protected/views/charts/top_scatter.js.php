@@ -138,12 +138,23 @@ $(function(){
                             enabled: false
                         }
                     }
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                    pointFormat: 'App: {point.x}, {point.y} Bytes'
+                    // pointFormat: 'App: {point.x}, ' + byte_formatter_js('{point.y}', "\s")
+                    // pointFormat: function(){
+                    //   // var str = "App: " + ", ";
+                    //   // str += byte_formatter(this.y, "\s");
+                    //   console.log(" IN POINT FORMAT");
+                    //   console.log(this);
+                    //   return "app";
+                    // }
+                    // formatter: function(){
+                    //   console.log(this);
+                    //   return "APP";
+                    // }
                 }
-                // ,
-                // tooltip: {
-                //     headerFormat: '<b>{series.name}</b><br>',
-                //     pointFormat: 'App: {point.x}, {point.y} Bytes'
-                // }
             }
         },
         series: [{
@@ -163,7 +174,16 @@ $(function(){
       options.xAxis.min = 0;
     }
 
+    // options.tooltip.formatter = function(){
+    //   return byte_formatter(this, "\s");
+    // }
+
     $("#" + chart_id).highcharts(options);
+
+
+    // $("#" + chart_id).yAxis[0].labelFormatter = function() {
+    //   return byte_formatter(this, "/s");
+    // }
   }
 
   console.log(<?php echo $json_str?>);
@@ -175,6 +195,10 @@ $(function(){
   {
     var chartid = "chart-container-" + (i+1);
     make_chart(app_arr[i], "total_bytes", "nprocs", "linear", "linear",chartid, obj);
+    // var chart = $("#chart-container-"+(i+1));
+    // chart.yAxis[0].labelFormatter = function () {
+    //     return byte_formatter(this, "/s");
+    // }
   }
 });
 </script>
