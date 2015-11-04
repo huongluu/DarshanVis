@@ -17,7 +17,7 @@ $(document).ready(function () {
 
 function byte_formatter(c, suffix) {
     var bytes = c.value * 1000 * 1000;
-    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
+    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB', 'PB'];
     if (bytes == 0) {
         return '0 B';
     }
@@ -27,7 +27,7 @@ function byte_formatter(c, suffix) {
 
 function byte_formatter_for_bytes(c, suffix) {
     var bytes = c.value;
-    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
+    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB', 'PB'];
     if (bytes == 0) {
         return '0 B';
     }
@@ -38,7 +38,7 @@ function byte_formatter_for_bytes(c, suffix) {
 function byte_formatter_str(c, suffix) {
     c = parseInt(c);
     var bytes = c * 1000 * 1000;
-    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
+    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB', 'PB'];
     if (bytes == 0) {
         return '0 B';
     }
@@ -49,7 +49,7 @@ function byte_formatter_str(c, suffix) {
 function byte_formatter_str_for_bytes(c, suffix) {
     c = parseInt(c);
     var bytes = c;
-    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
+    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB', 'PB'];
     if (bytes == 0) {
         return '0 B';
     }
