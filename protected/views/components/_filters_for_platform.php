@@ -29,7 +29,7 @@ $display_en = false;
         </div>
 
         <div class="col-md-1 form-group">
-            <button type="button" class="btn tiny-button" data-toggle="modal" id="sort_button" href="#sorting_modal">
+            <button type="button" class="btn tiny-button" data-toggle="modal" id="sort-button" href="#sorting_modal">
                 <i class="glyphicon glyphicon-sort-by-alphabet"></i>
                 Sort</button>
         </div>

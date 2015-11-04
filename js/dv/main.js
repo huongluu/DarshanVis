@@ -16,9 +16,6 @@ $(document).ready(function () {
 
 
 function byte_formatter(c, suffix) {
-    // if (typeof c.value != "number"){
-    //   c.value
-    // }
     var bytes = c.value * 1000 * 1000;
     var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
     if (bytes == 0) {
@@ -28,22 +25,9 @@ function byte_formatter(c, suffix) {
     return Math.round(bytes / Math.pow(1000, i), 2) + ' ' + sizes[i] + suffix;
 }
 
-function byte_formatter_str(c, suffix) {
-    console.log(c);
+function byte_formatter_str_for_bytes(c, suffix) {
     c = parseInt(c);
-    console.log(c);
-    var bytes = c * 1000 * 1000;
-    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
-    if (bytes == 0) {
-        return '0 B';
-    }
-    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1000)));
-    return Math.round(bytes / Math.pow(1000, i), 2) + ' ' + sizes[i] + suffix;
-}
-
-function byte_formatter_js(c, suffix) {
-    console.log(c);
-    var bytes = c.y * 1000 * 1000;
+    var bytes = c;
     var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
     if (bytes == 0) {
         return '0 B';
