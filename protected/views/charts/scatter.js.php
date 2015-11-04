@@ -73,22 +73,11 @@ foreach ($y_options as $str) {
 
 
     make_chart = function (xaxis, yaxis, x_scale, y_scale) {
-//            var chart = $("#chart-container").highcharts();
-
         console.log("all_data");
-//            console.log(all_data);
-//            if (isNaN(all_data)) {
-//                console.log("all_data is null, return");
-//                return;
-//            }
         console.log(all_data);
         var series_obj = all_data["queryresult"];
         var str_s1 = series_obj[xaxis];
         var str_s2 = series_obj[yaxis];
-//           
-//           var str_s1 = obj[xaxis].split(',');
-//            var str_s2 = obj[yaxis].split(',');
-        // chart.series[0].data.length = 0;
         var ret = "";
         var ret_obj = [];
 
@@ -96,9 +85,6 @@ foreach ($y_options as $str) {
         {
             if (str_s1[i].length != 0 && str_s2[i].length != 0)
             {
-//                ret += "[" + parseInt(str_s1[i]) + ',' + parseInt(str_s2[i]) + "],";
-                // console.log("X: " + str_s1[i]);
-                // console.log("Y: " + str_s2[i]);
                 var x = parseInt(str_s1[i]);
                 var y = parseInt(str_s2[i]);
 
@@ -109,11 +95,8 @@ foreach ($y_options as $str) {
                     continue;
                 }
                 ret_obj.push([parseInt(str_s1[i]), parseInt(str_s2[i])]);
-                // chart.series[0].addPoint([str_s1[i], str_s2[i]], true, true);
             }
         }
-        // console.log("RET OBJ:\n");
-        // console.log(ret_obj);
 
         var options = {
             chart: {
@@ -126,28 +109,43 @@ foreach ($y_options as $str) {
             subtitle: {
                 text: '<?php echo $chart["subtitle"] ?>'
             },
+            legend: {
+                enabled: false
+            },
             xAxis: {
                 title: {
                     enabled: true,
                     text: axisTitles[xaxis]
                 },
-                type: x_scale
+                type: x_scale,
+                labels: {
+                    formatter: function () {
+                      var str = "";
+                      if (xaxis == "agg_perf_MB")
+                      {
+                        str += byte_formatter_str(this.value, "/s");
+                      }
+                      else if (xaxis == "total_bytes")
+                      {
+                        str += byte_formatter_str_for_bytes(this.value, "");
+                      }
+                      else {
+                        str += this.value;
+                      }
+                      return str;
+                    }
+                }
             },
             yAxis: {
                 title: {
                     text: axisTitles[yaxis]
                 },
-                type: y_scale
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'left',
-                verticalAlign: 'top',
-                x: 0,
-                y: 0,
-                // floating: true,
-                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
-                borderWidth: 1
+                type: y_scale,
+                labels: {
+                    formatter: function () {
+                      return byte_formatter_for_bytes(this, "");
+                    }
+                }
             },
             plotOptions: {
                 scatter: {
@@ -167,6 +165,40 @@ foreach ($y_options as $str) {
                             }
                         }
                     }
+                }
+            },
+            exporting: {
+                buttons: {
+                    contextButton: {
+                        symbol: "url(../../img/printer2.png)"
+                        }
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                  var str = "";
+                  if (xaxis == "agg_perf_MB")
+                  {
+                    str += "X= " + byte_formatter_str(this.x, "/s");
+                  }
+                  else if (xaxis == "total_bytes")
+                  {
+                    str += "X= " + byte_formatter_str_for_bytes(this.x, "");
+                  }
+                  else {
+                    str += "X= " + this.x;
+                  }
+                  if (yaxis == "agg_perf_MB") {
+                    str += ", Y= " + byte_formatter_str(this.y, "/s");
+                  }
+                  else if(yaxis == "total_bytes")
+                  {
+                    str += ", Y= " + byte_formatter_str_for_bytes(this.y, "");
+                  }
+                  else {
+                    str += ", Y= " + this.y;
+                  }
+                  return str;
                 }
             },
             series: [{

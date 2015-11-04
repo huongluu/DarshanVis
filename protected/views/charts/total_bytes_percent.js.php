@@ -107,7 +107,6 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
 ?>
 
 <script type="text/javascript">
-
     $(function () {
         $('#tooltip1').tooltip({
             title:
@@ -137,43 +136,8 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
             title:
                     'Total Bytes Read/Written: The total number of bytes this job read and wrote.'
         });
-//        $("#tooltip1").tooltip('show');
-//        $('[data-toggle="tooltip"]').tooltip();
-        var globalCallback = function (chart) {
-            // Specific event listener
-            Highcharts.addEvent(chart.container, 'click', function (e) {
-                e = chart.pointer.normalize();
-                console.log('Clicked chart at ' + e.chartX + ', ' + e.chartY);
-            });
-            // Specific event listener
-            Highcharts.addEvent(chart.xAxis[0], 'afterSetExtremes', function (e) {
-                console.log('Set extremes to ' + e.min + ', ' + e.max);
-            });
-            Highcharts.addEvent(chart, 'load', function (e) {
-//                e = chart.pointer.normalize();
-                console.log('loaded');
-                var chart = this,
-                        legend = chart.legend;
-                for (var i = 0, len = legend.allItems.length; i < len; i++) {
-                    (function (i) {
-                        var item = legend.allItems[i].legendItem;
-                        item.on('mouseover', function (e) {
-                            //show custom tooltip here
-                            console.log("mouseover" + i);
-//                            $('#tooltips').tooltip();
-                            $("#tooltip" + (i + 1)).tooltip('show');
-                        }).on('mouseout', function (e) {
-                            //hide tooltip
-                            console.log("mouseout" + i);
-                            $("#tooltip" + (i + 1)).tooltip('hide');
-                        });
-                    })(i);
-                }
-            });
-        }
 
-// Add `globalCallback` to the list of highcharts callbacks
-        Highcharts.Chart.prototype.callbacks.push(globalCallback);
+
         $('#chart-container').highcharts({
 <?php echo getHighchartSafeJson($chart["highchart-confs"]); ?>
 
@@ -317,21 +281,20 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
         var max = findMax(chart)
 
         // chart.yAxis[0].tickInterval = 25;
-        chart.yAxis[0].max = max;
+        chart.yAxis[0].max = 100;
 
     });
 
-    findMax = function(chart)
+    findMax = function (chart)
     {
-      var max = 0;
-      for (var i=0; i<chart.yAxis[0].series.length; i++)
-      {
-        for (var x=0; x<chart.yAxis[0].series[i].data.length; x++)
+        var max = 0;
+        for (var i = 0; i < chart.yAxis[0].series.length; i++)
         {
-          max = (max < chart.yAxis[0].series[i].data[x]) ? chart.yAxis[0].series[i].data[x] : max ;
+            for (var x = 0; x < chart.yAxis[0].series[i].data.length; x++)
+            {
+                max = (max < chart.yAxis[0].series[i].data[x]) ? chart.yAxis[0].series[i].data[x] : max;
+            }
         }
-      }
-      return (max < 100) ? 100 : max;
+        return (max < 100) ? 100 : max;
     }
-
 </script>
