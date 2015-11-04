@@ -25,6 +25,7 @@ $series_str2 = rtrim($series_str2, ",");
 
 <script type="text/javascript">
     $(function() {
+        $('#sort_button_top').hide();
         var percentage=true;
         var ready=true;
         $('#chart-container').highcharts({

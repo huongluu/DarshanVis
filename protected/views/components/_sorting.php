@@ -214,7 +214,7 @@ if ($id == 8) {
                 </span>
                 <!--<span class = "input-group-addon" style = "background-color: white;">Sort</span>-->
                 <select name="sort-level1" id="sort-level1" class="form-control selectpicker">
-                    <option disabled selected></option>
+                  <!--  <option disabled selected></option> -->
                     <option value="max_thruput" >max throughput</option>
                     <option value="median_thruput" >median throughput</option>
                 </select>
