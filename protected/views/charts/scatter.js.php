@@ -156,7 +156,19 @@ foreach ($y_options as $str) {
                 type: y_scale,
                 labels: {
                     formatter: function () {
-                      return byte_formatter_for_bytes(this, "");
+                      var str = "";
+                      if (xaxis == "agg_perf_MB")
+                      {
+                        str += byte_formatter_str(this.value, "/s");
+                      }
+                      else if (xaxis == "total_bytes")
+                      {
+                        str += byte_formatter_str_for_bytes(this.value, "");
+                      }
+                      else {
+                        str += this.value;
+                      }
+                      return str;
                     },
                     style: {
                       fontSize: '15px'
