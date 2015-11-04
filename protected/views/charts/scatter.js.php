@@ -27,10 +27,14 @@ foreach ($y_options as $str) {
         send();
         $("#chart-config-sel-x").html('<?php echo $x_options_list ?>');
         $("#chart-config-sel-y").html('<?php echo $y_options_list ?>');
+        $("#sort-button").hide();
+        $("#toggle-percentage").hide();
         $("#chart-config").toggle();
 
         $("#chart-config-sel-x").val("nprocs");
         $("#chart-config-sel-y").val("total_bytes");
+        $("#chart-config-sel-x-scale").val("logarithmic");
+        $("#chart-config-sel-y-scale").val("logarithmic");
 
         // $("#chart-config-sel-x").change(function(){
         //   alert($("#chart-config-sel-x").val());
@@ -115,7 +119,10 @@ foreach ($y_options as $str) {
             xAxis: {
                 title: {
                     enabled: true,
-                    text: axisTitles[xaxis]
+                    text: axisTitles[xaxis],
+                    style: {
+                      fontSize: '20px'
+                    }
                 },
                 type: x_scale,
                 labels: {
@@ -133,40 +140,61 @@ foreach ($y_options as $str) {
                         str += this.value;
                       }
                       return str;
+                    },
+                    style: {
+                      fontSize: '15px'
                     }
                 }
             },
             yAxis: {
                 title: {
-                    text: axisTitles[yaxis]
+                    text: axisTitles[yaxis],
+                    style: {
+                      fontSize: '20px'
+                    }
                 },
                 type: y_scale,
                 labels: {
                     formatter: function () {
-                      return byte_formatter_for_bytes(this, "");
-                    }
-                }
-            },
-            plotOptions: {
-                scatter: {
-                    marker: {
-                        radius: 5,
-                        states: {
-                            hover: {
-                                enabled: true,
-                                lineColor: 'rgb(100,100,100)'
-                            }
-                        }
+                      var str = "";
+                      if (yaxis == "agg_perf_MB")
+                      {
+                        str += byte_formatter_str(this.value, "/s");
+                      }
+                      else if (yaxis == "total_bytes")
+                      {
+                        str += byte_formatter_str_for_bytes(this.value, "");
+                      }
+                      else {
+                        str += this.value;
+                      }
+                      return str;
                     },
-                    states: {
-                        hover: {
-                            marker: {
-                                enabled: false
-                            }
-                        }
+                    style: {
+                      fontSize: '15px'
                     }
                 }
             },
+            // plotOptions: {
+            //     scatter: {
+            //         marker: {
+            //             radius: 5,
+            //             states: {
+            //                 hover: {
+            //                     enabled: true,
+            //                     lineColor: 'rgb(100,100,100)'
+            //                 }
+            //             }
+            //         },
+            //         states: {
+            //             hover: {
+            //                 marker: {
+            //                     enabled: false
+            //                 }
+            //             }
+            //         }
+            //     }
+            // },
             exporting: {
                 buttons: {
                     contextButton: {

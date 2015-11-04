@@ -48,7 +48,7 @@ $display_en = false;
         </div>
 
         <div class="col-md-1 form-group">
-            <button type="button" class="btn tiny-button" data-toggle="modal" href="#sorting_modal">
+            <button type="button" class="btn tiny-button" data-toggle="modal" id="sort-button" href="#sorting_modal">
                 <i class="glyphicon glyphicon-sort-by-alphabet"></i>
                 Sort</button>
         </div>
@@ -56,7 +56,7 @@ $display_en = false;
 
     <!--
         <div class="row">
-    
+
         </div>-->
 
     <?php include '_sorting_modal.php'; ?>
@@ -68,6 +68,3 @@ $display_en = false;
             %</button>
     </div>
 </div>
-
-
-
