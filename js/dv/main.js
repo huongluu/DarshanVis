@@ -25,6 +25,16 @@ function byte_formatter(c, suffix) {
     return Math.round(bytes / Math.pow(1000, i), 2) + ' ' + sizes[i] + suffix;
 }
 
+function byte_formatter_for_bytes(c, suffix) {
+    var bytes = c.value;
+    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
+    if (bytes == 0) {
+        return '0 B';
+    }
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1000)));
+    return Math.round(bytes / Math.pow(1000, i), 2) + ' ' + sizes[i] + suffix;
+}
+
 function byte_formatter_str_for_bytes(c, suffix) {
     c = parseInt(c);
     var bytes = c;

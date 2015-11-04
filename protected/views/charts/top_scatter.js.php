@@ -101,6 +101,9 @@ $json_str = json_encode($all_data);
                 title: {
                     text: appname
                 },
+                legend: {
+                    enabled: true
+                },
                 xAxis: {
                     title: {
                         enabled: true,
@@ -109,7 +112,12 @@ $json_str = json_encode($all_data);
                     type: x_scale,
                     startOnTick: true,
                     endOnTick: true,
-                    showLastLabel: true
+                    showLastLabel: true,
+                    labels: {
+                        formatter: function () {
+                          return byte_formatter_for_bytes(this, "");
+                        }
+                    }
                 },
                 yAxis: {
                     title: {
@@ -117,31 +125,29 @@ $json_str = json_encode($all_data);
                     },
                     type: y_scale
                 },
-                plotOptions: {
-                    scatter: {
-                        marker: {
-                            radius: 5,
-                            states: {
-                                hover: {
-                                    enabled: true,
-                                    lineColor: 'rgb(100,100,100)'
-                                }
-                            }
-                        },
-                        states: {
-                            hover: {
-                                marker: {
-                                    enabled: false
-                                }
-                            }
-                        }
-                    }
-                },
+                // plotOptions: {
+                //     scatter: {
+                //         marker: {
+                //             radius: 5,
+                //             states: {
+                //                 hover: {
+                //                     enabled: true,
+                //                     lineColor: 'rgb(100,100,100)'
+                //                 }
+                //             }
+                //         },
+                //         states: {
+                //             hover: {
+                //                 marker: {
+                //                     enabled: false
+                //                 }
+                //             }
+                //         }
+                //     }
+                // },
                 tooltip: {
-                    // headerFormat: '<b>{series.name}</b><br>',
-                    // pointFormat: 'App: {point.x}, {point.y} Bytes'
                     formatter: function() {
-                      var str = "X= " + byte_formatter_str_for_bytes(this.x, "\s");
+                      var str = "X= " + byte_formatter_str_for_bytes(this.x, "");
                       str += ", Y= " + this.y;
                       return str;
                     }
@@ -162,6 +168,8 @@ $json_str = json_encode($all_data);
             {
                 options.xAxis.min = 0;
             }
+
+            // options.legend.enabled = false;
 
             $("#" + chart_id).highcharts(options);
         }
