@@ -35,8 +35,9 @@ function byte_formatter_for_bytes(c, suffix) {
 }
 
 function byte_formatter_str(c, suffix) {
-    c = parseInt(c);
+    c = +c;
     var bytes = c * 1000 * 1000;
+    bytes = parseInt(bytes);
     if (bytes == 0) {
         return '0 B'+suffix;
     }
