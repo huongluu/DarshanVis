@@ -145,6 +145,13 @@ foreach ($y_options as $str) {
                     }
                 }
             },
+            exporting: {
+                buttons: {
+                    contextButton: {
+                        symbol: "url(../../img/printer2.png)"
+                        }
+                }
+            },
             series: [{
                     name: xaxis + ' vs. ' + yaxis,
                     color: 'rgba(223, 83, 83, .5)',

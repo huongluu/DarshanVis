@@ -125,6 +125,13 @@ $json_str = json_encode($all_data);
                     },
                     type: y_scale
                 },
+                exporting: {
+                    buttons: {
+                        contextButton: {
+                            symbol: "url(../../img/printer2.png)"
+                            }
+                    }
+                },
                 // plotOptions: {
                 //     scatter: {
                 //         marker: {
