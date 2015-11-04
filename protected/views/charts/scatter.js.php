@@ -115,7 +115,10 @@ foreach ($y_options as $str) {
             xAxis: {
                 title: {
                     enabled: true,
-                    text: axisTitles[xaxis]
+                    text: axisTitles[xaxis],
+                    style: {
+                      fontSize: '20px'
+                    }
                 },
                 type: x_scale,
                 labels: {
@@ -133,40 +136,49 @@ foreach ($y_options as $str) {
                         str += this.value;
                       }
                       return str;
+                    },
+                    style: {
+                      fontSize: '15px'
                     }
                 }
             },
             yAxis: {
                 title: {
-                    text: axisTitles[yaxis]
+                    text: axisTitles[yaxis],
+                    style: {
+                      fontSize: '20px'
+                    }
                 },
                 type: y_scale,
                 labels: {
                     formatter: function () {
                       return byte_formatter_for_bytes(this, "");
-                    }
-                }
-            },
-            plotOptions: {
-                scatter: {
-                    marker: {
-                        radius: 5,
-                        states: {
-                            hover: {
-                                enabled: true,
-                                lineColor: 'rgb(100,100,100)'
-                            }
-                        }
                     },
-                    states: {
-                        hover: {
-                            marker: {
-                                enabled: false
-                            }
-                        }
+                    style: {
+                      fontSize: '15px'
                     }
                 }
             },
+            // plotOptions: {
+            //     scatter: {
+            //         marker: {
+            //             radius: 5,
+            //             states: {
+            //                 hover: {
+            //                     enabled: true,
+            //                     lineColor: 'rgb(100,100,100)'
+            //                 }
+            //             }
+            //         },
+            //         states: {
+            //             hover: {
+            //                 marker: {
+            //                     enabled: false
+            //                 }
+            //             }
+            //         }
+            //     }
+            // },
             exporting: {
                 buttons: {
                     contextButton: {

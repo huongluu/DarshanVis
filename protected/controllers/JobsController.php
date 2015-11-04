@@ -56,7 +56,7 @@ class JobsController extends GxController {
         }
 
         $q = Jobs::OrderBy($q, $orderby, $mode1);
-        $q = Jobs::Limit($q, 5000);
+        $q = Jobs::Limit($q, 15000);
 
         if (isset($_POST["sort_level2"])) {
             $sortlevel2 = $_POST["sort_level2"];
