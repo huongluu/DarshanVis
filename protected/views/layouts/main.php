@@ -58,7 +58,8 @@
 
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/utils.js"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/sorting.js"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/filtering.js"></script> 
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/filtering.js"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/highchart.js"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/main.js"></script> 
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/table.js"></script> 
 
