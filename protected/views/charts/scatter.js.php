@@ -157,11 +157,11 @@ foreach ($y_options as $str) {
                 labels: {
                     formatter: function () {
                       var str = "";
-                      if (xaxis == "agg_perf_MB")
+                      if (yaxis == "agg_perf_MB")
                       {
                         str += byte_formatter_str(this.value, "/s");
                       }
-                      else if (xaxis == "total_bytes")
+                      else if (yaxis == "total_bytes")
                       {
                         str += byte_formatter_str_for_bytes(this.value, "");
                       }
