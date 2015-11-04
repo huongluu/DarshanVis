@@ -117,13 +117,35 @@ foreach ($y_options as $str) {
                     enabled: true,
                     text: axisTitles[xaxis]
                 },
-                type: x_scale
+                type: x_scale,
+                labels: {
+                    formatter: function () {
+                      var str = "";
+                      if (xaxis == "agg_perf_MB")
+                      {
+                        str += byte_formatter_str(this.value, "/s");
+                      }
+                      else if (xaxis == "total_bytes")
+                      {
+                        str += byte_formatter_str_for_bytes(this.value, "");
+                      }
+                      else {
+                        str += this.value;
+                      }
+                      return str;
+                    }
+                }
             },
             yAxis: {
                 title: {
                     text: axisTitles[yaxis]
                 },
-                type: y_scale
+                type: y_scale,
+                labels: {
+                    formatter: function () {
+                      return byte_formatter_for_bytes(this, "");
+                    }
+                }
             },
             plotOptions: {
                 scatter: {
@@ -150,6 +172,33 @@ foreach ($y_options as $str) {
                     contextButton: {
                         symbol: "url(../../img/printer2.png)"
                         }
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                  var str = "";
+                  if (xaxis == "agg_perf_MB")
+                  {
+                    str += "X= " + byte_formatter_str(this.x, "/s");
+                  }
+                  else if (xaxis == "total_bytes")
+                  {
+                    str += "X= " + byte_formatter_str_for_bytes(this.x, "");
+                  }
+                  else {
+                    str += "X= " + this.x;
+                  }
+                  if (yaxis == "agg_perf_MB") {
+                    str += ", Y= " + byte_formatter_str(this.y, "/s");
+                  }
+                  else if(yaxis == "total_bytes")
+                  {
+                    str += ", Y= " + byte_formatter_str_for_bytes(this.y, "");
+                  }
+                  else {
+                    str += ", Y= " + this.y;
+                  }
+                  return str;
                 }
             },
             series: [{
