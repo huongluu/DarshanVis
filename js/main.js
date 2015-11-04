@@ -1,4 +1,4 @@
-/*
+/* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -17,38 +17,6 @@ $(document).ready(function () {
 
 function byte_formatter(c, suffix) {
     var bytes = c.value * 1000 * 1000;
-    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
-    if (bytes == 0) {
-        return '0 B';
-    }
-    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1000)));
-    return Math.round(bytes / Math.pow(1000, i), 2) + ' ' + sizes[i] + suffix;
-}
-
-function byte_formatter_for_bytes(c, suffix) {
-    var bytes = c.value;
-    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
-    if (bytes == 0) {
-        return '0 B';
-    }
-    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1000)));
-    return Math.round(bytes / Math.pow(1000, i), 2) + ' ' + sizes[i] + suffix;
-}
-
-function byte_formatter_str(c, suffix) {
-    c = parseInt(c);
-    var bytes = c * 1000 * 1000;
-    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
-    if (bytes == 0) {
-        return '0 B'+suffix;
-    }
-    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1000)));
-    return Math.round(bytes / Math.pow(1000, i), 2) + ' ' + sizes[i] + suffix;
-}
-
-function byte_formatter_str_for_bytes(c, suffix) {
-    c = parseInt(c);
-    var bytes = c;
     var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
     if (bytes == 0) {
         return '0 B';

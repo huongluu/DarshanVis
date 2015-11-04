@@ -22,10 +22,29 @@ include_once 'utils2.php';
             },
             borderWidth: 1,
             borderColor: '#AAA',    
-            formatter: function() {
-                 var output=byte_formatter(this.y, "/s");
-                   return this.y+"value is "+output ;
-                }
+            formatter: function() 
+            {
+
+                 var s = '<b>' + this.x + '</b>'; 
+                 var m=["","",""];
+                 m[1]="";
+                 m[2]="";
+                var i=1;
+                $.each(this.points, function () {
+                    m[i] += '<br/>' + this.series.name + ': ' +
+                        byte_formatter_str(this.y, "/s") ;
+                        i++;
+                });
+
+                return s+m[2]+m[1];
+            
+
+
+
+
+            },
+                shared: true
+
 
             }
         });
