@@ -107,7 +107,6 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
 ?>
 
 <script type="text/javascript">
-
     $(function () {
         $('#tooltip1').tooltip({
             title:
@@ -282,7 +281,7 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
         var max = findMax(chart)
 
         // chart.yAxis[0].tickInterval = 25;
-        chart.yAxis[0].max = max;
+        chart.yAxis[0].max = 100;
 
     });
 
@@ -298,5 +297,4 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
         }
         return (max < 100) ? 100 : max;
     }
-
 </script>

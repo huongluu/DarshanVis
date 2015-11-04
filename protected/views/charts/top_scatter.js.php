@@ -73,6 +73,8 @@ $json_str = json_encode($all_data);
 
         $("#chart-container").toggle();
         $("#tooltip-div").toggle();
+        $("#sort-button").hide();
+        $("#toggle-percentage").hide();
 
         make_chart = function (appname, xaxis, yaxis, x_scale, y_scale, chart_id, obj) {
             // var chart = $("#" + chart_id).highcharts();
@@ -99,6 +101,9 @@ $json_str = json_encode($all_data);
                 title: {
                     text: appname
                 },
+                legend: {
+                    enabled: true
+                },
                 xAxis: {
                     title: {
                         enabled: true,
@@ -107,7 +112,12 @@ $json_str = json_encode($all_data);
                     type: x_scale,
                     startOnTick: true,
                     endOnTick: true,
-                    showLastLabel: true
+                    showLastLabel: true,
+                    labels: {
+                        formatter: function () {
+                          return byte_formatter_for_bytes(this, "");
+                        }
+                    }
                 },
                 yAxis: {
                     title: {
@@ -115,29 +125,38 @@ $json_str = json_encode($all_data);
                     },
                     type: y_scale
                 },
-                plotOptions: {
-                    scatter: {
-                        marker: {
-                            radius: 5,
-                            states: {
-                                hover: {
-                                    enabled: true,
-                                    lineColor: 'rgb(100,100,100)'
-                                }
+                exporting: {
+                    buttons: {
+                        contextButton: {
+                            symbol: "url(../../img/printer2.png)"
                             }
-                        },
-                        states: {
-                            hover: {
-                                marker: {
-                                    enabled: false
-                                }
-                            }
-                        }
-                        // ,
-                        // tooltip: {
-                        //     headerFormat: '<b>{series.name}</b><br>',
-                        //     pointFormat: 'App: {point.x}, {point.y} Bytes'
-                        // }
+                    }
+                },
+                // plotOptions: {
+                //     scatter: {
+                //         marker: {
+                //             radius: 5,
+                //             states: {
+                //                 hover: {
+                //                     enabled: true,
+                //                     lineColor: 'rgb(100,100,100)'
+                //                 }
+                //             }
+                //         },
+                //         states: {
+                //             hover: {
+                //                 marker: {
+                //                     enabled: false
+                //                 }
+                //             }
+                //         }
+                //     }
+                // },
+                tooltip: {
+                    formatter: function() {
+                      var str = "X= " + byte_formatter_str_for_bytes(this.x, "");
+                      str += ", Y= " + this.y;
+                      return str;
                     }
                 },
                 series: [{
@@ -156,6 +175,8 @@ $json_str = json_encode($all_data);
             {
                 options.xAxis.min = 0;
             }
+
+            // options.legend.enabled = false;
 
             $("#" + chart_id).highcharts(options);
         }
