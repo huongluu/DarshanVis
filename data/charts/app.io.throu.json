@@ -67,6 +67,10 @@
         "group": "appname",
         "order": "max_thruput"
     },
+    "sorting": [
+        "max_thruput",
+        "median_thruput"
+    ],
     "series": [
         {
             "attribute": "median_thruput",
