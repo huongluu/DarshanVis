@@ -1,5 +1,4 @@
 {
-    "_comment": "Change to new database, don't have ID column anymore, unique_iotime become local_iotime, etc... ",
     "id": 12,
     "name": "io-type",
     "type": "bar.scatter",
