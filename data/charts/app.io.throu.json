@@ -50,7 +50,7 @@
 
         },
         "tooltip": {
-            "valueSuffix": "GB/s",
+            "valueSuffix": "MB/s",
             "shared": true
 
         },
