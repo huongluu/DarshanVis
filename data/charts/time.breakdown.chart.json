@@ -46,7 +46,7 @@
         "yAxis": [
             {
                 "min": 0,
-                "max":100,
+                "max": 100,
                 "labels": {
                     "format": "{value}",
                     "style": {
@@ -84,6 +84,31 @@
                 }
                 ,
                 "opposite": true
+            },
+            {
+                "min": 1,
+                "type": "logarithmic",
+                "gridLineWidth": 0,
+                "title": {
+                    "text": "Number of Processes",
+                    "margin": 2,
+                    "style": {
+                        "color": "Highcharts.getOptions().colors[0]",
+                        "font-size": "15px"
+                    },
+                    "enabled": false
+                },
+                "labels": {
+                    "align": "left",
+                    "x": 3,
+                    "y": 5,
+                    "style": {
+                        "color": "Highcharts.getOptions().colors[0]",
+                        "font-size": "14px"
+                    }
+                }
+                ,
+                "opposite": true
             }
         ],
         "tooltip": {
@@ -95,6 +120,21 @@
         "from": "jobs_info",
         "where": "agg_perf_MB is not null"
     },
+    "sorting": [
+        "notio",
+        "iotime",
+        "io_percent",
+        "localio",
+        "local_meta",
+        "globalio",
+        "global_meta",
+        "nprocs",
+        "total_bytes",
+        "agg_perf_MB",
+        "unique_count",
+        "partshared_count",
+        "allshared_count"
+    ],
     "series": [
         {
             "attribute": "localio",
