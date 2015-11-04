@@ -27,6 +27,8 @@ foreach ($y_options as $str) {
         send();
         $("#chart-config-sel-x").html('<?php echo $x_options_list ?>');
         $("#chart-config-sel-y").html('<?php echo $y_options_list ?>');
+        $("#sort-button").hide();
+        $("#toggle-percentage").hide();
         $("#chart-config").toggle();
 
         $("#chart-config-sel-x").val("nprocs");
