@@ -1,27 +1,9 @@
 
 
 <?php
-
 $id = $_GET['c'];
 if ($id == 12) {
     ?>
-
-
-
-    <script type="text/javascript">
-        $(function() {
-            $("#s-level2").css("visibility", "hidden");
-            $("#s-level3").css("visibility", "hidden");
-
-            $("#add-level2").click(function() {
-                $("#s-level2").css("visibility", "visible");
-            });
-
-            $("#add-level3").click(function() {
-                $("#s-level3").css("visibility", "visible");
-            });
-        });
-    </script>
 
     <div class="row" id="s-level1">
         <div class="col-md-2 form-group text-center">
@@ -172,15 +154,12 @@ if ($id == 12) {
     </div>
 
     <?php
-
 }
-
 ?>
 
 
 
 <?php
-
 $id = $_GET['c'];
 if ($id == 8) {
     ?>
@@ -188,15 +167,15 @@ if ($id == 8) {
 
 
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             $("#s-level2").css("visibility", "hidden");
             $("#s-level3").css("visibility", "hidden");
 
-            $("#add-level2").click(function() {
+            $("#add-level2").click(function () {
                 $("#s-level2").css("visibility", "visible");
             });
 
-            $("#add-level3").click(function() {
+            $("#add-level3").click(function () {
                 $("#s-level3").css("visibility", "visible");
             });
         });
@@ -340,9 +319,7 @@ if ($id == 8) {
     </div>
 
     <?php
-
 }
-
 ?>
 
 

@@ -47,7 +47,6 @@
         "yAxis": [
             {
                 "min": 0,
-                "max": 100,
                 "labels": {
                     "format": "{value}",
                     "style": {
@@ -180,6 +179,7 @@
             "color": "#BDD0D5",
             "stacking": "normal",
             "type": "column",
+            "visible": false,
             "yAxis": 0
         },
         {

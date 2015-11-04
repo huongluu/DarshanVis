@@ -1,10 +1,16 @@
-jQuery(document).ready(function($) {
-    $('#sort-level1').on('change', function() {
-//        chart = $("#chart-container").highcharts();
-//        alert(this.value);
-//        console.log(chart.series);
-//        alert(chart.series[0].getData());
-//        chart.series[index].getData()
-//        alert(this.value); // or $(this).val()
+jQuery(document).ready(function ($) {
+    $('#sort-level1').on('change', function () {
+    });
+
+    $("#s-level2").css("visibility", "hidden");
+    $("#s-level3").css("visibility", "hidden");
+
+    $("#add-level2").click(function () {
+        $("#s-level2").css("visibility", "visible");
+    });
+
+    $("#add-level3").click(function () {
+        $("#s-level3").css("visibility", "visible");
     });
 });
+
