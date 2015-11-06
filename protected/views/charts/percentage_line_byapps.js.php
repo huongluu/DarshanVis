@@ -95,9 +95,11 @@ $series_str2 = rtrim($series_str2, ",");
                 borderColor: '#AAA',
                 formatter: function () {
                     if (percentage)
-                        return 'Percentage of <b> ' + this.x + '  </b>apps so far is <b>' + roundSF(this.y * 100, 4) + '</b> %';
+                        return '<b>'+ this.x+"</b> of the applications used <b>"+ roundSF(this.y*100,4)+"</b> % of the system I/O time.";
+                        //return 'Percentage of <b> ' + this.x + '  </b>apps so far is <b>' + roundSF(this.y * 100, 4) + '</b> %';
                     else
-                        return 'Cumulative IO time of <b> ' + this.x + '  </b>apps so far is <b>' + roundSF(this.y, 8) + '</b> Hours ';
+                        return '<b>'+ this.x+"</b> of the applications used <b>"+ roundSF(this.y, 8) +"</b> Hours I/O time.";
+                        //return 'Cumulative IO time of <b> ' + this.x + '  </b>apps so far is <b>' + roundSF(this.y, 8) + '</b> Hours ';
 
                 }
 
