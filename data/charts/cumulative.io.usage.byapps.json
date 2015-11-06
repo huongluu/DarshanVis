@@ -15,8 +15,31 @@
     "tooltip": {
         "valueSuffix": ""
     },
-    "query": {
-        "todo": "we should make the query simple to apply user and data filters!"
+     "query": {
+        "select":"select @appid:=@appid+1 as appid, @total_iotime:=@total_iotime + t1.iotime as total_iotime,  system_iotime,  @total_iotime/system_iotime as app_sys_io_percent ", 
+        "from":{
+            "query":[
+                {
+                    "select":"sum(iotime) as iotime",
+                    "from":"from jobs_info",
+                    "where":"iotime is not null",
+                    "group":"appname",
+                    "order":"iotime desc",
+                    "alias":"t1"
+                },
+                {
+                    "select":"sum(iotime) as system_iotime",
+                    "from":"jobs_info",
+                    "alias":"t2"
+                },
+                {
+                    "select":"@appid:=0,@total_iotime:=0",
+                    "alias":"t3"
+                }
+            ]
+
+
+            }
     },
     "series": [
         {
