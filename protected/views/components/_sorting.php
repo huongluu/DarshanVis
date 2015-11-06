@@ -22,7 +22,7 @@
             <!--<span class = "input-group-addon" style = "background-color: white;">Sort</span>-->
             <select name="mode-level1" id="mode-level1" class="form-control selectpicker">
                 <option value="asc">Smallest to Largest</option>
-                <option value="desc" >Largest to Smallest</option>
+                <option value="desc" selected="selected">Largest to Smallest</option>
             </select>
         </div>
     </div>
