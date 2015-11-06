@@ -63,7 +63,8 @@
     "query": {
         "select": "appname,max(agg_perf_MB) as max_thruput, median(agg_perf_MB) as median_thruput",
         "from": "jobs_info",
-        "where": "agg_perf_MB >0 ",
+
+        "where": "agg_perf_MB > 0 ",
         "group": "appname",
         "order": "max_thruput"
     },

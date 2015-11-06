@@ -14,35 +14,35 @@ include_once 'utils2.php';
             series: [],
             tooltip: {
                 backgroundColor: {
-                linearGradient: [0, 0, 0, 100],
-                stops: [
-                    [0, '#FFFFFF'],
-                    [1, '#E0E0E0']
-                ]
-            },
-            borderWidth: 1,
-            borderColor: '#AAA',    
-            formatter: function() 
-            {
+                    linearGradient: [0, 0, 0, 100],
+                    stops: [
+                        [0, '#FFFFFF'],
+                        [1, '#E0E0E0']
+                    ]
+                },
+                borderWidth: 1,
+                borderColor: '#AAA',
+                formatter: function ()
+                {
 
-                 var s = '<b>' + this.x + '</b>'; 
-                 var m=["","",""];
-                 m[1]="";
-                 m[2]="";
-                var i=1;
-                $.each(this.points, function () {
-                    m[i] += '<br/>' + this.series.name + ': ' +
-                        byte_formatter_str(this.y, "/s") ;
+                    var s = '<b>' + this.x + '</b>';
+                    var m = ["", "", ""];
+                    m[1] = "";
+                    m[2] = "";
+                    var i = 1;
+                    $.each(this.points, function () {
+                        m[i] += '<br/>' + this.series.name + ': ' +
+                                byte_formatter_str(this.y, "/s");
                         i++;
-                });
+                    });
 
-                return s+m[2]+m[1];
-            
-
+                    return s + m[2] + m[1];
 
 
 
-            },
+
+
+                },
                 shared: true
 
 
