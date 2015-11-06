@@ -27,20 +27,13 @@
         },
         "xAxis": [
             {
-                "tickInterval": 2000,
                 "title": {
                     "text": "Jobs",
                     "style": {
                         "font-size": "14px"
                     }
                 },
-                "labels": {
-                    "format": "{value}",
-                    "style": {
-                        "font-size": "14px"
-                    }
-                },
-                "crosshair": true
+                "type": "datetime"
             }
         ],
         "yAxis": [
@@ -115,7 +108,7 @@
         }
     },
     "query": {
-        "select": "*, (local_iotime - local_meta) as localio, local_meta, (global_iotime - global_meta) as globalio, global_meta , (runtime - local_iotime - global_iotime ) as notio, (local_iotime + global_iotime)/runtime as io_percent",
+        "select": "*, unix_timestamp(start_time) as start_time_2, (local_iotime - local_meta) as localio, local_meta, (global_iotime - global_meta) as globalio, global_meta , (runtime - local_iotime - global_iotime ) as notio, (local_iotime + global_iotime)/runtime as io_percent",
         "from": "jobs_info",
         "where": "agg_perf_MB is not null"
     },
@@ -134,6 +127,9 @@
         "partshared_count",
         "allshared_count"
     ],
+    "categories": {
+        "attribute": "start_time_2"
+    },
     "series": [
         {
             "attribute": "localio",
@@ -289,6 +285,17 @@
                 "radius": 2,
                 "fillColor": "#CC00CC"
             }
+        },
+        {
+            "attribute": "iotime",
+            "name": "I/O Time",
+            "not-in-chart": true
+
+        },
+        {
+            "attribute": "io_percent",
+            "name": "Percentage of runtime spent in I/O",
+            "not-in-chart": true
         }
     ]
 }
