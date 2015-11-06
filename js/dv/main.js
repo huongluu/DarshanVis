@@ -16,7 +16,7 @@ $(document).ready(function () {
 var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB'];
 
 
-function byte_formatter(c, suffix) {
+function byte_formatter(c, suffix) {  // to convert from MB to B
     var bytes = c.value * 1000 * 1000;
     if (bytes == 0) {
         return '0 B';
