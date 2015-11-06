@@ -14,15 +14,26 @@ $(document).ready(function () {
 });
 
 
+function getChart(chartId, callback) {
+    var filter = {
+        id: chartId
+    };
 
-function byte_formatter(c, suffix) {
-    var bytes = c.value * 1000 * 1000;
-    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
-    if (bytes == 0) {
-        return '0 B';
-    }
-    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1000)));
-    return Math.round(bytes / Math.pow(1000, i), 2) + ' ' + sizes[i] + suffix;
+    $.ajax({
+        url: 'chart',
+        type: 'post',
+        dataType: 'json',
+        success: function (data) {
+            callback(data);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest);
+            console.log(textStatus);
+            console.log(errorThrown);
+        },
+        data: filter
+    });
+
 }
 
 function send() {
@@ -40,7 +51,7 @@ function send() {
         start_date: datepickerobj.startDate.format('YYYY-MM-DD'),
         end_date: datepickerobj.endDate.format('YYYY-MM-DD'),
         url: window.location.href
-    }
+    };
 
     $('#status').html('filtering..');
     $url = 'filter';
@@ -73,25 +84,39 @@ function send() {
 //            }
             var series = data["chart"]["series"];
             var queryResult = data["queryresult"];
+            var date_category = false;
+            if (data["chart"]["categories"]) {
+                var cat = data["chart"]["categories"]["attribute"];
+                var date_dt = queryResult[cat];
+//                chart.xAxis[0].setCategories(date_dt);
+                date_category = true;
+            } else {
+                console.log("categories is null");
+            }
             for (var i = 0; i < series.length; i++) {
-
-                var attr = series[i]["attribute"];
-                var qr = queryResult[attr];
-                if (qr != null) {
-                    $('#chart-container').html("");
-                    series[i]["data"] = [];
-                    for (var j = 0; j < qr.length; j++) {
-                        var num = Number(qr[j]);
-                        if (num != 0) {
-                            series[i]["data"].push([j, num]);
+                if (!series[i]["not-in-chart"]) {
+                    var attr = series[i]["attribute"];
+                    var qr = queryResult[attr];
+                    if (qr != null) {
+                        $('#chart-container').html("");
+                        series[i]["data"] = [];
+                        for (var j = 0; j < qr.length; j++) {
+                            var num = Number(qr[j]);
+                            if (num != 0) {
+                                if (date_category) {
+                                    series[i]["data"].push([date_dt[j]/1000, num]);
+                                } else {
+                                    series[i]["data"].push([j, num]);
+                                }
+                            }
                         }
-                    }
-                    console.log(series[i]);
+                        console.log(series[i]);
 //                    if (!isNaN(chart)) {
-                    chart.addSeries(series[i], false);
+                        chart.addSeries(series[i], false);
 //                    }
-                } else {
-                    $('#chart-container').html("<center>No result for the desired filters.</center>");
+                    } else {
+                        $('#chart-container').html("<center>No result for the desired filters.</center>");
+                    }
                 }
             }
 //                    series.forEach(function (s) {
@@ -117,18 +142,4 @@ function send() {
         },
         data: filter
     });
-}
-
-
-function roundSF(num, n) {
-    if (num == 0) {
-        return 0;
-    }
-
-    var d = Math.ceil(Math.log10(num < 0 ? -num : num));
-    var power = n - d;
-
-    var magnitude = Math.pow(10, power);
-    var shifted = Math.round(num * magnitude);
-    return shifted / magnitude;
 }

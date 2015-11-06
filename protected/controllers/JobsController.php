@@ -11,6 +11,17 @@ class JobsController extends GxController {
         ));
     }
 
+    public function actionChart() {
+        if (!YII_DEBUG && !Yii::app()->request->isAjaxRequest) {
+            throw new CHttpException('403', 'Forbidden access.');
+        }
+        $chartId = $_POST["id"];
+        $chart = getChartInfo($chartId);
+        header('Content-Type: application/json; charset="UTF-8"');
+        echo json_encode($chart);
+        Yii::app()->end();
+    }
+
     public function actionFilter() {
         if (!YII_DEBUG && !Yii::app()->request->isAjaxRequest) {
             throw new CHttpException('403', 'Forbidden access.');
@@ -28,7 +39,6 @@ class JobsController extends GxController {
         if (isset($_POST["start_date"]) && strlen($_POST["start_date"]) > 0) {
             $q = Jobs::filter($q, "start_time", $_POST["start_date"], ">");
         }
-
 
         if (isset($_POST["end_date"]) && strlen($_POST["end_date"]) > 0) {
             $q = Jobs::filter($q, "end_time", $_POST["end_date"], "<");
