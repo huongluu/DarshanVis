@@ -3,8 +3,12 @@ include_once 'utils2.php';
 ?>
 
 <script type="text/javascript">
+   var category_list;
+
     $(function () {
-        $('#toggle-percentage').hide();
+
+        
+       $('#toggle-percentage').hide();
         send();
 
 
@@ -24,8 +28,9 @@ include_once 'utils2.php';
                 borderColor: '#AAA',
                 formatter: function ()
                 {
+                    //alert(category_list);   
 
-                    var s = '<b>' + this.x + '</b>';
+                    var s = '<b>' + category_list[this.x]  + '</b>';
                     var m = ["", "", ""];
                     m[1] = "";
                     m[2] = "";
@@ -35,8 +40,7 @@ include_once 'utils2.php';
                                 byte_formatter_str(this.y, "/s");
                         i++;
                     });
-
-                    return s + m[2] + m[1];
+                   return s + m[2] + m[1];
 
 
 

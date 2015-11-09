@@ -19,7 +19,7 @@
         },
         "subtitle": "",
         "xAxis": {
-            "min": 0,
+            "min": 1,
             "labels": {
                 "format": "{value}",
                 "style": {

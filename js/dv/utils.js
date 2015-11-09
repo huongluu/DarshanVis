@@ -18,7 +18,7 @@ function byte_formatter_str(c, suffix) {
     c = +c;
     c = c * 1000 * 1000;
     c = parseInt(c);
-    return byte_formatter_general(c, suffix, 1);
+    return byte_formatter_general_1(c, suffix, 1);
 }
 
 function byte_formatter_str_for_bytes(c, suffix) {
@@ -37,6 +37,14 @@ function byte_formatter_general(c, suffix, multiplier) {
     return Math.round(bytes / Math.pow(1000, i), 2) + ' ' + sizes[i] + suffix;
 }
 
+function byte_formatter_general_1(c, suffix, multiplier) {
+    var bytes = c * multiplier;
+    if (bytes == 0) {
+        return '0 B';
+    }
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1000)));
+    return Math.round(bytes / Math.pow(1000, i), 2) + ' ' + sizes[i] + suffix;
+}
 
 
 function roundSF(num, n) {
