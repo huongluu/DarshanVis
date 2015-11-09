@@ -2,7 +2,7 @@
 $axisTitles = array(
     "nprocs" => "Number of Processes",
     "total_bytes" => "Amount of Data Read/Written",
-    "agg_perf_MB" => "I/O Throughput",
+    "thruput" => "I/O Throughput",
     "start_time" => "Submission Date",
     "uid" => "User ID"
 );
@@ -61,7 +61,7 @@ foreach ($y_options as $str) {
     var axisTitles = {
         "nprocs": "Number of Processes",
         "total_bytes": "Amount of Data Read/Written",
-        "agg_perf_MB": "I/O Throughput",
+        "thruput": "I/O Throughput",
         "start_time": "Start Time",
         "uid": "User ID"
     };
@@ -128,7 +128,7 @@ foreach ($y_options as $str) {
                 labels: {
                     formatter: function () {
                       var str = "";
-                      if (xaxis == "agg_perf_MB")
+                      if (xaxis == "thruput")
                       {
                         str += byte_formatter_str(this.value, "/s");
                       }
@@ -157,7 +157,7 @@ foreach ($y_options as $str) {
                 labels: {
                     formatter: function () {
                       var str = "";
-                      if (yaxis == "agg_perf_MB")
+                      if (yaxis == "thruput")
                       {
                         str += byte_formatter_str(this.value, "/s");
                       }
@@ -205,7 +205,7 @@ foreach ($y_options as $str) {
             tooltip: {
                 formatter: function() {
                   var str = "";
-                  if (xaxis == "agg_perf_MB")
+                  if (xaxis == "thruput")
                   {
                     str += "X= " + byte_formatter_str(this.x, "/s");
                   }
@@ -216,7 +216,7 @@ foreach ($y_options as $str) {
                   else {
                     str += "X= " + this.x;
                   }
-                  if (yaxis == "agg_perf_MB") {
+                  if (yaxis == "thruput") {
                     str += ", Y= " + byte_formatter_str(this.y, "/s");
                   }
                   else if(yaxis == "total_bytes")

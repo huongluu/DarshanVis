@@ -94,8 +94,8 @@
         "ten_to_hundred_giga": "select a1.appname, a2.ten_to_hundred_giga from (select appname from jobs_info group by appname) a1 left join (select appname, count(total_bytes) as ten_to_hundred_giga from jobs_info where total_bytes>10737418240 and total_bytes < 107374182400 group by appname) a2 on a1.appname=a2.appname",
         "hundred_to_tera": "select a1.appname, a2.hundred_to_tera from (select appname from jobs_info group by appname) a1 left join (select appname, count(total_bytes) as hundred_to_tera from jobs_info where total_bytes>107374182400 and total_bytes < 1099511627776 group by appname) a2 on a1.appname=a2.appname",
         "more_than_tera": "select a1.appname, a2.more_than_tera from (select appname from jobs_info group by appname) a1 left join (select appname, count(total_bytes) as more_than_tera from jobs_info where total_bytes > 1099511627776 group by appname) a2 on a1.appname=a2.appname ",
-        "median_bytes": "select a1.appname, a2.median from (select appname from jobs_info group by appname) a1 left join (select appname, median(total_bytes) as median from jobs_info where total_bytes is not null group by appname) a2 on a1.appname=a2.appname ",
-        "max_bytes": "select a1.appname, a2.max from (select appname from jobs_info group by appname) a1 left join (select appname, max(total_bytes) as max from jobs_info where total_bytes is not null group by appname) a2 on a1.appname=a2.appname "
+        "median_bytes": "select a1.appname, a2.median from (select appname from jobs_info group by appname) a1 left join (select appname, median(agg_perf_MB*1024*1024) as median from jobs_info where total_bytes is not null group by appname) a2 on a1.appname=a2.appname ",
+        "max_bytes": "select a1.appname, a2.max from (select appname from jobs_info group by appname) a1 left join (select appname, max(agg_perf_MB*1024*1024) as max from jobs_info where total_bytes is not null group by appname) a2 on a1.appname=a2.appname "
     },
     "series": [
         {

@@ -108,7 +108,7 @@
         }
     },
     "query": {
-        "select": "*, unix_timestamp(start_time) as start_time_2, (local_iotime - local_meta) as localio, local_meta, (global_iotime - global_meta) as globalio, global_meta , (runtime - local_iotime - global_iotime ) as notio, (local_iotime + global_iotime)/runtime as io_percent",
+        "select": "*, agg_perf_MB*1024*1024 as thruput, unix_timestamp(start_time) as start_time_2, (local_iotime - local_meta) as localio, local_meta, (global_iotime - global_meta) as globalio, global_meta , (runtime - local_iotime - global_iotime ) as notio, (local_iotime + global_iotime)/runtime as io_percent",
         "from": "jobs_info",
         "where": "agg_perf_MB is not null"
     },
@@ -122,7 +122,7 @@
         "global_meta",
         "nprocs",
         "total_bytes",
-        "agg_perf_MB",
+        "thruput",
         "unique_count",
         "partshared_count",
         "allshared_count"
@@ -215,7 +215,7 @@
             }
         },
         {
-            "attribute": "agg_perf_MB",
+            "attribute": "thruput",
             "name": "I/O throughput",
             "description": "I/O throughput",
             "color": "#BDD0D5",
