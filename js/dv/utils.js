@@ -5,7 +5,7 @@ var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB'];
 var num_sizes = ['', 'K', 'M', 'B', 'Tr', '', ''];
 
 function byte_formatter(c, suffix) {
-    return byte_formatter_general(c, suffix, 1000 * 1000);
+    return byte_formatter_general(c, suffix, 1);
 }
 
 

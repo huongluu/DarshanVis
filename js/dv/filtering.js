@@ -73,7 +73,7 @@ $(function () {
                 user: $("#user-textbox").val() ? $("#user-textbox").val() : "null"
             },
             function (data) {
-                console.log(data);
+//                console.log(data);
                 return process(data);
             });
         }
