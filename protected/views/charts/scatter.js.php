@@ -181,7 +181,7 @@ foreach ($y_options as $str) {
                       }
                       else if (xaxis == "start_time")
                       {
-                        str += Highcharts.dateFormat('%b/%d/%y', this.value);
+                        str += Highcharts.dateFormat('%b-%d-%y', this.value);
                       }
                       else {
                         str += this.value;
@@ -218,7 +218,7 @@ foreach ($y_options as $str) {
                       }
                       else if (yaxis == "start_time")
                       {
-                        str += Highcharts.dateFormat('%b/%d/%y', this.value);
+                        str += Highcharts.dateFormat('%b-%d-%y', this.value);
                       }
                       else {
                         str += this.value;
@@ -274,7 +274,7 @@ foreach ($y_options as $str) {
                   }
                   else if (xaxis == "start_time")
                   {
-                    str += "X= " + Highcharts.dateFormat('%b/%d/%y', this.x);
+                    str += "X= " + Highcharts.dateFormat('%b-%d-%y', this.x);
                   }
                   else {
                     str += "X= " + this.x;
@@ -292,7 +292,7 @@ foreach ($y_options as $str) {
                   }
                   else if (yaxis == "start_time")
                   {
-                    str += ", Y=" + Highcharts.dateFormat('%b/%d/%y', this.y);
+                    str += ", Y=" + Highcharts.dateFormat('%b-%d-%y', this.y);
                   }
                   else {
                     str += ", Y= " + this.y;

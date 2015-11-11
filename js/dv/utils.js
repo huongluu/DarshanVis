@@ -48,6 +48,9 @@ function byte_formatter_general_1(c, suffix, multiplier) {
 
 function num_procs_formatter_str(c, suffix) {
     c = parseInt(c);
+    if (c == 0){
+        return '0';
+    }
     var i = parseInt(Math.floor(Math.log(c) / Math.log(1000)));
     return Math.round(c / Math.pow(1000, i), 10) + ' ' + num_sizes[i] + suffix;
 }
