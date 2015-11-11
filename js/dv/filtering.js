@@ -2,7 +2,8 @@ $(function () {
 
 
     $("#filter-button, #sorting-button").click(function () {
-        send();
+        var chartId = getChartIdFromURL(window.location.href);
+            send();
     });
 
     $('#reportrange span').html(moment().subtract(1, 'years').add(1, 'days').format('MMM DD \'YY') + ' - ' + moment().format('MMM DD \'YY'));

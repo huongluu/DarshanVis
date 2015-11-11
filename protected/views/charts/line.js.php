@@ -36,8 +36,9 @@ include_once 'utils2.php';
                     m[2] = "";
                     var i = 1;
                     $.each(this.points, function () {
+                       // alert("y:"+this.y + "value"+byte_formatter_str_for_bytes(this.y, "/s"));
                         m[i] += '<br/>' + this.series.name + ': ' +
-                                byte_formatter_str(this.y, "/s");
+                                byte_formatter_str_for_bytes(this.y, "/s");
                         i++;
                     });
                    return s + m[2] + m[1];
@@ -57,7 +58,7 @@ include_once 'utils2.php';
 //        console.log(">>>>>>>>>>>>>>>>>>>>>>." + chart.yAxis[0]);
         console.log(chart.yAxis[0]);
         chart.yAxis[0].labelFormatter = function () {
-            return byte_formatter(this, "/s");
+            return byte_formatter_str_for_bytes(this, "/s");
         }
     });
 </script>

@@ -5,7 +5,7 @@ jQuery(document).ready(function ($) {
     getChart(chartId, function (chart) {
         console.log("in the sorting >>>>>>>>>>>>>");
         var options = chart.sorting;
-        var labels = []
+        var labels = [];
         for (var i = 0; i < chart.series.length; i++) {
             labels[chart.series[i].attribute] = chart.series[i].name;
         }

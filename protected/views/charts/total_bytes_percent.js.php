@@ -241,10 +241,10 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
             "1TB/s": 1099511627776
         };
 
-//        chart.yAxis[1].labels.formatter = function () {
-//
-//            return categoryLinks[this.value];
-//        }
+        chart.yAxis[1].labels.formatter = function () {
+
+            return  byte_formatter_str_for_bytes(this.value,'');
+        }
 
 
 
