@@ -65,6 +65,15 @@ function send() {
 //                    alert("success");
             all_data = data;
             console.log(data);
+
+                        if(data.queryresult.hasOwnProperty("appname"))
+                        {
+                            //alert("yes, i have that property");
+                             category_list=data.queryresult.appname;
+                            //
+                        }
+
+
             var chart = $('#chart-container').highcharts();
             if (typeof chart === 'undefined') {
                 console.log("chart is null, return");

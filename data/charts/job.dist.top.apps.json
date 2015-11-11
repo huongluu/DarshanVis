@@ -20,10 +20,10 @@
         {
             "type": "scatter",
             "name": "",
-            "query": "select total_bytes, nprocs, agg_perf_MB, t1.appname, t1.rank from jobs_info, (select appname, @r:=@r + 1 as rank, total_iotime from (select appname, sum(iotime) as total_iotime from jobs_info group by appname order by total_iotime desc limit 15) q1, (select @r:=0) q2) t1 where agg_perf_MB is not null and t1.appname = jobs_info.appname ;",
+            "query": "select total_bytes, nprocs, agg_perf_MB*1024*1024 as thruput, t1.appname, t1.rank from jobs_info, (select appname, @r:=@r + 1 as rank, total_iotime from (select appname, sum(iotime) as total_iotime from jobs_info group by appname order by total_iotime desc limit 15) q1, (select @r:=0) q2) t1 where agg_perf_MB is not null and t1.appname = jobs_info.appname ;",
             "series1": "total_bytes",
             "series2": "nprocs",
-            "series3": "agg_perf_MB",
+            "series3": "thruput",
             "series4": "appname",
             "series5": "rank",
             "series1-name": "Number of Bytes",

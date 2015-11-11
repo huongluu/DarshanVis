@@ -15,7 +15,7 @@
             "start_time",
             "total_bytes",
             "nprocs",
-            "agg_perf_MB",
+            "thruput",
             "uid"
         ]
     },
@@ -26,7 +26,7 @@
             "start_time",
             "total_bytes",
             "nprocs",
-            "agg_perf_MB",
+            "thruput",
             "uid"
         ]
     },
@@ -42,7 +42,7 @@
         }
     },
     "query": {
-        "select": "uid, appname, start_time, total_bytes, nprocs, agg_perf_MB",
+        "select": "uid, appname, start_time, total_bytes, nprocs, agg_perf_MB*1024*1024 as thruput",
         "from": "jobs_info",
         "where": "total_bytes>0 and nprocs>0 and agg_perf_MB>0 and total_bytes is not null and nprocs is not null and agg_perf_MB is not null"
     },
