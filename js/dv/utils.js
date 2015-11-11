@@ -15,16 +15,16 @@ function byte_formatter_for_bytes(c, suffix) {
 
 
 function byte_formatter_str(c, suffix) {
+    c = parseInt(c);
     c = +c;
     c = c * 1000 * 1000;
-    c = parseInt(c);
     return byte_formatter_general_1(c, suffix, 1);
 }
 
 function byte_formatter_str_for_bytes(c, suffix) {
-    c = +c;
     c = parseInt(c);
-    return byte_formatter_general(c, suffix, 1);
+    c = +c;
+    return byte_formatter_general_1(c, suffix, 1);
 }
 
 
