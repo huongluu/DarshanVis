@@ -136,6 +136,10 @@ foreach ($y_options as $str) {
                       {
                         str += byte_formatter_str_for_bytes(this.value, "");
                       }
+                      else if (xaxis == "nprocs")
+                      {
+                        str += num_procs_formatter_str(this.value, "");
+                      }
                       else {
                         str += this.value;
                       }
@@ -164,6 +168,10 @@ foreach ($y_options as $str) {
                       else if (yaxis == "total_bytes")
                       {
                         str += byte_formatter_str_for_bytes(this.value, "");
+                      }
+                      else if (yaxis == "nprocs")
+                      {
+                        str += num_procs_formatter_str(this.value, "");
                       }
                       else {
                         str += this.value;
@@ -213,6 +221,10 @@ foreach ($y_options as $str) {
                   {
                     str += "X= " + byte_formatter_str_for_bytes(this.x, "");
                   }
+                  else if (xaxis == "nprocs")
+                  {
+                    str += "X= " + num_procs_formatter_str(this.x, "");
+                  }
                   else {
                     str += "X= " + this.x;
                   }
@@ -222,6 +234,10 @@ foreach ($y_options as $str) {
                   else if(yaxis == "total_bytes")
                   {
                     str += ", Y= " + byte_formatter_str_for_bytes(this.y, "");
+                  }
+                  else if (yaxis == "nprocs")
+                  {
+                    str += ", Y= " + num_procs_formatter_str(this.y, "");
                   }
                   else {
                     str += ", Y= " + this.y;
