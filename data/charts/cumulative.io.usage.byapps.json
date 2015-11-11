@@ -1,108 +1,28 @@
 {
     "id": 18,
-    "name": "Average and Maximum I/O Throughput of  chart",
-    "type": "line",
+    "name": "Sample-chart",
+    "type": "percentage_line",
     "template": "charts/percentage_line_byapps.js.php",
-    "filter": "components/_filters_for_platform.php",
-    "highchart-confs": {
-        "title": "Median and Maximum I/O Throughput of All Applications",
-        "chart": {
-            "zoomType": "xy",
-            "width": 800
-        },
-        "title": {
-            "text": "Median and Maximum I/O Throughput of All Applications",
-            "margin": -2,
-            "style": {
-                "margin-top": "40px"
-            }
-        },
-        "subtitle": "",
-        "xAxis": {
-            "min": 1,
-            "labels": {
-                "format": "{value}",
-                "style": {
-                    "font-size": "12px"
-                }
-            },
-            "title": {
-                "text": "Applications",
-                "style": {
-                    "font-size": "13px"
-                }
-            },
-            "crosshair": true
-        },
-        "yAxis": {
-            "type": "logarithmic",
-            "labels": {
-                "style": {
-                    "font-size": "14px"
-                }
-            },
-            "title": {
-                "text": "I/O Throughput  (logarithmic scale)",
-                "style": {
-                    "font-size": "15px"
-                }
-            }
-
-        },
-        "tooltip": {
-            "valueSuffix": "MB/s",
-            "shared": true
-
-        },
-        "plotOptions": {
-            "series": {
-                "allowPointSelect": true
-            }
-        }
+    "filter": "components/_filters.php",
+    "title": "Consumption of system I/O time",
+    "subtitle": "Cumulative percentage of platform I/O time consumed by apps.",
+    "xAxis": {
+        "title": "Number of Apps"
     },
-    "query": {
-        "select":" @appid:=@appid+1 as appid, @total_iotime:=@total_iotime + t1.iotime as total_iotime,  system_iotime,  @total_iotime/system_iotime as app_sys_io_percent ", 
-        "from":{
-            "query":[
-                {
-                    "select":"sum(iotime) as iotime",
-                    "from":" jobs_info",
-                    "where":"iotime is not null",
-                    "group":"appname",
-                    "order":"iotime desc",
-                    "alias":"t1"
-                },
-                {
-                    "select":"sum(iotime) as system_iotime",
-                    "from":"jobs_info",
-                    "alias":"t2"
-                },
-                {
-                    "select":"@appid:=0,@total_iotime:=0",
-                    "alias":"t3"
-                }
-            ]
-
-
-            }
+    "yAxis": {
+        "title": "Percentage of Total System I/O Time"
     },
-    "sorting": [
-        "app_sys_io_percent"
-    ],
+    "tooltip": {
+        "valueSuffix": ""
+    },
     "series": [
         {
-            "attribute": "median_thruput",
-            "name": "Median I/O Throughput",
-            "description": "",
-            "color": "#CC0000",
-            "type": "line"
-        },
-        {
-            "attribute": "app_sys_io_percent",
-            "name": "Maximum I/O Throughput",
-            "description": "",
-            "color": "#33FF99",
-            "type": "line"
+            "type": "line",
+            "name": "Mira",
+            "query": "select @appid:=@appid+1 as appid, @total_iotime:=@total_iotime + t1.iotime as total_iotime, system_iotime,  @total_iotime/system_iotime as app_sys_io_percent  from  (select sum(iotime) as iotime from jobs_info where iotime is not null  group by appname order by iotime desc) t1,  (select sum(iotime) as system_iotime from jobs_info) t2,  (select @appid:=0,@total_iotime:=0) t3",
+            "xattribute": "appid",
+            "yattribute1": "app_sys_io_percent",
+            "yattribute2": "total_iotime"
         }
     ]
 }
