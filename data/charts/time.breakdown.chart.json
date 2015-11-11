@@ -32,15 +32,13 @@
                     "style": {
                         "font-size": "14px"
                     }
-                },
-                "type": "datetime"
+                }
             }
         ],
         "yAxis": [
             {
                 "min": 0,
                 "labels": {
-                    "format": "{value}",
                     "style": {
                         "font-size": "14px"
                     }
@@ -57,7 +55,7 @@
                 "type": "logarithmic",
                 "gridLineWidth": 0,
                 "title": {
-                    "text": "Number of Processes",
+                    "text": "Count",
                     "margin": 2,
                     "style": {
                         "color": "Highcharts.getOptions().colors[0]",
@@ -82,10 +80,10 @@
                 "type": "logarithmic",
                 "gridLineWidth": 0,
                 "title": {
-                    "text": "Number of Processes",
+                    "text": "Total Bytes Read/Written",
                     "margin": 2,
                     "style": {
-                        "color": "Highcharts.getOptions().colors[0]",
+                        "color": "Highcharts.getOptions().colors[1]",
                         "font-size": "15px"
                     },
                     "enabled": false
@@ -95,11 +93,34 @@
                     "x": 3,
                     "y": 5,
                     "style": {
-                        "color": "Highcharts.getOptions().colors[0]",
+                        "color": "Highcharts.getOptions().colors[1]",
                         "font-size": "14px"
                     }
-                }
-                ,
+                },
+                "opposite": true
+            },
+            {
+                "min": 1,
+                "type": "logarithmic",
+                "gridLineWidth": 0,
+                "title": {
+                    "text": "I/O throughput",
+                    "margin": 2,
+                    "style": {
+                        "color": "Highcharts.getOptions().colors[1]",
+                        "font-size": "15px"
+                    },
+                    "enabled": false
+                },
+                "labels": {
+                    "align": "left",
+                    "x": 3,
+                    "y": 5,
+                    "style": {
+                        "color": "Highcharts.getOptions().colors[1]",
+                        "font-size": "14px"
+                    }
+                },
                 "opposite": true
             }
         ],
@@ -127,9 +148,6 @@
         "partshared_count",
         "allshared_count"
     ],
-    "categories": {
-        "attribute": "start_time_2"
-    },
     "series": [
         {
             "attribute": "localio",
@@ -221,7 +239,7 @@
             "color": "#BDD0D5",
             "stacking": "normal",
             "type": "scatter",
-            "yAxis": 2,
+            "yAxis": 3,
             "lineWidth": 0,
             "visible": false,
             "dashStyle": "shortdot",
@@ -239,7 +257,7 @@
             "color": "#BDD0D5",
             "stacking": "normal",
             "type": "scatter",
-            "yAxis": 2,
+            "yAxis": 1,
             "lineWidth": 0,
             "visible": false,
             "dashStyle": "shortdot",
@@ -257,7 +275,7 @@
             "color": "#BDD0D5",
             "stacking": "normal",
             "type": "scatter",
-            "yAxis": 2,
+            "yAxis": 1,
             "lineWidth": 0,
             "visible": false,
             "dashStyle": "shortdot",
@@ -275,7 +293,7 @@
             "color": "#BDD0D5",
             "stacking": "normal",
             "type": "scatter",
-            "yAxis": 2,
+            "yAxis": 1,
             "lineWidth": 0,
             "visible": false,
             "dashStyle": "shortdot",
