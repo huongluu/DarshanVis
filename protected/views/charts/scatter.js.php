@@ -88,7 +88,7 @@ foreach ($y_options as $str) {
       var day = parseInt(indiv[2]);
 
       // Date.UTC('year', 'month', 'day')
-      return Date.UTC(year, month, day);
+      return parseInt(Date.UTC(year, month, day));
     }
 
 
@@ -121,7 +121,6 @@ foreach ($y_options as $str) {
                 else
                 {
                   var x = date_formatter(str_s1[i]);
-                  console.log(x);
                 }
                 if (yaxis != "start_time")
                 {
@@ -129,7 +128,6 @@ foreach ($y_options as $str) {
                 }
                 else {
                   var y = date_formatter(str_s2[i]);
-                  console.log(y);
                 }
 
                 if (x == 0 || y == 0)
@@ -138,6 +136,7 @@ foreach ($y_options as $str) {
                     console.log(x + ", " + y);
                     continue;
                 }
+
                 ret_obj.push([x, y]);
             }
         }
@@ -180,6 +179,10 @@ foreach ($y_options as $str) {
                       {
                         str += num_procs_formatter_str(this.value, "");
                       }
+                      else if (xaxis == "start_time")
+                      {
+                        str += Highcharts.dateFormat('%b/%d/%y', this.value);
+                      }
                       else {
                         str += this.value;
                       }
@@ -212,6 +215,10 @@ foreach ($y_options as $str) {
                       else if (yaxis == "nprocs")
                       {
                         str += num_procs_formatter_str(this.value, "");
+                      }
+                      else if (yaxis == "start_time")
+                      {
+                        str += Highcharts.dateFormat('%b/%d/%y', this.value);
                       }
                       else {
                         str += this.value;
@@ -265,6 +272,10 @@ foreach ($y_options as $str) {
                   {
                     str += "X= " + num_procs_formatter_str(this.x, "");
                   }
+                  else if (xaxis == "start_time")
+                  {
+                    str += "X= " + Highcharts.dateFormat('%b/%d/%y', this.x);
+                  }
                   else {
                     str += "X= " + this.x;
                   }
@@ -278,6 +289,10 @@ foreach ($y_options as $str) {
                   else if (yaxis == "nprocs")
                   {
                     str += ", Y= " + num_procs_formatter_str(this.y, "");
+                  }
+                  else if (yaxis == "start_time")
+                  {
+                    str += ", Y=" + Highcharts.dateFormat('%b/%d/%y', this.y);
                   }
                   else {
                     str += ", Y= " + this.y;
@@ -295,15 +310,14 @@ foreach ($y_options as $str) {
 
         if (y_scale == "linear") {
             options.yAxis.min = 0;
-        } else {
+        } else if (yaxis != "start_time") {
             options.yAxis.min = 1;
 
         }
         if (x_scale == "linear") {
             options.xAxis.min = 0;
-        } else {
+        } else if (xaxis != "start_time") {
             options.xAxis.min = 1;
-
         }
 
         $("#chart-container").highcharts(options);
