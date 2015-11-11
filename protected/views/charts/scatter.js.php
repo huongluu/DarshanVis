@@ -170,7 +170,7 @@ foreach ($y_options as $str) {
                       var str = "";
                       if (xaxis == "thruput")
                       {
-                        str += byte_formatter_str(this.value, "/s");
+                        str += byte_formatter_str_for_bytes(this.value, "/s");
                       }
                       else if (xaxis == "total_bytes")
                       {
@@ -203,7 +203,7 @@ foreach ($y_options as $str) {
                       var str = "";
                       if (yaxis == "thruput")
                       {
-                        str += byte_formatter_str(this.value, "/s");
+                        str += byte_formatter_str_for_bytes(this.value, "/s");
                       }
                       else if (yaxis == "total_bytes")
                       {
@@ -255,7 +255,7 @@ foreach ($y_options as $str) {
                   var str = "";
                   if (xaxis == "thruput")
                   {
-                    str += "X= " + byte_formatter_str(this.x, "/s");
+                    str += "X= " + byte_formatter_str_for_bytes(this.x, "/s");
                   }
                   else if (xaxis == "total_bytes")
                   {
@@ -269,7 +269,7 @@ foreach ($y_options as $str) {
                     str += "X= " + this.x;
                   }
                   if (yaxis == "thruput") {
-                    str += ", Y= " + byte_formatter_str(this.y, "/s");
+                    str += ", Y= " + byte_formatter_str_for_bytes(this.y, "/s");
                   }
                   else if(yaxis == "total_bytes")
                   {
