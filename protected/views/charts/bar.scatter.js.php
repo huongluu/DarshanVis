@@ -19,6 +19,10 @@ include_once 'utils2.php';
         console.log(chart);
 
         chart.yAxis[2].labelFormatter = function () {
+            return byte_formatter(this, "");
+        }
+
+        chart.yAxis[3].labelFormatter = function () {
             return byte_formatter(this, "/s");
         }
 
