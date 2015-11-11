@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "id": 12,
     "name": "io-type",
@@ -282,7 +283,7 @@
             "marker": {
                 "symbol": "triangle",
                 "enabled": true,
-                "radius": 2,
+                "radius": 5,
                 "fillColor": "#CC00CC"
             }
         },

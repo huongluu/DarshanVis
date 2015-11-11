@@ -1,3 +1,4 @@
+
 <?php
 include_once 'utils2.php';
 ?>
@@ -58,7 +59,8 @@ include_once 'utils2.php';
 //        console.log(">>>>>>>>>>>>>>>>>>>>>>." + chart.yAxis[0]);
         console.log(chart.yAxis[0]);
         chart.yAxis[0].labelFormatter = function () {
-            return byte_formatter_str_for_bytes(this, "/s");
+            return byte_formatter_str_for_bytes(this.value, "/s");
         }
     });
+
 </script>

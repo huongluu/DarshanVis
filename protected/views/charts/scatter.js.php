@@ -75,6 +75,22 @@ foreach ($y_options as $str) {
         make_chart(x, y, x_scale, y_scale);
     }
 
+    function date_formatter(string) {
+      //2015-09-03 13:20:46
+      var strArr = string.split(" ");
+      var yymmdd = strArr[0]; //gives us 2015-09-03
+      var indiv = yymmdd.split("-");
+      // indiv[0] is year
+      var year = parseInt(indiv[0]);
+      // indiv[1] is month, BUT ZERO BASED so subtract one
+      var month = parseInt(indiv[1]) - 1;
+      // indiv[2] is day
+      var day = parseInt(indiv[2]);
+
+      // Date.UTC('year', 'month', 'day')
+      return Date.UTC(year, month, day);
+    }
+
 
     make_chart = function (xaxis, yaxis, x_scale, y_scale) {
         console.log("all_data");
@@ -85,12 +101,36 @@ foreach ($y_options as $str) {
         var ret = "";
         var ret_obj = [];
 
+        if (xaxis == "start_time")
+        {
+          x_scale = 'datetime';
+        }
+        if (yaxis == "start_time")
+        {
+          y_scale = 'datetime';
+        }
+
         for (var i = 0; i < str_s1.length; i++)
         {
             if (str_s1[i].length != 0 && str_s2[i].length != 0)
             {
-                var x = parseInt(str_s1[i]);
-                var y = parseInt(str_s2[i]);
+                if (xaxis != "start_time")
+                {
+                  var x = parseInt(str_s1[i]);
+                }
+                else
+                {
+                  var x = date_formatter(str_s1[i]);
+                  console.log(x);
+                }
+                if (yaxis != "start_time")
+                {
+                  var y = parseInt(str_s2[i]);
+                }
+                else {
+                  var y = date_formatter(str_s2[i]);
+                  console.log(y);
+                }
 
                 if (x == 0 || y == 0)
                 {
@@ -98,7 +138,7 @@ foreach ($y_options as $str) {
                     console.log(x + ", " + y);
                     continue;
                 }
-                ret_obj.push([parseInt(str_s1[i]), parseInt(str_s2[i])]);
+                ret_obj.push([x, y]);
             }
         }
 
@@ -130,11 +170,15 @@ foreach ($y_options as $str) {
                       var str = "";
                       if (xaxis == "thruput")
                       {
-                        str += byte_formatter_str(this.value, "/s");
+                        str += byte_formatter_str_for_bytes(this.value, "/s");
                       }
                       else if (xaxis == "total_bytes")
                       {
                         str += byte_formatter_str_for_bytes(this.value, "");
+                      }
+                      else if (xaxis == "nprocs")
+                      {
+                        str += num_procs_formatter_str(this.value, "");
                       }
                       else {
                         str += this.value;
@@ -159,11 +203,15 @@ foreach ($y_options as $str) {
                       var str = "";
                       if (yaxis == "thruput")
                       {
-                        str += byte_formatter_str(this.value, "/s");
+                        str += byte_formatter_str_for_bytes(this.value, "/s");
                       }
                       else if (yaxis == "total_bytes")
                       {
                         str += byte_formatter_str_for_bytes(this.value, "");
+                      }
+                      else if (yaxis == "nprocs")
+                      {
+                        str += num_procs_formatter_str(this.value, "");
                       }
                       else {
                         str += this.value;
@@ -207,21 +255,29 @@ foreach ($y_options as $str) {
                   var str = "";
                   if (xaxis == "thruput")
                   {
-                    str += "X= " + byte_formatter_str(this.x, "/s");
+                    str += "X= " + byte_formatter_str_for_bytes(this.x, "/s");
                   }
                   else if (xaxis == "total_bytes")
                   {
                     str += "X= " + byte_formatter_str_for_bytes(this.x, "");
                   }
+                  else if (xaxis == "nprocs")
+                  {
+                    str += "X= " + num_procs_formatter_str(this.x, "");
+                  }
                   else {
                     str += "X= " + this.x;
                   }
                   if (yaxis == "thruput") {
-                    str += ", Y= " + byte_formatter_str(this.y, "/s");
+                    str += ", Y= " + byte_formatter_str_for_bytes(this.y, "/s");
                   }
                   else if(yaxis == "total_bytes")
                   {
                     str += ", Y= " + byte_formatter_str_for_bytes(this.y, "");
+                  }
+                  else if (yaxis == "nprocs")
+                  {
+                    str += ", Y= " + num_procs_formatter_str(this.y, "");
                   }
                   else {
                     str += ", Y= " + this.y;

@@ -14,16 +14,16 @@ $(document).ready(function () {
 });
 
 
-
-function byte_formatter(c, suffix) {
-    var bytes = c.value * 1000 * 1000;
-    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
-    if (bytes == 0) {
-        return '0 B';
-    }
-    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1000)));
-    return Math.round(bytes / Math.pow(1000, i), 2) + ' ' + sizes[i] + suffix;
-}
+//
+//function byte_formatter(c, suffix) {
+//    var bytes = c.value;
+//    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'EB'];
+//    if (bytes == 0) {
+//        return '0 B';
+//    }
+//    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1000)));
+//    return Math.round(bytes / Math.pow(1000, i), 2) + ' ' + sizes[i] + suffix;
+//}
 
 function send() {
     var datepickerobj = $('#reportrange').data('daterangepicker');
