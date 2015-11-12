@@ -6,15 +6,15 @@ $series_str1 = "[0,0],";
 $series_str2 = "";
 $xseries_str = "";
 $yseries_str1 = "";
-$yseries_str2 ="";
+$yseries_str2 = "";
 $index = 1;
 foreach ($data as $d) {
     //$cat_str .= '\'' . $index . '\'' . ',';
-    $xseries_str = $d[$chart["series"][0]["xattribute"]] ;
-    $yseries_str1 = $d[$chart["series"][0]["yattribute1"]] ;
-    $yseries_str2 = intval($d[$chart["series"][0]["yattribute2"]])/3600 ;
-    $series_str1 .= '['.$xseries_str.', '.$yseries_str1.']' . ',';
-    $series_str2 .= '['.$xseries_str.', '.$yseries_str2.']' . ',';
+    $xseries_str = $d[$chart["series"][0]["xattribute"]];
+    $yseries_str1 = $d[$chart["series"][0]["yattribute1"]];
+    $yseries_str2 = intval($d[$chart["series"][0]["yattribute2"]]) / 3600;
+    $series_str1 .= '[' . $xseries_str . ', ' . $yseries_str1 . ']' . ',';
+    $series_str2 .= '[' . $xseries_str . ', ' . $yseries_str2 . ']' . ',';
     $index++;
 }
 //$cat_str = rtrim($cat_str, ",");
@@ -24,9 +24,9 @@ $series_str2 = rtrim($series_str2, ",");
 ?>
 
 <script type="text/javascript">
-    $(function() {
-        var percentage=true;
-        var ready=true;
+    $(function () {
+        var percentage = true;
+        var ready = true;
         $('#chart-container').highcharts({
             chart: {
                 type: 'line',
@@ -47,8 +47,8 @@ $series_str2 = rtrim($series_str2, ",");
                 },
                 min: 0,
                 labels: {
-                    formatter: function(){
-                       return this.value;
+                    formatter: function () {
+                        return this.value;
                     }
                 },
                 crosshair: true
@@ -63,39 +63,39 @@ $series_str2 = rtrim($series_str2, ",");
                         width: 5,
                         color: '#808080'
                     }],
-                type:"normal",
+                type: "normal",
                 min: 0,
-                max: 1, 
+                max: 1,
                 crosshair: true,
                 labels: {
-                    formatter: function(){
-                        if(percentage)
+                    formatter: function () {
+                        if (percentage)
                         {
-                            return 100*this.value + '%';    
+                            return 100 * this.value + '%';
                         }
                         else
                         {
-                            return this.value+ " hrs";
+                            return this.value + " hrs";
                         }
                     }
                 },
             },
             tooltip: {
                 backgroundColor: {
-                linearGradient: [0, 0, 0, 100],
-                stops: [
-                    [0, '#FFFFFF'],
-                    [1, '#E0E0E0']
-                ]
-            },
-            borderWidth: 1,
-            borderColor: '#AAA',    
-            formatter: function() {
+                    linearGradient: [0, 0, 0, 100],
+                    stops: [
+                        [0, '#FFFFFF'],
+                        [1, '#E0E0E0']
+                    ]
+                },
+                borderWidth: 1,
+                borderColor: '#AAA',
+                formatter: function () {
                     if (percentage)
-                        return 'Percentage of <b> ' + this.x + '  </b>apps so far is <b>' + roundSF(this.y*100, 4) + '</b> %';
+                        return 'Percentage of <b> ' + this.x + '  </b>apps so far is <b>' + roundSF(this.y * 100, 4) + '</b> %';
                     else
-                        return 'Cumulative IO time of <b> ' + this.x + '  </b>apps so far is <b>' + roundSF(this.y,8) + '</b> Hours ';
-                  
+                        return 'Cumulative IO time of <b> ' + this.x + '  </b>apps so far is <b>' + roundSF(this.y, 8) + '</b> Hours ';
+
                 }
 
             },
@@ -104,7 +104,7 @@ $series_str2 = rtrim($series_str2, ",");
                 align: 'right',
                 verticalAlign: 'middle',
                 borderWidth: 0,
-                enabled: false 
+                enabled: false
             },
             series: [{
                     name: '<?php echo $chart["series"][0]["name"]; ?>',
@@ -112,71 +112,72 @@ $series_str2 = rtrim($series_str2, ",");
                 }]
         });
 
-    var chart = $('#chart-container').highcharts();
-        
-    // Toggle abs/%
-        $('#toggle-percentage').click(function () {
+        var chart = $('#chart-container').highcharts();
 
-            if(ready)
+        // Toggle abs/%
+        $('#toggle-percentage').click(function () {
+            console.log(">>>");
+            if (ready)
             {
-                ready=false;
+                console.log("I am ready!");
+                ready = false;
                 percentage = !percentage;
 
-             
-                //console.log(chart.yAxis[0]);
-                console.log("lets get started percentage:"+percentage);
 
-                if(percentage)
+                //console.log(chart.yAxis[0]);
+                console.log("lets get started percentage:" + percentage);
+
+                if (percentage)
                 {
                     chart.yAxis[0].update({
-                    min: 0,
-                    type: "normal"
+                        min: 0,
+                        type: "normal"
                     });
                 }
                 else
                 {
-                   chart.yAxis[0].setExtremes( <?php echo intval($data[0][$chart["series"][0]["yattribute2"]])/3600?>,<?php echo intval($data[0]["system_iotime"])/3600?>);
-           
+                    chart.yAxis[0].setExtremes(<?php echo intval($data[0][$chart["series"][0]["yattribute2"]]) / 3600 ?>,<?php echo intval($data[0]["system_iotime"]) / 3600 ?>);
+
                 }
 
-                    
+
 
                 chart.series[0].update(
-                {
-                    data: percentage ? [<?php echo $series_str1 ?>] : [<?php echo $series_str2 ?>] ,
-                });
+                        {
+                            data: percentage ? [<?php echo $series_str1 ?>] : [<?php echo $series_str2 ?>],
+                        });
 
                 chart.xAxis[0].update({
-                    min: percentage? 0:1
-                }); 
-
-                chart.yAxis[0].update({
-                    min: percentage? 0:1,
-                    type: percentage? "normal":"logarithmic"
-                }); 
-
-                chart.yAxis[0].axisTitle.attr(
-               {
-                text: percentage ? "Percentage of Total System I/O Time" : "Cumulative Total System I/O Time"
+                    min: percentage ? 0 : 1
                 });
 
-                 
+                chart.yAxis[0].update({
+                    min: percentage ? 0 : 1,
+                    type: percentage ? "normal" : "logarithmic"
+                });
 
-                
-            
-             if(percentage)
+                chart.yAxis[0].axisTitle.attr(
+                        {
+                            text: percentage ? "Percentage of Total System I/O Time" : "Cumulative Total System I/O Time"
+                        });
+
+
+
+
+
+                if (percentage)
                 {
-                    chart.yAxis[0].setExtremes(0,1);
+                    chart.yAxis[0].setExtremes(0, 1);
                 }
                 else
                 {
-                    chart.yAxis[0].setExtremes( <?php echo intval($data[0][$chart["series"][0]["yattribute2"]])/3600 ?>,<?php echo intval($data[0]["system_iotime"])/3600?>);
+                    chart.yAxis[0].setExtremes(<?php echo intval($data[0][$chart["series"][0]["yattribute2"]]) / 3600 ?>,<?php echo intval($data[0]["system_iotime"]) / 3600 ?>);
                 }
 
-               
+
 
                 chart.redraw();
-                ready=true;
+                ready = true;
             }
         });
     });

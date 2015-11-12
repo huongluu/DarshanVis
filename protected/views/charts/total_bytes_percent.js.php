@@ -258,10 +258,6 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
                 });
             }
 
-//            chart.yAxis[0].labels.update({
-//                format: stacking ? "{value}" : "{value}%"
-//            });
-
             chart.yAxis[0].axisTitle.attr({
                 text: stacking ? "Distribution of time (s)" : "Percentage of time (%)"
             });
@@ -271,11 +267,7 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
                 chart.yAxis[0].setExtremes(null, null);
             }
             stacking = !stacking;
-//            chart.series[0].update({
-//                color: color ? null : Highcharts.getOptions().colors[1]
-//            });
-//            color = !color;
-
+            
         });
         var chart = $("#chart-container").highcharts();
         var max = findMax(chart)
