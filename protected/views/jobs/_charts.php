@@ -7,9 +7,11 @@ include '_filter_template.php';
 include '_chart_template.php';
 ?>
 
-
 <div id="chart-container"  style="height: 500px; width: 1000px; margin: 0 auto;"></div>
 
+<div id="min_max_button_div" style="width: 100wh; text-align: center;" hidden>
+  <button id="min_max_button" class="btn btn-large btn-primary">Constant Min/Max Toggle</button>
+</div>
 
 <div id="15-scatter-containers" hidden>
     <div class="row">
