@@ -17,6 +17,12 @@
     "tooltip": {
         "valueSuffix": ""
     },
+    "series": [
+        {
+            "query": "select appname, sum(runtime)/3600 as total_runtime_h, sum(iotime)/3600 as total_iotime_h, sum(total_bytes)/(1024*1024*1024*1024) as total_bytes_TB from jobs_info where agg_perf_MB is not null group by appname order by total_bytes_TB desc limit 10;"            
+        }
+
+    ],
     "table": {
         "title": "Top Apps",
         "template": "tables/topk.tb.php",
