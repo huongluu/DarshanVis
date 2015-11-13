@@ -30,7 +30,9 @@ $series_str2 = rtrim($series_str2, ",");
         $('#chart-container').highcharts({
             chart: {
                 type: 'line',
-                zoomType: 'xy'
+                zoomType: 'xy',
+                width: 900,
+                height: 500
             },
             title: {
                 text: '<?php echo $chart["title"] ?>',
@@ -98,6 +100,13 @@ $series_str2 = rtrim($series_str2, ",");
 
                 }
 
+            },
+            exporting: {
+                buttons: {
+                    contextButton: {
+                        symbol: "url(../../img/printer2.png)"
+                    }
+                }
             },
             legend: {
                 layout: 'vertical',
