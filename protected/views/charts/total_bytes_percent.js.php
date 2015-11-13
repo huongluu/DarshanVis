@@ -75,7 +75,7 @@ for ($i = 1; $i <= 5; $i++) {
 //var_dump($result);
 //var_dump($series[1]);
 
-$chart["highchart-confs"]["xAxis"]["categories"] = $category_1;
+//$chart["highchart-confs"]["xAxis"]["categories"] = $category_1;
 
 
 
@@ -205,6 +205,10 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $category_1;
 ?>
 
 <script type="text/javascript">
+var category_list = <?php echo json_encode($category_1); ?>;
+console.log(category_list);
+console.log(category_list[0]);
+
     $(function () {
       
 
@@ -212,7 +216,41 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $category_1;
         $('#chart-container').highcharts({
 <?php echo getHighchartSafeJson($chart["highchart-confs"]); ?>
 
+                  tooltip: {
+                backgroundColor: {
+                    linearGradient: [0, 0, 0, 100],
+                    stops: [
+                        [0, '#FFFFFF'],
+                        [1, '#E0E0E0']
+                    ]
+                },
+                borderWidth: 1,
+                borderColor: '#AAA',
+                formatter: function ()
+                {
+                    //alert(category_list);   
 
+                    var s = '<b>' + category_list[this.x]  + '</b>';
+                    var m = ["", "", ""];
+                    m[1] = "";
+                    m[2] = "";
+                    var i = 1;
+                    $.each(this.points, function () {
+                       // alert("y:"+this.y + "value"+byte_formatter_str_for_bytes(this.y, "/s"));
+                        s += '<br/>' +'<span style="color:'+ this.series.color +'">\u25CF</span>: ' + this.series.name + ': ' + this.y;
+                        i++;
+                    });
+                   return s ;
+
+
+
+
+
+                },
+                shared: true
+
+
+            },
 
             series: [{
                     name: '<?php echo $chart["series"][0]["title1"] ?>',
@@ -318,7 +356,9 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $category_1;
         // }
 
 
-
+ chart.yAxis[0].labelFormatter = function () {
+            return byte_formatter_str_for_bytes(this.value, "/s");
+        };
 
 // Toggle abs/%
         $('#toggle-percentage').click(function () {
