@@ -1,48 +1,147 @@
 <?php
 include_once 'utils2.php';
 
+$category_list = Jobs :: execSQLQuery($chart["query"]["category"]);
+//var_dump($category_list);
+//$merged_query = $chart["query"]["merged_query"];
+$merged_query_1 = $chart["query"]["merged_query_1"];
+//$orderby = "sum_bytes";
+//$data = Jobs::execSQLQuery($merged_query);
+$result = Jobs::execSQLQuery($merged_query_1);
+$throughput=Jobs::execSQLQuery($chart["query"]["throughput"]);
+$category_1=array();
+$series= array();
+$max="";
+$median="";
+//var_dump($throughput);
 
+foreach ($throughput as $app) 
+{
+    $max .= $app["max"] ."," ;
+    $median .=$app["median"].",";
+}
 
-$merged_query = $chart["query"]["merged_query"];
+$max = rtrim($max, ",");
+$median = rtrim($median, ",");
+//var_dump($max);
 
-$orderby = "sum_bytes";
-$data = Jobs::execSQLQuery($merged_query);
+foreach ($category_list as $app) 
+{
+    $category_1[]=$app['appname'];
+}
 
-
-$series_str = array();
-
-$categories = array();
-
-$attr_count = 7;
 //initialize strings for the attribute series
-for ($i = 1; $i <= $attr_count; $i++) {
+for ($i = 1; $i <= 6; $i++) {
     // var_dump($chart["series"][0]["attr" . $i]);
-    if (!isset($series_str[$i])) {
-        $series_str[$i] = "";
-    }
-    if (!isset($cat_str[$i])) {
-        $cat_str[$i] = "";
+    if (!isset($series[$i])) {
+        $series[$i] = "";
     }
 }
 
-$i = 1;
-$index = 1;
-//var_dump($data[$i]);
-foreach ($data as $each_data) {
 
-    if (($each_data['less_than_one_giga'] == null && $each_data['one_giga_to_ten_giga'] == null && $each_data['ten_to_hundred_giga'] == null && $each_data['hundred_to_tera'] == null && $each_data['more_than_tera'] == null) || $each_data['max'] == 0 || $each_data['median'] == 0)
-        continue;
-    else {
-        $categories[] = $each_data["appname"];
-        for ($i = 1; $i <= 7; $i++) {
-            if ($each_data[$chart["series"][0]["attr" . $i]] === null)
-                $each_data[$chart["series"][0]["attr" . $i]] = '0';
-            $cat_str[$i] .= '\'' . $index . '\'' . ',';
-            $series_str[$i] .= $each_data[$chart["series"][0]["attr" . $i]] . ',';
+//var_dump($category_1);
+$idx=1;
+$flag=0;
+foreach ($category_1 as $name) 
+{
+    for($idx=1;$idx<6;$idx++)
+    {
+        $flag=0;
+        foreach ($result as $eachapp) 
+        {
+            
+                if(intval($eachapp["byte_range"])==$idx && $eachapp["appname"]==$name)
+                {
+                    $series[$idx].= $eachapp["num_of_occurences"].",";
+                    $flag=1;
+                    break;
+                }
+
+        }   
+        if($flag==0)
+        {
+             $series[$idx].= "0".",";
         }
-        $index++;
+
     }
 }
+
+for ($i = 1; $i <= 5; $i++) {
+
+    $series[$i] = rtrim($series[$i], ",");
+    //var_dump($series[$i]);
+    //echo '\n';
+}
+//var_dump($result);
+//var_dump($series[1]);
+
+$chart["highchart-confs"]["xAxis"]["categories"] = $category_1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// $series_str = array();
+
+// $categories = array();
+
+// $attr_count = 7;
+// //initialize strings for the attribute series
+// for ($i = 1; $i <= $attr_count; $i++) {
+//     // var_dump($chart["series"][0]["attr" . $i]);
+//     if (!isset($series_str[$i])) {
+//         $series_str[$i] = "";
+//     }
+//     if (!isset($cat_str[$i])) {
+//         $cat_str[$i] = "";
+//     }
+// }
+
+// $i = 1;
+// $index = 1;
+// //var_dump($data[$i]);
+// foreach ($data as $each_data) {
+
+//     if (($each_data['less_than_one_giga'] == null && $each_data['one_giga_to_ten_giga'] == null && $each_data['ten_to_hundred_giga'] == null && $each_data['hundred_to_tera'] == null && $each_data['more_than_tera'] == null) || $each_data['max'] == 0 || $each_data['median'] == 0)
+//         continue;
+//     else {
+//         $categories[] = $each_data["appname"];
+//         for ($i = 1; $i <= 7; $i++) {
+//             if ($each_data[$chart["series"][0]["attr" . $i]] === null)
+//                 $each_data[$chart["series"][0]["attr" . $i]] = '0';
+//             $cat_str[$i] .= '\'' . $index . '\'' . ',';
+//             $series_str[$i] .= $each_data[$chart["series"][0]["attr" . $i]] . ',';
+//         }
+//         $index++;
+//     }
+// }
+
+
+// for ($i = 1; $i <= 7; $i++) {
+//     # code...
+//     $cat_str[$i] = rtrim($cat_str[$i], ",");
+//     $series_str[$i] = rtrim($series_str[$i], ",");
+// }
+
+
+
+
+
 
 //  $index=1;
 //  foreach ($median as $each_data)
@@ -82,11 +181,11 @@ foreach ($data as $each_data) {
 
 
 
-for ($i = 1; $i <= 7; $i++) {
-    # code...
-    $cat_str[$i] = rtrim($cat_str[$i], ",");
-    $series_str[$i] = rtrim($series_str[$i], ",");
-}
+// for ($i = 1; $i <= 7; $i++) {
+//     # code...
+//     $cat_str[$i] = rtrim($cat_str[$i], ",");
+//     $series_str[$i] = rtrim($series_str[$i], ",");
+// }
 
 
 
@@ -95,7 +194,6 @@ for ($i = 1; $i <= 7; $i++) {
 
 //$categories = rtrim($categories, ",");
 //$categories .= ']';
-$chart["highchart-confs"]["xAxis"]["categories"] = $categories;
 //var_dump($chart["highchart-confs"]["xAxis"]);
 //    $cats_str .= '\'' . $d[$chart["xAxis"]["attribute"]] . '\'' . ',';
 //    $series_str .= '[' . $d[$chart["series"][0]["min"]] . ',' . ($d[$chart["series"][0]["q1"]] * 2) . ',' . $d[$chart["series"][0]["median"]] . ',' . ($d[$chart["series"][0]["q3"]] * 0.5) . ',' . $d[$chart["series"][0]["max"]] . '],';
@@ -123,7 +221,7 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
                     stacking: 'percent',
                     index: 4,
 //                    yAxis: 1,
-                    data: [<?php echo nullSafe($series_str[1]); ?>]
+                    data: [<?php echo nullSafe($series[1]); ?>]
                 },
                 {
                     name: '<?php echo $chart["series"][0]["title2"] ?>',
@@ -132,7 +230,7 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
                     stacking: 'percent',
                     index: 3,
 //                    yAxis: 1,
-                    data: [<?php echo nullSafe($series_str[2]); ?>]
+                    data: [<?php echo nullSafe($series[2]); ?>]
 //                    tooltip: {
 //                        valueSuffix: ' mm'
 //                    }
@@ -144,7 +242,7 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
                     stacking: 'percent',
                     index: 2,
 //                    yAxis: 1,
-                    data: [<?php echo nullSafe($series_str[3]); ?>]
+                    data: [<?php echo nullSafe($series[3]); ?>]
                 },
                 {
                     name: '<?php echo $chart["series"][0]["title4"] ?>',
@@ -153,7 +251,7 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
                     stacking: 'percent',
                     index: 1,
 //                    yAxis: 1,
-                    data: [<?php echo nullSafe($series_str[4]); ?>]
+                    data: [<?php echo nullSafe($series[4]); ?>]
                 },
                 {
                     name: '<?php echo $chart["series"][0]["title5"] ?>',
@@ -162,13 +260,13 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
                     stacking: 'percent',
                     index: 0,
 //                    yAxis: 1,
-                    data: [<?php echo nullSafe($series_str[1]); ?>]
+                    data: [<?php echo nullSafe($series[5]); ?>]
                 },
                 {
                     name: '<?php echo $chart["series"][0]["title6"] ?>',
                     type: 'scatter',
                     yAxis: 1,
-                    data: [<?php echo $series_str[6]; ?>],
+                    data: [<?php echo $median; ?>],
                     lineWidth: 0,
                     visible: true,
                     marker: {
@@ -191,7 +289,7 @@ $chart["highchart-confs"]["xAxis"]["categories"] = $categories;
                         radius: 3
                     },
                     yAxis: 1,
-                    data: [<?php echo $series_str[7] ?>],
+                    data: [<?php echo $max ?>],
                 }]
         });
 
