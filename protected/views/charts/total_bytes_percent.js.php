@@ -208,13 +208,68 @@ for ($i = 1; $i <= 5; $i++) {
 var category_list = <?php echo json_encode($category_1); ?>;
 console.log(category_list);
 console.log(category_list[0]);
-
+        
     $(function () {
       
 
 
         $('#chart-container').highcharts({
 <?php echo getHighchartSafeJson($chart["highchart-confs"]); ?>
+                    
+                yAxis: [
+            {
+                min: 0,
+                tickInterval: 20,
+                labels: {
+                    style: {
+                        fontSize: '14px'
+                    },
+                    formatter: function(){
+                        if(stacking)
+                            return this.value;
+                        else
+                            return this.value+"%";
+                    }
+                },
+                title: {
+                    text: "Percentage of Jobs",
+                    style: {
+                        fontSize: '20px'
+                    }
+                }
+            },
+            {
+                min: 1,
+                type: "logarithmic",
+                gridLineWidth: 0,
+                title: {
+                    text: "Number of Processes",
+                    margin: 2,
+                    style: {
+                        color: Highcharts.getOptions().colors[0],
+                        fontSize: '15px'
+                    },
+                    enabled: false
+                },
+                labels: {
+                    align: 'left',
+                    x: 3,
+                    y: 5,
+                    style: {
+                        
+                        fontSize: '14px'
+                    },
+                    formatter: function () {
+            return byte_formatter_str_for_bytes(this.value, "/s");
+        }
+
+                }
+                ,
+                opposite: true
+            }
+        ],
+
+
 
                   tooltip: {
                 backgroundColor: {
@@ -334,7 +389,7 @@ console.log(category_list[0]);
         var chart = $('#chart-container').highcharts();
         var color = false;
 
-        var stacking = false;
+var stacking = false;
         chart.yAxis[0].setExtremes(0, 100);
         console.log(">>>>>>>>>>>");
         console.log(chart);
@@ -356,7 +411,7 @@ console.log(category_list[0]);
         // }
 
 
- chart.yAxis[0].labelFormatter = function () {
+ chart.yAxis[1].labelFormatter = function () {
             return byte_formatter_str_for_bytes(this.value, "/s");
         };
 
@@ -370,7 +425,8 @@ console.log(category_list[0]);
             }
 
             chart.yAxis[0].axisTitle.attr({
-                text: stacking ? "Distribution of time (s)" : "Percentage of time (%)"
+                text: stacking ? "Distribution of time" : "Percentage of time ",
+                fontFamily:"serif"
             });
             if (!stacking) {
                 chart.yAxis[0].setExtremes(0, 100);
