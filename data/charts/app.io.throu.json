@@ -7,8 +7,7 @@
     "highchart-confs": {
         "title": "Median and Maximum I/O Throughput of All Applications",
         "chart": {
-            "zoomType": "xy",
-            "width": 800
+            "zoomType": "xy"
         },
         "legend":
         {

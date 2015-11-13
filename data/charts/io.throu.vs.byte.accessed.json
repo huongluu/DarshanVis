@@ -6,8 +6,7 @@
     "filter": "components/_filters.php",
     "highchart-confs": {
         "chart": {
-            "zoomType": "xy",
-            "width": 800
+            "zoomType": "xy"
         },
         "title": {
             "text": "Jobs Size and I/O Throughput Distribution",
