@@ -37,7 +37,6 @@
         ],
         "yAxis": [
             {
-                "min": 0,
                 "labels": {
                     "style": {
                         "font-size": "14px"
@@ -51,7 +50,6 @@
                 }
             },
             {
-                "min": 1,
                 "type": "logarithmic",
                 "gridLineWidth": 0,
                 "title": {
@@ -76,7 +74,6 @@
                 "opposite": true
             },
             {
-                "min": 1,
                 "type": "logarithmic",
                 "gridLineWidth": 0,
                 "title": {
@@ -100,7 +97,6 @@
                 "opposite": true
             },
             {
-                "min": 1,
                 "type": "logarithmic",
                 "gridLineWidth": 0,
                 "title": {

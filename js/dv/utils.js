@@ -1,7 +1,7 @@
 var charts;
 
 
-var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB'];
+var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
 var num_sizes = ['', 'K', 'M', 'B', 'Tr', '', ''];
 
 function byte_formatter(c, suffix) {
