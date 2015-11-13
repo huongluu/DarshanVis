@@ -11,8 +11,8 @@
             "width": 800
         },
         "title": {
-            "text": "Total Bytes Distribution for Each App",
-            "margin": -5,
+            "text": "Distribution of Data Size per Job ",
+            "margin": 1,
             "style": {
                 "margin-top": "40px"
             }
@@ -24,9 +24,9 @@
             {
                 "min": 1,
                 "title": {
-                    "text": "Mira_Applications",
+                    "text": "Applications",
                     "style": {
-                        "font-size": "14px"
+                        "font-size": "20px"
                     }
                 },
                 "labels": {
@@ -51,7 +51,7 @@
                 "title": {
                     "text": "Percentage of Jobs",
                     "style": {
-                        "font-size": "15px"
+                        "font-size": "20px"
                     }
                 }
             },
