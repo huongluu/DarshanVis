@@ -76,19 +76,19 @@ foreach ($y_options as $str) {
     }
 
     function date_formatter(string) {
-      //2015-09-03 13:20:46
-      var strArr = string.split(" ");
-      var yymmdd = strArr[0]; //gives us 2015-09-03
-      var indiv = yymmdd.split("-");
-      // indiv[0] is year
-      var year = parseInt(indiv[0]);
-      // indiv[1] is month, BUT ZERO BASED so subtract one
-      var month = parseInt(indiv[1]) - 1;
-      // indiv[2] is day
-      var day = parseInt(indiv[2]);
+        //2015-09-03 13:20:46
+        var strArr = string.split(" ");
+        var yymmdd = strArr[0]; //gives us 2015-09-03
+        var indiv = yymmdd.split("-");
+        // indiv[0] is year
+        var year = parseInt(indiv[0]);
+        // indiv[1] is month, BUT ZERO BASED so subtract one
+        var month = parseInt(indiv[1]) - 1;
+        // indiv[2] is day
+        var day = parseInt(indiv[2]);
 
-      // Date.UTC('year', 'month', 'day')
-      return parseInt(Date.UTC(year, month, day));
+        // Date.UTC('year', 'month', 'day')
+        return parseInt(Date.UTC(year, month, day));
     }
 
 
@@ -103,11 +103,11 @@ foreach ($y_options as $str) {
 
         if (xaxis == "start_time")
         {
-          x_scale = 'datetime';
+            x_scale = 'datetime';
         }
         if (yaxis == "start_time")
         {
-          y_scale = 'datetime';
+            y_scale = 'datetime';
         }
 
         for (var i = 0; i < str_s1.length; i++)
@@ -116,18 +116,18 @@ foreach ($y_options as $str) {
             {
                 if (xaxis != "start_time")
                 {
-                  var x = parseInt(str_s1[i]);
+                    var x = parseInt(str_s1[i]);
                 }
                 else
                 {
-                  var x = date_formatter(str_s1[i]);
+                    var x = date_formatter(str_s1[i]);
                 }
                 if (yaxis != "start_time")
                 {
-                  var y = parseInt(str_s2[i]);
+                    var y = parseInt(str_s2[i]);
                 }
                 else {
-                  var y = date_formatter(str_s2[i]);
+                    var y = date_formatter(str_s2[i]);
                 }
 
                 if (x == 0 || y == 0)
@@ -144,7 +144,9 @@ foreach ($y_options as $str) {
         var options = {
             chart: {
                 type: 'scatter',
-                zoomType: 'xy'
+                zoomType: 'xy',
+                width: 900,
+                height: 500
             },
             title: {
                 text: '<?php echo $chart["title"] ?>'
@@ -160,36 +162,36 @@ foreach ($y_options as $str) {
                     enabled: true,
                     text: axisTitles[xaxis],
                     style: {
-                      fontSize: '20px'
+                        fontSize: '20px'
                     }
                 },
                 type: x_scale,
                 labels: {
                     formatter: function () {
-                      var str = "";
-                      if (xaxis == "thruput")
-                      {
-                        str += byte_formatter_str_for_bytes(this.value, "/s");
-                      }
-                      else if (xaxis == "total_bytes")
-                      {
-                        str += byte_formatter_str_for_bytes(this.value, "");
-                      }
-                      else if (xaxis == "nprocs")
-                      {
-                        str += num_procs_formatter_str(this.value, "");
-                      }
-                      else if (xaxis == "start_time")
-                      {
-                        str += Highcharts.dateFormat('%b-%d-%y', this.value);
-                      }
-                      else {
-                        str += this.value;
-                      }
-                      return str;
+                        var str = "";
+                        if (xaxis == "thruput")
+                        {
+                            str += byte_formatter_str_for_bytes(this.value, "/s");
+                        }
+                        else if (xaxis == "total_bytes")
+                        {
+                            str += byte_formatter_str_for_bytes(this.value, "");
+                        }
+                        else if (xaxis == "nprocs")
+                        {
+                            str += num_procs_formatter_str(this.value, "");
+                        }
+                        else if (xaxis == "start_time")
+                        {
+                            str += Highcharts.dateFormat('%b-%d-%y', this.value);
+                        }
+                        else {
+                            str += this.value;
+                        }
+                        return str;
                     },
                     style: {
-                      fontSize: '15px'
+                        fontSize: '15px'
                     }
                 }
             },
@@ -197,36 +199,36 @@ foreach ($y_options as $str) {
                 title: {
                     text: axisTitles[yaxis],
                     style: {
-                      fontSize: '20px'
+                        fontSize: '20px'
                     }
                 },
                 type: y_scale,
                 labels: {
                     formatter: function () {
-                      var str = "";
-                      if (yaxis == "thruput")
-                      {
-                        str += byte_formatter_str_for_bytes(this.value, "/s");
-                      }
-                      else if (yaxis == "total_bytes")
-                      {
-                        str += byte_formatter_str_for_bytes(this.value, "");
-                      }
-                      else if (yaxis == "nprocs")
-                      {
-                        str += num_procs_formatter_str(this.value, "");
-                      }
-                      else if (yaxis == "start_time")
-                      {
-                        str += Highcharts.dateFormat('%b-%d-%y', this.value);
-                      }
-                      else {
-                        str += this.value;
-                      }
-                      return str;
+                        var str = "";
+                        if (yaxis == "thruput")
+                        {
+                            str += byte_formatter_str_for_bytes(this.value, "/s");
+                        }
+                        else if (yaxis == "total_bytes")
+                        {
+                            str += byte_formatter_str_for_bytes(this.value, "");
+                        }
+                        else if (yaxis == "nprocs")
+                        {
+                            str += num_procs_formatter_str(this.value, "");
+                        }
+                        else if (yaxis == "start_time")
+                        {
+                            str += Highcharts.dateFormat('%b-%d-%y', this.value);
+                        }
+                        else {
+                            str += this.value;
+                        }
+                        return str;
                     },
                     style: {
-                      fontSize: '15px'
+                        fontSize: '15px'
                     }
                 }
             },
@@ -254,50 +256,50 @@ foreach ($y_options as $str) {
                 buttons: {
                     contextButton: {
                         symbol: "url(../../img/printer2.png)"
-                        }
+                    }
                 }
             },
             tooltip: {
-                formatter: function() {
-                  var str = "";
-                  if (xaxis == "thruput")
-                  {
-                    str += "X= " + byte_formatter_str_for_bytes(this.x, "/s");
-                  }
-                  else if (xaxis == "total_bytes")
-                  {
-                    str += "X= " + byte_formatter_str_for_bytes(this.x, "");
-                  }
-                  else if (xaxis == "nprocs")
-                  {
-                    str += "X= " + num_procs_formatter_str(this.x, "");
-                  }
-                  else if (xaxis == "start_time")
-                  {
-                    str += "X= " + Highcharts.dateFormat('%b-%d-%y', this.x);
-                  }
-                  else {
-                    str += "X= " + this.x;
-                  }
-                  if (yaxis == "thruput") {
-                    str += ", Y= " + byte_formatter_str_for_bytes(this.y, "/s");
-                  }
-                  else if(yaxis == "total_bytes")
-                  {
-                    str += ", Y= " + byte_formatter_str_for_bytes(this.y, "");
-                  }
-                  else if (yaxis == "nprocs")
-                  {
-                    str += ", Y= " + num_procs_formatter_str(this.y, "");
-                  }
-                  else if (yaxis == "start_time")
-                  {
-                    str += ", Y=" + Highcharts.dateFormat('%b-%d-%y', this.y);
-                  }
-                  else {
-                    str += ", Y= " + this.y;
-                  }
-                  return str;
+                formatter: function () {
+                    var str = "";
+                    if (xaxis == "thruput")
+                    {
+                        str += "X= " + byte_formatter_str_for_bytes(this.x, "/s");
+                    }
+                    else if (xaxis == "total_bytes")
+                    {
+                        str += "X= " + byte_formatter_str_for_bytes(this.x, "");
+                    }
+                    else if (xaxis == "nprocs")
+                    {
+                        str += "X= " + num_procs_formatter_str(this.x, "");
+                    }
+                    else if (xaxis == "start_time")
+                    {
+                        str += "X= " + Highcharts.dateFormat('%b-%d-%y', this.x);
+                    }
+                    else {
+                        str += "X= " + this.x;
+                    }
+                    if (yaxis == "thruput") {
+                        str += ", Y= " + byte_formatter_str_for_bytes(this.y, "/s");
+                    }
+                    else if (yaxis == "total_bytes")
+                    {
+                        str += ", Y= " + byte_formatter_str_for_bytes(this.y, "");
+                    }
+                    else if (yaxis == "nprocs")
+                    {
+                        str += ", Y= " + num_procs_formatter_str(this.y, "");
+                    }
+                    else if (yaxis == "start_time")
+                    {
+                        str += ", Y=" + Highcharts.dateFormat('%b-%d-%y', this.y);
+                    }
+                    else {
+                        str += ", Y= " + this.y;
+                    }
+                    return str;
                 }
             },
             series: [{
