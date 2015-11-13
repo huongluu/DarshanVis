@@ -10,6 +10,15 @@
             "zoomType": "xy",
             "width": 800
         },
+        "legend":
+        {
+            "enabled":true,
+              "align": "right",
+            "verticalAlign": "top",
+            "x": -10,
+            "y": 50,
+            "floating": true
+            },
         "title": {
             "text": "Median and Maximum I/O Throughput of All Applications",
             "margin": -2,
