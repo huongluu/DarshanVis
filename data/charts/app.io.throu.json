@@ -13,11 +13,9 @@
         "legend":
         {
             "enabled":true,
-              "align": "right",
-            "verticalAlign": "top",
-            "x": -10,
-            "y": 50,
-            "floating": true
+            "align": "center",
+            "verticalAlign": "bottom",
+            "floating": false
             },
         "title": {
             "text": "Median and Maximum I/O Throughput of All Applications",
