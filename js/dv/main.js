@@ -11,7 +11,47 @@ $(document).ready(function () {
     $('#dv_table').DataTable({
         "lengthMenu": [[-1], ["All"]]
     });
+    $("#min_max_button").click(function(e){
+      e.preventDefault();
+      // alert("hey");
+      var xmin = $("#min_max_button").attr("data-globalxmin");
+      var xmax = $("#min_max_button").attr("data-globalxmax");
+      var ymin = $("#min_max_button").attr("data-globalymin");
+      var ymax = $("#min_max_button").attr("data-globalymax");
+      console.log(xmin);
+      console.log(xmax);
+      console.log(ymin);
+      console.log(ymax);
+      var charts = [];
+      for (var i = 0; i < 10; i++)
+      {
+          var chartid = "chart-container-" + (i + 1);
+          charts.push(chartid);
+          // var chart = $("#" + chartid).highcharts();
+          // console.log(chartid + "setting.");
+          // chart.xAxis[0].setExtremes(xmin, xmax);
+          // chart.yAxis[0].setExtremes(ymin, ymax);
+          // console.log(chartid + "done.");
+      }
 
+      async.each(charts, function(item, callback){
+        var chart = $("#" + item).highcharts();
+        console.log(item + "setting.");
+        chart.xAxis[0].setExtremes(xmin, xmax);
+        chart.yAxis[0].setExtremes(ymin, ymax);
+        console.log(item + "done.");
+        callback();
+      }, function(err){
+        if (err)
+        {
+          console.log("error.");
+        }
+        else
+        {
+          console.log("yay!");
+        }
+      })
+    });
 
 });
 

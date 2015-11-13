@@ -75,6 +75,14 @@ $json_str = json_encode($all_data);
         $("#tooltip-div").toggle();
         $("#sort-button").hide();
         $("#toggle-percentage").hide();
+        $("#min_max_button_div").toggle();
+
+        var globalxmin = 0;
+        var globalxmax = 0;
+        var globalymin = 0;
+        var globalymax = 0;
+
+
 
         make_chart = function (appname, xaxis, yaxis, x_scale, y_scale, chart_id, obj) {
             // var chart = $("#" + chart_id).highcharts();
@@ -89,9 +97,32 @@ $json_str = json_encode($all_data);
             {
                 if (str_s1[i].length != 0 && str_s2[i].length != 0)
                 {
-                    ret_obj.push([parseInt(str_s1[i]), parseInt(str_s2[i])]);
+                    var x = parseInt(str_s1[i]);
+                    var y = parseInt(str_s2[i]);
+                    if (x > globalxmax)
+                    {
+                      globalxmax = x;
+                    }
+                    if (x < globalxmin)
+                    {
+                      globalxmin = x;
+                    }
+                    if (y > globalymax)
+                    {
+                      globalymax = y;
+                    }
+                    if (y < globalymin)
+                    {
+                      globalymin = y;
+                    }
+                    ret_obj.push([x, y]);
                 }
             }
+
+            $("#min_max_button").attr("data-globalxmin", globalxmin);
+            $("#min_max_button").attr("data-globalxmax", globalxmax);
+            $("#min_max_button").attr("data-globalymin", globalymin);
+            $("#min_max_button").attr("data-globalymax", globalymax);
 
             var options = {
                 chart: {
@@ -186,7 +217,7 @@ $json_str = json_encode($all_data);
         var appnames = '<?php echo $app_names ?>';
         var app_arr = appnames.split(',');
         $("#15-scatter-containers").toggle();
-        for (var i = 0; i < 15; i++)
+        for (var i = 0; i < 10; i++)
         {
             var chartid = "chart-container-" + (i + 1);
             make_chart(app_arr[i], "total_bytes", "nprocs", "linear", "linear", chartid, obj);

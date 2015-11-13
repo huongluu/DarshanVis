@@ -48,7 +48,7 @@ function byte_formatter_general_1(c, suffix, multiplier) {
 
 function num_procs_formatter_str(c, suffix) {
     c = parseInt(c);
-    if (c == 0){
+    if (c == 0) {
         return '0';
     }
     var i = parseInt(Math.floor(Math.log(c) / Math.log(1000)));
@@ -80,11 +80,12 @@ function getChartIdFromURL(url) {
 
 function populateDropdown(selector, options, labels) {
     var str = "";
+    if (typeof options != 'undefined') {
+        for (var i = 0; i < options.length; i++) {
+            str += '<option value="' + options[i] + '">' + labels[options[i]] + '</option>';
+        }
 
-    for (var i = 0; i < options.length; i++) {
-        str += '<option value="' + options[i] + '">' + labels[options[i]] + '</option>';
+        $(selector).append(str);
+        $(selector).selectpicker('refresh');
     }
-
-    $(selector).append(str);
-    $(selector).selectpicker('refresh');
 }

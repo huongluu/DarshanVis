@@ -26,7 +26,7 @@
             "where": "agg_perf_MB is not null",
             "group": "appname",
             "order": "total_bytes_TB desc",
-            "limit": "15"
+            "limit": "10"
         },
         "labels": {
             "appname": "",

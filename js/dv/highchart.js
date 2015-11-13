@@ -14,20 +14,22 @@ $(function () {
             console.log('loaded');
             var chart = this,
                     legend = chart.legend;
-            for (var i = 0, len = legend.allItems.length; i < len; i++) {
-                (function (i) {
-                    var item = legend.allItems[i].legendItem;
-                    item.on('mouseover', function (e) {
-                        //show custom tooltip here
-                        console.log("mouseover" + i);
-                        //                            $('#tooltips').tooltip();
-                        $("#tooltip" + (i + 1)).tooltip('show');
-                    }).on('mouseout', function (e) {
-                        //hide tooltip
-                        console.log("mouseout" + i);
-                        $("#tooltip" + (i + 1)).tooltip('hide');
-                    });
-                })(i);
+            if (typeof legend.allItems != 'undefined') {
+                for (var i = 0, len = legend.allItems.length; i < len; i++) {
+                    (function (i) {
+                        var item = legend.allItems[i].legendItem;
+                        item.on('mouseover', function (e) {
+                            //show custom tooltip here
+                            console.log("mouseover" + i);
+                            //                            $('#tooltips').tooltip();
+                            $("#tooltip" + (i + 1)).tooltip('show');
+                        }).on('mouseout', function (e) {
+                            //hide tooltip
+                            console.log("mouseout" + i);
+                            $("#tooltip" + (i + 1)).tooltip('hide');
+                        });
+                    })(i);
+                }
             }
         });
     }

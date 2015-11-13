@@ -16,10 +16,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.css">
 
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/dc.css"/>
-        <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.nouislider.min.css">   
-        <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/extra.css"> 
-        <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-tour-standalone.min.css"> 
-        <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/hpcviz.css"> 
+        <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.nouislider.min.css">
+        <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/extra.css">
+        <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-tour-standalone.min.css">
+        <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/hpcviz.css">
 
         <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-select.min.css" rel="stylesheet" type="text/css"/>
 
@@ -56,12 +56,13 @@
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/1/daterangepicker-bs3.css" />
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap-select.min.js" type="text/javascript"></script>
 
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/async.js"></script> 
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/utils.js"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/sorting.js"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/filtering.js"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/highchart.js"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/main.js"></script> 
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/table.js"></script> 
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/main.js"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dv/table.js"></script>
 
     </head>
 
