@@ -26,4 +26,15 @@ jQuery(document).ready(function ($) {
     $("#add-level3").click(function () {
         $("#s-level3").css("visibility", "visible");
     });
+
+    $(".remove-sotring").click(function () {
+        console.log($("#sort-level1 option:selected").val());
+        console.log($("#sort-level2 option:selected").val());
+        console.log($("#sort-level3 option:selected").val());
+        console.log($("#mode-level1 option:selected").val());
+        console.log($("#mode-level2 option:selected").val());
+        console.log($("#mode-level3 option:selected").val());
+
+        $(this).parent().parent().css("visibility", "hidden");
+    });
 });

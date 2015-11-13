@@ -37,7 +37,9 @@
 <!-- Level 2 -->
 
 <div class="row" id="s-level2">
+
     <div class="col-md-2 form-group text-center">
+        <a class="remove-sotring"><i class="glyphicon glyphicon-remove"></i></a>
         Then by
     </div>
     <div class="col-md-4 form-group">
@@ -75,6 +77,7 @@
 <!-- Level 3 -->
 <div class="row" id="s-level3">
     <div class="col-md-2 form-group text-center">
+        <a class="remove-sotring"><i class="glyphicon glyphicon-remove"></i></a>
         Then by
     </div>
     <div class="col-md-4 form-group">

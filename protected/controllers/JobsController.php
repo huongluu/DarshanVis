@@ -56,7 +56,7 @@ class JobsController extends GxController {
         } else {
             $orderby = $q["order"];
         }
-        if (isset($_POST["sort_level1"])) {
+        if (isset($_POST["sort_level1"]) && strlen($_POST["sort_level1"]) > 0) {
             $orderby = $_POST["sort_level1"];
         }
 
@@ -68,7 +68,7 @@ class JobsController extends GxController {
         $q = Jobs::OrderBy($q, $orderby, $mode1);
         $q = Jobs::Limit($q, 15000);
 
-        if (isset($_POST["sort_level2"])) {
+        if (isset($_POST["sort_level2"]) && strlen($_POST["sort_level2"]) > 0) {
             $sortlevel2 = $_POST["sort_level2"];
             $mode2 = "desc";
             if (isset($_POST["mode_level2"])) {
@@ -77,7 +77,7 @@ class JobsController extends GxController {
             $q = Jobs::addSortingLevel($q, $sortlevel2, $mode2);
         }
 
-        if (isset($_POST["sort_level3"])) {
+        if (isset($_POST["sort_level3"]) && strlen($_POST["sort_level3"]) > 0) {
             $sortlevel3 = $_POST["sort_level3"];
             $mode3 = "desc";
             if (isset($_POST["mode_level3"])) {
