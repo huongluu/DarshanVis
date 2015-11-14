@@ -208,7 +208,7 @@ for ($i = 1; $i <= 5; $i++) {
 var category_list = <?php echo json_encode($category_1); ?>;
 console.log(category_list);
 console.log(category_list[0]);
-        
+        var stacking = false;
     $(function () {
       
 
@@ -389,7 +389,7 @@ console.log(category_list[0]);
         var chart = $('#chart-container').highcharts();
         var color = false;
 
-var stacking = false;
+
         chart.yAxis[0].setExtremes(0, 100);
         console.log(">>>>>>>>>>>");
         console.log(chart);
@@ -425,7 +425,7 @@ var stacking = false;
             }
 
             chart.yAxis[0].axisTitle.attr({
-                text: stacking ? "Distribution of time" : "Percentage of time ",
+                text: stacking ? "Distribution of Jobs" : "Percentage of Jobs ",
                 fontFamily:"serif"
             });
             if (!stacking) {
