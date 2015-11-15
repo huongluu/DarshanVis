@@ -9,11 +9,12 @@ include '_chart_template.php';
 
 <div id="chart-container"  style="margin: 0 auto;" class="text-left"></div>
 
-<div id="min_max_button_div" style="width: 100wh; text-align: center;" hidden>
-    <button id="min_max_button" class="btn btn-large btn-primary">Constant Min/Max Toggle</button>
-</div>
+
 
 <div id="15-scatter-containers" hidden>
+    <div id="min_max_button_div" style="width: 100wh; text-align: center;" hidden>
+        <button id="min_max_button" class="btn btn-large btn-primary">Constant Min/Max Toggle</button>
+    </div>
     <div class="row">
         <div id="chart-container-1" class="col-md-4 charts" style="height: 400px; margin: 0 auto;"></div>
         <div id="chart-container-2" class="col-md-4 charts"  style="height: 400px; margin: 0 auto;"></div>
