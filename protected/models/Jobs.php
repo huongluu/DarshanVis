@@ -160,10 +160,42 @@ class Jobs extends BaseJobs {
         return $query;
     }
 
+
+       public static function addSortingLevel_1(&$query, $orderby, $mode = "desc") {
+       
+        //return $query;
+
+
+
+        if (!isset($query["from"]["query"]) )
+        {
+            if (isset($orderby) && strlen($orderby) > 0) 
+            {
+                $query["order"] .= " , " . $orderby . " " . $mode;
+                //        $query["order"] = $orderby . " ";
+            }
+            else 
+            {
+                $query["order"] .= " , " . $orderby . " " . $mode . " " ;
+            }
+         return $query;
+       }
+       //recursive
+       foreach ($query["from"]["query"] as $subquery) 
+                {
+                    $subquery=Jobs:: addSortingLevel_1(&$query, $orderby, $mode = "desc");
+                }
+       return $query;
+    }
+    }
+
+
     public static function Limit(&$query, $limit) {
         $query["limit"] = $limit;
         return $query;
     }
+
+
 
     public static function filter(&$query, $attr, $value, $comparator = "=") {
 
