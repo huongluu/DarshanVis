@@ -211,29 +211,29 @@ class Jobs extends BaseJobs {
       public static  function filter_1($query, $attr, $value, $comparator = "=") 
         {
 
-        if (!isset($query["from"]["query"]) )
-        {
-            if (!isset($query["where"]) || strlen($query["where"]) == 0) 
+            if (!isset($query["from"]["query"]) )
             {
-                if(!isset($query["select"]))
-                    $query .= " where " . $attr . " " . $comparator . " '" . $value . "' ";
-                else
-                   $query["where"] = " " . $attr . " " . $comparator . " '" . $value . "' ";
-            } 
-            else 
-            {
-                $query["where"] .= " and " . $attr . " " . $comparator . " '" . $value . "' ";
-            }
-         return $query;
-       }
-        //recursive
-        foreach ($query["from"]["query"] as &$subquery) 
+                if (!isset($query["where"]) || strlen($query["where"]) == 0) 
                 {
-                    $subquery= Jobs:: filter_1($subquery,$attr, $value, $comparator );
-
+                    if(!isset($query["select"]))
+                        $query .= " where " . $attr . " " . $comparator . " '" . $value . "' ";
+                    else
+                       $query["where"] = " " . $attr . " " . $comparator . " '" . $value . "' ";
+                } 
+                else 
+                {
+                    $query["where"] .= " and " . $attr . " " . $comparator . " '" . $value . "' ";
                 }
-        return $query;
-    }
+             return $query;
+           }
+            //recursive
+            foreach ($query["from"]["query"] as &$subquery) 
+                    {
+                        $subquery= Jobs:: filter_1($subquery,$attr, $value, $comparator );
+
+                    }
+            return $query;
+        }
 
 
 
