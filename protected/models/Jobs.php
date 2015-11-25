@@ -161,11 +161,9 @@ class Jobs extends BaseJobs {
     }
 
 
-       public static function addSortingLevel_1(&$query, $orderby, $mode = "desc") {
-       
-        //return $query;
-
-
+   public static function addSortingLevel_1(&$query, $orderby, $mode = "desc") 
+       {
+    
 
         if (!isset($query["from"]["query"]) )
         {
@@ -176,18 +174,18 @@ class Jobs extends BaseJobs {
             }
             else 
             {
-                $query["order"] .= " , " . $orderby . " " . $mode . " " ;
+                $query .= " orderby " . $orderby . " " . $mode . " " ;
             }
          return $query;
        }
        //recursive
        foreach ($query["from"]["query"] as $subquery) 
                 {
-                    $subquery=Jobs:: addSortingLevel_1(&$query, $orderby, $mode = "desc");
+                    $subquery=Jobs:: addSortingLevel_1($subquery, $orderby, $mode = "desc");
                 }
        return $query;
     }
-    }
+     
 
 
     public static function Limit(&$query, $limit) {
@@ -210,23 +208,33 @@ class Jobs extends BaseJobs {
 
 
 
-      public static function filter_1(&$query, $attr, $value, $comparator = "=") {
+      public static  function filter_1($query, $attr, $value, $comparator = "=") 
+        {
 
         if (!isset($query["from"]["query"]) )
         {
-             if (!isset($query["where"]) || strlen($query["where"]) == 0) {
-            $query["where"] = " " . $attr . " " . $comparator . " '" . $value . "' ";
-            } else {
+            if (!isset($query["where"]) || strlen($query["where"]) == 0) 
+            {
+                if(!isset($query["select"]))
+                    $query .= " where " . $attr . " " . $comparator . " '" . $value . "' ";
+                else
+                   $query["where"] = " " . $attr . " " . $comparator . " '" . $value . "' ";
+            } 
+            else 
+            {
                 $query["where"] .= " and " . $attr . " " . $comparator . " '" . $value . "' ";
             }
          return $query;
        }
-       //recursive
-       foreach ($query["from"]["query"] as $subquery) 
+        //recursive
+        foreach ($query["from"]["query"] as &$subquery) 
                 {
-                    $subquery=Jobs:: filter_1($subquery,$attr, $value, $comparator = "=");
+                    $subquery= Jobs:: filter_1($subquery,$attr, $value, $comparator );
+
                 }
-       return $query;
+        return $query;
     }
+
+
 
 }
