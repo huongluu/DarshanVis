@@ -83,6 +83,118 @@ $json_str = json_encode($all_data);
         var globalymax = 0;
 
 
+        make_chart_min_max = function (appname, xaxis, yaxis, x_scale, y_scale, chart_id, obj, xmin, xmax, ymin, ymax) {
+            // var chart = $("#" + chart_id).highcharts();
+            var s1_label = appname + '-' + xaxis;
+            var s2_label = appname + '-' + yaxis;
+
+            var str_s1 = obj[s1_label].split(',');
+            var str_s2 = obj[s2_label].split(',');
+            var ret_obj = [];
+
+            for (var i = 0; i < str_s1.length; i++)
+            {
+                if (str_s1[i].length != 0 && str_s2[i].length != 0)
+                {
+                    var x = parseInt(str_s1[i]);
+                    var y = parseInt(str_s2[i]);
+                    if (x > globalxmax)
+                    {
+                      globalxmax = x;
+                    }
+                    if (x < globalxmin)
+                    {
+                      globalxmin = x;
+                    }
+                    if (y > globalymax)
+                    {
+                      globalymax = y;
+                    }
+                    if (y < globalymin)
+                    {
+                      globalymin = y;
+                    }
+                    ret_obj.push([x, y]);
+                }
+            }
+
+            $("#min_max_button").attr("data-globalxmin", globalxmin);
+            $("#min_max_button").attr("data-globalxmax", globalxmax);
+            $("#min_max_button").attr("data-globalymin", globalymin);
+            $("#min_max_button").attr("data-globalymax", globalymax);
+            $("#min_max_button").attr("data-all_same", false);
+
+            var options = {
+                chart: {
+                    type: 'scatter',
+                    zoomType: 'xy'
+                },
+                title: {
+                    text: appname
+                },
+                legend: {
+                    enabled: true
+                },
+                xAxis: {
+                    title: {
+                        enabled: true,
+                        text: axisTitles[xaxis]
+                    },
+                    type: x_scale,
+                    startOnTick: true,
+                    endOnTick: true,
+                    showLastLabel: true,
+                    labels: {
+                        formatter: function () {
+                          return byte_formatter_for_bytes(this, "");
+                        }
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: axisTitles[yaxis]
+                    },
+                    type: y_scale
+                },
+                exporting: {
+                    buttons: {
+                        contextButton: {
+                            symbol: "url(../../img/printer2.png)"
+                            }
+                    }
+                },
+                tooltip: {
+                    formatter: function() {
+                      var str = "X= " + byte_formatter_str_for_bytes(this.x, "");
+                      str += ", Y= " + this.y;
+                      return str;
+                    }
+                },
+                series: [{
+                        name: xaxis + ' vs. ' + yaxis,
+                        color: 'rgba(0, 0, 0, .5)',
+                        data: ret_obj
+                    }
+                ]
+            };
+
+            if (y_scale == "linear")
+            {
+                options.yAxis.min = 0;
+            }
+            if (x_scale == "linear")
+            {
+                options.xAxis.min = 0;
+            }
+
+            options.xAxis.min = xmin;
+            options.xAxis.max = xmax;
+            options.yAxis.min = ymin;
+            options.yAxis.max = ymax;
+
+            $("#" + chart_id).highcharts(options);
+        }
+
 
         make_chart = function (appname, xaxis, yaxis, x_scale, y_scale, chart_id, obj) {
             // var chart = $("#" + chart_id).highcharts();
@@ -123,6 +235,7 @@ $json_str = json_encode($all_data);
             $("#min_max_button").attr("data-globalxmax", globalxmax);
             $("#min_max_button").attr("data-globalymin", globalymin);
             $("#min_max_button").attr("data-globalymax", globalymax);
+            $("#min_max_button").attr("data-all_same", false);
 
             var options = {
                 chart: {

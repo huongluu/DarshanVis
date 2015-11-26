@@ -18,6 +18,7 @@ $(document).ready(function () {
       var xmax = $("#min_max_button").attr("data-globalxmax");
       var ymin = $("#min_max_button").attr("data-globalymin");
       var ymax = $("#min_max_button").attr("data-globalymax");
+      var currentState = $("#min_max_button").attr("data-all_same");
       console.log(xmin);
       console.log(xmax);
       console.log(ymin);
@@ -34,7 +35,8 @@ $(document).ready(function () {
           // console.log(chartid + "done.");
       }
 
-      async.each(charts, function(item, callback){
+
+      async.map(charts, function(item, callback){
         var chart = $("#" + item).highcharts();
         console.log(item + "setting.");
         chart.xAxis[0].setExtremes(xmin, xmax);
@@ -50,7 +52,8 @@ $(document).ready(function () {
         {
           console.log("yay!");
         }
-      })
+      });
+
     });
 
 });
