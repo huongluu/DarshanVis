@@ -36,23 +36,31 @@ $(document).ready(function () {
       }
 
 
-      async.map(charts, function(item, callback){
+      charts.map(function(item){
         var chart = $("#" + item).highcharts();
         console.log(item + "setting.");
         chart.xAxis[0].setExtremes(xmin, xmax);
         chart.yAxis[0].setExtremes(ymin, ymax);
         console.log(item + "done.");
-        callback();
-      }, function(err){
-        if (err)
-        {
-          console.log("error.");
-        }
-        else
-        {
-          console.log("yay!");
-        }
       });
+
+      // async.map(charts, function(item, callback){
+      //   var chart = $("#" + item).highcharts();
+      //   console.log(item + "setting.");
+      //   chart.xAxis[0].setExtremes(xmin, xmax);
+      //   chart.yAxis[0].setExtremes(ymin, ymax);
+      //   console.log(item + "done.");
+      //   callback();
+      // }, function(err){
+      //   if (err)
+      //   {
+      //     console.log("error.");
+      //   }
+      //   else
+      //   {
+      //     console.log("yay!");
+      //   }
+      // });
 
     });
 
